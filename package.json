@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "bootstrap-select": "^1.13.5",
+        "instafeed.js": "^1.4.1",
         "owl.carousel": "^2.3.4"
     }
 }

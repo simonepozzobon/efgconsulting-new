@@ -11,10 +11,17 @@
                     <div class="col-12">
                         <div class="it-hero-text-wrapper bg-dark">
                             <h1 class="no_toc">
-                                Incessante, instancabile, senza mete e senza confini,
-                                senza vertigini e maestosa come un’aquila eterna
+                                Osservo Pianifico Agisco
                             </h1>
-                            <p class="d-none d-lg-block">Il patrimonio di competenze, conoscenze e capacità del gruppo di esperti di EFG permette di elaborare strategie di sviluppo per i clienti, secondo specifiche esigenze, con soluzioni appropriate al mercato di riferimento ed ai relativi contesti sociali, economici, finanziari, istituzionali ed ambientali. Per affrontare le criticità e governare il cambiamento è necessario adeguare la strategia aziendale o quella territoriale alle nuove condizioni di mercato, attraverso un approccio multidisciplinare. In un mercato in rapida evoluzione la velocità di adeguarsi al cambiamento rappresenta un vantaggio competitivo. Gli strumenti di analisi e le valutazioni di professionisti qualificati sono indispensabili per la trasformazione delle criticità esistenti in vantaggi competitivi.</p>
+                            <h4 class="no_toc text-white pb-3">
+                                <i>"Incessante, instancabile, senza mete e senza confini,
+                                senza vertigini e maestosa come un’aquila eterna"</i>
+                            </h4>
+                            <p class="d-lg-block">
+                                EFG Consulting è una società di consulenza di marketing strategico e operativo con sede a Milano esperta in relazioni pubbliche e istituzionali, event marketing, strategie di internazionalizzazione, marketing territoriale, grandi eventi, management aziendale, pianificazione finanziaria e controllo dei costi.<br><br>
+                                EFG è il partner ideale per condurre al successo un'azienda o un territorio con un'ottica imprenditoriale consolidata dall'esperienza professionale e dalla rete di relazioni internazionali.<br><br>
+                                Con il suo team altamente qualificato, costituito da manager, professionisti e docenti universitari, EFG supporta le aziende private e gli Enti Pubblici nell'implementazione di processi di analisi e di strategie operative volte al raggiungimento degli obiettivi.<br>
+                            </p>
                             <div class="it-btn-container"><a class="btn btn-sm btn-outline-primary" href="#">Contattaci</a></div>
                         </div>
                     </div>
@@ -22,395 +29,17 @@
             </div>
         </div>
 
-        <div class="container pb-5 px-3 px-md-0">
-            <div class="row">
-                <div class="col-12 py-5">
-                    <h1 class="mt-5 pb-5 text-center text-md-left">Le chiavi del successo</h1>
-                    <div class="it-list-wrapper">
-                        <ul class="it-list">
-                            <li>
-                                <a href="#" class="">
-                                    <div class="it-right-zone"><span class="text">Vantaggi Competitivi</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Coinvolgimento Emotivo</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Entusiasmo</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Squadra</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Concretezza</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Creazione di Valore</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Professionalità</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Successo</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Innovazione</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Idee</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Strategie</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="it-right-zone"><span class="text">Condivisione</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid bg-primary bg-gradient-primary pb-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 py-5">
-                        <h1 class="mt-5 pb-5 text-white text-center text-md-left">Il valore aggiunto</h1>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card-wrapper card-space">
-                                    <div class="card card-bg card-big">
-                                        <div class="flag-icon"></div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">EFG mette a disposizione del cliente professionalità e consolidata esperienza</h5>
-                                            <p class="card-text">
-                                                oltre che la propria rete di contatti e conoscenze: strumento indispensabile e proficuo per entrare nel vivo delle dinamiche commerciali e penetrare efficacemente il mercato obiettivo.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card-wrapper card-space">
-                                    <div class="card card-bg card-big">
-                                        <div class="flag-icon"></div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">EFG elabora con i clienti innovative strategie di marketing</h5>
-                                            <p class="card-text">
-                                                per conseguire concretamente gli obiettivi individuati.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card-wrapper card-space">
-                                    <div class="card card-bg card-big">
-                                        <div class="flag-icon"></div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">EFG infonde entusiasmo all'azienda cliente intesa nella sua interezza</h5>
-                                            <p class="card-text">
-                                                in modo da pervadere l'ambiente interno ed esterno.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card-wrapper card-space">
-                                    <div class="card card-bg card-big">
-                                        <div class="flag-icon"></div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">EFG offre ai propri clienti assistenza costante</h5>
-                                            <p class="card-text">
-                                                durante tutta la fase di realizzazione della strategia elaborata, con frequenti confronti con il management dell'azienda cliente.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card-wrapper card-space">
-                                    <div class="card card-bg card-big">
-                                        <div class="flag-icon"></div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">EFG effettua un'attenta azione di monitoraggio</h5>
-                                            <p class="card-text">
-                                                per poter verificare i risultati ottenuti e individuare le criticità latenti, intervenendo con azioni correttive, qualora fosse necessario.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container pb-5 px-3 px-md-0">
-            <div class="row">
-                <div class="col-12 py-5">
-                    <h1 class="mt-5 pb-5 text-center text-md-left">Galleria</h1>
-                    <div class="it-grid-list-wrapper">
-                      <div class="grid-row">
-                        <div class="col-6 col-lg-4">
-                          <div class="it-grid-item-wrapper">
-                            <a href="#">
-                              <div class="img-responsive-wrapper">
-                                <div class="img-responsive">
-                                  <div class="img-wrapper"><img src="https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                          <div class="it-grid-item-wrapper">
-                            <a href="#">
-                              <div class="img-responsive-wrapper">
-                                <div class="img-responsive">
-                                  <div class="img-wrapper"><img src="https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                          <div class="it-grid-item-wrapper">
-                            <a href="#">
-                              <div class="img-responsive-wrapper">
-                                <div class="img-responsive">
-                                  <div class="img-wrapper"><img src="https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                          <div class="it-grid-item-wrapper">
-                            <a href="#">
-                              <div class="img-responsive-wrapper">
-                                <div class="img-responsive">
-                                  <div class="img-wrapper"><img src="https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                          <div class="it-grid-item-wrapper">
-                            <a href="#">
-                              <div class="img-responsive-wrapper">
-                                <div class="img-responsive">
-                                  <div class="img-wrapper"><img src="https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                          <div class="it-grid-item-wrapper">
-                            <a href="#">
-                              <div class="img-responsive-wrapper">
-                                <div class="img-responsive">
-                                  <div class="img-wrapper"><img src="https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <chi-siamo />
+        <valore-aggiunto />
+        <chiavi-del-successo />
+        <news />
+        <gallery />
+        <instagram />
+        <contact />
 
 
-        <div class="container-fluid bg-primary bg-gradient-primary pb-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 py-5">
-                        <h1 class="mt-5 pb-5 text-white text-center text-md-left">News</h1>
-                        <div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols">
-                          <div class="it-carousel-all owl-carousel it-card-bg">
-                            <div class="it-single-slide-wrapper">
-                              <div class="card-wrapper card-space">
-                                <div class="card card-bg">
-                                  <div class="card-body">
-                                    <h5 class="card-title">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a class="read-more" href="#">
-                                      <span class="text">Leggi di più</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="it-single-slide-wrapper">
-                              <div class="card-wrapper card-space">
-                                <div class="card card-bg">
-                                  <div class="card-body">
-                                    <h5 class="card-title">2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a class="read-more" href="#">
-                                      <span class="text">Leggi di più</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="it-single-slide-wrapper">
-                              <div class="card-wrapper card-space">
-                                <div class="card card-bg">
-                                  <div class="card-body">
-                                    <h5 class="card-title">3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a class="read-more" href="#">
-                                      <span class="text">Leggi di più</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="it-single-slide-wrapper">
-                              <div class="card-wrapper card-space">
-                                <div class="card card-bg">
-                                  <div class="card-body">
-                                    <h5 class="card-title">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a class="read-more" href="#">
-                                      <span class="text">Leggi di più</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="it-single-slide-wrapper">
-                              <div class="card-wrapper card-space">
-                                <div class="card card-bg">
-                                  <div class="card-body">
-                                    <h5 class="card-title">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a class="read-more" href="#">
-                                      <span class="text">Leggi di più</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="it-single-slide-wrapper">
-                              <div class="card-wrapper card-space">
-                                <div class="card card-bg">
-                                  <div class="card-body">
-                                    <h5 class="card-title">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a class="read-more" href="#">
-                                      <span class="text">Leggi di più</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="it-single-slide-wrapper">
-                              <div class="card-wrapper card-space">
-                                <div class="card card-bg">
-                                  <div class="card-body">
-                                    <h5 class="card-title">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a class="read-more" href="#">
-                                      <span class="text">Leggi di più</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
 
-        <div class="container pb-5 px-4 px-md-0">
-            <div class="row">
-                <div class="col-12 py-5">
-                    <h1 class="mt-5 pb-5 text-center text-md-center">Contatti</h1>
-                    <div>
-                        <div class="row">
-                            <div class="form-group col mr-4">
-                              <input type="text" class="form-control" id="formNome">
-                              <label for="formNome">Nome</label>
-                            </div>
-                            <div class="form-group col">
-                              <input type="text" class="form-control" id="formCognome">
-                              <label for="formCognome">Cognome</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col">
-                              <textarea class="form-control" rows="8" cols="80" id="forMessage"></textarea>
-                              <label for="forMessage">Messaggio</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col pt-0">
-                                <div class="form-check mt-0">
-                                    <input id="checkbox1" type="checkbox">
-                                    <label for="checkbox1">Accetto il trattamento dei dati personali</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col">
-                                <button type="submit" class="btn btn-outline-primary btn-block d-md-none">Invia</button>
-                                <button type="submit" class="btn btn-outline-primary d-none d-md-block">Invia</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <footer class="container-fluid bg-light d-md-none">
@@ -447,28 +76,25 @@
 </template>
 
 <script>
-import 'swiper/dist/css/swiper.css'
-import {
-    swiper,
-    swiperSlide
-} from 'vue-awesome-swiper'
 
-
+import ChiSiamo from '../components/ChiSiamo.vue'
+import ChiaviDelSuccesso from '../components/ChiaviDelSuccesso.vue'
 import Contact from '../components/Contact.vue'
-import HeroHeader from '../components/HeroHeader.vue'
-import NewsBox from '../components/NewsBox.vue'
-import SectionLight from '../components/SectionLight.vue'
-import SplitDuo from '../components/SplitDuo.vue'
+import Gallery from '../components/Gallery.vue'
+import Instagram from '../components/Instagram.vue'
+import News from '../components/News.vue'
+import ValoreAggiunto from '../components/ValoreAggiunto.vue'
+
 export default {
     name: 'Home',
     components: {
+        ChiSiamo,
+        ChiaviDelSuccesso,
         Contact,
-        HeroHeader,
-        NewsBox,
-        SectionLight,
-        SplitDuo,
-        swiper,
-        swiperSlide
+        Gallery,
+        Instagram,
+        News,
+        ValoreAggiunto
     },
     data: function() {
         return {

@@ -1,7 +1,9 @@
 <template lang="html">
     <header>
-            <nav class="shadow navbar navbar-expand-lg navbar-light px-3 bg-white">
-            <a class="navbar-brand text-black" href="#">EFG Consulting</a>
+            <nav class="shadow navbar navbar-expand-lg navbar-light px-4 bg-white">
+            <a class="navbar-brand text-black" href="#">
+                <img src="/images/logo.png" alt="" class="img-fluid" style="max-height: 50px;">
+            </a>
             <button class="btn btn-sm btn-outline-secondary d-md-none px-2 text-uppercase collapsed" type="button" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">
                 menu
             </button>
