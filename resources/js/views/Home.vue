@@ -61,6 +61,42 @@
         </footer>
         <footer class="container-fluid bg-light d-none d-md-block">
             <div class="container">
+                <div class="row py-5">
+                    <div class="col">
+                        <img src="/images/logo.png" class="img-fluid"/>
+                        <small class="d-block my-3 text-muted">© 2018-2019</small>
+                    </div>
+                    <div class="col">
+                        <h5>Naviga</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Home</a></li>
+                            <li><a class="text-muted" href="#">Chi siamo</a></li>
+                            <li><a class="text-muted" href="#">Divisioni</a></li>
+                            <li><a class="text-muted" href="#">Event Marketing</a></li>
+                            <li><a class="text-muted" href="#">News</a></li>
+                            <li><a class="text-muted" href="#">Focus Emirati</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h5>News</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Articolo 1</a></li>
+                            <li><a class="text-muted" href="#">Articolo 2</a></li>
+                            <li><a class="text-muted" href="#">Articolo 3</a></li>
+                            <li><a class="text-muted" href="#">Articolo 4</a></li>
+                            <li><a class="text-muted" href="#">Articolo 5</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h5>Social</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Twitter</a></li>
+                            <li><a class="text-muted" href="#">Instagram</a></li>
+                            <li><a class="text-muted" href="#">LinkedIn</a></li>
+                            <li><a class="text-muted" href="#">Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="row py-5 justify-content-center align-items-center">
                     <div class="col">
                         <p class="text-center p-0 m-0 text-muted">
