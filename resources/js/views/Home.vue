@@ -1,6 +1,6 @@
 <template lang="html">
     <div>
-        <div class="it-hero-wrapper it-primary it-overlay bg-gradient-primary">
+        <div class="it-hero-wrapper it-primary it-overlay bg-gradient-primary pt-5 pt-md-0 mt-4 mt-md-0">
             <div class="img-responsive-wrapper">
                 <div class="img-responsive">
                     <div class="img-wrapper"><img src="/images/bg-wave.png" title="img title" alt="imagealt"></div>
@@ -22,10 +22,10 @@
             </div>
         </div>
 
-        <div class="container pb-5">
+        <div class="container pb-5 px-3 px-md-0">
             <div class="row">
                 <div class="col-12 py-5">
-                    <h1 class="mt-5 pb-5">Le chiavi del successo</h1>
+                    <h1 class="mt-5 pb-5 text-center text-md-left">Le chiavi del successo</h1>
                     <div class="it-list-wrapper">
                         <ul class="it-list">
                             <li>
@@ -109,7 +109,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 py-5">
-                        <h1 class="mt-5 pb-5 text-white">Il valore aggiunto</h1>
+                        <h1 class="mt-5 pb-5 text-white text-center text-md-left">Il valore aggiunto</h1>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card-wrapper card-space">
@@ -186,10 +186,10 @@
             </div>
         </div>
 
-        <div class="container pb-5">
+        <div class="container pb-5 px-3 px-md-0">
             <div class="row">
                 <div class="col-12 py-5">
-                    <h1 class="mt-5 pb-5">Galleria</h1>
+                    <h1 class="mt-5 pb-5 text-center text-md-left">Galleria</h1>
                     <div class="it-grid-list-wrapper">
                       <div class="grid-row">
                         <div class="col-6 col-lg-4">
@@ -270,7 +270,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 py-5">
-                        <h1 class="mt-5 pb-5 text-white">News</h1>
+                        <h1 class="mt-5 pb-5 text-white text-center text-md-left">News</h1>
                         <div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols">
                           <div class="it-carousel-all owl-carousel it-card-bg">
                             <div class="it-single-slide-wrapper">
@@ -372,10 +372,10 @@
 
         </div>
 
-        <div class="container pb-5">
+        <div class="container pb-5 px-4 px-md-0">
             <div class="row">
                 <div class="col-12 py-5">
-                    <h1 class="mt-5 pb-5">Contatti</h1>
+                    <h1 class="mt-5 pb-5 text-center text-md-center">Contatti</h1>
                     <div>
                         <div class="row">
                             <div class="form-group col mr-4">
@@ -403,7 +403,8 @@
                         </div>
                         <div class="row">
                             <div class="form-group col">
-                                <button type="submit" class="btn btn-outline-primary">Invia</button>
+                                <button type="submit" class="btn btn-outline-primary btn-block d-md-none">Invia</button>
+                                <button type="submit" class="btn btn-outline-primary d-none d-md-block">Invia</button>
                             </div>
                         </div>
                     </div>
@@ -412,7 +413,24 @@
         </div>
 
 
-        <footer class="container-fluid bg-light">
+        <footer class="container-fluid bg-light d-md-none">
+            <div class="container">
+                <div class="row py-5 justify-content-center align-items-center">
+                    <div class="col">
+                        <p class="text-center p-0 m-0 text-muted">
+                                <b>EFG Consulting Srl</b><br>
+                                <small>
+                                    Torre Velasca - Piazza Velasca, 5<br>
+                                    20122 MILANO<br><br>
+                                    Tel. +39 02 26950309<br>
+                                    fax 02 72004567
+                                </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <footer class="container-fluid bg-light d-none d-md-block">
             <div class="container">
                 <div class="row py-5 justify-content-center align-items-center">
                     <div class="col">
@@ -469,6 +487,7 @@ export default {
     },
     mounted: function() {
         require('owl.carousel')
+        require('../plugins/navbar')
         require('../plugins/dimmer')
         require('../plugins/imgresponsive')
         require('../plugins/track-focus')

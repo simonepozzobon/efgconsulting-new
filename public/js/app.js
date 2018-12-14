@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(8);
+var bind = __webpack_require__(9);
 var isBuffer = __webpack_require__(26);
 
 /*global toString:true*/
@@ -821,110 +821,6 @@ module.exports = g;
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(28);
-
-var DEFAULT_CONTENT_TYPE = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-};
-
-function setContentTypeIfUnset(headers, value) {
-  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-    headers['Content-Type'] = value;
-  }
-}
-
-function getDefaultAdapter() {
-  var adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = __webpack_require__(10);
-  } else if (typeof process !== 'undefined') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__(10);
-  }
-  return adapter;
-}
-
-var defaults = {
-  adapter: getDefaultAdapter(),
-
-  transformRequest: [function transformRequest(data, headers) {
-    normalizeHeaderName(headers, 'Content-Type');
-    if (utils.isFormData(data) ||
-      utils.isArrayBuffer(data) ||
-      utils.isBuffer(data) ||
-      utils.isStream(data) ||
-      utils.isFile(data) ||
-      utils.isBlob(data)
-    ) {
-      return data;
-    }
-    if (utils.isArrayBufferView(data)) {
-      return data.buffer;
-    }
-    if (utils.isURLSearchParams(data)) {
-      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-      return data.toString();
-    }
-    if (utils.isObject(data)) {
-      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-      return JSON.stringify(data);
-    }
-    return data;
-  }],
-
-  transformResponse: [function transformResponse(data) {
-    /*eslint no-param-reassign:0*/
-    if (typeof data === 'string') {
-      try {
-        data = JSON.parse(data);
-      } catch (e) { /* Ignore */ }
-    }
-    return data;
-  }],
-
-  /**
-   * A timeout in milliseconds to abort a request. If set to 0 (default) a
-   * timeout is not created.
-   */
-  timeout: 0,
-
-  xsrfCookieName: 'XSRF-TOKEN',
-  xsrfHeaderName: 'X-XSRF-TOKEN',
-
-  maxContentLength: -1,
-
-  validateStatus: function validateStatus(status) {
-    return status >= 200 && status < 300;
-  }
-};
-
-defaults.headers = {
-  common: {
-    'Accept': 'application/json, text/plain, */*'
-  }
-};
-
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-  defaults.headers[method] = {};
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
-});
-
-module.exports = defaults;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
-
-/***/ }),
-/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3505,7 +3401,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(4)))
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13876,7 +13772,165 @@ return jQuery;
 
 
 /***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(0);
+var normalizeHeaderName = __webpack_require__(28);
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(11);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(11);
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+
+/***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+window._ = __webpack_require__(21);
+/**
+ * We'll load jQuery and the Bootstrap jQuery plugin which provides support
+ * for JavaScript based Bootstrap features such as modals and tabs. This
+ * code may be modified to fit the specific needs of your application.
+ */
+
+try {
+  window.Popper = __webpack_require__(5).default;
+  window.$ = window.jQuery = __webpack_require__(6);
+  console.log('siamo qui');
+
+  __webpack_require__(23);
+} catch (e) {}
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+
+window.axios = __webpack_require__(24);
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+/**
+ * Next we will register the CSRF Token as a common header with Axios so that
+ * all outgoing HTTP requests automatically have it attached. This is just
+ * a simple convenience so we don't have to attach every token manually.
+ */
+
+var token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allows your team to easily build robust real-time web applications.
+ */
+// import Echo from 'laravel-echo'
+// window.Pusher = require('pusher-js');
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     encrypted: true
+// });
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13894,7 +13948,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -14084,7 +14138,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14095,7 +14149,7 @@ var settle = __webpack_require__(29);
 var buildURL = __webpack_require__(31);
 var parseHeaders = __webpack_require__(32);
 var isURLSameOrigin = __webpack_require__(33);
-var createError = __webpack_require__(11);
+var createError = __webpack_require__(12);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(34);
 
 module.exports = function xhrAdapter(config) {
@@ -14271,7 +14325,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14296,7 +14350,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14308,7 +14362,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14334,7 +14388,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -14365,13 +14419,13 @@ if(false) {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 !function(e,t){ true?module.exports=t(__webpack_require__(56)):"function"==typeof define&&define.amd?define("VueAwesomeSwiper",["swiper"],t):"object"==typeof exports?exports.VueAwesomeSwiper=t(require("swiper/dist/js/swiper.js")):e.VueAwesomeSwiper=t(e.Swiper)}(this,function(e){return function(e){function t(i){if(n[i])return n[i].exports;var s=n[i]={i:i,l:!1,exports:{}};return e[i].call(s.exports,s,s.exports,t),s.l=!0,s.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,i){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:i})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="/",t(t.s=4)}([function(t,n){t.exports=e},function(e,t){e.exports=function(e,t,n,i,s,r){var o,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(o=e,a=e.default);var p="function"==typeof a?a.options:a;t&&(p.render=t.render,p.staticRenderFns=t.staticRenderFns,p._compiled=!0),n&&(p.functional=!0),s&&(p._scopeId=s);var l;if(r?(l=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),i&&i.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(r)},p._ssrRegister=l):i&&(l=i),l){var c=p.functional,d=c?p.render:p.beforeCreate;c?(p._injectStyles=l,p.render=function(e,t){return l.call(t),d(e,t)}):p.beforeCreate=d?[].concat(d,l):[l]}return{esModule:o,exports:a,options:p}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(5),s=n.n(i),r=n(8),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),s=n.n(i),r=n(7),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.install=t.swiperSlide=t.swiper=t.Swiper=void 0;var s=n(0),r=i(s),o=n(2),a=i(o),u=n(3),p=i(u),l=window.Swiper||r.default,c=p.default,d=a.default,f=function(e,t){t&&(p.default.props.globalOptions.default=function(){return t}),e.component(p.default.name,p.default),e.component(a.default.name,a.default)},h={Swiper:l,swiper:c,swiperSlide:d,install:f};t.default=h,t.Swiper=l,t.swiper=c,t.swiperSlide=d,t.install=f},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"swiper-slide",data:function(){return{slideClass:"swiper-slide"}},ready:function(){this.update()},mounted:function(){this.update(),this.$parent&&this.$parent.options&&this.$parent.options.slideClass&&(this.slideClass=this.$parent.options.slideClass)},updated:function(){this.update()},attached:function(){this.update()},methods:{update:function(){this.$parent&&this.$parent.swiper&&this.$parent.update()}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(0),s=function(e){return e&&e.__esModule?e:{default:e}}(i),r=window.Swiper||s.default;"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),i=1;i<arguments.length;i++){var s=arguments[i];if(null!=s)for(var r in s)Object.prototype.hasOwnProperty.call(s,r)&&(n[r]=s[r])}return n},writable:!0,configurable:!0});var o=["beforeDestroy","slideChange","slideChangeTransitionStart","slideChangeTransitionEnd","slideNextTransitionStart","slideNextTransitionEnd","slidePrevTransitionStart","slidePrevTransitionEnd","transitionStart","transitionEnd","touchStart","touchMove","touchMoveOpposite","sliderMove","touchEnd","click","tap","doubleTap","imagesReady","progress","reachBeginning","reachEnd","fromEdge","setTranslate","setTransition","resize"];t.default={name:"swiper",props:{options:{type:Object,default:function(){return{}}},globalOptions:{type:Object,required:!1,default:function(){return{}}}},data:function(){return{swiper:null,classes:{wrapperClass:"swiper-wrapper"}}},ready:function(){this.swiper||this.mountInstance()},mounted:function(){if(!this.swiper){var e=!1;for(var t in this.classes)this.classes.hasOwnProperty(t)&&this.options[t]&&(e=!0,this.classes[t]=this.options[t]);e?this.$nextTick(this.mountInstance):this.mountInstance()}},activated:function(){this.update()},updated:function(){this.update()},beforeDestroy:function(){this.$nextTick(function(){this.swiper&&(this.swiper.destroy&&this.swiper.destroy(),delete this.swiper)})},methods:{update:function(){this.swiper&&(this.swiper.update&&this.swiper.update(),this.swiper.navigation&&this.swiper.navigation.update(),this.swiper.pagination&&this.swiper.pagination.render(),this.swiper.pagination&&this.swiper.pagination.update())},mountInstance:function(){var e=Object.assign({},this.globalOptions,this.options);this.swiper=new r(this.$el,e),this.bindEvents(),this.$emit("ready",this.swiper)},bindEvents:function(){var e=this,t=this;o.forEach(function(n){e.swiper.on(n,function(){t.$emit.apply(t,[n].concat(Array.prototype.slice.call(arguments))),t.$emit.apply(t,[n.replace(/([A-Z])/g,"-$1").toLowerCase()].concat(Array.prototype.slice.call(arguments)))})})}}}},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"swiper-container"},[e._t("parallax-bg"),e._v(" "),n("div",{class:e.classes.wrapperClass},[e._t("default")],2),e._v(" "),e._t("pagination"),e._v(" "),e._t("button-prev"),e._v(" "),e._t("button-next"),e._v(" "),e._t("scrollbar")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{class:e.slideClass},[e._t("default")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r}])});
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14397,7 +14451,7 @@ var smallboxes = [{
 /* harmony default export */ __webpack_exports__["a"] = (smallboxes);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -14448,15 +14502,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(19);
-module.exports = __webpack_require__(97);
+__webpack_require__(20);
+module.exports = __webpack_require__(105);
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14465,20 +14519,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_MainTemplate_vue__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_MainTemplate_vue__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_MainTemplate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__containers_MainTemplate_vue__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(20);
+__webpack_require__(8);
 
-window.Popper = __webpack_require__(6).default;
-window.$ = window.jQuery = __webpack_require__(7);
+window.Popper = __webpack_require__(5).default;
+window.$ = window.jQuery = __webpack_require__(6);
 console.log('siamo qui');
 
-__webpack_require__(20);
+__webpack_require__(8);
 
 
 
@@ -14497,60 +14551,6 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   }
 }).$mount('#app');
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, "/"))
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-window._ = __webpack_require__(21);
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
-
-try {
-  window.Popper = __webpack_require__(6).default;
-  window.$ = window.jQuery = __webpack_require__(7);
-  console.log('siamo qui');
-
-  __webpack_require__(23);
-} catch (e) {}
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
-
-window.axios = __webpack_require__(24);
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-/**
- * Next we will register the CSRF Token as a common header with Axios so that
- * all outgoing HTTP requests automatically have it attached. This is just
- * a simple convenience so we don't have to attach every token manually.
- */
-
-var token = document.head.querySelector('meta[name="csrf-token"]');
-
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo'
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
 
 /***/ }),
 /* 21 */
@@ -31705,7 +31705,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(7), __webpack_require__(6)) :
+   true ? factory(exports, __webpack_require__(6), __webpack_require__(5)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (factory((global.bootstrap = {}),global.jQuery,global.Popper));
 }(this, (function (exports,$,Popper) { 'use strict';
@@ -35659,9 +35659,9 @@ module.exports = __webpack_require__(25);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(8);
+var bind = __webpack_require__(9);
 var Axios = __webpack_require__(27);
-var defaults = __webpack_require__(5);
+var defaults = __webpack_require__(7);
 
 /**
  * Create an instance of Axios
@@ -35694,9 +35694,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(13);
+axios.Cancel = __webpack_require__(14);
 axios.CancelToken = __webpack_require__(41);
-axios.isCancel = __webpack_require__(12);
+axios.isCancel = __webpack_require__(13);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -35744,7 +35744,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(5);
+var defaults = __webpack_require__(7);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(36);
 var dispatchRequest = __webpack_require__(37);
@@ -35849,7 +35849,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(11);
+var createError = __webpack_require__(12);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -36282,8 +36282,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(38);
-var isCancel = __webpack_require__(12);
-var defaults = __webpack_require__(5);
+var isCancel = __webpack_require__(13);
+var defaults = __webpack_require__(7);
 var isAbsoluteURL = __webpack_require__(39);
 var combineURLs = __webpack_require__(40);
 
@@ -36442,7 +36442,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(13);
+var Cancel = __webpack_require__(14);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -47891,7 +47891,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(10)))
 
 /***/ }),
 /* 46 */
@@ -50543,7 +50543,7 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(52)
 /* template */
-var __vue_template__ = __webpack_require__(86)
+var __vue_template__ = __webpack_require__(94)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50660,9 +50660,9 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Contact_vue__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Contact_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Contact_vue__);
@@ -50674,6 +50674,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -51138,21 +51156,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
   mounted: function mounted() {
-    __webpack_require__(106);
-
-    __webpack_require__(112);
+    __webpack_require__(86);
 
     __webpack_require__(111);
 
-    __webpack_require__(110);
+    __webpack_require__(87);
 
-    __webpack_require__(103);
+    __webpack_require__(88);
 
-    __webpack_require__(109);
+    __webpack_require__(89);
 
-    __webpack_require__(108);
+    __webpack_require__(90);
 
-    __webpack_require__(107);
+    __webpack_require__(91);
+
+    __webpack_require__(92);
+
+    __webpack_require__(93);
   }
 });
 
@@ -60293,12 +60313,12 @@ exports.push([module.i, "/***************************** 1 **********************
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dummies_smallboxes__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SmallBox_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dummies_smallboxes__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SmallBox_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SmallBox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__SmallBox_vue__);
 //
 //
@@ -60904,8 +60924,8 @@ exports.push([module.i, "/***************************** 1 **********************
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dummies_smallboxes__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SmallBox_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dummies_smallboxes__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SmallBox_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SmallBox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__SmallBox_vue__);
 //
 //
@@ -61018,1505 +61038,6 @@ if (false) {
 
 /***/ }),
 /* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        {
-          staticClass:
-            "it-hero-wrapper it-primary it-overlay bg-gradient-primary"
-        },
-        [
-          _c("div", { staticClass: "img-responsive-wrapper" }, [
-            _c("div", { staticClass: "img-responsive" }, [
-              _c("div", { staticClass: "img-wrapper" }, [
-                _c("img", {
-                  attrs: {
-                    src: "/images/bg-wave.png",
-                    title: "img title",
-                    alt: "imagealt"
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("div", { staticClass: "it-hero-text-wrapper bg-dark" }, [
-                  _c("h1", { staticClass: "no_toc" }, [
-                    _vm._v(
-                      "\n                            Incessante, instancabile, senza mete e senza confini,\n                            senza vertigini e maestosa come un’aquila eterna\n                        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "d-none d-lg-block" }, [
-                    _vm._v(
-                      "Il patrimonio di competenze, conoscenze e capacità del gruppo di esperti di EFG permette di elaborare strategie di sviluppo per i clienti, secondo specifiche esigenze, con soluzioni appropriate al mercato di riferimento ed ai relativi contesti sociali, economici, finanziari, istituzionali ed ambientali. Per affrontare le criticità e governare il cambiamento è necessario adeguare la strategia aziendale o quella territoriale alle nuove condizioni di mercato, attraverso un approccio multidisciplinare. In un mercato in rapida evoluzione la velocità di adeguarsi al cambiamento rappresenta un vantaggio competitivo. Gli strumenti di analisi e le valutazioni di professionisti qualificati sono indispensabili per la trasformazione delle criticità esistenti in vantaggi competitivi."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "it-btn-container" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm btn-outline-primary",
-                        attrs: { href: "#" }
-                      },
-                      [_vm._v("Contattaci")]
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "container pb-5" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12 py-5" }, [
-            _c("h1", { staticClass: "mt-5 pb-5" }, [
-              _vm._v("Le chiavi del successo")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "it-list-wrapper" }, [
-              _c("ul", { staticClass: "it-list" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("Vantaggi Competitivi")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("Coinvolgimento Emotivo")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("Entusiasmo")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [_vm._v("Squadra")])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("Concretezza")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("Creazione di Valore")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("Professionalità")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [_vm._v("Successo")])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("Innovazione")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [_vm._v("Idee")])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [_vm._v("Strategie")])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("div", { staticClass: "it-right-zone" }, [
-                      _c("span", { staticClass: "text" }, [
-                        _vm._v("Condivisione")
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container-fluid bg-primary bg-gradient-primary pb-5" },
-        [
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12 py-5" }, [
-                _c("h1", { staticClass: "mt-5 pb-5 text-white" }, [
-                  _vm._v("Il valore aggiunto")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "card-wrapper card-space" }, [
-                      _c("div", { staticClass: "card card-bg card-big" }, [
-                        _c("div", { staticClass: "flag-icon" }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(
-                              "EFG mette a disposizione del cliente professionalità e consolidata esperienza"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(
-                              "\n                                            oltre che la propria rete di contatti e conoscenze: strumento indispensabile e proficuo per entrare nel vivo delle dinamiche commerciali e penetrare efficacemente il mercato obiettivo.\n                                        "
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "card-wrapper card-space" }, [
-                      _c("div", { staticClass: "card card-bg card-big" }, [
-                        _c("div", { staticClass: "flag-icon" }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(
-                              "EFG elabora con i clienti innovative strategie di marketing"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(
-                              "\n                                            per conseguire concretamente gli obiettivi individuati.\n                                        "
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "card-wrapper card-space" }, [
-                      _c("div", { staticClass: "card card-bg card-big" }, [
-                        _c("div", { staticClass: "flag-icon" }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(
-                              "EFG infonde entusiasmo all'azienda cliente intesa nella sua interezza"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(
-                              "\n                                            in modo da pervadere l'ambiente interno ed esterno.\n                                        "
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "card-wrapper card-space" }, [
-                      _c("div", { staticClass: "card card-bg card-big" }, [
-                        _c("div", { staticClass: "flag-icon" }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(
-                              "EFG offre ai propri clienti assistenza costante"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(
-                              "\n                                            durante tutta la fase di realizzazione della strategia elaborata, con frequenti confronti con il management dell'azienda cliente.\n                                        "
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "card-wrapper card-space" }, [
-                      _c("div", { staticClass: "card card-bg card-big" }, [
-                        _c("div", { staticClass: "flag-icon" }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(
-                              "EFG effettua un'attenta azione di monitoraggio"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(
-                              "\n                                            per poter verificare i risultati ottenuti e individuare le criticità latenti, intervenendo con azioni correttive, qualora fosse necessario.\n                                        "
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "container pb-5" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12 py-5" }, [
-            _c("h1", { staticClass: "mt-5 pb-5" }, [_vm._v("Galleria")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "it-grid-list-wrapper" }, [
-              _c("div", { staticClass: "grid-row" }, [
-                _c("div", { staticClass: "col-6 col-lg-4" }, [
-                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("div", { staticClass: "img-responsive-wrapper" }, [
-                        _c("div", { staticClass: "img-responsive" }, [
-                          _c("div", { staticClass: "img-wrapper" }, [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
-                                alt: "image Alt",
-                                title: "Image Title"
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6 col-lg-4" }, [
-                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("div", { staticClass: "img-responsive-wrapper" }, [
-                        _c("div", { staticClass: "img-responsive" }, [
-                          _c("div", { staticClass: "img-wrapper" }, [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
-                                alt: "image Alt",
-                                title: "Image Title"
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6 col-lg-4" }, [
-                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("div", { staticClass: "img-responsive-wrapper" }, [
-                        _c("div", { staticClass: "img-responsive" }, [
-                          _c("div", { staticClass: "img-wrapper" }, [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
-                                alt: "image Alt",
-                                title: "Image Title"
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6 col-lg-4" }, [
-                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("div", { staticClass: "img-responsive-wrapper" }, [
-                        _c("div", { staticClass: "img-responsive" }, [
-                          _c("div", { staticClass: "img-wrapper" }, [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
-                                alt: "image Alt",
-                                title: "Image Title"
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6 col-lg-4" }, [
-                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("div", { staticClass: "img-responsive-wrapper" }, [
-                        _c("div", { staticClass: "img-responsive" }, [
-                          _c("div", { staticClass: "img-wrapper" }, [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
-                                alt: "image Alt",
-                                title: "Image Title"
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6 col-lg-4" }, [
-                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("div", { staticClass: "img-responsive-wrapper" }, [
-                        _c("div", { staticClass: "img-responsive" }, [
-                          _c("div", { staticClass: "img-wrapper" }, [
-                            _c("img", {
-                              attrs: {
-                                src:
-                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
-                                alt: "image Alt",
-                                title: "Image Title"
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container-fluid bg-primary bg-gradient-primary pb-5" },
-        [
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12 py-5" }, [
-                _c("h1", { staticClass: "mt-5 pb-5 text-white" }, [
-                  _vm._v("News")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "it-carousel-wrapper it-carousel-landscape-abstract-three-cols"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "it-carousel-all owl-carousel it-card-bg"
-                      },
-                      [
-                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
-                          _c(
-                            "div",
-                            { staticClass: "card-wrapper card-space" },
-                            [
-                              _c("div", { staticClass: "card card-bg" }, [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _c("h5", { staticClass: "card-title" }, [
-                                    _vm._v(
-                                      "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "read-more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "text" }, [
-                                        _vm._v("Leggi di più")
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
-                          _c(
-                            "div",
-                            { staticClass: "card-wrapper card-space" },
-                            [
-                              _c("div", { staticClass: "card card-bg" }, [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _c("h5", { staticClass: "card-title" }, [
-                                    _vm._v(
-                                      "2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "read-more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "text" }, [
-                                        _vm._v("Leggi di più")
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
-                          _c(
-                            "div",
-                            { staticClass: "card-wrapper card-space" },
-                            [
-                              _c("div", { staticClass: "card card-bg" }, [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _c("h5", { staticClass: "card-title" }, [
-                                    _vm._v(
-                                      "3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "read-more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "text" }, [
-                                        _vm._v("Leggi di più")
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
-                          _c(
-                            "div",
-                            { staticClass: "card-wrapper card-space" },
-                            [
-                              _c("div", { staticClass: "card card-bg" }, [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _c("h5", { staticClass: "card-title" }, [
-                                    _vm._v(
-                                      "4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "read-more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "text" }, [
-                                        _vm._v("Leggi di più")
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
-                          _c(
-                            "div",
-                            { staticClass: "card-wrapper card-space" },
-                            [
-                              _c("div", { staticClass: "card card-bg" }, [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _c("h5", { staticClass: "card-title" }, [
-                                    _vm._v(
-                                      "4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "read-more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "text" }, [
-                                        _vm._v("Leggi di più")
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
-                          _c(
-                            "div",
-                            { staticClass: "card-wrapper card-space" },
-                            [
-                              _c("div", { staticClass: "card card-bg" }, [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _c("h5", { staticClass: "card-title" }, [
-                                    _vm._v(
-                                      "4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "read-more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "text" }, [
-                                        _vm._v("Leggi di più")
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
-                          _c(
-                            "div",
-                            { staticClass: "card-wrapper card-space" },
-                            [
-                              _c("div", { staticClass: "card card-bg" }, [
-                                _c("div", { staticClass: "card-body" }, [
-                                  _c("h5", { staticClass: "card-title" }, [
-                                    _vm._v(
-                                      "4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "card-text" }, [
-                                    _vm._v(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "read-more",
-                                      attrs: { href: "#" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "text" }, [
-                                        _vm._v("Leggi di più")
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "container pb-5" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12 py-5" }, [
-            _c("h1", { staticClass: "mt-5 pb-5" }, [_vm._v("Contatti")]),
-            _vm._v(" "),
-            _c("div", [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "form-group col mr-4" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: { type: "text", id: "formNome" }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "formNome" } }, [_vm._v("Nome")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group col" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: { type: "text", id: "formCognome" }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "formCognome" } }, [
-                    _vm._v("Cognome")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "form-group col" }, [
-                  _c("textarea", {
-                    staticClass: "form-control",
-                    attrs: { rows: "8", cols: "80", id: "forMessage" }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "forMessage" } }, [
-                    _vm._v("Messaggio")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "form-group col pt-0" }, [
-                  _c("div", { staticClass: "form-check mt-0" }, [
-                    _c("input", {
-                      attrs: { id: "checkbox1", type: "checkbox" }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox1" } }, [
-                      _vm._v("Accetto il trattamento dei dati personali")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "form-group col" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-primary",
-                      attrs: { type: "submit" }
-                    },
-                    [_vm._v("Invia")]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("footer", { staticClass: "container-fluid bg-light" }, [
-        _c("div", { staticClass: "container" }, [
-          _c(
-            "div",
-            {
-              staticClass: "row py-5 justify-content-center align-items-center"
-            },
-            [
-              _c("div", { staticClass: "col" }, [
-                _c("p", { staticClass: "text-center p-0 m-0 text-muted" }, [
-                  _c("small", [
-                    _vm._v(
-                      "\n                            EFG Consulting Srl - Torre Velasca | Piazza Velasca, 5 | 20122 MILANO - Tel. +39 02 26950309 | fax 02 72004567\n                        "
-                    )
-                  ])
-                ])
-              ])
-            ]
-          )
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-63cd6604", module.exports)
-  }
-}
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(88)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(90)
-/* template */
-var __vue_template__ = __webpack_require__(96)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/containers/MainTemplate.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2fa6537c", Component.options)
-  } else {
-    hotAPI.reload("data-v-2fa6537c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(89);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("202118f3", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2fa6537c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainTemplate.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2fa6537c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainTemplate.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 90 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MainNav_vue__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__MainNav_vue__);
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'MainTemplate',
-  components: {
-    MainNav: __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default.a
-  }
-});
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(92)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(94)
-/* template */
-var __vue_template__ = __webpack_require__(95)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/containers/MainNav.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-52f5dfea", Component.options)
-  } else {
-    hotAPI.reload("data-v-52f5dfea", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(93);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("108e7ebc", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-52f5dfea\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNav.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-52f5dfea\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNav.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** NEUTRAL 1 ****************************************/\n/***************************** NEUTRAL 2 ****************************************/\n/***************************** NEUTRAL 2 / 3 ****************************************/\n.primary-bg {\n  background-color: #0066cc;\n}\n.primary-color {\n  color: #0066cc;\n}\n.primary-border-color {\n  border-color: #0066cc !important;\n}\n.primary-border-color.border {\n    border-color: #0066cc !important;\n}\n.white-bg {\n  background-color: white;\n}\n.white-color {\n  color: white;\n}\n.white-border-color- {\n  border-color: white !important;\n}\n.white-border-color-.border {\n    border-color: white !important;\n}\n.primary-bg-a1 {\n  background-color: #bfdfff;\n}\n.primary-color-a1 {\n  color: #bfdfff;\n}\n.primary-border-color-a1 {\n  border-color: #bfdfff !important;\n}\n.primary-border-color-a1.border {\n    border-color: #bfdfff !important;\n}\n.primary-bg-a2 {\n  background-color: #93c4f5;\n}\n.primary-color-a2 {\n  color: #93c4f5;\n}\n.primary-border-color-a2 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-a2.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-a3 {\n  background-color: #6aaaeb;\n}\n.primary-color-a3 {\n  color: #6aaaeb;\n}\n.primary-border-color-a3 {\n  border-color: #6aaaeb !important;\n}\n.primary-border-color-a3.border {\n    border-color: #6aaaeb !important;\n}\n.primary-bg-a4 {\n  background-color: #4392e0;\n}\n.primary-color-a4 {\n  color: #4392e0;\n}\n.primary-border-color-a4 {\n  border-color: #4392e0 !important;\n}\n.primary-border-color-a4.border {\n    border-color: #4392e0 !important;\n}\n.primary-bg-a5 {\n  background-color: #207bd6;\n}\n.primary-color-a5 {\n  color: #207bd6;\n}\n.primary-border-color-a5 {\n  border-color: #207bd6 !important;\n}\n.primary-border-color-a5.border {\n    border-color: #207bd6 !important;\n}\n.primary-bg-a6 {\n  background-color: #0066cc;\n}\n.primary-color-a6 {\n  color: #0066cc;\n}\n.primary-border-color-a6 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-a6.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-a7 {\n  background-color: #0059b3;\n}\n.primary-color-a7 {\n  color: #0059b3;\n}\n.primary-border-color-a7 {\n  border-color: #0059b3 !important;\n}\n.primary-border-color-a7.border {\n    border-color: #0059b3 !important;\n}\n.primary-bg-a8 {\n  background-color: #004d99;\n}\n.primary-color-a8 {\n  color: #004d99;\n}\n.primary-border-color-a8 {\n  border-color: #004d99 !important;\n}\n.primary-border-color-a8.border {\n    border-color: #004d99 !important;\n}\n.primary-bg-a9 {\n  background-color: #004080;\n}\n.primary-color-a9 {\n  color: #004080;\n}\n.primary-border-color-a9 {\n  border-color: #004080 !important;\n}\n.primary-border-color-a9.border {\n    border-color: #004080 !important;\n}\n.primary-bg-a10 {\n  background-color: #003366;\n}\n.primary-color-a10 {\n  color: #003366;\n}\n.primary-border-color-a10 {\n  border-color: #003366 !important;\n}\n.primary-border-color-a10.border {\n    border-color: #003366 !important;\n}\n.primary-bg-a11 {\n  background-color: #00264d;\n}\n.primary-color-a11 {\n  color: #00264d;\n}\n.primary-border-color-a11 {\n  border-color: #00264d !important;\n}\n.primary-border-color-a11.border {\n    border-color: #00264d !important;\n}\n.primary-bg-a12 {\n  background-color: #001a33;\n}\n.primary-color-a12 {\n  color: #001a33;\n}\n.primary-border-color-a12 {\n  border-color: #001a33 !important;\n}\n.primary-border-color-a12.border {\n    border-color: #001a33 !important;\n}\n.primary-bg-b1 {\n  background-color: #0066cc;\n}\n.primary-color-b1 {\n  color: #0066cc;\n}\n.primary-border-color-b1 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-b1.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-b2 {\n  background-color: #1262b3;\n}\n.primary-color-b2 {\n  color: #1262b3;\n}\n.primary-border-color-b2 {\n  border-color: #1262b3 !important;\n}\n.primary-border-color-b2.border {\n    border-color: #1262b3 !important;\n}\n.primary-bg-b3 {\n  background-color: #1f5c99;\n}\n.primary-color-b3 {\n  color: #1f5c99;\n}\n.primary-border-color-b3 {\n  border-color: #1f5c99 !important;\n}\n.primary-border-color-b3.border {\n    border-color: #1f5c99 !important;\n}\n.primary-bg-b4 {\n  background-color: #265380;\n}\n.primary-color-b4 {\n  color: #265380;\n}\n.primary-border-color-b4 {\n  border-color: #265380 !important;\n}\n.primary-border-color-b4.border {\n    border-color: #265380 !important;\n}\n.primary-bg-b5 {\n  background-color: #294766;\n}\n.primary-color-b5 {\n  color: #294766;\n}\n.primary-border-color-b5 {\n  border-color: #294766 !important;\n}\n.primary-border-color-b5.border {\n    border-color: #294766 !important;\n}\n.primary-bg-b6 {\n  background-color: #26394d;\n}\n.primary-color-b6 {\n  color: #26394d;\n}\n.primary-border-color-b6 {\n  border-color: #26394d !important;\n}\n.primary-border-color-b6.border {\n    border-color: #26394d !important;\n}\n.primary-bg-b7 {\n  background-color: #1f2933;\n}\n.primary-color-b7 {\n  color: #1f2933;\n}\n.primary-border-color-b7 {\n  border-color: #1f2933 !important;\n}\n.primary-border-color-b7.border {\n    border-color: #1f2933 !important;\n}\n.primary-bg-b8 {\n  background-color: #12161a;\n}\n.primary-color-b8 {\n  color: #12161a;\n}\n.primary-border-color-b8 {\n  border-color: #12161a !important;\n}\n.primary-border-color-b8.border {\n    border-color: #12161a !important;\n}\n.primary-bg-c1 {\n  background-color: #dce9f5;\n}\n.primary-color-c1 {\n  color: #dce9f5;\n}\n.primary-border-color-c1 {\n  border-color: #dce9f5 !important;\n}\n.primary-border-color-c1.border {\n    border-color: #dce9f5 !important;\n}\n.primary-bg-c2 {\n  background-color: #c4dcf5;\n}\n.primary-color-c2 {\n  color: #c4dcf5;\n}\n.primary-border-color-c2 {\n  border-color: #c4dcf5 !important;\n}\n.primary-border-color-c2.border {\n    border-color: #c4dcf5 !important;\n}\n.primary-bg-c3 {\n  background-color: #abd0f5;\n}\n.primary-color-c3 {\n  color: #abd0f5;\n}\n.primary-border-color-c3 {\n  border-color: #abd0f5 !important;\n}\n.primary-border-color-c3.border {\n    border-color: #abd0f5 !important;\n}\n.primary-bg-c4 {\n  background-color: #93c4f5;\n}\n.primary-color-c4 {\n  color: #93c4f5;\n}\n.primary-border-color-c4 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-c4.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-c5 {\n  background-color: #7ab8f5;\n}\n.primary-color-c5 {\n  color: #7ab8f5;\n}\n.primary-border-color-c5 {\n  border-color: #7ab8f5 !important;\n}\n.primary-border-color-c5.border {\n    border-color: #7ab8f5 !important;\n}\n.primary-bg-c6 {\n  background-color: #62abf5;\n}\n.primary-color-c6 {\n  color: #62abf5;\n}\n.primary-border-color-c6 {\n  border-color: #62abf5 !important;\n}\n.primary-border-color-c6.border {\n    border-color: #62abf5 !important;\n}\n.primary-bg-c7 {\n  background-color: #499ff5;\n}\n.primary-color-c7 {\n  color: #499ff5;\n}\n.primary-border-color-c7 {\n  border-color: #499ff5 !important;\n}\n.primary-border-color-c7.border {\n    border-color: #499ff5 !important;\n}\n.primary-bg-c8 {\n  background-color: #3193f5;\n}\n.primary-color-c8 {\n  color: #3193f5;\n}\n.primary-border-color-c8 {\n  border-color: #3193f5 !important;\n}\n.primary-border-color-c8.border {\n    border-color: #3193f5 !important;\n}\n.primary-bg-c9 {\n  background-color: #1887f5;\n}\n.primary-color-c9 {\n  color: #1887f5;\n}\n.primary-border-color-c9 {\n  border-color: #1887f5 !important;\n}\n.primary-border-color-c9.border {\n    border-color: #1887f5 !important;\n}\n.primary-bg-c10 {\n  background-color: #007af5;\n}\n.primary-color-c10 {\n  color: #007af5;\n}\n.primary-border-color-c10 {\n  border-color: #007af5 !important;\n}\n.primary-border-color-c10.border {\n    border-color: #007af5 !important;\n}\n.primary-bg-c11 {\n  background-color: #0070e0;\n}\n.primary-color-c11 {\n  color: #0070e0;\n}\n.primary-border-color-c11 {\n  border-color: #0070e0 !important;\n}\n.primary-border-color-c11.border {\n    border-color: #0070e0 !important;\n}\n.primary-bg-c12 {\n  background-color: #0066cc;\n}\n.primary-color-c12 {\n  color: #0066cc;\n}\n.primary-border-color-c12 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-c12.border {\n    border-color: #0066cc !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-a1 {\n  background-color: #e7e6ff;\n}\n.analogue-1-color-a1 {\n  color: #e7e6ff;\n}\n.analogue-1-border-color-a1 {\n  border-color: #e7e6ff !important;\n}\n.analogue-1-border-color-a1.border {\n    border-color: #e7e6ff !important;\n}\n.analogue-1-bg-a2 {\n  background-color: #bbb8f5;\n}\n.analogue-1-color-a2 {\n  color: #bbb8f5;\n}\n.analogue-1-border-color-a2 {\n  border-color: #bbb8f5 !important;\n}\n.analogue-1-border-color-a2.border {\n    border-color: #bbb8f5 !important;\n}\n.analogue-1-bg-a3 {\n  background-color: #918deb;\n}\n.analogue-1-color-a3 {\n  color: #918deb;\n}\n.analogue-1-border-color-a3 {\n  border-color: #918deb !important;\n}\n.analogue-1-border-color-a3.border {\n    border-color: #918deb !important;\n}\n.analogue-1-bg-a4 {\n  background-color: #6b65e0;\n}\n.analogue-1-color-a4 {\n  color: #6b65e0;\n}\n.analogue-1-border-color-a4 {\n  border-color: #6b65e0 !important;\n}\n.analogue-1-border-color-a4.border {\n    border-color: #6b65e0 !important;\n}\n.analogue-1-bg-a5 {\n  background-color: #4840d6;\n}\n.analogue-1-color-a5 {\n  color: #4840d6;\n}\n.analogue-1-border-color-a5 {\n  border-color: #4840d6 !important;\n}\n.analogue-1-border-color-a5.border {\n    border-color: #4840d6 !important;\n}\n.analogue-1-bg-a6 {\n  background-color: #271fcc;\n}\n.analogue-1-color-a6 {\n  color: #271fcc;\n}\n.analogue-1-border-color-a6 {\n  border-color: #271fcc !important;\n}\n.analogue-1-border-color-a6.border {\n    border-color: #271fcc !important;\n}\n.analogue-1-bg-a7 {\n  background-color: #221bb3;\n}\n.analogue-1-color-a7 {\n  color: #221bb3;\n}\n.analogue-1-border-color-a7 {\n  border-color: #221bb3 !important;\n}\n.analogue-1-border-color-a7.border {\n    border-color: #221bb3 !important;\n}\n.analogue-1-bg-a8 {\n  background-color: #1d1799;\n}\n.analogue-1-color-a8 {\n  color: #1d1799;\n}\n.analogue-1-border-color-a8 {\n  border-color: #1d1799 !important;\n}\n.analogue-1-border-color-a8.border {\n    border-color: #1d1799 !important;\n}\n.analogue-1-bg-a9 {\n  background-color: #191380;\n}\n.analogue-1-color-a9 {\n  color: #191380;\n}\n.analogue-1-border-color-a9 {\n  border-color: #191380 !important;\n}\n.analogue-1-border-color-a9.border {\n    border-color: #191380 !important;\n}\n.analogue-1-bg-a10 {\n  background-color: #140f66;\n}\n.analogue-1-color-a10 {\n  color: #140f66;\n}\n.analogue-1-border-color-a10 {\n  border-color: #140f66 !important;\n}\n.analogue-1-border-color-a10.border {\n    border-color: #140f66 !important;\n}\n.analogue-1-bg-a11 {\n  background-color: #0f0b4d;\n}\n.analogue-1-color-a11 {\n  color: #0f0b4d;\n}\n.analogue-1-border-color-a11 {\n  border-color: #0f0b4d !important;\n}\n.analogue-1-border-color-a11.border {\n    border-color: #0f0b4d !important;\n}\n.analogue-1-bg-a12 {\n  background-color: #0a0833;\n}\n.analogue-1-color-a12 {\n  color: #0a0833;\n}\n.analogue-1-border-color-a12 {\n  border-color: #0a0833 !important;\n}\n.analogue-1-border-color-a12.border {\n    border-color: #0a0833 !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-a1 {\n  background-color: #ccfffd;\n}\n.analogue-2-color-a1 {\n  color: #ccfffd;\n}\n.analogue-2-border-color-a1 {\n  border-color: #ccfffd !important;\n}\n.analogue-2-border-color-a1.border {\n    border-color: #ccfffd !important;\n}\n.analogue-2-bg-a2 {\n  background-color: #9ff5f2;\n}\n.analogue-2-color-a2 {\n  color: #9ff5f2;\n}\n.analogue-2-border-color-a2 {\n  border-color: #9ff5f2 !important;\n}\n.analogue-2-border-color-a2.border {\n    border-color: #9ff5f2 !important;\n}\n.analogue-2-bg-a3 {\n  background-color: #75ebe7;\n}\n.analogue-2-color-a3 {\n  color: #75ebe7;\n}\n.analogue-2-border-color-a3 {\n  border-color: #75ebe7 !important;\n}\n.analogue-2-border-color-a3.border {\n    border-color: #75ebe7 !important;\n}\n.analogue-2-bg-a4 {\n  background-color: #4fe0dc;\n}\n.analogue-2-color-a4 {\n  color: #4fe0dc;\n}\n.analogue-2-border-color-a4 {\n  border-color: #4fe0dc !important;\n}\n.analogue-2-border-color-a4.border {\n    border-color: #4fe0dc !important;\n}\n.analogue-2-bg-a5 {\n  background-color: #2bd6d0;\n}\n.analogue-2-color-a5 {\n  color: #2bd6d0;\n}\n.analogue-2-border-color-a5 {\n  border-color: #2bd6d0 !important;\n}\n.analogue-2-border-color-a5.border {\n    border-color: #2bd6d0 !important;\n}\n.analogue-2-bg-a6 {\n  background-color: #0accc6;\n}\n.analogue-2-color-a6 {\n  color: #0accc6;\n}\n.analogue-2-border-color-a6 {\n  border-color: #0accc6 !important;\n}\n.analogue-2-border-color-a6.border {\n    border-color: #0accc6 !important;\n}\n.analogue-2-bg-a7 {\n  background-color: #09b3ad;\n}\n.analogue-2-color-a7 {\n  color: #09b3ad;\n}\n.analogue-2-border-color-a7 {\n  border-color: #09b3ad !important;\n}\n.analogue-2-border-color-a7.border {\n    border-color: #09b3ad !important;\n}\n.analogue-2-bg-a8 {\n  background-color: #089994;\n}\n.analogue-2-color-a8 {\n  color: #089994;\n}\n.analogue-2-border-color-a8 {\n  border-color: #089994 !important;\n}\n.analogue-2-border-color-a8.border {\n    border-color: #089994 !important;\n}\n.analogue-2-bg-a9 {\n  background-color: #06807b;\n}\n.analogue-2-color-a9 {\n  color: #06807b;\n}\n.analogue-2-border-color-a9 {\n  border-color: #06807b !important;\n}\n.analogue-2-border-color-a9.border {\n    border-color: #06807b !important;\n}\n.analogue-2-bg-a10 {\n  background-color: #056663;\n}\n.analogue-2-color-a10 {\n  color: #056663;\n}\n.analogue-2-border-color-a10 {\n  border-color: #056663 !important;\n}\n.analogue-2-border-color-a10.border {\n    border-color: #056663 !important;\n}\n.analogue-2-bg-a11 {\n  background-color: #044d4a;\n}\n.analogue-2-color-a11 {\n  color: #044d4a;\n}\n.analogue-2-border-color-a11 {\n  border-color: #044d4a !important;\n}\n.analogue-2-border-color-a11.border {\n    border-color: #044d4a !important;\n}\n.analogue-2-bg-a12 {\n  background-color: #033331;\n}\n.analogue-2-color-a12 {\n  color: #033331;\n}\n.analogue-2-border-color-a12 {\n  border-color: #033331 !important;\n}\n.analogue-2-border-color-a12.border {\n    border-color: #033331 !important;\n}\n.complementary-1-bg {\n  background-color: #f73e5a;\n}\n.complementary-1-color {\n  color: #ff9900;\n}\n.complementary-1-border-color- {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-a1 {\n  background-color: #fffcfd;\n}\n.complementary-1-color-a1 {\n  color: #fffcfd;\n}\n.complementary-1-border-color-a1 {\n  border-color: #fffcfd !important;\n}\n.complementary-1-border-color-a1.border {\n    border-color: #fffcfd !important;\n}\n.complementary-1-bg-a2 {\n  background-color: #f5d0d6;\n}\n.complementary-1-color-a2 {\n  color: #f5d0d6;\n}\n.complementary-1-border-color-a2 {\n  border-color: #f5d0d6 !important;\n}\n.complementary-1-border-color-a2.border {\n    border-color: #f5d0d6 !important;\n}\n.complementary-1-bg-a3 {\n  background-color: #eba4af;\n}\n.complementary-1-color-a3 {\n  color: #eba4af;\n}\n.complementary-1-border-color-a3 {\n  border-color: #eba4af !important;\n}\n.complementary-1-border-color-a3.border {\n    border-color: #eba4af !important;\n}\n.complementary-1-bg-a4 {\n  background-color: #e07b8b;\n}\n.complementary-1-color-a4 {\n  color: #e07b8b;\n}\n.complementary-1-border-color-a4 {\n  border-color: #e07b8b !important;\n}\n.complementary-1-border-color-a4.border {\n    border-color: #e07b8b !important;\n}\n.complementary-1-bg-a5 {\n  background-color: #d65669;\n}\n.complementary-1-color-a5 {\n  color: #d65669;\n}\n.complementary-1-border-color-a5 {\n  border-color: #d65669 !important;\n}\n.complementary-1-border-color-a5.border {\n    border-color: #d65669 !important;\n}\n.complementary-1-bg-a6 {\n  background-color: #cc334a;\n}\n.complementary-1-color-a6 {\n  color: #cc334a;\n}\n.complementary-1-border-color-a6 {\n  border-color: #cc334a !important;\n}\n.complementary-1-border-color-a6.border {\n    border-color: #cc334a !important;\n}\n.complementary-1-bg-a7 {\n  background-color: #b32d41;\n}\n.complementary-1-color-a7 {\n  color: #b32d41;\n}\n.complementary-1-border-color-a7 {\n  border-color: #b32d41 !important;\n}\n.complementary-1-border-color-a7.border {\n    border-color: #b32d41 !important;\n}\n.complementary-1-bg-a8 {\n  background-color: #992637;\n}\n.complementary-1-color-a8 {\n  color: #992637;\n}\n.complementary-1-border-color-a8 {\n  border-color: #992637 !important;\n}\n.complementary-1-border-color-a8.border {\n    border-color: #992637 !important;\n}\n.complementary-1-bg-a9 {\n  background-color: #80202e;\n}\n.complementary-1-color-a9 {\n  color: #80202e;\n}\n.complementary-1-border-color-a9 {\n  border-color: #80202e !important;\n}\n.complementary-1-border-color-a9.border {\n    border-color: #80202e !important;\n}\n.complementary-1-bg-a10 {\n  background-color: #661a25;\n}\n.complementary-1-color-a10 {\n  color: #661a25;\n}\n.complementary-1-border-color-a10 {\n  border-color: #661a25 !important;\n}\n.complementary-1-border-color-a10.border {\n    border-color: #661a25 !important;\n}\n.complementary-1-bg-a11 {\n  background-color: #4d131c;\n}\n.complementary-1-color-a11 {\n  color: #4d131c;\n}\n.complementary-1-border-color-a11 {\n  border-color: #4d131c !important;\n}\n.complementary-1-border-color-a11.border {\n    border-color: #4d131c !important;\n}\n.complementary-1-bg-a12 {\n  background-color: #330d12;\n}\n.complementary-1-color-a12 {\n  color: #330d12;\n}\n.complementary-1-border-color-a12 {\n  border-color: #330d12 !important;\n}\n.complementary-1-border-color-a12.border {\n    border-color: #330d12 !important;\n}\n.complementary-2-bg {\n  background-color: #ff9900;\n}\n.complementary-2-color {\n  color: #ff9900;\n}\n.complementary-2-border-color- {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-a1 {\n  background-color: #ffe6bf;\n}\n.complementary-2-color-a1 {\n  color: #ffe6bf;\n}\n.complementary-2-border-color-a1 {\n  border-color: #ffe6bf !important;\n}\n.complementary-2-border-color-a1.border {\n    border-color: #ffe6bf !important;\n}\n.complementary-2-bg-a2 {\n  background-color: #f5ce93;\n}\n.complementary-2-color-a2 {\n  color: #f5ce93;\n}\n.complementary-2-border-color-a2 {\n  border-color: #f5ce93 !important;\n}\n.complementary-2-border-color-a2.border {\n    border-color: #f5ce93 !important;\n}\n.complementary-2-bg-a3 {\n  background-color: #ebb76a;\n}\n.complementary-2-color-a3 {\n  color: #ebb76a;\n}\n.complementary-2-border-color-a3 {\n  border-color: #ebb76a !important;\n}\n.complementary-2-border-color-a3.border {\n    border-color: #ebb76a !important;\n}\n.complementary-2-bg-a4 {\n  background-color: #e0a243;\n}\n.complementary-2-color-a4 {\n  color: #e0a243;\n}\n.complementary-2-border-color-a4 {\n  border-color: #e0a243 !important;\n}\n.complementary-2-border-color-a4.border {\n    border-color: #e0a243 !important;\n}\n.complementary-2-bg-a5 {\n  background-color: #d68d20;\n}\n.complementary-2-color-a5 {\n  color: #d68d20;\n}\n.complementary-2-border-color-a5 {\n  border-color: #d68d20 !important;\n}\n.complementary-2-border-color-a5.border {\n    border-color: #d68d20 !important;\n}\n.complementary-2-bg-a6 {\n  background-color: #cc7a00;\n}\n.complementary-2-color-a6 {\n  color: #cc7a00;\n}\n.complementary-2-border-color-a6 {\n  border-color: #cc7a00 !important;\n}\n.complementary-2-border-color-a6.border {\n    border-color: #cc7a00 !important;\n}\n.complementary-2-bg-a7 {\n  background-color: #b36b00;\n}\n.complementary-2-color-a7 {\n  color: #b36b00;\n}\n.complementary-2-border-color-a7 {\n  border-color: #b36b00 !important;\n}\n.complementary-2-border-color-a7.border {\n    border-color: #b36b00 !important;\n}\n.complementary-2-bg-a8 {\n  background-color: #995c00;\n}\n.complementary-2-color-a8 {\n  color: #995c00;\n}\n.complementary-2-border-color-a8 {\n  border-color: #995c00 !important;\n}\n.complementary-2-border-color-a8.border {\n    border-color: #995c00 !important;\n}\n.complementary-2-bg-a9 {\n  background-color: #804d00;\n}\n.complementary-2-color-a9 {\n  color: #804d00;\n}\n.complementary-2-border-color-a9 {\n  border-color: #804d00 !important;\n}\n.complementary-2-border-color-a9.border {\n    border-color: #804d00 !important;\n}\n.complementary-2-bg-a10 {\n  background-color: #663d00;\n}\n.complementary-2-color-a10 {\n  color: #663d00;\n}\n.complementary-2-border-color-a10 {\n  border-color: #663d00 !important;\n}\n.complementary-2-border-color-a10.border {\n    border-color: #663d00 !important;\n}\n.complementary-2-bg-a11 {\n  background-color: #4d2e00;\n}\n.complementary-2-color-a11 {\n  color: #4d2e00;\n}\n.complementary-2-border-color-a11 {\n  border-color: #4d2e00 !important;\n}\n.complementary-2-border-color-a11.border {\n    border-color: #4d2e00 !important;\n}\n.complementary-2-bg-a12 {\n  background-color: #331f00;\n}\n.complementary-2-color-a12 {\n  color: #331f00;\n}\n.complementary-2-border-color-a12 {\n  border-color: #331f00 !important;\n}\n.complementary-2-border-color-a12.border {\n    border-color: #331f00 !important;\n}\n.complementary-3-bg {\n  background-color: #00cf86;\n}\n.complementary-3-color {\n  color: #00cf86;\n}\n.complementary-3-border-color- {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-a1 {\n  background-color: #bfffe9;\n}\n.complementary-3-color-a1 {\n  color: #bfffe9;\n}\n.complementary-3-border-color-a1 {\n  border-color: #bfffe9 !important;\n}\n.complementary-3-border-color-a1.border {\n    border-color: #bfffe9 !important;\n}\n.complementary-3-bg-a2 {\n  background-color: #93f5d3;\n}\n.complementary-3-color-a2 {\n  color: #93f5d3;\n}\n.complementary-3-border-color-a2 {\n  border-color: #93f5d3 !important;\n}\n.complementary-3-border-color-a2.border {\n    border-color: #93f5d3 !important;\n}\n.complementary-3-bg-a3 {\n  background-color: #6aebbd;\n}\n.complementary-3-color-a3 {\n  color: #6aebbd;\n}\n.complementary-3-border-color-a3 {\n  border-color: #6aebbd !important;\n}\n.complementary-3-border-color-a3.border {\n    border-color: #6aebbd !important;\n}\n.complementary-3-bg-a4 {\n  background-color: #43e0a9;\n}\n.complementary-3-color-a4 {\n  color: #43e0a9;\n}\n.complementary-3-border-color-a4 {\n  border-color: #43e0a9 !important;\n}\n.complementary-3-border-color-a4.border {\n    border-color: #43e0a9 !important;\n}\n.complementary-3-bg-a5 {\n  background-color: #20d696;\n}\n.complementary-3-color-a5 {\n  color: #20d696;\n}\n.complementary-3-border-color-a5 {\n  border-color: #20d696 !important;\n}\n.complementary-3-border-color-a5.border {\n    border-color: #20d696 !important;\n}\n.complementary-3-bg-a6 {\n  background-color: #00cc85;\n}\n.complementary-3-color-a6 {\n  color: #00cc85;\n}\n.complementary-3-border-color-a6 {\n  border-color: #00cc85 !important;\n}\n.complementary-3-border-color-a6.border {\n    border-color: #00cc85 !important;\n}\n.complementary-3-bg-a7 {\n  background-color: #00b374;\n}\n.complementary-3-color-a7 {\n  color: #00b374;\n}\n.complementary-3-border-color-a7 {\n  border-color: #00b374 !important;\n}\n.complementary-3-border-color-a7.border {\n    border-color: #00b374 !important;\n}\n.complementary-3-bg-a8 {\n  background-color: #009963;\n}\n.complementary-3-color-a8 {\n  color: #009963;\n}\n.complementary-3-border-color-a8 {\n  border-color: #009963 !important;\n}\n.complementary-3-border-color-a8.border {\n    border-color: #009963 !important;\n}\n.complementary-3-bg-a9 {\n  background-color: #008053;\n}\n.complementary-3-color-a9 {\n  color: #008053;\n}\n.complementary-3-border-color-a9 {\n  border-color: #008053 !important;\n}\n.complementary-3-border-color-a9.border {\n    border-color: #008053 !important;\n}\n.complementary-3-bg-a10 {\n  background-color: #006642;\n}\n.complementary-3-color-a10 {\n  color: #006642;\n}\n.complementary-3-border-color-a10 {\n  border-color: #006642 !important;\n}\n.complementary-3-border-color-a10.border {\n    border-color: #006642 !important;\n}\n.complementary-3-bg-a11 {\n  background-color: #004d32;\n}\n.complementary-3-color-a11 {\n  color: #004d32;\n}\n.complementary-3-border-color-a11 {\n  border-color: #004d32 !important;\n}\n.complementary-3-border-color-a11.border {\n    border-color: #004d32 !important;\n}\n.complementary-3-bg-a12 {\n  background-color: #003321;\n}\n.complementary-3-color-a12 {\n  color: #003321;\n}\n.complementary-3-border-color-a12 {\n  border-color: #003321 !important;\n}\n.complementary-3-border-color-a12.border {\n    border-color: #003321 !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b1 {\n  background-color: #3126ff;\n}\n.analogue-1-color-b1 {\n  color: #3126ff;\n}\n.analogue-1-border-color-b1 {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-b1.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b2 {\n  background-color: #4239e6;\n}\n.analogue-1-color-b2 {\n  color: #4239e6;\n}\n.analogue-1-border-color-b2 {\n  border-color: #4239e6 !important;\n}\n.analogue-1-border-color-b2.border {\n    border-color: #4239e6 !important;\n}\n.analogue-1-bg-b3 {\n  background-color: #4e47cc;\n}\n.analogue-1-color-b3 {\n  color: #4e47cc;\n}\n.analogue-1-border-color-b3 {\n  border-color: #4e47cc !important;\n}\n.analogue-1-border-color-b3.border {\n    border-color: #4e47cc !important;\n}\n.analogue-1-bg-b4 {\n  background-color: #5550b3;\n}\n.analogue-1-color-b4 {\n  color: #5550b3;\n}\n.analogue-1-border-color-b4 {\n  border-color: #5550b3 !important;\n}\n.analogue-1-border-color-b4.border {\n    border-color: #5550b3 !important;\n}\n.analogue-1-bg-b5 {\n  background-color: #585499;\n}\n.analogue-1-color-b5 {\n  color: #585499;\n}\n.analogue-1-border-color-b5 {\n  border-color: #585499 !important;\n}\n.analogue-1-border-color-b5.border {\n    border-color: #585499 !important;\n}\n.analogue-1-bg-b6 {\n  background-color: #555380;\n}\n.analogue-1-color-b6 {\n  color: #555380;\n}\n.analogue-1-border-color-b6 {\n  border-color: #555380 !important;\n}\n.analogue-1-border-color-b6.border {\n    border-color: #555380 !important;\n}\n.analogue-1-bg-b7 {\n  background-color: #4e4d66;\n}\n.analogue-1-color-b7 {\n  color: #4e4d66;\n}\n.analogue-1-border-color-b7 {\n  border-color: #4e4d66 !important;\n}\n.analogue-1-border-color-b7.border {\n    border-color: #4e4d66 !important;\n}\n.analogue-1-bg-b8 {\n  background-color: #42414d;\n}\n.analogue-1-color-b8 {\n  color: #42414d;\n}\n.analogue-1-border-color-b8 {\n  border-color: #42414d !important;\n}\n.analogue-1-border-color-b8.border {\n    border-color: #42414d !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b1 {\n  background-color: #0bd9d2;\n}\n.analogue-2-color-b1 {\n  color: #0bd9d2;\n}\n.analogue-2-border-color-b1 {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-b1.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b2 {\n  background-color: #1dbfba;\n}\n.analogue-2-color-b2 {\n  color: #1dbfba;\n}\n.analogue-2-border-color-b2 {\n  border-color: #1dbfba !important;\n}\n.analogue-2-border-color-b2.border {\n    border-color: #1dbfba !important;\n}\n.analogue-2-bg-b3 {\n  background-color: #29a6a2;\n}\n.analogue-2-color-b3 {\n  color: #29a6a2;\n}\n.analogue-2-border-color-b3 {\n  border-color: #29a6a2 !important;\n}\n.analogue-2-border-color-b3.border {\n    border-color: #29a6a2 !important;\n}\n.analogue-2-bg-b4 {\n  background-color: #318c89;\n}\n.analogue-2-color-b4 {\n  color: #318c89;\n}\n.analogue-2-border-color-b4 {\n  border-color: #318c89 !important;\n}\n.analogue-2-border-color-b4.border {\n    border-color: #318c89 !important;\n}\n.analogue-2-bg-b5 {\n  background-color: #347371;\n}\n.analogue-2-color-b5 {\n  color: #347371;\n}\n.analogue-2-border-color-b5 {\n  border-color: #347371 !important;\n}\n.analogue-2-border-color-b5.border {\n    border-color: #347371 !important;\n}\n.analogue-2-bg-b6 {\n  background-color: #315958;\n}\n.analogue-2-color-b6 {\n  color: #315958;\n}\n.analogue-2-border-color-b6 {\n  border-color: #315958 !important;\n}\n.analogue-2-border-color-b6.border {\n    border-color: #315958 !important;\n}\n.analogue-2-bg-b7 {\n  background-color: #29403f;\n}\n.analogue-2-color-b7 {\n  color: #29403f;\n}\n.analogue-2-border-color-b7 {\n  border-color: #29403f !important;\n}\n.analogue-2-border-color-b7.border {\n    border-color: #29403f !important;\n}\n.analogue-2-bg-b8 {\n  background-color: #1d2626;\n}\n.analogue-2-color-b8 {\n  color: #1d2626;\n}\n.analogue-2-border-color-b8 {\n  border-color: #1d2626 !important;\n}\n.analogue-2-border-color-b8.border {\n    border-color: #1d2626 !important;\n}\n.complementary-1-bg-b1 {\n  background-color: #f73e5a;\n}\n.complementary-1-color-b1 {\n  color: #f73e5a;\n}\n.complementary-1-border-color-b1 {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-b1.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-b2 {\n  background-color: #de4e63;\n}\n.complementary-1-color-b2 {\n  color: #de4e63;\n}\n.complementary-1-border-color-b2 {\n  border-color: #de4e63 !important;\n}\n.complementary-1-border-color-b2.border {\n    border-color: #de4e63 !important;\n}\n.complementary-1-bg-b3 {\n  background-color: #c45869;\n}\n.complementary-1-color-b3 {\n  color: #c45869;\n}\n.complementary-1-border-color-b3 {\n  border-color: #c45869 !important;\n}\n.complementary-1-border-color-b3.border {\n    border-color: #c45869 !important;\n}\n.complementary-1-bg-b4 {\n  background-color: #ab5e69;\n}\n.complementary-1-color-b4 {\n  color: #ab5e69;\n}\n.complementary-1-border-color-b4 {\n  border-color: #ab5e69 !important;\n}\n.complementary-1-border-color-b4.border {\n    border-color: #ab5e69 !important;\n}\n.complementary-1-bg-b5 {\n  background-color: #915e66;\n}\n.complementary-1-color-b5 {\n  color: #915e66;\n}\n.complementary-1-border-color-b5 {\n  border-color: #915e66 !important;\n}\n.complementary-1-border-color-b5.border {\n    border-color: #915e66 !important;\n}\n.complementary-1-bg-b6 {\n  background-color: #785a5e;\n}\n.complementary-1-color-b6 {\n  color: #785a5e;\n}\n.complementary-1-border-color-b6 {\n  border-color: #785a5e !important;\n}\n.complementary-1-border-color-b6.border {\n    border-color: #785a5e !important;\n}\n.complementary-1-bg-b7 {\n  background-color: #5e5052;\n}\n.complementary-1-color-b7 {\n  color: #5e5052;\n}\n.complementary-1-border-color-b7 {\n  border-color: #5e5052 !important;\n}\n.complementary-1-border-color-b7.border {\n    border-color: #5e5052 !important;\n}\n.complementary-1-bg-b8 {\n  background-color: #454142;\n}\n.complementary-1-color-b8 {\n  color: #454142;\n}\n.complementary-1-border-color-b8 {\n  border-color: #454142 !important;\n}\n.complementary-1-border-color-b8.border {\n    border-color: #454142 !important;\n}\n.complementary-2-bg-b1 {\n  background-color: #ff9900;\n}\n.complementary-2-color-b1 {\n  color: #ff9900;\n}\n.complementary-2-border-color-b1 {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-b1.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-b2 {\n  background-color: #e69317;\n}\n.complementary-2-color-b2 {\n  color: #e69317;\n}\n.complementary-2-border-color-b2 {\n  border-color: #e69317 !important;\n}\n.complementary-2-border-color-b2.border {\n    border-color: #e69317 !important;\n}\n.complementary-2-bg-b3 {\n  background-color: #cc8b29;\n}\n.complementary-2-color-b3 {\n  color: #cc8b29;\n}\n.complementary-2-border-color-b3 {\n  border-color: #cc8b29 !important;\n}\n.complementary-2-border-color-b3.border {\n    border-color: #cc8b29 !important;\n}\n.complementary-2-bg-b4 {\n  background-color: #b38136;\n}\n.complementary-2-color-b4 {\n  color: #b38136;\n}\n.complementary-2-border-color-b4 {\n  border-color: #b38136 !important;\n}\n.complementary-2-border-color-b4.border {\n    border-color: #b38136 !important;\n}\n.complementary-2-bg-b5 {\n  background-color: #99743d;\n}\n.complementary-2-color-b5 {\n  color: #99743d;\n}\n.complementary-2-border-color-b5 {\n  border-color: #99743d !important;\n}\n.complementary-2-border-color-b5.border {\n    border-color: #99743d !important;\n}\n.complementary-2-bg-b6 {\n  background-color: #806640;\n}\n.complementary-2-color-b6 {\n  color: #806640;\n}\n.complementary-2-border-color-b6 {\n  border-color: #806640 !important;\n}\n.complementary-2-border-color-b6.border {\n    border-color: #806640 !important;\n}\n.complementary-2-bg-b7 {\n  background-color: #66563d;\n}\n.complementary-2-color-b7 {\n  color: #66563d;\n}\n.complementary-2-border-color-b7 {\n  border-color: #66563d !important;\n}\n.complementary-2-border-color-b7.border {\n    border-color: #66563d !important;\n}\n.complementary-2-bg-b8 {\n  background-color: #4d4336;\n}\n.complementary-2-color-b8 {\n  color: #4d4336;\n}\n.complementary-2-border-color-b8 {\n  border-color: #4d4336 !important;\n}\n.complementary-2-border-color-b8.border {\n    border-color: #4d4336 !important;\n}\n.complementary-3-bg-b1 {\n  background-color: #00cf86;\n}\n.complementary-3-color-b1 {\n  color: #00cf86;\n}\n.complementary-3-border-color-b1 {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-b1.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-b2 {\n  background-color: #12b57c;\n}\n.complementary-3-color-b2 {\n  color: #12b57c;\n}\n.complementary-3-border-color-b2 {\n  border-color: #12b57c !important;\n}\n.complementary-3-border-color-b2.border {\n    border-color: #12b57c !important;\n}\n.complementary-3-bg-b3 {\n  background-color: #1f9c70;\n}\n.complementary-3-color-b3 {\n  color: #1f9c70;\n}\n.complementary-3-border-color-b3 {\n  border-color: #1f9c70 !important;\n}\n.complementary-3-border-color-b3.border {\n    border-color: #1f9c70 !important;\n}\n.complementary-3-bg-b4 {\n  background-color: #278262;\n}\n.complementary-3-color-b4 {\n  color: #278262;\n}\n.complementary-3-border-color-b4 {\n  border-color: #278262 !important;\n}\n.complementary-3-border-color-b4.border {\n    border-color: #278262 !important;\n}\n.complementary-3-bg-b5 {\n  background-color: #2a6953;\n}\n.complementary-3-color-b5 {\n  color: #2a6953;\n}\n.complementary-3-border-color-b5 {\n  border-color: #2a6953 !important;\n}\n.complementary-3-border-color-b5.border {\n    border-color: #2a6953 !important;\n}\n.complementary-3-bg-b6 {\n  background-color: #284f41;\n}\n.complementary-3-color-b6 {\n  color: #284f41;\n}\n.complementary-3-border-color-b6 {\n  border-color: #284f41 !important;\n}\n.complementary-3-border-color-b6.border {\n    border-color: #284f41 !important;\n}\n.complementary-3-bg-b7 {\n  background-color: #20362e;\n}\n.complementary-3-color-b7 {\n  color: #20362e;\n}\n.complementary-3-border-color-b7 {\n  border-color: #20362e !important;\n}\n.complementary-3-border-color-b7.border {\n    border-color: #20362e !important;\n}\n.complementary-3-bg-b8 {\n  background-color: #141c19;\n}\n.complementary-3-color-b8 {\n  color: #141c19;\n}\n.complementary-3-border-color-b8 {\n  border-color: #141c19 !important;\n}\n.complementary-3-border-color-b8.border {\n    border-color: #141c19 !important;\n}\n.neutral-1-bg {\n  background-color: #17324d;\n}\n.neutral-1-color {\n  color: #17324d;\n}\n.neutral-1-border-color- {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-.border {\n    border-color: #17324d !important;\n}\n.neutral-1-bg-a1 {\n  background-color: #ebeced;\n}\n.neutral-1-color-a1 {\n  color: #ebeced;\n}\n.neutral-1-border-color-a1 {\n  border-color: #ebeced !important;\n}\n.neutral-1-border-color-a1.border {\n    border-color: #ebeced !important;\n}\n.neutral-1-bg-a2 {\n  background-color: #d9dadb;\n}\n.neutral-1-color-a2 {\n  color: #d9dadb;\n}\n.neutral-1-border-color-a2 {\n  border-color: #d9dadb !important;\n}\n.neutral-1-border-color-a2.border {\n    border-color: #d9dadb !important;\n}\n.neutral-1-bg-a3 {\n  background-color: #c5c7c9;\n}\n.neutral-1-color-a3 {\n  color: #c5c7c9;\n}\n.neutral-1-border-color-a3 {\n  border-color: #c5c7c9 !important;\n}\n.neutral-1-border-color-a3.border {\n    border-color: #c5c7c9 !important;\n}\n.neutral-1-bg-a4 {\n  background-color: #adb2b8;\n}\n.neutral-1-color-a4 {\n  color: #adb2b8;\n}\n.neutral-1-border-color-a4 {\n  border-color: #adb2b8 !important;\n}\n.neutral-1-border-color-a4.border {\n    border-color: #adb2b8 !important;\n}\n.neutral-1-bg-a5 {\n  background-color: #959da6;\n}\n.neutral-1-color-a5 {\n  color: #959da6;\n}\n.neutral-1-border-color-a5 {\n  border-color: #959da6 !important;\n}\n.neutral-1-border-color-a5.border {\n    border-color: #959da6 !important;\n}\n.neutral-1-bg-a6 {\n  background-color: #768594;\n}\n.neutral-1-color-a6 {\n  color: #768594;\n}\n.neutral-1-border-color-a6 {\n  border-color: #768594 !important;\n}\n.neutral-1-border-color-a6.border {\n    border-color: #768594 !important;\n}\n.neutral-1-bg-a7 {\n  background-color: #5b6f82;\n}\n.neutral-1-color-a7 {\n  color: #5b6f82;\n}\n.neutral-1-border-color-a7 {\n  border-color: #5b6f82 !important;\n}\n.neutral-1-border-color-a7.border {\n    border-color: #5b6f82 !important;\n}\n.neutral-1-bg-a8 {\n  background-color: #435a70;\n}\n.neutral-1-color-a8 {\n  color: #435a70;\n}\n.neutral-1-border-color-a8 {\n  border-color: #435a70 !important;\n}\n.neutral-1-border-color-a8.border {\n    border-color: #435a70 !important;\n}\n.neutral-1-bg-a9 {\n  background-color: #2f475e;\n}\n.neutral-1-color-a9 {\n  color: #2f475e;\n}\n.neutral-1-border-color-a9 {\n  border-color: #2f475e !important;\n}\n.neutral-1-border-color-a9.border {\n    border-color: #2f475e !important;\n}\n.neutral-1-bg-a10 {\n  background-color: #17324d;\n}\n.neutral-1-color-a10 {\n  color: #17324d;\n}\n.neutral-1-border-color-a10 {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-a10.border {\n    border-color: #17324d !important;\n}\n.neutral-2-bg {\n  background-color: #e6ecf2;\n}\n.neutral-2-color {\n  color: #e6ecf2;\n}\n.neutral-2-border-color- {\n  border-color: #e6ecf2;\n}\n.neutral-2-bg-b1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-b1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-b1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-b1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-b2 {\n  background-color: #c2c7cc;\n}\n.neutral-2-color-b2 {\n  color: #c2c7cc;\n}\n.neutral-2-border-color-b2 {\n  border-color: #c2c7cc !important;\n}\n.neutral-2-border-color-b2.border {\n    border-color: #c2c7cc !important;\n}\n.neutral-2-bg-b3 {\n  background-color: #9da2a6;\n}\n.neutral-2-color-b3 {\n  color: #9da2a6;\n}\n.neutral-2-border-color-b3 {\n  border-color: #9da2a6 !important;\n}\n.neutral-2-border-color-b3.border {\n    border-color: #9da2a6 !important;\n}\n.neutral-2-bg-b4 {\n  background-color: #797c80;\n}\n.neutral-2-color-b4 {\n  color: #797c80;\n}\n.neutral-2-border-color-b4 {\n  border-color: #797c80 !important;\n}\n.neutral-2-border-color-b4.border {\n    border-color: #797c80 !important;\n}\n.neutral-2-bg-b5 {\n  background-color: #565759;\n}\n.neutral-2-color-b5 {\n  color: #565759;\n}\n.neutral-2-border-color-b5 {\n  border-color: #565759 !important;\n}\n.neutral-2-border-color-b5.border {\n    border-color: #565759 !important;\n}\n.neutral-2-bg-b6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-b6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-b6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-b6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-b7 {\n  background-color: #0c0c0d;\n}\n.neutral-2-color-b7 {\n  color: #0c0c0d;\n}\n.neutral-2-border-color-b7 {\n  border-color: #0c0c0d !important;\n}\n.neutral-2-border-color-b7.border {\n    border-color: #0c0c0d !important;\n}\n.neutral-2-bg-a1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-a1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-a1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-a1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-a2 {\n  background-color: #bcc4cc;\n}\n.neutral-2-color-a2 {\n  color: #bcc4cc;\n}\n.neutral-2-border-color-a2 {\n  border-color: #bcc4cc !important;\n}\n.neutral-2-border-color-a2.border {\n    border-color: #bcc4cc !important;\n}\n.neutral-2-bg-a3 {\n  background-color: #9aa0a6;\n}\n.neutral-2-color-a3 {\n  color: #9aa0a6;\n}\n.neutral-2-border-color-a3 {\n  border-color: #9aa0a6 !important;\n}\n.neutral-2-border-color-a3.border {\n    border-color: #9aa0a6 !important;\n}\n.neutral-2-bg-a4 {\n  background-color: #777b80;\n}\n.neutral-2-color-a4 {\n  color: #777b80;\n}\n.neutral-2-border-color-a4 {\n  border-color: #777b80 !important;\n}\n.neutral-2-border-color-a4.border {\n    border-color: #777b80 !important;\n}\n.neutral-2-bg-a5 {\n  background-color: #535659;\n}\n.neutral-2-color-a5 {\n  color: #535659;\n}\n.neutral-2-border-color-a5 {\n  border-color: #535659 !important;\n}\n.neutral-2-border-color-a5.border {\n    border-color: #535659 !important;\n}\n.neutral-2-bg-a6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-a6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-a6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-a6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-a7 {\n  background-color: #17181a;\n}\n.neutral-2-color-a7 {\n  color: #17181a;\n}\n.neutral-2-border-color-a7 {\n  border-color: #17181a !important;\n}\n.neutral-2-border-color-a7.border {\n    border-color: #17181a !important;\n}\n.lightgrey-bg-a1 {\n  background-color: #E8F2FC;\n}\n.lightgrey-color-a1 {\n  color: #E8F2FC;\n}\n.lightgrey-border-color-a1 {\n  border-color: #E8F2FC !important;\n}\n.lightgrey-border-color-a1.border {\n    border-color: #E8F2FC !important;\n}\n.lightgrey-bg-a2 {\n  background-color: #EDF5FC;\n}\n.lightgrey-color-a2 {\n  color: #EDF5FC;\n}\n.lightgrey-border-color-a2 {\n  border-color: #EDF5FC !important;\n}\n.lightgrey-border-color-a2.border {\n    border-color: #EDF5FC !important;\n}\n.lightgrey-bg-a3 {\n  background-color: #F2F7FC;\n}\n.lightgrey-color-a3 {\n  color: #F2F7FC;\n}\n.lightgrey-border-color-a3 {\n  border-color: #F2F7FC !important;\n}\n.lightgrey-border-color-a3.border {\n    border-color: #F2F7FC !important;\n}\n.lightgrey-bg-a4 {\n  background-color: #F5F9FC;\n}\n.lightgrey-color-a4 {\n  color: #F5F9FC;\n}\n.lightgrey-border-color-a4 {\n  border-color: #F5F9FC !important;\n}\n.lightgrey-border-color-a4.border {\n    border-color: #F5F9FC !important;\n}\n.lightgrey-bg-b1 {\n  background-color: #E6F0FA;\n}\n.lightgrey-color-b1 {\n  color: #E6F0FA;\n}\n.lightgrey-border-color-b1 {\n  border-color: #E6F0FA !important;\n}\n.lightgrey-border-color-b1.border {\n    border-color: #E6F0FA !important;\n}\n.lightgrey-bg-b2 {\n  background-color: #EBF2FA;\n}\n.lightgrey-color-b2 {\n  color: #EBF2FA;\n}\n.lightgrey-border-color-b2 {\n  border-color: #EBF2FA !important;\n}\n.lightgrey-border-color-b2.border {\n    border-color: #EBF2FA !important;\n}\n.lightgrey-bg-b3 {\n  background-color: #EDF4FA;\n}\n.lightgrey-color-b3 {\n  color: #EDF4FA;\n}\n.lightgrey-border-color-b3 {\n  border-color: #EDF4FA !important;\n}\n.lightgrey-border-color-b3.border {\n    border-color: #EDF4FA !important;\n}\n.lightgrey-bg-b4 {\n  background-color: #F2F6FA;\n}\n.lightgrey-color-b4 {\n  color: #F2F6FA;\n}\n.lightgrey-border-color-b4 {\n  border-color: #F2F6FA !important;\n}\n.lightgrey-border-color-b4.border {\n    border-color: #F2F6FA !important;\n}\n.lightgrey-bg-c1 {\n  background-color: #F7F9FA;\n}\n.lightgrey-color-c1 {\n  color: #F7F9FA;\n}\n.lightgrey-border-color-c1 {\n  border-color: #F7F9FA !important;\n}\n.lightgrey-border-color-c1.border {\n    border-color: #F7F9FA !important;\n}\n.lightgrey-bg-c2 {\n  background-color: #F5F6F7;\n}\n.lightgrey-color-c2 {\n  color: #F5F6F7;\n}\n.lightgrey-border-color-c2 {\n  border-color: #F5F6F7 !important;\n}\n.lightgrey-border-color-c2.border {\n    border-color: #F5F6F7 !important;\n}\n.navbar {\n  position: fixed;\n  top: 0;\n  min-width: 100%;\n  width: 100%;\n  max-width: 100%;\n  min-height: 90px;\n  -webkit-box-shadow: 0px 8px 40px 0 rgba(126, 127, 128, 0.1);\n          box-shadow: 0px 8px 40px 0 rgba(126, 127, 128, 0.1);\n  z-index: 99999;\n}\n.navbar .navbar-brand {\n    font-weight: 800;\n}\n.navbar .navbar-nav .nav-item .nav-link {\n    text-transform: uppercase;\n    font-weight: 700;\n    letter-spacing: 1px;\n    font-size: 14px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 94 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'MainNav'
-});
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      {
-        staticClass: "shadow navbar navbar-expand-lg navbar-light px-3 bg-white"
-      },
-      [
-        _c(
-          "a",
-          { staticClass: "navbar-brand text-black", attrs: { href: "#" } },
-          [_vm._v("EFG Consulting")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarSupportedContent",
-              "aria-controls": "navbarSupportedContent",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c("ul", { staticClass: "navbar-nav flex-row ml-md-auto" }, [
-          _c("li", { staticClass: "nav-item active" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Home "),
-              _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("About")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Division")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Event Marketing")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("News")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Focus Emirati")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Contact")
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-52f5dfea", module.exports)
-  }
-}
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_c("main-nav"), _vm._v(" "), _c("router-view")], 1)
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2fa6537c", module.exports)
-  }
-}
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */
-/***/ (function(module, exports) {
-
-$(function () {
-  var carouselTarget = $('.owl-carousel'); // parameters
-
-  var cnav;
-  var cloop;
-  var cmargin;
-  var citems;
-  var cnavText;
-  var cnavSpeed; //arrow click
-
-  var csmartSpeed; // bullet click
-
-  var cdotsSpeed;
-  var ccontrolsAriaHidden;
-  var cmouseDrag;
-  var ctouchDrag;
-  var cdots;
-  var cslideBy;
-  var cstagePadding; // mobile params
-
-  var mobnav;
-  var mobdots;
-  var mobitems;
-  var mobstagePadding;
-  var mobmargin; // 768 params
-
-  var tabnav;
-  var tabdots;
-  var tabitems;
-  var tabstagePadding;
-  var tabmargin; // 992 params
-
-  var desknav;
-  var deskdots;
-  var deskitems;
-  var deskstagePadding;
-  var deskmargin; // xl params
-
-  var xlnav;
-  var xldots;
-  var xlitems;
-  var xlstagePadding;
-  var xlmargin;
-  $(carouselTarget).each(function () {
-    // target definition
-    if ($(this).closest('.it-carousel-wrapper').hasClass('it-carousel-landscape-abstract-three-cols')) {
-      cnav = true;
-      cloop = false;
-      cmargin = 24;
-      citems = 3;
-      cnavText = [];
-      cnavSpeed = 300; //arrow click
-
-      csmartSpeed = 500; // bullet click
-
-      cdotsSpeed = 200;
-      ccontrolsAriaHidden = true;
-      cmouseDrag = true;
-      ctouchDrag = true;
-      cdots = false;
-      cslideBy = 'page';
-      cstagePadding = cstagePadding; // mobile params
-
-      mobnav = false;
-      mobdots = true;
-      mobitems = 1;
-      mobstagePadding = 40;
-      mobmargin = 24; // 768 params
-
-      tabnav = false;
-      tabdots = true;
-      tabitems = 2;
-      tabstagePadding = 40;
-      tabmargin = 24; // 992 params
-
-      desknav = false;
-      deskdots = true;
-      deskitems = 3;
-      deskstagePadding = 0;
-      deskmargin = 0; // xl params
-
-      xlnav = false;
-      xldots = true;
-      xlitems = 3;
-      xlstagePadding = 0;
-      xlmargin = 0; // carousel 3 col with shadow
-
-      if ($(this).hasClass('it-card-bg')) {
-        mobstagePadding = 40;
-        mobmargin = 24;
-        tabstagePadding = 40;
-        tabmargin = 24;
-        deskstagePadding = 12;
-        deskmargin = 24;
-        xlstagePadding = 12;
-        xlmargin = 24;
-      } // carousel 3 img card
-
-
-      if ($(this).hasClass('it-img-card')) {
-        mobstagePadding = 40;
-        mobmargin = 24;
-        tabstagePadding = 40;
-        tabmargin = 24;
-        deskstagePadding = 0;
-        deskmargin = 24;
-        xlstagePadding = 0;
-        xlmargin = 24;
-      } // carousel img big
-
-
-      if ($(this).hasClass('it-img-card') && $(this).hasClass('it-big-img')) {
-        cloop = true;
-        mobstagePadding = 0;
-        mobmargin = 0;
-        tabstagePadding = 160;
-        tabmargin = 24;
-        tabitems = 1;
-        deskstagePadding = 320;
-        deskmargin = 48;
-        deskitems = 1;
-        xlstagePadding = 320;
-        xlmargin = 48;
-        xlitems = 1;
-      } // standard img
-
-
-      if ($(this).hasClass('it-img-card') && $(this).hasClass('it-standard-image')) {
-        cloop = true;
-        mobstagePadding = 40;
-        mobmargin = 24;
-        mobitems = 1;
-        tabstagePadding = 48;
-        tabmargin = 24;
-        tabitems = 2;
-        deskstagePadding = 68;
-        deskmargin = 24;
-        deskitems = 3;
-        xlstagePadding = 48;
-        xlmargin = 24;
-        xlitems = 3;
-      }
-    } // Landscape abstract --------------------------------------------------------------------------
-
-
-    if ($(this).closest('.it-carousel-wrapper').hasClass('it-carousel-landscape-abstract')) {
-      cnav = true;
-      cloop = false;
-      cmargin = 24;
-      citems = 1;
-      cnavText = [];
-      cnavSpeed = 300; //arrow click
-
-      csmartSpeed = 500; // bullet click
-
-      cdotsSpeed = 200;
-      ccontrolsAriaHidden = true;
-      cmouseDrag = true;
-      ctouchDrag = true;
-      cdots = false;
-      cslideBy = 'page';
-      cstagePadding = cstagePadding; // mobile params
-
-      mobnav = false;
-      mobdots = true;
-      mobitems = 1;
-      mobstagePadding = 0;
-      mobmargin = 24; // 768 params
-
-      tabnav = false;
-      tabdots = true;
-      tabitems = 1;
-      tabstagePadding = 24;
-      tabmargin = 24; // 992 params
-
-      desknav = false;
-      deskdots = true;
-      deskitems = 1;
-      deskstagePadding = 0;
-      deskmargin = 0; // xl params
-
-      xlnav = false;
-      xldots = true;
-      xlitems = 1;
-      xlstagePadding = 0;
-      xlmargin = 0;
-    }
-
-    if ($(this).owlCarousel) {
-      //carousel settings//
-      $(this).owlCarousel({
-        //carousel parameters
-        nav: cnav,
-        loop: cloop,
-        margin: 24,
-        //cmargin
-        items: citems,
-        navText: cnavText,
-        navSpeed: cnavSpeed,
-        //arrow click
-        smartSpeed: csmartSpeed,
-        // bullet click
-        dotsSpeed: cdotsSpeed,
-        navElement: 'button',
-        dotElement: 'button',
-        controlsAriaHidden: ccontrolsAriaHidden,
-        mouseDrag: cmouseDrag,
-        touchDrag: ctouchDrag,
-        dots: cdots,
-        slideBy: cslideBy,
-        stagePadding: cstagePadding,
-        //cstagePadding,
-        responsive: {
-          // breakpoint from 0 up
-          0: {
-            nav: mobnav,
-            dots: mobdots,
-            items: mobitems,
-            stagePadding: mobstagePadding,
-            margin: mobmargin
-          },
-          // breakpoint from 768 up
-          768: {
-            nav: tabnav,
-            dots: tabdots,
-            stagePadding: tabstagePadding,
-            items: tabitems,
-            margin: tabmargin
-          },
-          // breakpoint from 992 up
-          992: {
-            nav: desknav,
-            dots: deskdots,
-            items: deskitems,
-            stagePadding: deskstagePadding,
-            margin: deskmargin
-          },
-          // breakpoint from 1200 up
-          1200: {
-            nav: xlnav,
-            dots: xldots,
-            stagePadding: xlstagePadding,
-            items: xlitems,
-            margin: xlmargin
-          }
-        }
-      });
-    }
-  });
-});
-
-/***/ }),
-/* 104 */,
-/* 105 */,
-/* 106 */
 /***/ (function(module, exports) {
 
 /**
@@ -65970,67 +64491,347 @@ $(function () {
 
 
 /***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 87 */
+/***/ (function(module, exports) {
 
-"use strict";
+function dimmerShow(target) {
+  if ($(target).css('display') != 'flex') {
+    $(target).css("display", "flex").hide().fadeIn(200);
+  }
+}
 
-
-$.fn.autocomplete = function (options) {
-  // Default options
-  var defaults = {
-    data: {}
-  };
-  var ENTER_CHAR_CODE = 13; // Get options
-
-  options = $.extend(defaults, options);
-  return this.each(function () {
-    // text input
-    var $input = $(this);
-    var $autocomplete = void 0; // assign data from options
-
-    var data = eval($(this).attr("data-db"));
-
-    if (Object.keys(data).length) {
-      $autocomplete = $('<ul class="autocomplete-list"></ul>');
-      $autocomplete.insertAfter($(this).next());
-    } // Listen if key was pressed
-
-
-    $input.on('keyup', function (e) {
-      // get value from input
-      var q = $input.val();
-      $autocomplete.empty(); // check if input isn't empty
-
-      if (q.length) {
-        for (var item in data) {
-          //get these values form json (TODO)
-          var optionText = data[item]; // from page array
-
-          var optionAvatar = '<div class="avatar size-sm"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Luisa Neri"></div>';
-          var optionIcon = '<svg class="icon icon-sm"><use xlink:href="/dist/svg/sprite.svg#it-file"></use></svg>';
-          var optionLabel = 'label';
-          var optionLink = '#'; //mark query text
-
-          var markText = new RegExp(optionText, 'gi');
-          optionText = optionText.replace(q, '<mark>' + q + '</mark>'); // check if item contains value that we're looking for
-
-          if (data[item].toLowerCase().indexOf(q.toLowerCase()) !== -1) {
-            //show list
-            $(this).closest('.form-group').find('.autocomplete-list').addClass('autocomplete-list-show');
-            var option = $('<li><a href="' + optionLink + '" >' + optionIcon + '<span class="autocomplete-list-text"><span>' + optionText + '</span><em>' + optionLabel + '</em></span></a></li>');
-            $autocomplete.append(option);
-          }
-        }
-      } else {
-        $(this).closest('.form-group').find('.autocomplete-list').removeClass('autocomplete-list-show');
-      }
-    });
-  });
-};
+function dimmerHide(target) {
+  $(target).fadeOut(200);
+}
 
 /***/ }),
-/* 108 */
+/* 88 */
+/***/ (function(module, exports) {
+
+$(function () {
+  var userAgent, ieReg, ie;
+  userAgent = window.navigator.userAgent;
+  ieReg = /msie|Trident.*rv[ :]*11\./gi;
+  ie = ieReg.test(userAgent);
+
+  if (ie) {
+    $('.img-wrapper').each(function () {
+      var $container = $(this),
+          imgUrl = $container.find('img').prop('src');
+
+      if (imgUrl) {
+        $container.css('backgroundImage', 'url(' + imgUrl + ')').addClass('custom-object-fit');
+      }
+    });
+  }
+});
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports) {
+
+(function (body) {
+  var usingMouse;
+
+  var preFocus = function preFocus(event) {
+    usingMouse = event.type === 'mousedown';
+  };
+
+  var addFocus = function addFocus(event) {
+    if (usingMouse) event.target.classList.add('focus--mouse');
+  };
+
+  var removeFocus = function removeFocus(event) {
+    event.target.classList.remove('focus--mouse');
+  };
+
+  var bindEvents = function bindEvents() {
+    body.addEventListener('keydown', preFocus);
+    body.addEventListener('mousedown', preFocus);
+    body.addEventListener('focusin', addFocus);
+    body.addEventListener('focusout', removeFocus);
+  };
+
+  bindEvents();
+})(document.body);
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports) {
+
+$(function () {
+  var carouselTarget = $('.owl-carousel'); // parameters
+
+  var cnav;
+  var cloop;
+  var cmargin;
+  var citems;
+  var cnavText;
+  var cnavSpeed; //arrow click
+
+  var csmartSpeed; // bullet click
+
+  var cdotsSpeed;
+  var ccontrolsAriaHidden;
+  var cmouseDrag;
+  var ctouchDrag;
+  var cdots;
+  var cslideBy;
+  var cstagePadding; // mobile params
+
+  var mobnav;
+  var mobdots;
+  var mobitems;
+  var mobstagePadding;
+  var mobmargin; // 768 params
+
+  var tabnav;
+  var tabdots;
+  var tabitems;
+  var tabstagePadding;
+  var tabmargin; // 992 params
+
+  var desknav;
+  var deskdots;
+  var deskitems;
+  var deskstagePadding;
+  var deskmargin; // xl params
+
+  var xlnav;
+  var xldots;
+  var xlitems;
+  var xlstagePadding;
+  var xlmargin;
+  $(carouselTarget).each(function () {
+    // target definition
+    if ($(this).closest('.it-carousel-wrapper').hasClass('it-carousel-landscape-abstract-three-cols')) {
+      cnav = true;
+      cloop = false;
+      cmargin = 24;
+      citems = 3;
+      cnavText = [];
+      cnavSpeed = 300; //arrow click
+
+      csmartSpeed = 500; // bullet click
+
+      cdotsSpeed = 200;
+      ccontrolsAriaHidden = true;
+      cmouseDrag = true;
+      ctouchDrag = true;
+      cdots = false;
+      cslideBy = 'page';
+      cstagePadding = cstagePadding; // mobile params
+
+      mobnav = false;
+      mobdots = true;
+      mobitems = 1;
+      mobstagePadding = 40;
+      mobmargin = 24; // 768 params
+
+      tabnav = false;
+      tabdots = true;
+      tabitems = 2;
+      tabstagePadding = 40;
+      tabmargin = 24; // 992 params
+
+      desknav = false;
+      deskdots = true;
+      deskitems = 3;
+      deskstagePadding = 0;
+      deskmargin = 0; // xl params
+
+      xlnav = false;
+      xldots = true;
+      xlitems = 3;
+      xlstagePadding = 0;
+      xlmargin = 0; // carousel 3 col with shadow
+
+      if ($(this).hasClass('it-card-bg')) {
+        mobstagePadding = 40;
+        mobmargin = 24;
+        tabstagePadding = 40;
+        tabmargin = 24;
+        deskstagePadding = 12;
+        deskmargin = 24;
+        xlstagePadding = 12;
+        xlmargin = 24;
+      } // carousel 3 img card
+
+
+      if ($(this).hasClass('it-img-card')) {
+        mobstagePadding = 40;
+        mobmargin = 24;
+        tabstagePadding = 40;
+        tabmargin = 24;
+        deskstagePadding = 0;
+        deskmargin = 24;
+        xlstagePadding = 0;
+        xlmargin = 24;
+      } // carousel img big
+
+
+      if ($(this).hasClass('it-img-card') && $(this).hasClass('it-big-img')) {
+        cloop = true;
+        mobstagePadding = 0;
+        mobmargin = 0;
+        tabstagePadding = 160;
+        tabmargin = 24;
+        tabitems = 1;
+        deskstagePadding = 320;
+        deskmargin = 48;
+        deskitems = 1;
+        xlstagePadding = 320;
+        xlmargin = 48;
+        xlitems = 1;
+      } // standard img
+
+
+      if ($(this).hasClass('it-img-card') && $(this).hasClass('it-standard-image')) {
+        cloop = true;
+        mobstagePadding = 40;
+        mobmargin = 24;
+        mobitems = 1;
+        tabstagePadding = 48;
+        tabmargin = 24;
+        tabitems = 2;
+        deskstagePadding = 68;
+        deskmargin = 24;
+        deskitems = 3;
+        xlstagePadding = 48;
+        xlmargin = 24;
+        xlitems = 3;
+      }
+    } // Landscape abstract --------------------------------------------------------------------------
+
+
+    if ($(this).closest('.it-carousel-wrapper').hasClass('it-carousel-landscape-abstract')) {
+      cnav = true;
+      cloop = false;
+      cmargin = 24;
+      citems = 1;
+      cnavText = [];
+      cnavSpeed = 300; //arrow click
+
+      csmartSpeed = 500; // bullet click
+
+      cdotsSpeed = 200;
+      ccontrolsAriaHidden = true;
+      cmouseDrag = true;
+      ctouchDrag = true;
+      cdots = false;
+      cslideBy = 'page';
+      cstagePadding = cstagePadding; // mobile params
+
+      mobnav = false;
+      mobdots = true;
+      mobitems = 1;
+      mobstagePadding = 0;
+      mobmargin = 24; // 768 params
+
+      tabnav = false;
+      tabdots = true;
+      tabitems = 1;
+      tabstagePadding = 24;
+      tabmargin = 24; // 992 params
+
+      desknav = false;
+      deskdots = true;
+      deskitems = 1;
+      deskstagePadding = 0;
+      deskmargin = 0; // xl params
+
+      xlnav = false;
+      xldots = true;
+      xlitems = 1;
+      xlstagePadding = 0;
+      xlmargin = 0;
+    }
+
+    if ($(this).owlCarousel) {
+      //carousel settings//
+      $(this).owlCarousel({
+        //carousel parameters
+        nav: cnav,
+        loop: cloop,
+        margin: 24,
+        //cmargin
+        items: citems,
+        navText: cnavText,
+        navSpeed: cnavSpeed,
+        //arrow click
+        smartSpeed: csmartSpeed,
+        // bullet click
+        dotsSpeed: cdotsSpeed,
+        navElement: 'button',
+        dotElement: 'button',
+        controlsAriaHidden: ccontrolsAriaHidden,
+        mouseDrag: cmouseDrag,
+        touchDrag: ctouchDrag,
+        dots: cdots,
+        slideBy: cslideBy,
+        stagePadding: cstagePadding,
+        //cstagePadding,
+        responsive: {
+          // breakpoint from 0 up
+          0: {
+            nav: mobnav,
+            dots: mobdots,
+            items: mobitems,
+            stagePadding: mobstagePadding,
+            margin: mobmargin
+          },
+          // breakpoint from 768 up
+          768: {
+            nav: tabnav,
+            dots: tabdots,
+            stagePadding: tabstagePadding,
+            items: tabitems,
+            margin: tabmargin
+          },
+          // breakpoint from 992 up
+          992: {
+            nav: desknav,
+            dots: deskdots,
+            items: deskitems,
+            stagePadding: deskstagePadding,
+            margin: deskmargin
+          },
+          // breakpoint from 1200 up
+          1200: {
+            nav: xlnav,
+            dots: xldots,
+            stagePadding: xlstagePadding,
+            items: xlitems,
+            margin: xlmargin
+          }
+        }
+      });
+    }
+  });
+});
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports) {
+
+$(function () {
+  $('.it-has-checkbox').on('click', function (event) {
+    var _target = $(this).find('input');
+
+    if ($(_target).prop('checked')) {
+      $(_target).prop('checked', false);
+      $(this).removeClass('active');
+    } else {
+      $(_target).prop('checked', true);
+      $(this).addClass('active');
+    }
+
+    event.preventDefault();
+  });
+});
+
+/***/ }),
+/* 92 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -66118,89 +64919,1537 @@ $(function () {
 });
 
 /***/ }),
-/* 109 */
-/***/ (function(module, exports) {
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
 
-$(function () {
-  $('.it-has-checkbox').on('click', function (event) {
-    var _target = $(this).find('input');
+"use strict";
 
-    if ($(_target).prop('checked')) {
-      $(_target).prop('checked', false);
-      $(this).removeClass('active');
-    } else {
-      $(_target).prop('checked', true);
-      $(this).addClass('active');
-    }
 
-    event.preventDefault();
+$.fn.autocomplete = function (options) {
+  // Default options
+  var defaults = {
+    data: {}
+  };
+  var ENTER_CHAR_CODE = 13; // Get options
+
+  options = $.extend(defaults, options);
+  return this.each(function () {
+    // text input
+    var $input = $(this);
+    var $autocomplete = void 0; // assign data from options
+
+    var data = eval($(this).attr("data-db"));
+
+    if (Object.keys(data).length) {
+      $autocomplete = $('<ul class="autocomplete-list"></ul>');
+      $autocomplete.insertAfter($(this).next());
+    } // Listen if key was pressed
+
+
+    $input.on('keyup', function (e) {
+      // get value from input
+      var q = $input.val();
+      $autocomplete.empty(); // check if input isn't empty
+
+      if (q.length) {
+        for (var item in data) {
+          //get these values form json (TODO)
+          var optionText = data[item]; // from page array
+
+          var optionAvatar = '<div class="avatar size-sm"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Luisa Neri"></div>';
+          var optionIcon = '<svg class="icon icon-sm"><use xlink:href="/dist/svg/sprite.svg#it-file"></use></svg>';
+          var optionLabel = 'label';
+          var optionLink = '#'; //mark query text
+
+          var markText = new RegExp(optionText, 'gi');
+          optionText = optionText.replace(q, '<mark>' + q + '</mark>'); // check if item contains value that we're looking for
+
+          if (data[item].toLowerCase().indexOf(q.toLowerCase()) !== -1) {
+            //show list
+            $(this).closest('.form-group').find('.autocomplete-list').addClass('autocomplete-list-show');
+            var option = $('<li><a href="' + optionLink + '" >' + optionIcon + '<span class="autocomplete-list-text"><span>' + optionText + '</span><em>' + optionLabel + '</em></span></a></li>');
+            $autocomplete.append(option);
+          }
+        }
+      } else {
+        $(this).closest('.form-group').find('.autocomplete-list').removeClass('autocomplete-list-show');
+      }
+    });
   });
+};
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "div",
+        {
+          staticClass:
+            "it-hero-wrapper it-primary it-overlay bg-gradient-primary pt-5 pt-md-0 mt-4 mt-md-0"
+        },
+        [
+          _c("div", { staticClass: "img-responsive-wrapper" }, [
+            _c("div", { staticClass: "img-responsive" }, [
+              _c("div", { staticClass: "img-wrapper" }, [
+                _c("img", {
+                  attrs: {
+                    src: "/images/bg-wave.png",
+                    title: "img title",
+                    alt: "imagealt"
+                  }
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("div", { staticClass: "it-hero-text-wrapper bg-dark" }, [
+                  _c("h1", { staticClass: "no_toc" }, [
+                    _vm._v(
+                      "\n                            Incessante, instancabile, senza mete e senza confini,\n                            senza vertigini e maestosa come un’aquila eterna\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "d-none d-lg-block" }, [
+                    _vm._v(
+                      "Il patrimonio di competenze, conoscenze e capacità del gruppo di esperti di EFG permette di elaborare strategie di sviluppo per i clienti, secondo specifiche esigenze, con soluzioni appropriate al mercato di riferimento ed ai relativi contesti sociali, economici, finanziari, istituzionali ed ambientali. Per affrontare le criticità e governare il cambiamento è necessario adeguare la strategia aziendale o quella territoriale alle nuove condizioni di mercato, attraverso un approccio multidisciplinare. In un mercato in rapida evoluzione la velocità di adeguarsi al cambiamento rappresenta un vantaggio competitivo. Gli strumenti di analisi e le valutazioni di professionisti qualificati sono indispensabili per la trasformazione delle criticità esistenti in vantaggi competitivi."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "it-btn-container" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm btn-outline-primary",
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v("Contattaci")]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "container pb-5 px-3 px-md-0" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 py-5" }, [
+            _c("h1", { staticClass: "mt-5 pb-5 text-center text-md-left" }, [
+              _vm._v("Le chiavi del successo")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "it-list-wrapper" }, [
+              _c("ul", { staticClass: "it-list" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [
+                        _vm._v("Vantaggi Competitivi")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [
+                        _vm._v("Coinvolgimento Emotivo")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [
+                        _vm._v("Entusiasmo")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [_vm._v("Squadra")])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [
+                        _vm._v("Concretezza")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [
+                        _vm._v("Creazione di Valore")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [
+                        _vm._v("Professionalità")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [_vm._v("Successo")])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [
+                        _vm._v("Innovazione")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [_vm._v("Idee")])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [_vm._v("Strategie")])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("div", { staticClass: "it-right-zone" }, [
+                      _c("span", { staticClass: "text" }, [
+                        _vm._v("Condivisione")
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container-fluid bg-primary bg-gradient-primary pb-5" },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12 py-5" }, [
+                _c(
+                  "h1",
+                  {
+                    staticClass: "mt-5 pb-5 text-white text-center text-md-left"
+                  },
+                  [_vm._v("Il valore aggiunto")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("div", { staticClass: "card-wrapper card-space" }, [
+                      _c("div", { staticClass: "card card-bg card-big" }, [
+                        _c("div", { staticClass: "flag-icon" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(
+                              "EFG mette a disposizione del cliente professionalità e consolidata esperienza"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                            oltre che la propria rete di contatti e conoscenze: strumento indispensabile e proficuo per entrare nel vivo delle dinamiche commerciali e penetrare efficacemente il mercato obiettivo.\n                                        "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("div", { staticClass: "card-wrapper card-space" }, [
+                      _c("div", { staticClass: "card card-bg card-big" }, [
+                        _c("div", { staticClass: "flag-icon" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(
+                              "EFG elabora con i clienti innovative strategie di marketing"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                            per conseguire concretamente gli obiettivi individuati.\n                                        "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("div", { staticClass: "card-wrapper card-space" }, [
+                      _c("div", { staticClass: "card card-bg card-big" }, [
+                        _c("div", { staticClass: "flag-icon" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(
+                              "EFG infonde entusiasmo all'azienda cliente intesa nella sua interezza"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                            in modo da pervadere l'ambiente interno ed esterno.\n                                        "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("div", { staticClass: "card-wrapper card-space" }, [
+                      _c("div", { staticClass: "card card-bg card-big" }, [
+                        _c("div", { staticClass: "flag-icon" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(
+                              "EFG offre ai propri clienti assistenza costante"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                            durante tutta la fase di realizzazione della strategia elaborata, con frequenti confronti con il management dell'azienda cliente.\n                                        "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("div", { staticClass: "card-wrapper card-space" }, [
+                      _c("div", { staticClass: "card card-bg card-big" }, [
+                        _c("div", { staticClass: "flag-icon" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(
+                              "EFG effettua un'attenta azione di monitoraggio"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                            per poter verificare i risultati ottenuti e individuare le criticità latenti, intervenendo con azioni correttive, qualora fosse necessario.\n                                        "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "container pb-5 px-3 px-md-0" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 py-5" }, [
+            _c("h1", { staticClass: "mt-5 pb-5 text-center text-md-left" }, [
+              _vm._v("Galleria")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "it-grid-list-wrapper" }, [
+              _c("div", { staticClass: "grid-row" }, [
+                _c("div", { staticClass: "col-6 col-lg-4" }, [
+                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("div", { staticClass: "img-responsive-wrapper" }, [
+                        _c("div", { staticClass: "img-responsive" }, [
+                          _c("div", { staticClass: "img-wrapper" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
+                                alt: "image Alt",
+                                title: "Image Title"
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6 col-lg-4" }, [
+                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("div", { staticClass: "img-responsive-wrapper" }, [
+                        _c("div", { staticClass: "img-responsive" }, [
+                          _c("div", { staticClass: "img-wrapper" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
+                                alt: "image Alt",
+                                title: "Image Title"
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6 col-lg-4" }, [
+                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("div", { staticClass: "img-responsive-wrapper" }, [
+                        _c("div", { staticClass: "img-responsive" }, [
+                          _c("div", { staticClass: "img-wrapper" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
+                                alt: "image Alt",
+                                title: "Image Title"
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6 col-lg-4" }, [
+                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("div", { staticClass: "img-responsive-wrapper" }, [
+                        _c("div", { staticClass: "img-responsive" }, [
+                          _c("div", { staticClass: "img-wrapper" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
+                                alt: "image Alt",
+                                title: "Image Title"
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6 col-lg-4" }, [
+                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("div", { staticClass: "img-responsive-wrapper" }, [
+                        _c("div", { staticClass: "img-responsive" }, [
+                          _c("div", { staticClass: "img-wrapper" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
+                                alt: "image Alt",
+                                title: "Image Title"
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6 col-lg-4" }, [
+                  _c("div", { staticClass: "it-grid-item-wrapper" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("div", { staticClass: "img-responsive-wrapper" }, [
+                        _c("div", { staticClass: "img-responsive" }, [
+                          _c("div", { staticClass: "img-wrapper" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "https://via.placeholder.com/660x300/ebebeb/808080/?text=Immagine",
+                                alt: "image Alt",
+                                title: "Image Title"
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container-fluid bg-primary bg-gradient-primary pb-5" },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12 py-5" }, [
+                _c(
+                  "h1",
+                  {
+                    staticClass: "mt-5 pb-5 text-white text-center text-md-left"
+                  },
+                  [_vm._v("News")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "it-carousel-wrapper it-carousel-landscape-abstract-three-cols"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "it-carousel-all owl-carousel it-card-bg"
+                      },
+                      [
+                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
+                          _c(
+                            "div",
+                            { staticClass: "card-wrapper card-space" },
+                            [
+                              _c("div", { staticClass: "card card-bg" }, [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("h5", { staticClass: "card-title" }, [
+                                    _vm._v(
+                                      "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "card-text" }, [
+                                    _vm._v(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "read-more",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("span", { staticClass: "text" }, [
+                                        _vm._v("Leggi di più")
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
+                          _c(
+                            "div",
+                            { staticClass: "card-wrapper card-space" },
+                            [
+                              _c("div", { staticClass: "card card-bg" }, [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("h5", { staticClass: "card-title" }, [
+                                    _vm._v(
+                                      "2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "card-text" }, [
+                                    _vm._v(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "read-more",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("span", { staticClass: "text" }, [
+                                        _vm._v("Leggi di più")
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
+                          _c(
+                            "div",
+                            { staticClass: "card-wrapper card-space" },
+                            [
+                              _c("div", { staticClass: "card card-bg" }, [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("h5", { staticClass: "card-title" }, [
+                                    _vm._v(
+                                      "3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "card-text" }, [
+                                    _vm._v(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "read-more",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("span", { staticClass: "text" }, [
+                                        _vm._v("Leggi di più")
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
+                          _c(
+                            "div",
+                            { staticClass: "card-wrapper card-space" },
+                            [
+                              _c("div", { staticClass: "card card-bg" }, [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("h5", { staticClass: "card-title" }, [
+                                    _vm._v(
+                                      "4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "card-text" }, [
+                                    _vm._v(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "read-more",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("span", { staticClass: "text" }, [
+                                        _vm._v("Leggi di più")
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
+                          _c(
+                            "div",
+                            { staticClass: "card-wrapper card-space" },
+                            [
+                              _c("div", { staticClass: "card card-bg" }, [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("h5", { staticClass: "card-title" }, [
+                                    _vm._v(
+                                      "4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "card-text" }, [
+                                    _vm._v(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "read-more",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("span", { staticClass: "text" }, [
+                                        _vm._v("Leggi di più")
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
+                          _c(
+                            "div",
+                            { staticClass: "card-wrapper card-space" },
+                            [
+                              _c("div", { staticClass: "card card-bg" }, [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("h5", { staticClass: "card-title" }, [
+                                    _vm._v(
+                                      "4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "card-text" }, [
+                                    _vm._v(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "read-more",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("span", { staticClass: "text" }, [
+                                        _vm._v("Leggi di più")
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "it-single-slide-wrapper" }, [
+                          _c(
+                            "div",
+                            { staticClass: "card-wrapper card-space" },
+                            [
+                              _c("div", { staticClass: "card card-bg" }, [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("h5", { staticClass: "card-title" }, [
+                                    _vm._v(
+                                      "4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "card-text" }, [
+                                    _vm._v(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "read-more",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("span", { staticClass: "text" }, [
+                                        _vm._v("Leggi di più")
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "container pb-5 px-4 px-md-0" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 py-5" }, [
+            _c("h1", { staticClass: "mt-5 pb-5 text-center text-md-center" }, [
+              _vm._v("Contatti")
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col mr-4" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "formNome" }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "formNome" } }, [_vm._v("Nome")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "formCognome" }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "formCognome" } }, [
+                    _vm._v("Cognome")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col" }, [
+                  _c("textarea", {
+                    staticClass: "form-control",
+                    attrs: { rows: "8", cols: "80", id: "forMessage" }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "forMessage" } }, [
+                    _vm._v("Messaggio")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col pt-0" }, [
+                  _c("div", { staticClass: "form-check mt-0" }, [
+                    _c("input", {
+                      attrs: { id: "checkbox1", type: "checkbox" }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "checkbox1" } }, [
+                      _vm._v("Accetto il trattamento dei dati personali")
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "btn btn-outline-primary btn-block d-md-none",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Invia")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-primary d-none d-md-block",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Invia")]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("footer", { staticClass: "container-fluid bg-light d-md-none" }, [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            {
+              staticClass: "row py-5 justify-content-center align-items-center"
+            },
+            [
+              _c("div", { staticClass: "col" }, [
+                _c("p", { staticClass: "text-center p-0 m-0 text-muted" }, [
+                  _c("b", [_vm._v("EFG Consulting Srl")]),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("small", [
+                    _vm._v(
+                      "\n                                Torre Velasca - Piazza Velasca, 5"
+                    ),
+                    _c("br"),
+                    _vm._v("\n                                20122 MILANO"),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                                Tel. +39 02 26950309"
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                                fax 02 72004567\n                            "
+                    )
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "footer",
+        { staticClass: "container-fluid bg-light d-none d-md-block" },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row py-5 justify-content-center align-items-center"
+              },
+              [
+                _c("div", { staticClass: "col" }, [
+                  _c("p", { staticClass: "text-center p-0 m-0 text-muted" }, [
+                    _c("small", [
+                      _vm._v(
+                        "\n                            EFG Consulting Srl - Torre Velasca | Piazza Velasca, 5 | 20122 MILANO - Tel. +39 02 26950309 | fax 02 72004567\n                        "
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-63cd6604", module.exports)
+  }
+}
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(96)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(98)
+/* template */
+var __vue_template__ = __webpack_require__(104)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/containers/MainTemplate.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2fa6537c", Component.options)
+  } else {
+    hotAPI.reload("data-v-2fa6537c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(97);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("202118f3", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2fa6537c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainTemplate.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2fa6537c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainTemplate.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 98 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MainNav_vue__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__MainNav_vue__);
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'MainTemplate',
+  components: {
+    MainNav: __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default.a
+  }
 });
 
 /***/ }),
-/* 110 */
-/***/ (function(module, exports) {
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
 
-(function (body) {
-  var usingMouse;
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(100)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(102)
+/* template */
+var __vue_template__ = __webpack_require__(103)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/containers/MainNav.vue"
 
-  var preFocus = function preFocus(event) {
-    usingMouse = event.type === 'mousedown';
-  };
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-52f5dfea", Component.options)
+  } else {
+    hotAPI.reload("data-v-52f5dfea", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
 
-  var addFocus = function addFocus(event) {
-    if (usingMouse) event.target.classList.add('focus--mouse');
-  };
+module.exports = Component.exports
 
-  var removeFocus = function removeFocus(event) {
-    event.target.classList.remove('focus--mouse');
-  };
-
-  var bindEvents = function bindEvents() {
-    body.addEventListener('keydown', preFocus);
-    body.addEventListener('mousedown', preFocus);
-    body.addEventListener('focusin', addFocus);
-    body.addEventListener('focusout', removeFocus);
-  };
-
-  bindEvents();
-})(document.body);
 
 /***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(101);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("108e7ebc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-52f5dfea\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNav.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-52f5dfea\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNav.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** NEUTRAL 1 ****************************************/\n/***************************** NEUTRAL 2 ****************************************/\n/***************************** NEUTRAL 2 / 3 ****************************************/\n.primary-bg {\n  background-color: #0066cc;\n}\n.primary-color {\n  color: #0066cc;\n}\n.primary-border-color {\n  border-color: #0066cc !important;\n}\n.primary-border-color.border {\n    border-color: #0066cc !important;\n}\n.white-bg {\n  background-color: white;\n}\n.white-color {\n  color: white;\n}\n.white-border-color- {\n  border-color: white !important;\n}\n.white-border-color-.border {\n    border-color: white !important;\n}\n.primary-bg-a1 {\n  background-color: #bfdfff;\n}\n.primary-color-a1 {\n  color: #bfdfff;\n}\n.primary-border-color-a1 {\n  border-color: #bfdfff !important;\n}\n.primary-border-color-a1.border {\n    border-color: #bfdfff !important;\n}\n.primary-bg-a2 {\n  background-color: #93c4f5;\n}\n.primary-color-a2 {\n  color: #93c4f5;\n}\n.primary-border-color-a2 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-a2.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-a3 {\n  background-color: #6aaaeb;\n}\n.primary-color-a3 {\n  color: #6aaaeb;\n}\n.primary-border-color-a3 {\n  border-color: #6aaaeb !important;\n}\n.primary-border-color-a3.border {\n    border-color: #6aaaeb !important;\n}\n.primary-bg-a4 {\n  background-color: #4392e0;\n}\n.primary-color-a4 {\n  color: #4392e0;\n}\n.primary-border-color-a4 {\n  border-color: #4392e0 !important;\n}\n.primary-border-color-a4.border {\n    border-color: #4392e0 !important;\n}\n.primary-bg-a5 {\n  background-color: #207bd6;\n}\n.primary-color-a5 {\n  color: #207bd6;\n}\n.primary-border-color-a5 {\n  border-color: #207bd6 !important;\n}\n.primary-border-color-a5.border {\n    border-color: #207bd6 !important;\n}\n.primary-bg-a6 {\n  background-color: #0066cc;\n}\n.primary-color-a6 {\n  color: #0066cc;\n}\n.primary-border-color-a6 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-a6.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-a7 {\n  background-color: #0059b3;\n}\n.primary-color-a7 {\n  color: #0059b3;\n}\n.primary-border-color-a7 {\n  border-color: #0059b3 !important;\n}\n.primary-border-color-a7.border {\n    border-color: #0059b3 !important;\n}\n.primary-bg-a8 {\n  background-color: #004d99;\n}\n.primary-color-a8 {\n  color: #004d99;\n}\n.primary-border-color-a8 {\n  border-color: #004d99 !important;\n}\n.primary-border-color-a8.border {\n    border-color: #004d99 !important;\n}\n.primary-bg-a9 {\n  background-color: #004080;\n}\n.primary-color-a9 {\n  color: #004080;\n}\n.primary-border-color-a9 {\n  border-color: #004080 !important;\n}\n.primary-border-color-a9.border {\n    border-color: #004080 !important;\n}\n.primary-bg-a10 {\n  background-color: #003366;\n}\n.primary-color-a10 {\n  color: #003366;\n}\n.primary-border-color-a10 {\n  border-color: #003366 !important;\n}\n.primary-border-color-a10.border {\n    border-color: #003366 !important;\n}\n.primary-bg-a11 {\n  background-color: #00264d;\n}\n.primary-color-a11 {\n  color: #00264d;\n}\n.primary-border-color-a11 {\n  border-color: #00264d !important;\n}\n.primary-border-color-a11.border {\n    border-color: #00264d !important;\n}\n.primary-bg-a12 {\n  background-color: #001a33;\n}\n.primary-color-a12 {\n  color: #001a33;\n}\n.primary-border-color-a12 {\n  border-color: #001a33 !important;\n}\n.primary-border-color-a12.border {\n    border-color: #001a33 !important;\n}\n.primary-bg-b1 {\n  background-color: #0066cc;\n}\n.primary-color-b1 {\n  color: #0066cc;\n}\n.primary-border-color-b1 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-b1.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-b2 {\n  background-color: #1262b3;\n}\n.primary-color-b2 {\n  color: #1262b3;\n}\n.primary-border-color-b2 {\n  border-color: #1262b3 !important;\n}\n.primary-border-color-b2.border {\n    border-color: #1262b3 !important;\n}\n.primary-bg-b3 {\n  background-color: #1f5c99;\n}\n.primary-color-b3 {\n  color: #1f5c99;\n}\n.primary-border-color-b3 {\n  border-color: #1f5c99 !important;\n}\n.primary-border-color-b3.border {\n    border-color: #1f5c99 !important;\n}\n.primary-bg-b4 {\n  background-color: #265380;\n}\n.primary-color-b4 {\n  color: #265380;\n}\n.primary-border-color-b4 {\n  border-color: #265380 !important;\n}\n.primary-border-color-b4.border {\n    border-color: #265380 !important;\n}\n.primary-bg-b5 {\n  background-color: #294766;\n}\n.primary-color-b5 {\n  color: #294766;\n}\n.primary-border-color-b5 {\n  border-color: #294766 !important;\n}\n.primary-border-color-b5.border {\n    border-color: #294766 !important;\n}\n.primary-bg-b6 {\n  background-color: #26394d;\n}\n.primary-color-b6 {\n  color: #26394d;\n}\n.primary-border-color-b6 {\n  border-color: #26394d !important;\n}\n.primary-border-color-b6.border {\n    border-color: #26394d !important;\n}\n.primary-bg-b7 {\n  background-color: #1f2933;\n}\n.primary-color-b7 {\n  color: #1f2933;\n}\n.primary-border-color-b7 {\n  border-color: #1f2933 !important;\n}\n.primary-border-color-b7.border {\n    border-color: #1f2933 !important;\n}\n.primary-bg-b8 {\n  background-color: #12161a;\n}\n.primary-color-b8 {\n  color: #12161a;\n}\n.primary-border-color-b8 {\n  border-color: #12161a !important;\n}\n.primary-border-color-b8.border {\n    border-color: #12161a !important;\n}\n.primary-bg-c1 {\n  background-color: #dce9f5;\n}\n.primary-color-c1 {\n  color: #dce9f5;\n}\n.primary-border-color-c1 {\n  border-color: #dce9f5 !important;\n}\n.primary-border-color-c1.border {\n    border-color: #dce9f5 !important;\n}\n.primary-bg-c2 {\n  background-color: #c4dcf5;\n}\n.primary-color-c2 {\n  color: #c4dcf5;\n}\n.primary-border-color-c2 {\n  border-color: #c4dcf5 !important;\n}\n.primary-border-color-c2.border {\n    border-color: #c4dcf5 !important;\n}\n.primary-bg-c3 {\n  background-color: #abd0f5;\n}\n.primary-color-c3 {\n  color: #abd0f5;\n}\n.primary-border-color-c3 {\n  border-color: #abd0f5 !important;\n}\n.primary-border-color-c3.border {\n    border-color: #abd0f5 !important;\n}\n.primary-bg-c4 {\n  background-color: #93c4f5;\n}\n.primary-color-c4 {\n  color: #93c4f5;\n}\n.primary-border-color-c4 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-c4.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-c5 {\n  background-color: #7ab8f5;\n}\n.primary-color-c5 {\n  color: #7ab8f5;\n}\n.primary-border-color-c5 {\n  border-color: #7ab8f5 !important;\n}\n.primary-border-color-c5.border {\n    border-color: #7ab8f5 !important;\n}\n.primary-bg-c6 {\n  background-color: #62abf5;\n}\n.primary-color-c6 {\n  color: #62abf5;\n}\n.primary-border-color-c6 {\n  border-color: #62abf5 !important;\n}\n.primary-border-color-c6.border {\n    border-color: #62abf5 !important;\n}\n.primary-bg-c7 {\n  background-color: #499ff5;\n}\n.primary-color-c7 {\n  color: #499ff5;\n}\n.primary-border-color-c7 {\n  border-color: #499ff5 !important;\n}\n.primary-border-color-c7.border {\n    border-color: #499ff5 !important;\n}\n.primary-bg-c8 {\n  background-color: #3193f5;\n}\n.primary-color-c8 {\n  color: #3193f5;\n}\n.primary-border-color-c8 {\n  border-color: #3193f5 !important;\n}\n.primary-border-color-c8.border {\n    border-color: #3193f5 !important;\n}\n.primary-bg-c9 {\n  background-color: #1887f5;\n}\n.primary-color-c9 {\n  color: #1887f5;\n}\n.primary-border-color-c9 {\n  border-color: #1887f5 !important;\n}\n.primary-border-color-c9.border {\n    border-color: #1887f5 !important;\n}\n.primary-bg-c10 {\n  background-color: #007af5;\n}\n.primary-color-c10 {\n  color: #007af5;\n}\n.primary-border-color-c10 {\n  border-color: #007af5 !important;\n}\n.primary-border-color-c10.border {\n    border-color: #007af5 !important;\n}\n.primary-bg-c11 {\n  background-color: #0070e0;\n}\n.primary-color-c11 {\n  color: #0070e0;\n}\n.primary-border-color-c11 {\n  border-color: #0070e0 !important;\n}\n.primary-border-color-c11.border {\n    border-color: #0070e0 !important;\n}\n.primary-bg-c12 {\n  background-color: #0066cc;\n}\n.primary-color-c12 {\n  color: #0066cc;\n}\n.primary-border-color-c12 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-c12.border {\n    border-color: #0066cc !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-a1 {\n  background-color: #e7e6ff;\n}\n.analogue-1-color-a1 {\n  color: #e7e6ff;\n}\n.analogue-1-border-color-a1 {\n  border-color: #e7e6ff !important;\n}\n.analogue-1-border-color-a1.border {\n    border-color: #e7e6ff !important;\n}\n.analogue-1-bg-a2 {\n  background-color: #bbb8f5;\n}\n.analogue-1-color-a2 {\n  color: #bbb8f5;\n}\n.analogue-1-border-color-a2 {\n  border-color: #bbb8f5 !important;\n}\n.analogue-1-border-color-a2.border {\n    border-color: #bbb8f5 !important;\n}\n.analogue-1-bg-a3 {\n  background-color: #918deb;\n}\n.analogue-1-color-a3 {\n  color: #918deb;\n}\n.analogue-1-border-color-a3 {\n  border-color: #918deb !important;\n}\n.analogue-1-border-color-a3.border {\n    border-color: #918deb !important;\n}\n.analogue-1-bg-a4 {\n  background-color: #6b65e0;\n}\n.analogue-1-color-a4 {\n  color: #6b65e0;\n}\n.analogue-1-border-color-a4 {\n  border-color: #6b65e0 !important;\n}\n.analogue-1-border-color-a4.border {\n    border-color: #6b65e0 !important;\n}\n.analogue-1-bg-a5 {\n  background-color: #4840d6;\n}\n.analogue-1-color-a5 {\n  color: #4840d6;\n}\n.analogue-1-border-color-a5 {\n  border-color: #4840d6 !important;\n}\n.analogue-1-border-color-a5.border {\n    border-color: #4840d6 !important;\n}\n.analogue-1-bg-a6 {\n  background-color: #271fcc;\n}\n.analogue-1-color-a6 {\n  color: #271fcc;\n}\n.analogue-1-border-color-a6 {\n  border-color: #271fcc !important;\n}\n.analogue-1-border-color-a6.border {\n    border-color: #271fcc !important;\n}\n.analogue-1-bg-a7 {\n  background-color: #221bb3;\n}\n.analogue-1-color-a7 {\n  color: #221bb3;\n}\n.analogue-1-border-color-a7 {\n  border-color: #221bb3 !important;\n}\n.analogue-1-border-color-a7.border {\n    border-color: #221bb3 !important;\n}\n.analogue-1-bg-a8 {\n  background-color: #1d1799;\n}\n.analogue-1-color-a8 {\n  color: #1d1799;\n}\n.analogue-1-border-color-a8 {\n  border-color: #1d1799 !important;\n}\n.analogue-1-border-color-a8.border {\n    border-color: #1d1799 !important;\n}\n.analogue-1-bg-a9 {\n  background-color: #191380;\n}\n.analogue-1-color-a9 {\n  color: #191380;\n}\n.analogue-1-border-color-a9 {\n  border-color: #191380 !important;\n}\n.analogue-1-border-color-a9.border {\n    border-color: #191380 !important;\n}\n.analogue-1-bg-a10 {\n  background-color: #140f66;\n}\n.analogue-1-color-a10 {\n  color: #140f66;\n}\n.analogue-1-border-color-a10 {\n  border-color: #140f66 !important;\n}\n.analogue-1-border-color-a10.border {\n    border-color: #140f66 !important;\n}\n.analogue-1-bg-a11 {\n  background-color: #0f0b4d;\n}\n.analogue-1-color-a11 {\n  color: #0f0b4d;\n}\n.analogue-1-border-color-a11 {\n  border-color: #0f0b4d !important;\n}\n.analogue-1-border-color-a11.border {\n    border-color: #0f0b4d !important;\n}\n.analogue-1-bg-a12 {\n  background-color: #0a0833;\n}\n.analogue-1-color-a12 {\n  color: #0a0833;\n}\n.analogue-1-border-color-a12 {\n  border-color: #0a0833 !important;\n}\n.analogue-1-border-color-a12.border {\n    border-color: #0a0833 !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-a1 {\n  background-color: #ccfffd;\n}\n.analogue-2-color-a1 {\n  color: #ccfffd;\n}\n.analogue-2-border-color-a1 {\n  border-color: #ccfffd !important;\n}\n.analogue-2-border-color-a1.border {\n    border-color: #ccfffd !important;\n}\n.analogue-2-bg-a2 {\n  background-color: #9ff5f2;\n}\n.analogue-2-color-a2 {\n  color: #9ff5f2;\n}\n.analogue-2-border-color-a2 {\n  border-color: #9ff5f2 !important;\n}\n.analogue-2-border-color-a2.border {\n    border-color: #9ff5f2 !important;\n}\n.analogue-2-bg-a3 {\n  background-color: #75ebe7;\n}\n.analogue-2-color-a3 {\n  color: #75ebe7;\n}\n.analogue-2-border-color-a3 {\n  border-color: #75ebe7 !important;\n}\n.analogue-2-border-color-a3.border {\n    border-color: #75ebe7 !important;\n}\n.analogue-2-bg-a4 {\n  background-color: #4fe0dc;\n}\n.analogue-2-color-a4 {\n  color: #4fe0dc;\n}\n.analogue-2-border-color-a4 {\n  border-color: #4fe0dc !important;\n}\n.analogue-2-border-color-a4.border {\n    border-color: #4fe0dc !important;\n}\n.analogue-2-bg-a5 {\n  background-color: #2bd6d0;\n}\n.analogue-2-color-a5 {\n  color: #2bd6d0;\n}\n.analogue-2-border-color-a5 {\n  border-color: #2bd6d0 !important;\n}\n.analogue-2-border-color-a5.border {\n    border-color: #2bd6d0 !important;\n}\n.analogue-2-bg-a6 {\n  background-color: #0accc6;\n}\n.analogue-2-color-a6 {\n  color: #0accc6;\n}\n.analogue-2-border-color-a6 {\n  border-color: #0accc6 !important;\n}\n.analogue-2-border-color-a6.border {\n    border-color: #0accc6 !important;\n}\n.analogue-2-bg-a7 {\n  background-color: #09b3ad;\n}\n.analogue-2-color-a7 {\n  color: #09b3ad;\n}\n.analogue-2-border-color-a7 {\n  border-color: #09b3ad !important;\n}\n.analogue-2-border-color-a7.border {\n    border-color: #09b3ad !important;\n}\n.analogue-2-bg-a8 {\n  background-color: #089994;\n}\n.analogue-2-color-a8 {\n  color: #089994;\n}\n.analogue-2-border-color-a8 {\n  border-color: #089994 !important;\n}\n.analogue-2-border-color-a8.border {\n    border-color: #089994 !important;\n}\n.analogue-2-bg-a9 {\n  background-color: #06807b;\n}\n.analogue-2-color-a9 {\n  color: #06807b;\n}\n.analogue-2-border-color-a9 {\n  border-color: #06807b !important;\n}\n.analogue-2-border-color-a9.border {\n    border-color: #06807b !important;\n}\n.analogue-2-bg-a10 {\n  background-color: #056663;\n}\n.analogue-2-color-a10 {\n  color: #056663;\n}\n.analogue-2-border-color-a10 {\n  border-color: #056663 !important;\n}\n.analogue-2-border-color-a10.border {\n    border-color: #056663 !important;\n}\n.analogue-2-bg-a11 {\n  background-color: #044d4a;\n}\n.analogue-2-color-a11 {\n  color: #044d4a;\n}\n.analogue-2-border-color-a11 {\n  border-color: #044d4a !important;\n}\n.analogue-2-border-color-a11.border {\n    border-color: #044d4a !important;\n}\n.analogue-2-bg-a12 {\n  background-color: #033331;\n}\n.analogue-2-color-a12 {\n  color: #033331;\n}\n.analogue-2-border-color-a12 {\n  border-color: #033331 !important;\n}\n.analogue-2-border-color-a12.border {\n    border-color: #033331 !important;\n}\n.complementary-1-bg {\n  background-color: #f73e5a;\n}\n.complementary-1-color {\n  color: #ff9900;\n}\n.complementary-1-border-color- {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-a1 {\n  background-color: #fffcfd;\n}\n.complementary-1-color-a1 {\n  color: #fffcfd;\n}\n.complementary-1-border-color-a1 {\n  border-color: #fffcfd !important;\n}\n.complementary-1-border-color-a1.border {\n    border-color: #fffcfd !important;\n}\n.complementary-1-bg-a2 {\n  background-color: #f5d0d6;\n}\n.complementary-1-color-a2 {\n  color: #f5d0d6;\n}\n.complementary-1-border-color-a2 {\n  border-color: #f5d0d6 !important;\n}\n.complementary-1-border-color-a2.border {\n    border-color: #f5d0d6 !important;\n}\n.complementary-1-bg-a3 {\n  background-color: #eba4af;\n}\n.complementary-1-color-a3 {\n  color: #eba4af;\n}\n.complementary-1-border-color-a3 {\n  border-color: #eba4af !important;\n}\n.complementary-1-border-color-a3.border {\n    border-color: #eba4af !important;\n}\n.complementary-1-bg-a4 {\n  background-color: #e07b8b;\n}\n.complementary-1-color-a4 {\n  color: #e07b8b;\n}\n.complementary-1-border-color-a4 {\n  border-color: #e07b8b !important;\n}\n.complementary-1-border-color-a4.border {\n    border-color: #e07b8b !important;\n}\n.complementary-1-bg-a5 {\n  background-color: #d65669;\n}\n.complementary-1-color-a5 {\n  color: #d65669;\n}\n.complementary-1-border-color-a5 {\n  border-color: #d65669 !important;\n}\n.complementary-1-border-color-a5.border {\n    border-color: #d65669 !important;\n}\n.complementary-1-bg-a6 {\n  background-color: #cc334a;\n}\n.complementary-1-color-a6 {\n  color: #cc334a;\n}\n.complementary-1-border-color-a6 {\n  border-color: #cc334a !important;\n}\n.complementary-1-border-color-a6.border {\n    border-color: #cc334a !important;\n}\n.complementary-1-bg-a7 {\n  background-color: #b32d41;\n}\n.complementary-1-color-a7 {\n  color: #b32d41;\n}\n.complementary-1-border-color-a7 {\n  border-color: #b32d41 !important;\n}\n.complementary-1-border-color-a7.border {\n    border-color: #b32d41 !important;\n}\n.complementary-1-bg-a8 {\n  background-color: #992637;\n}\n.complementary-1-color-a8 {\n  color: #992637;\n}\n.complementary-1-border-color-a8 {\n  border-color: #992637 !important;\n}\n.complementary-1-border-color-a8.border {\n    border-color: #992637 !important;\n}\n.complementary-1-bg-a9 {\n  background-color: #80202e;\n}\n.complementary-1-color-a9 {\n  color: #80202e;\n}\n.complementary-1-border-color-a9 {\n  border-color: #80202e !important;\n}\n.complementary-1-border-color-a9.border {\n    border-color: #80202e !important;\n}\n.complementary-1-bg-a10 {\n  background-color: #661a25;\n}\n.complementary-1-color-a10 {\n  color: #661a25;\n}\n.complementary-1-border-color-a10 {\n  border-color: #661a25 !important;\n}\n.complementary-1-border-color-a10.border {\n    border-color: #661a25 !important;\n}\n.complementary-1-bg-a11 {\n  background-color: #4d131c;\n}\n.complementary-1-color-a11 {\n  color: #4d131c;\n}\n.complementary-1-border-color-a11 {\n  border-color: #4d131c !important;\n}\n.complementary-1-border-color-a11.border {\n    border-color: #4d131c !important;\n}\n.complementary-1-bg-a12 {\n  background-color: #330d12;\n}\n.complementary-1-color-a12 {\n  color: #330d12;\n}\n.complementary-1-border-color-a12 {\n  border-color: #330d12 !important;\n}\n.complementary-1-border-color-a12.border {\n    border-color: #330d12 !important;\n}\n.complementary-2-bg {\n  background-color: #ff9900;\n}\n.complementary-2-color {\n  color: #ff9900;\n}\n.complementary-2-border-color- {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-a1 {\n  background-color: #ffe6bf;\n}\n.complementary-2-color-a1 {\n  color: #ffe6bf;\n}\n.complementary-2-border-color-a1 {\n  border-color: #ffe6bf !important;\n}\n.complementary-2-border-color-a1.border {\n    border-color: #ffe6bf !important;\n}\n.complementary-2-bg-a2 {\n  background-color: #f5ce93;\n}\n.complementary-2-color-a2 {\n  color: #f5ce93;\n}\n.complementary-2-border-color-a2 {\n  border-color: #f5ce93 !important;\n}\n.complementary-2-border-color-a2.border {\n    border-color: #f5ce93 !important;\n}\n.complementary-2-bg-a3 {\n  background-color: #ebb76a;\n}\n.complementary-2-color-a3 {\n  color: #ebb76a;\n}\n.complementary-2-border-color-a3 {\n  border-color: #ebb76a !important;\n}\n.complementary-2-border-color-a3.border {\n    border-color: #ebb76a !important;\n}\n.complementary-2-bg-a4 {\n  background-color: #e0a243;\n}\n.complementary-2-color-a4 {\n  color: #e0a243;\n}\n.complementary-2-border-color-a4 {\n  border-color: #e0a243 !important;\n}\n.complementary-2-border-color-a4.border {\n    border-color: #e0a243 !important;\n}\n.complementary-2-bg-a5 {\n  background-color: #d68d20;\n}\n.complementary-2-color-a5 {\n  color: #d68d20;\n}\n.complementary-2-border-color-a5 {\n  border-color: #d68d20 !important;\n}\n.complementary-2-border-color-a5.border {\n    border-color: #d68d20 !important;\n}\n.complementary-2-bg-a6 {\n  background-color: #cc7a00;\n}\n.complementary-2-color-a6 {\n  color: #cc7a00;\n}\n.complementary-2-border-color-a6 {\n  border-color: #cc7a00 !important;\n}\n.complementary-2-border-color-a6.border {\n    border-color: #cc7a00 !important;\n}\n.complementary-2-bg-a7 {\n  background-color: #b36b00;\n}\n.complementary-2-color-a7 {\n  color: #b36b00;\n}\n.complementary-2-border-color-a7 {\n  border-color: #b36b00 !important;\n}\n.complementary-2-border-color-a7.border {\n    border-color: #b36b00 !important;\n}\n.complementary-2-bg-a8 {\n  background-color: #995c00;\n}\n.complementary-2-color-a8 {\n  color: #995c00;\n}\n.complementary-2-border-color-a8 {\n  border-color: #995c00 !important;\n}\n.complementary-2-border-color-a8.border {\n    border-color: #995c00 !important;\n}\n.complementary-2-bg-a9 {\n  background-color: #804d00;\n}\n.complementary-2-color-a9 {\n  color: #804d00;\n}\n.complementary-2-border-color-a9 {\n  border-color: #804d00 !important;\n}\n.complementary-2-border-color-a9.border {\n    border-color: #804d00 !important;\n}\n.complementary-2-bg-a10 {\n  background-color: #663d00;\n}\n.complementary-2-color-a10 {\n  color: #663d00;\n}\n.complementary-2-border-color-a10 {\n  border-color: #663d00 !important;\n}\n.complementary-2-border-color-a10.border {\n    border-color: #663d00 !important;\n}\n.complementary-2-bg-a11 {\n  background-color: #4d2e00;\n}\n.complementary-2-color-a11 {\n  color: #4d2e00;\n}\n.complementary-2-border-color-a11 {\n  border-color: #4d2e00 !important;\n}\n.complementary-2-border-color-a11.border {\n    border-color: #4d2e00 !important;\n}\n.complementary-2-bg-a12 {\n  background-color: #331f00;\n}\n.complementary-2-color-a12 {\n  color: #331f00;\n}\n.complementary-2-border-color-a12 {\n  border-color: #331f00 !important;\n}\n.complementary-2-border-color-a12.border {\n    border-color: #331f00 !important;\n}\n.complementary-3-bg {\n  background-color: #00cf86;\n}\n.complementary-3-color {\n  color: #00cf86;\n}\n.complementary-3-border-color- {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-a1 {\n  background-color: #bfffe9;\n}\n.complementary-3-color-a1 {\n  color: #bfffe9;\n}\n.complementary-3-border-color-a1 {\n  border-color: #bfffe9 !important;\n}\n.complementary-3-border-color-a1.border {\n    border-color: #bfffe9 !important;\n}\n.complementary-3-bg-a2 {\n  background-color: #93f5d3;\n}\n.complementary-3-color-a2 {\n  color: #93f5d3;\n}\n.complementary-3-border-color-a2 {\n  border-color: #93f5d3 !important;\n}\n.complementary-3-border-color-a2.border {\n    border-color: #93f5d3 !important;\n}\n.complementary-3-bg-a3 {\n  background-color: #6aebbd;\n}\n.complementary-3-color-a3 {\n  color: #6aebbd;\n}\n.complementary-3-border-color-a3 {\n  border-color: #6aebbd !important;\n}\n.complementary-3-border-color-a3.border {\n    border-color: #6aebbd !important;\n}\n.complementary-3-bg-a4 {\n  background-color: #43e0a9;\n}\n.complementary-3-color-a4 {\n  color: #43e0a9;\n}\n.complementary-3-border-color-a4 {\n  border-color: #43e0a9 !important;\n}\n.complementary-3-border-color-a4.border {\n    border-color: #43e0a9 !important;\n}\n.complementary-3-bg-a5 {\n  background-color: #20d696;\n}\n.complementary-3-color-a5 {\n  color: #20d696;\n}\n.complementary-3-border-color-a5 {\n  border-color: #20d696 !important;\n}\n.complementary-3-border-color-a5.border {\n    border-color: #20d696 !important;\n}\n.complementary-3-bg-a6 {\n  background-color: #00cc85;\n}\n.complementary-3-color-a6 {\n  color: #00cc85;\n}\n.complementary-3-border-color-a6 {\n  border-color: #00cc85 !important;\n}\n.complementary-3-border-color-a6.border {\n    border-color: #00cc85 !important;\n}\n.complementary-3-bg-a7 {\n  background-color: #00b374;\n}\n.complementary-3-color-a7 {\n  color: #00b374;\n}\n.complementary-3-border-color-a7 {\n  border-color: #00b374 !important;\n}\n.complementary-3-border-color-a7.border {\n    border-color: #00b374 !important;\n}\n.complementary-3-bg-a8 {\n  background-color: #009963;\n}\n.complementary-3-color-a8 {\n  color: #009963;\n}\n.complementary-3-border-color-a8 {\n  border-color: #009963 !important;\n}\n.complementary-3-border-color-a8.border {\n    border-color: #009963 !important;\n}\n.complementary-3-bg-a9 {\n  background-color: #008053;\n}\n.complementary-3-color-a9 {\n  color: #008053;\n}\n.complementary-3-border-color-a9 {\n  border-color: #008053 !important;\n}\n.complementary-3-border-color-a9.border {\n    border-color: #008053 !important;\n}\n.complementary-3-bg-a10 {\n  background-color: #006642;\n}\n.complementary-3-color-a10 {\n  color: #006642;\n}\n.complementary-3-border-color-a10 {\n  border-color: #006642 !important;\n}\n.complementary-3-border-color-a10.border {\n    border-color: #006642 !important;\n}\n.complementary-3-bg-a11 {\n  background-color: #004d32;\n}\n.complementary-3-color-a11 {\n  color: #004d32;\n}\n.complementary-3-border-color-a11 {\n  border-color: #004d32 !important;\n}\n.complementary-3-border-color-a11.border {\n    border-color: #004d32 !important;\n}\n.complementary-3-bg-a12 {\n  background-color: #003321;\n}\n.complementary-3-color-a12 {\n  color: #003321;\n}\n.complementary-3-border-color-a12 {\n  border-color: #003321 !important;\n}\n.complementary-3-border-color-a12.border {\n    border-color: #003321 !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b1 {\n  background-color: #3126ff;\n}\n.analogue-1-color-b1 {\n  color: #3126ff;\n}\n.analogue-1-border-color-b1 {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-b1.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b2 {\n  background-color: #4239e6;\n}\n.analogue-1-color-b2 {\n  color: #4239e6;\n}\n.analogue-1-border-color-b2 {\n  border-color: #4239e6 !important;\n}\n.analogue-1-border-color-b2.border {\n    border-color: #4239e6 !important;\n}\n.analogue-1-bg-b3 {\n  background-color: #4e47cc;\n}\n.analogue-1-color-b3 {\n  color: #4e47cc;\n}\n.analogue-1-border-color-b3 {\n  border-color: #4e47cc !important;\n}\n.analogue-1-border-color-b3.border {\n    border-color: #4e47cc !important;\n}\n.analogue-1-bg-b4 {\n  background-color: #5550b3;\n}\n.analogue-1-color-b4 {\n  color: #5550b3;\n}\n.analogue-1-border-color-b4 {\n  border-color: #5550b3 !important;\n}\n.analogue-1-border-color-b4.border {\n    border-color: #5550b3 !important;\n}\n.analogue-1-bg-b5 {\n  background-color: #585499;\n}\n.analogue-1-color-b5 {\n  color: #585499;\n}\n.analogue-1-border-color-b5 {\n  border-color: #585499 !important;\n}\n.analogue-1-border-color-b5.border {\n    border-color: #585499 !important;\n}\n.analogue-1-bg-b6 {\n  background-color: #555380;\n}\n.analogue-1-color-b6 {\n  color: #555380;\n}\n.analogue-1-border-color-b6 {\n  border-color: #555380 !important;\n}\n.analogue-1-border-color-b6.border {\n    border-color: #555380 !important;\n}\n.analogue-1-bg-b7 {\n  background-color: #4e4d66;\n}\n.analogue-1-color-b7 {\n  color: #4e4d66;\n}\n.analogue-1-border-color-b7 {\n  border-color: #4e4d66 !important;\n}\n.analogue-1-border-color-b7.border {\n    border-color: #4e4d66 !important;\n}\n.analogue-1-bg-b8 {\n  background-color: #42414d;\n}\n.analogue-1-color-b8 {\n  color: #42414d;\n}\n.analogue-1-border-color-b8 {\n  border-color: #42414d !important;\n}\n.analogue-1-border-color-b8.border {\n    border-color: #42414d !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b1 {\n  background-color: #0bd9d2;\n}\n.analogue-2-color-b1 {\n  color: #0bd9d2;\n}\n.analogue-2-border-color-b1 {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-b1.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b2 {\n  background-color: #1dbfba;\n}\n.analogue-2-color-b2 {\n  color: #1dbfba;\n}\n.analogue-2-border-color-b2 {\n  border-color: #1dbfba !important;\n}\n.analogue-2-border-color-b2.border {\n    border-color: #1dbfba !important;\n}\n.analogue-2-bg-b3 {\n  background-color: #29a6a2;\n}\n.analogue-2-color-b3 {\n  color: #29a6a2;\n}\n.analogue-2-border-color-b3 {\n  border-color: #29a6a2 !important;\n}\n.analogue-2-border-color-b3.border {\n    border-color: #29a6a2 !important;\n}\n.analogue-2-bg-b4 {\n  background-color: #318c89;\n}\n.analogue-2-color-b4 {\n  color: #318c89;\n}\n.analogue-2-border-color-b4 {\n  border-color: #318c89 !important;\n}\n.analogue-2-border-color-b4.border {\n    border-color: #318c89 !important;\n}\n.analogue-2-bg-b5 {\n  background-color: #347371;\n}\n.analogue-2-color-b5 {\n  color: #347371;\n}\n.analogue-2-border-color-b5 {\n  border-color: #347371 !important;\n}\n.analogue-2-border-color-b5.border {\n    border-color: #347371 !important;\n}\n.analogue-2-bg-b6 {\n  background-color: #315958;\n}\n.analogue-2-color-b6 {\n  color: #315958;\n}\n.analogue-2-border-color-b6 {\n  border-color: #315958 !important;\n}\n.analogue-2-border-color-b6.border {\n    border-color: #315958 !important;\n}\n.analogue-2-bg-b7 {\n  background-color: #29403f;\n}\n.analogue-2-color-b7 {\n  color: #29403f;\n}\n.analogue-2-border-color-b7 {\n  border-color: #29403f !important;\n}\n.analogue-2-border-color-b7.border {\n    border-color: #29403f !important;\n}\n.analogue-2-bg-b8 {\n  background-color: #1d2626;\n}\n.analogue-2-color-b8 {\n  color: #1d2626;\n}\n.analogue-2-border-color-b8 {\n  border-color: #1d2626 !important;\n}\n.analogue-2-border-color-b8.border {\n    border-color: #1d2626 !important;\n}\n.complementary-1-bg-b1 {\n  background-color: #f73e5a;\n}\n.complementary-1-color-b1 {\n  color: #f73e5a;\n}\n.complementary-1-border-color-b1 {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-b1.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-b2 {\n  background-color: #de4e63;\n}\n.complementary-1-color-b2 {\n  color: #de4e63;\n}\n.complementary-1-border-color-b2 {\n  border-color: #de4e63 !important;\n}\n.complementary-1-border-color-b2.border {\n    border-color: #de4e63 !important;\n}\n.complementary-1-bg-b3 {\n  background-color: #c45869;\n}\n.complementary-1-color-b3 {\n  color: #c45869;\n}\n.complementary-1-border-color-b3 {\n  border-color: #c45869 !important;\n}\n.complementary-1-border-color-b3.border {\n    border-color: #c45869 !important;\n}\n.complementary-1-bg-b4 {\n  background-color: #ab5e69;\n}\n.complementary-1-color-b4 {\n  color: #ab5e69;\n}\n.complementary-1-border-color-b4 {\n  border-color: #ab5e69 !important;\n}\n.complementary-1-border-color-b4.border {\n    border-color: #ab5e69 !important;\n}\n.complementary-1-bg-b5 {\n  background-color: #915e66;\n}\n.complementary-1-color-b5 {\n  color: #915e66;\n}\n.complementary-1-border-color-b5 {\n  border-color: #915e66 !important;\n}\n.complementary-1-border-color-b5.border {\n    border-color: #915e66 !important;\n}\n.complementary-1-bg-b6 {\n  background-color: #785a5e;\n}\n.complementary-1-color-b6 {\n  color: #785a5e;\n}\n.complementary-1-border-color-b6 {\n  border-color: #785a5e !important;\n}\n.complementary-1-border-color-b6.border {\n    border-color: #785a5e !important;\n}\n.complementary-1-bg-b7 {\n  background-color: #5e5052;\n}\n.complementary-1-color-b7 {\n  color: #5e5052;\n}\n.complementary-1-border-color-b7 {\n  border-color: #5e5052 !important;\n}\n.complementary-1-border-color-b7.border {\n    border-color: #5e5052 !important;\n}\n.complementary-1-bg-b8 {\n  background-color: #454142;\n}\n.complementary-1-color-b8 {\n  color: #454142;\n}\n.complementary-1-border-color-b8 {\n  border-color: #454142 !important;\n}\n.complementary-1-border-color-b8.border {\n    border-color: #454142 !important;\n}\n.complementary-2-bg-b1 {\n  background-color: #ff9900;\n}\n.complementary-2-color-b1 {\n  color: #ff9900;\n}\n.complementary-2-border-color-b1 {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-b1.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-b2 {\n  background-color: #e69317;\n}\n.complementary-2-color-b2 {\n  color: #e69317;\n}\n.complementary-2-border-color-b2 {\n  border-color: #e69317 !important;\n}\n.complementary-2-border-color-b2.border {\n    border-color: #e69317 !important;\n}\n.complementary-2-bg-b3 {\n  background-color: #cc8b29;\n}\n.complementary-2-color-b3 {\n  color: #cc8b29;\n}\n.complementary-2-border-color-b3 {\n  border-color: #cc8b29 !important;\n}\n.complementary-2-border-color-b3.border {\n    border-color: #cc8b29 !important;\n}\n.complementary-2-bg-b4 {\n  background-color: #b38136;\n}\n.complementary-2-color-b4 {\n  color: #b38136;\n}\n.complementary-2-border-color-b4 {\n  border-color: #b38136 !important;\n}\n.complementary-2-border-color-b4.border {\n    border-color: #b38136 !important;\n}\n.complementary-2-bg-b5 {\n  background-color: #99743d;\n}\n.complementary-2-color-b5 {\n  color: #99743d;\n}\n.complementary-2-border-color-b5 {\n  border-color: #99743d !important;\n}\n.complementary-2-border-color-b5.border {\n    border-color: #99743d !important;\n}\n.complementary-2-bg-b6 {\n  background-color: #806640;\n}\n.complementary-2-color-b6 {\n  color: #806640;\n}\n.complementary-2-border-color-b6 {\n  border-color: #806640 !important;\n}\n.complementary-2-border-color-b6.border {\n    border-color: #806640 !important;\n}\n.complementary-2-bg-b7 {\n  background-color: #66563d;\n}\n.complementary-2-color-b7 {\n  color: #66563d;\n}\n.complementary-2-border-color-b7 {\n  border-color: #66563d !important;\n}\n.complementary-2-border-color-b7.border {\n    border-color: #66563d !important;\n}\n.complementary-2-bg-b8 {\n  background-color: #4d4336;\n}\n.complementary-2-color-b8 {\n  color: #4d4336;\n}\n.complementary-2-border-color-b8 {\n  border-color: #4d4336 !important;\n}\n.complementary-2-border-color-b8.border {\n    border-color: #4d4336 !important;\n}\n.complementary-3-bg-b1 {\n  background-color: #00cf86;\n}\n.complementary-3-color-b1 {\n  color: #00cf86;\n}\n.complementary-3-border-color-b1 {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-b1.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-b2 {\n  background-color: #12b57c;\n}\n.complementary-3-color-b2 {\n  color: #12b57c;\n}\n.complementary-3-border-color-b2 {\n  border-color: #12b57c !important;\n}\n.complementary-3-border-color-b2.border {\n    border-color: #12b57c !important;\n}\n.complementary-3-bg-b3 {\n  background-color: #1f9c70;\n}\n.complementary-3-color-b3 {\n  color: #1f9c70;\n}\n.complementary-3-border-color-b3 {\n  border-color: #1f9c70 !important;\n}\n.complementary-3-border-color-b3.border {\n    border-color: #1f9c70 !important;\n}\n.complementary-3-bg-b4 {\n  background-color: #278262;\n}\n.complementary-3-color-b4 {\n  color: #278262;\n}\n.complementary-3-border-color-b4 {\n  border-color: #278262 !important;\n}\n.complementary-3-border-color-b4.border {\n    border-color: #278262 !important;\n}\n.complementary-3-bg-b5 {\n  background-color: #2a6953;\n}\n.complementary-3-color-b5 {\n  color: #2a6953;\n}\n.complementary-3-border-color-b5 {\n  border-color: #2a6953 !important;\n}\n.complementary-3-border-color-b5.border {\n    border-color: #2a6953 !important;\n}\n.complementary-3-bg-b6 {\n  background-color: #284f41;\n}\n.complementary-3-color-b6 {\n  color: #284f41;\n}\n.complementary-3-border-color-b6 {\n  border-color: #284f41 !important;\n}\n.complementary-3-border-color-b6.border {\n    border-color: #284f41 !important;\n}\n.complementary-3-bg-b7 {\n  background-color: #20362e;\n}\n.complementary-3-color-b7 {\n  color: #20362e;\n}\n.complementary-3-border-color-b7 {\n  border-color: #20362e !important;\n}\n.complementary-3-border-color-b7.border {\n    border-color: #20362e !important;\n}\n.complementary-3-bg-b8 {\n  background-color: #141c19;\n}\n.complementary-3-color-b8 {\n  color: #141c19;\n}\n.complementary-3-border-color-b8 {\n  border-color: #141c19 !important;\n}\n.complementary-3-border-color-b8.border {\n    border-color: #141c19 !important;\n}\n.neutral-1-bg {\n  background-color: #17324d;\n}\n.neutral-1-color {\n  color: #17324d;\n}\n.neutral-1-border-color- {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-.border {\n    border-color: #17324d !important;\n}\n.neutral-1-bg-a1 {\n  background-color: #ebeced;\n}\n.neutral-1-color-a1 {\n  color: #ebeced;\n}\n.neutral-1-border-color-a1 {\n  border-color: #ebeced !important;\n}\n.neutral-1-border-color-a1.border {\n    border-color: #ebeced !important;\n}\n.neutral-1-bg-a2 {\n  background-color: #d9dadb;\n}\n.neutral-1-color-a2 {\n  color: #d9dadb;\n}\n.neutral-1-border-color-a2 {\n  border-color: #d9dadb !important;\n}\n.neutral-1-border-color-a2.border {\n    border-color: #d9dadb !important;\n}\n.neutral-1-bg-a3 {\n  background-color: #c5c7c9;\n}\n.neutral-1-color-a3 {\n  color: #c5c7c9;\n}\n.neutral-1-border-color-a3 {\n  border-color: #c5c7c9 !important;\n}\n.neutral-1-border-color-a3.border {\n    border-color: #c5c7c9 !important;\n}\n.neutral-1-bg-a4 {\n  background-color: #adb2b8;\n}\n.neutral-1-color-a4 {\n  color: #adb2b8;\n}\n.neutral-1-border-color-a4 {\n  border-color: #adb2b8 !important;\n}\n.neutral-1-border-color-a4.border {\n    border-color: #adb2b8 !important;\n}\n.neutral-1-bg-a5 {\n  background-color: #959da6;\n}\n.neutral-1-color-a5 {\n  color: #959da6;\n}\n.neutral-1-border-color-a5 {\n  border-color: #959da6 !important;\n}\n.neutral-1-border-color-a5.border {\n    border-color: #959da6 !important;\n}\n.neutral-1-bg-a6 {\n  background-color: #768594;\n}\n.neutral-1-color-a6 {\n  color: #768594;\n}\n.neutral-1-border-color-a6 {\n  border-color: #768594 !important;\n}\n.neutral-1-border-color-a6.border {\n    border-color: #768594 !important;\n}\n.neutral-1-bg-a7 {\n  background-color: #5b6f82;\n}\n.neutral-1-color-a7 {\n  color: #5b6f82;\n}\n.neutral-1-border-color-a7 {\n  border-color: #5b6f82 !important;\n}\n.neutral-1-border-color-a7.border {\n    border-color: #5b6f82 !important;\n}\n.neutral-1-bg-a8 {\n  background-color: #435a70;\n}\n.neutral-1-color-a8 {\n  color: #435a70;\n}\n.neutral-1-border-color-a8 {\n  border-color: #435a70 !important;\n}\n.neutral-1-border-color-a8.border {\n    border-color: #435a70 !important;\n}\n.neutral-1-bg-a9 {\n  background-color: #2f475e;\n}\n.neutral-1-color-a9 {\n  color: #2f475e;\n}\n.neutral-1-border-color-a9 {\n  border-color: #2f475e !important;\n}\n.neutral-1-border-color-a9.border {\n    border-color: #2f475e !important;\n}\n.neutral-1-bg-a10 {\n  background-color: #17324d;\n}\n.neutral-1-color-a10 {\n  color: #17324d;\n}\n.neutral-1-border-color-a10 {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-a10.border {\n    border-color: #17324d !important;\n}\n.neutral-2-bg {\n  background-color: #e6ecf2;\n}\n.neutral-2-color {\n  color: #e6ecf2;\n}\n.neutral-2-border-color- {\n  border-color: #e6ecf2;\n}\n.neutral-2-bg-b1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-b1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-b1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-b1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-b2 {\n  background-color: #c2c7cc;\n}\n.neutral-2-color-b2 {\n  color: #c2c7cc;\n}\n.neutral-2-border-color-b2 {\n  border-color: #c2c7cc !important;\n}\n.neutral-2-border-color-b2.border {\n    border-color: #c2c7cc !important;\n}\n.neutral-2-bg-b3 {\n  background-color: #9da2a6;\n}\n.neutral-2-color-b3 {\n  color: #9da2a6;\n}\n.neutral-2-border-color-b3 {\n  border-color: #9da2a6 !important;\n}\n.neutral-2-border-color-b3.border {\n    border-color: #9da2a6 !important;\n}\n.neutral-2-bg-b4 {\n  background-color: #797c80;\n}\n.neutral-2-color-b4 {\n  color: #797c80;\n}\n.neutral-2-border-color-b4 {\n  border-color: #797c80 !important;\n}\n.neutral-2-border-color-b4.border {\n    border-color: #797c80 !important;\n}\n.neutral-2-bg-b5 {\n  background-color: #565759;\n}\n.neutral-2-color-b5 {\n  color: #565759;\n}\n.neutral-2-border-color-b5 {\n  border-color: #565759 !important;\n}\n.neutral-2-border-color-b5.border {\n    border-color: #565759 !important;\n}\n.neutral-2-bg-b6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-b6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-b6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-b6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-b7 {\n  background-color: #0c0c0d;\n}\n.neutral-2-color-b7 {\n  color: #0c0c0d;\n}\n.neutral-2-border-color-b7 {\n  border-color: #0c0c0d !important;\n}\n.neutral-2-border-color-b7.border {\n    border-color: #0c0c0d !important;\n}\n.neutral-2-bg-a1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-a1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-a1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-a1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-a2 {\n  background-color: #bcc4cc;\n}\n.neutral-2-color-a2 {\n  color: #bcc4cc;\n}\n.neutral-2-border-color-a2 {\n  border-color: #bcc4cc !important;\n}\n.neutral-2-border-color-a2.border {\n    border-color: #bcc4cc !important;\n}\n.neutral-2-bg-a3 {\n  background-color: #9aa0a6;\n}\n.neutral-2-color-a3 {\n  color: #9aa0a6;\n}\n.neutral-2-border-color-a3 {\n  border-color: #9aa0a6 !important;\n}\n.neutral-2-border-color-a3.border {\n    border-color: #9aa0a6 !important;\n}\n.neutral-2-bg-a4 {\n  background-color: #777b80;\n}\n.neutral-2-color-a4 {\n  color: #777b80;\n}\n.neutral-2-border-color-a4 {\n  border-color: #777b80 !important;\n}\n.neutral-2-border-color-a4.border {\n    border-color: #777b80 !important;\n}\n.neutral-2-bg-a5 {\n  background-color: #535659;\n}\n.neutral-2-color-a5 {\n  color: #535659;\n}\n.neutral-2-border-color-a5 {\n  border-color: #535659 !important;\n}\n.neutral-2-border-color-a5.border {\n    border-color: #535659 !important;\n}\n.neutral-2-bg-a6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-a6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-a6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-a6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-a7 {\n  background-color: #17181a;\n}\n.neutral-2-color-a7 {\n  color: #17181a;\n}\n.neutral-2-border-color-a7 {\n  border-color: #17181a !important;\n}\n.neutral-2-border-color-a7.border {\n    border-color: #17181a !important;\n}\n.lightgrey-bg-a1 {\n  background-color: #E8F2FC;\n}\n.lightgrey-color-a1 {\n  color: #E8F2FC;\n}\n.lightgrey-border-color-a1 {\n  border-color: #E8F2FC !important;\n}\n.lightgrey-border-color-a1.border {\n    border-color: #E8F2FC !important;\n}\n.lightgrey-bg-a2 {\n  background-color: #EDF5FC;\n}\n.lightgrey-color-a2 {\n  color: #EDF5FC;\n}\n.lightgrey-border-color-a2 {\n  border-color: #EDF5FC !important;\n}\n.lightgrey-border-color-a2.border {\n    border-color: #EDF5FC !important;\n}\n.lightgrey-bg-a3 {\n  background-color: #F2F7FC;\n}\n.lightgrey-color-a3 {\n  color: #F2F7FC;\n}\n.lightgrey-border-color-a3 {\n  border-color: #F2F7FC !important;\n}\n.lightgrey-border-color-a3.border {\n    border-color: #F2F7FC !important;\n}\n.lightgrey-bg-a4 {\n  background-color: #F5F9FC;\n}\n.lightgrey-color-a4 {\n  color: #F5F9FC;\n}\n.lightgrey-border-color-a4 {\n  border-color: #F5F9FC !important;\n}\n.lightgrey-border-color-a4.border {\n    border-color: #F5F9FC !important;\n}\n.lightgrey-bg-b1 {\n  background-color: #E6F0FA;\n}\n.lightgrey-color-b1 {\n  color: #E6F0FA;\n}\n.lightgrey-border-color-b1 {\n  border-color: #E6F0FA !important;\n}\n.lightgrey-border-color-b1.border {\n    border-color: #E6F0FA !important;\n}\n.lightgrey-bg-b2 {\n  background-color: #EBF2FA;\n}\n.lightgrey-color-b2 {\n  color: #EBF2FA;\n}\n.lightgrey-border-color-b2 {\n  border-color: #EBF2FA !important;\n}\n.lightgrey-border-color-b2.border {\n    border-color: #EBF2FA !important;\n}\n.lightgrey-bg-b3 {\n  background-color: #EDF4FA;\n}\n.lightgrey-color-b3 {\n  color: #EDF4FA;\n}\n.lightgrey-border-color-b3 {\n  border-color: #EDF4FA !important;\n}\n.lightgrey-border-color-b3.border {\n    border-color: #EDF4FA !important;\n}\n.lightgrey-bg-b4 {\n  background-color: #F2F6FA;\n}\n.lightgrey-color-b4 {\n  color: #F2F6FA;\n}\n.lightgrey-border-color-b4 {\n  border-color: #F2F6FA !important;\n}\n.lightgrey-border-color-b4.border {\n    border-color: #F2F6FA !important;\n}\n.lightgrey-bg-c1 {\n  background-color: #F7F9FA;\n}\n.lightgrey-color-c1 {\n  color: #F7F9FA;\n}\n.lightgrey-border-color-c1 {\n  border-color: #F7F9FA !important;\n}\n.lightgrey-border-color-c1.border {\n    border-color: #F7F9FA !important;\n}\n.lightgrey-bg-c2 {\n  background-color: #F5F6F7;\n}\n.lightgrey-color-c2 {\n  color: #F5F6F7;\n}\n.lightgrey-border-color-c2 {\n  border-color: #F5F6F7 !important;\n}\n.lightgrey-border-color-c2.border {\n    border-color: #F5F6F7 !important;\n}\n.navbar {\n  position: fixed;\n  top: 0;\n  min-width: 100%;\n  width: 100%;\n  max-width: 100%;\n  min-height: 90px;\n  -webkit-box-shadow: 0px 8px 40px 0 rgba(126, 127, 128, 0.1);\n          box-shadow: 0px 8px 40px 0 rgba(126, 127, 128, 0.1);\n  z-index: 99999;\n}\n.navbar .navbar-brand {\n    font-weight: 800;\n}\n.navbar .navbar-nav .nav-item .nav-link {\n    text-transform: uppercase;\n    font-weight: 700;\n    letter-spacing: 1px;\n    font-size: 14px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'MainNav'
+});
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "shadow navbar navbar-expand-lg navbar-light px-3 bg-white"
+        },
+        [
+          _c(
+            "a",
+            { staticClass: "navbar-brand text-black", attrs: { href: "#" } },
+            [_vm._v("EFG Consulting")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "btn btn-sm btn-outline-secondary d-md-none px-2 text-uppercase collapsed",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#bd-docs-nav",
+                "aria-controls": "bd-docs-nav",
+                "aria-expanded": "false",
+                "aria-label": "Toggle docs navigation"
+              }
+            },
+            [_vm._v("\n            menu\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "navbar-nav flex-row ml-md-auto d-none d-md-flex" },
+            [
+              _c("li", { staticClass: "nav-item active" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Home "),
+                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Chi Siamo")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Divisioni")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Event Marketing")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("News")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Focus Emirati")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Contatti")
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "nav",
+        {
+          staticClass: "bd-links collapse pt-5 mt-5",
+          attrs: { id: "bd-docs-nav" }
+        },
+        [
+          _c("div", { staticClass: "sidebar-wrapper" }, [
+            _c("div", { staticClass: "link-list-wrapper" }, [
+              _c("ul", { staticClass: "link-list" }, [
+                _c("li", [
+                  _c("a", { staticClass: "list-item", attrs: { href: "#" } }, [
+                    _c("span", [_vm._v("Home")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "list-item", attrs: { href: "#" } }, [
+                    _c("span", [_vm._v("About")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "list-item", attrs: { href: "#" } }, [
+                    _c("span", [_vm._v("Divisioni")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "list-item", attrs: { href: "#" } }, [
+                    _c("span", [_vm._v("Event Marketing")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "list-item", attrs: { href: "#" } }, [
+                    _c("span", [_vm._v("News")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "list-item", attrs: { href: "#" } }, [
+                    _c("span", [_vm._v("Focus Emirati")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "list-item", attrs: { href: "#" } }, [
+                    _c("span", [_vm._v("Contatti")])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-52f5dfea", module.exports)
+  }
+}
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_c("main-nav"), _vm._v(" "), _c("router-view")], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2fa6537c", module.exports)
+  }
+}
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
 /* 111 */
 /***/ (function(module, exports) {
 
-$(function () {
-  var userAgent, ieReg, ie;
-  userAgent = window.navigator.userAgent;
-  ieReg = /msie|Trident.*rv[ :]*11\./gi;
-  ie = ieReg.test(userAgent);
+// open / close navbar actions
+var openbutton = $('.custom-navbar-toggler');
+var closebutton = $('.close-div ');
+var overlay = $('.overlay');
+var backbutton = $('.it-back-button');
+var navlink = $('.navbar-collapsable a'); //-open button action
 
-  if (ie) {
-    $('.img-wrapper').each(function () {
-      var $container = $(this),
-          imgUrl = $container.find('img').prop('src');
+$(openbutton).on('click', function (event) {
+  /* Act on the event */
+  var target = $(this).attr('data-target');
+  var fadelayer = $(target).find('.overlay');
+  $(this).attr('aria-expanded', 'true');
+  $(backbutton).fadeIn();
+  $(target).show();
+  $(fadelayer).fadeIn();
+  $(target).addClass('expanded');
+});
+$(overlay).on('click', function () {
+  var target = $(this).closest('.navbar-collapsable');
+  var buttonrel = $(this).closest('.navbar').find(".custom-navbar-toggler");
+  var fadelayer = $(target).find('.overlay');
+  $(buttonrel).attr('aria-expanded', 'false');
+  $(target).removeClass('expanded');
+  $(fadelayer).fadeOut();
+  setTimeout(function () {
+    $(target).hide();
+  }, 300);
+}); //-close button action
 
-      if (imgUrl) {
-        $container.css('backgroundImage', 'url(' + imgUrl + ')').addClass('custom-object-fit');
+$(closebutton).on('click', function (event) {
+  var target = $(this).closest('.navbar-collapsable');
+  var buttonrel = $(this).closest('.navbar').find(".custom-navbar-toggler");
+  var fadelayer = $(target).find('.overlay');
+  $(buttonrel).attr('aria-expanded', 'false');
+  $(target).removeClass('expanded');
+  $(fadelayer).fadeOut();
+  setTimeout(function () {
+    $(target).hide();
+  }, 300);
+}); //-- (a fine elenco viene chiuso il menù ed il focus passa all'elemento successivo)
+
+$(navlink).on('blur', function (event) {
+  closemenu = $(this).closest('.navbar-collapsable').find('.close-div .btn'); // determino il pulsante di chiusura
+
+  /* Act on the event */
+
+  if ($(this).closest('.navbar-collapsable').hasClass('expanded')) {
+    // se il navigatore è a perto
+    setTimeout(function () {
+      var active = document.activeElement; // determino quale elemento ha il focus
+
+      var isMenu = $(active).closest('.navbar-collapsable').length; // controllo che l'elemento si trovi all'interno del navigatore
+
+      if (isMenu == 0) {
+        // se l'elemento è fuori dal navigatore
+        $(closemenu).trigger('click'); // simulo il click sul pulsante di chiusura del pannello
       }
-    });
+    }, 50);
+  }
+}); //-- (a inizio elenco tabbando indietro, dopo il close chiudo il menu)
+
+$(closebutton).on('blur', function (event) {
+  closemenu = $(this);
+  /* Act on the event */
+
+  if ($(this).closest('.navbar-collapsable').hasClass('expanded')) {
+    // se il navigatore è a perto
+    setTimeout(function () {
+      var active = document.activeElement; // determino quale elemento ha il focus
+
+      var isMenu = $(active).closest('.navbar-collapsable').length; // controllo che l'elemento si trovi all'interno del navigatore
+
+      if (isMenu == 0) {
+        // se l'elemento è fuori dal navigatore
+        $(closemenu).trigger('click'); // simulo il click sul pulsante di chiusura del pannello
+      }
+    }, 50);
   }
 });
-
-/***/ }),
-/* 112 */
-/***/ (function(module, exports) {
-
-function dimmerShow(target) {
-  if ($(target).css('display') != 'flex') {
-    $(target).css("display", "flex").hide().fadeIn(200);
-  }
-}
-
-function dimmerHide(target) {
-  $(target).fadeOut(200);
-}
 
 /***/ })
 /******/ ]);
