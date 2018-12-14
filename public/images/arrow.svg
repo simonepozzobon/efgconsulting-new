@@ -1,0 +1,49 @@
+<svg id="5754a1cc-40a3-48a4-b673-0216af0e01d4" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+    <defs>
+        <filter id="2f9681b2-87d8-4ab0-ac16-82d3b7ee7c67" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+        </filter>
+        <mask id="c10668ac-cf79-48b2-b829-2f4f19e66dc1" x="-164" y="11" width="356" height="478" maskUnits="userSpaceOnUse">
+            <g style="filter: url(#2f9681b2-87d8-4ab0-ac16-82d3b7ee7c67)">
+                <image width="356" height="478" transform="translate(-164 11)" xlink:href="arrow1.png"/>
+            </g>
+        </mask>
+        <clipPath id="deee74cf-7341-4e7c-b3a3-c5a9d416e06f">
+            <rect width="250" height="500" style="fill: none"/>
+        </clipPath>
+        <clipPath id="18f92e1e-6608-4534-a3b7-b8db4267c9b6">
+            <polygon points="-0.16 13.5 189.62 246.42 -0.2 486.5 -0.16 13.5" style="fill: none;clip-rule: evenodd"/>
+        </clipPath>
+        <mask id="5bde6102-a92d-4c58-b4a3-117d29c70d1f" x="-161.97" y="13.5" width="351.58" height="473" maskUnits="userSpaceOnUse">
+            <g>
+                <polygon points="-0.16 13.5 189.62 246.42 -0.2 486.5 -161.97 486.5 -161.97 13.5 -0.16 13.5"/>
+                <g style="mask: url(#c10668ac-cf79-48b2-b829-2f4f19e66dc1)">
+                    <g style="opacity: 0.67">
+                        <polygon points="-0.16 13.5 189.62 246.42 -0.2 486.5 -161.97 486.5 -161.97 13.5 -0.16 13.5" style="fill: #fff"/>
+                    </g>
+                </g>
+            </g>
+        </mask>
+        <mask id="9d37a3ff-d3ac-4c2f-89a2-3938ba194a87" x="-164" y="11" width="356" height="478" maskUnits="userSpaceOnUse">
+            <g style="filter: url(#2f9681b2-87d8-4ab0-ac16-82d3b7ee7c67)">
+                <image width="356" height="478" transform="translate(-164 11)" xlink:href="arrow2.png"/>
+            </g>
+        </mask>
+    </defs>
+    <title>arrow</title>
+    <g style="clip-path: url(#deee74cf-7341-4e7c-b3a3-c5a9d416e06f)">
+        <g>
+            <g style="clip-path: url(#18f92e1e-6608-4534-a3b7-b8db4267c9b6)">
+                <image width="4000" height="2671" transform="translate(-518.61 -54.88) scale(0.2)" xlink:href="../../../Downloads/The-skyscraper/1088.jpg"/>
+            </g>
+            <g style="mask: url(#5bde6102-a92d-4c58-b4a3-117d29c70d1f)">
+                <g>
+                    <polygon points="-0.16 13.5 189.62 246.42 -0.2 486.5 -161.97 486.5 -161.97 13.5 -0.16 13.5" style="fill: #fff"/>
+                    <g style="mask: url(#9d37a3ff-d3ac-4c2f-89a2-3938ba194a87)">
+                        <polygon points="-0.16 13.5 189.62 246.42 -0.2 486.5 -161.97 486.5 -161.97 13.5 -0.16 13.5" style="fill: #4a4a4a"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
