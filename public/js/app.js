@@ -65853,7 +65853,8 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "it-hero-wrapper it-primary it-overlay bg-gradient-primary"
+        staticClass:
+          "it-hero-wrapper it-text-centered it-primary it-overlay bg-gradient-primary"
       },
       [
         _c("div", { staticClass: "img-responsive-wrapper" }, [
@@ -65873,49 +65874,53 @@ var staticRenderFns = [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "it-hero-text-wrapper bg-dark" }, [
-                _c("h1", { staticClass: "no_toc" }, [
-                  _vm._v(
-                    "\n                            Osservo Pianifico Agisco\n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("h4", { staticClass: "no_toc text-white pb-3" }, [
-                  _c("i", [
+              _c(
+                "div",
+                { staticClass: "it-hero-text-wrapper bg-dark text-center" },
+                [
+                  _c("h1", { staticClass: "no_toc" }, [
                     _vm._v(
-                      '"Incessante, instancabile, senza mete e senza confini,\n                            senza vertigini e maestosa come un’aquila eterna"'
+                      "\n                            Osservo Pianifico Agisco\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "no_toc text-white pb-3" }, [
+                    _c("i", [
+                      _vm._v(
+                        '"Incessante, instancabile, senza mete e senza confini,\n                            senza vertigini e maestosa come un’aquila eterna"'
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "d-lg-block" }, [
+                    _vm._v(
+                      "\n                            EFG Consulting è una società di consulenza di marketing strategico e operativo con sede a Milano esperta in relazioni pubbliche e istituzionali, event marketing, strategie di internazionalizzazione, marketing territoriale, grandi eventi, management aziendale, pianificazione finanziaria e controllo dei costi."
+                    ),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                            EFG è il partner ideale per condurre al successo un'azienda o un territorio con un'ottica imprenditoriale consolidata dall'esperienza professionale e dalla rete di relazioni internazionali."
+                    ),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                            Con il suo team altamente qualificato, costituito da manager, professionisti e docenti universitari, EFG supporta le aziende private e gli Enti Pubblici nell'implementazione di processi di analisi e di strategie operative volte al raggiungimento degli obiettivi."
+                    ),
+                    _c("br")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "it-btn-container" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm btn-outline-primary",
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v("Contattaci")]
                     )
                   ])
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "d-lg-block" }, [
-                  _vm._v(
-                    "\n                            EFG Consulting è una società di consulenza di marketing strategico e operativo con sede a Milano esperta in relazioni pubbliche e istituzionali, event marketing, strategie di internazionalizzazione, marketing territoriale, grandi eventi, management aziendale, pianificazione finanziaria e controllo dei costi."
-                  ),
-                  _c("br"),
-                  _c("br"),
-                  _vm._v(
-                    "\n                            EFG è il partner ideale per condurre al successo un'azienda o un territorio con un'ottica imprenditoriale consolidata dall'esperienza professionale e dalla rete di relazioni internazionali."
-                  ),
-                  _c("br"),
-                  _c("br"),
-                  _vm._v(
-                    "\n                            Con il suo team altamente qualificato, costituito da manager, professionisti e docenti universitari, EFG supporta le aziende private e gli Enti Pubblici nell'implementazione di processi di analisi e di strategie operative volte al raggiungimento degli obiettivi."
-                  ),
-                  _c("br")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "it-btn-container" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-sm btn-outline-primary",
-                      attrs: { href: "#" }
-                    },
-                    [_vm._v("Contattaci")]
-                  )
-                ])
-              ])
+                ]
+              )
             ])
           ])
         ])

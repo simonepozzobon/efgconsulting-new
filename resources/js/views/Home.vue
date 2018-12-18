@@ -10,7 +10,7 @@
                 <swiper-slide class="swiper-item" style="background-image: url('/images/instagram/11.jpg'); background-position: center; background-size: contain;"></swiper-slide>
             </swiper>
         </div>
-        <div class="it-hero-wrapper it-primary it-overlay bg-gradient-primary">
+        <div class="it-hero-wrapper it-text-centered it-primary it-overlay bg-gradient-primary">
             <div class="img-responsive-wrapper">
                 <div class="img-responsive">
                     <div class="img-wrapper"><img src="/images/bg-wave.png" title="img title" alt="imagealt"></div>
@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="it-hero-text-wrapper bg-dark">
+                        <div class="it-hero-text-wrapper bg-dark text-center">
                             <h1 class="no_toc">
                                 Osservo Pianifico Agisco
                             </h1>
