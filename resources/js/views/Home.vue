@@ -1,6 +1,16 @@
 <template lang="html">
     <div>
-        <div class="it-hero-wrapper it-primary it-overlay bg-gradient-primary pt-5 pt-md-0 mt-4 mt-md-0">
+        <div id="temp-fix" class="container-fluid pt-5 pt-md-0 mt-4 mt-md-0">
+            <swiper :options="swiperOption" ref="mySwiper" class="swiper-box">
+                <swiper-slide class="swiper-item bg-gradient-dark">
+                    <img src="/images/logho-EFG-po.png" alt="" class="img-fluid">
+                </swiper-slide>
+                <swiper-slide class="swiper-item" style="background-image: url('/images/instagram/4.jpg')"></swiper-slide>
+                <swiper-slide class="swiper-item" style="background-image: url('/images/instagram/6.jpg'); background-position: center; background-size: contain;"></swiper-slide>
+                <swiper-slide class="swiper-item" style="background-image: url('/images/instagram/11.jpg'); background-position: center; background-size: contain;"></swiper-slide>
+            </swiper>
+        </div>
+        <div class="it-hero-wrapper it-primary it-overlay bg-gradient-primary">
             <div class="img-responsive-wrapper">
                 <div class="img-responsive">
                     <div class="img-wrapper"><img src="/images/bg-wave.png" title="img title" alt="imagealt"></div>
@@ -112,7 +122,8 @@
 </template>
 
 <script>
-
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import ChiSiamo from '../components/ChiSiamo.vue'
 import ChiaviDelSuccesso from '../components/ChiaviDelSuccesso.vue'
 import Contact from '../components/Contact.vue'
@@ -130,16 +141,19 @@ export default {
         Gallery,
         Instagram,
         News,
-        ValoreAggiunto
+        ValoreAggiunto,
+
+        swiper,
+        swiperSlide
     },
     data: function() {
         return {
             swiperOption: {
                 // initialSlide: 1,
-                direction: 'vertical',
                 slidesPerView: 1,
                 mousewheel: true,
                 spaceBetween: 0,
+                height: 300,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true
@@ -165,5 +179,34 @@ export default {
 @import '~styles/shared';
 .text-white {
     color: #fff !important;
+}
+
+#temp-fix {
+    width: 110%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 90px !important;
+
+    @include media-breakpoint-down('md') {
+        margin-top: inherit !important;
+    };
+}
+
+.swiper-box {
+    width: 100%;
+    height: 40vh;
+    min-height: 500px;
+    margin: 0 auto;
+
+    .swiper-item {
+        height: 100%;
+        /* Center slide text vertically */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
 }
 </style>

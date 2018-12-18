@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 112);
+/******/ 	return __webpack_require__(__webpack_require__.s = 114);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(8);
-var isBuffer = __webpack_require__(19);
+var isBuffer = __webpack_require__(21);
 
 /*global toString:true*/
 
@@ -475,7 +475,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(40)
+var listToStyles = __webpack_require__(41)
 
 /*
 type StyleObject = {
@@ -827,7 +827,7 @@ module.exports = g;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(21);
+var normalizeHeaderName = __webpack_require__(23);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -14091,12 +14091,12 @@ process.umask = function() { return 0; };
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(22);
-var buildURL = __webpack_require__(24);
-var parseHeaders = __webpack_require__(25);
-var isURLSameOrigin = __webpack_require__(26);
+var settle = __webpack_require__(24);
+var buildURL = __webpack_require__(26);
+var parseHeaders = __webpack_require__(27);
+var isURLSameOrigin = __webpack_require__(28);
 var createError = __webpack_require__(11);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(29);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -14193,7 +14193,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(28);
+      var cookies = __webpack_require__(30);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -14277,7 +14277,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(23);
+var enhanceError = __webpack_require__(25);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -14335,6 +14335,43 @@ module.exports = Cancel;
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(42);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(43)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../css-loader/index.js!./swiper.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./swiper.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t(__webpack_require__(45)):"function"==typeof define&&define.amd?define("VueAwesomeSwiper",["swiper"],t):"object"==typeof exports?exports.VueAwesomeSwiper=t(require("swiper/dist/js/swiper.js")):e.VueAwesomeSwiper=t(e.Swiper)}(this,function(e){return function(e){function t(i){if(n[i])return n[i].exports;var s=n[i]={i:i,l:!1,exports:{}};return e[i].call(s.exports,s,s.exports,t),s.l=!0,s.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,i){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:i})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="/",t(t.s=4)}([function(t,n){t.exports=e},function(e,t){e.exports=function(e,t,n,i,s,r){var o,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(o=e,a=e.default);var p="function"==typeof a?a.options:a;t&&(p.render=t.render,p.staticRenderFns=t.staticRenderFns,p._compiled=!0),n&&(p.functional=!0),s&&(p._scopeId=s);var l;if(r?(l=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),i&&i.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(r)},p._ssrRegister=l):i&&(l=i),l){var c=p.functional,d=c?p.render:p.beforeCreate;c?(p._injectStyles=l,p.render=function(e,t){return l.call(t),d(e,t)}):p.beforeCreate=d?[].concat(d,l):[l]}return{esModule:o,exports:a,options:p}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(5),s=n.n(i),r=n(8),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),s=n.n(i),r=n(7),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.install=t.swiperSlide=t.swiper=t.Swiper=void 0;var s=n(0),r=i(s),o=n(2),a=i(o),u=n(3),p=i(u),l=window.Swiper||r.default,c=p.default,d=a.default,f=function(e,t){t&&(p.default.props.globalOptions.default=function(){return t}),e.component(p.default.name,p.default),e.component(a.default.name,a.default)},h={Swiper:l,swiper:c,swiperSlide:d,install:f};t.default=h,t.Swiper=l,t.swiper=c,t.swiperSlide=d,t.install=f},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"swiper-slide",data:function(){return{slideClass:"swiper-slide"}},ready:function(){this.update()},mounted:function(){this.update(),this.$parent&&this.$parent.options&&this.$parent.options.slideClass&&(this.slideClass=this.$parent.options.slideClass)},updated:function(){this.update()},attached:function(){this.update()},methods:{update:function(){this.$parent&&this.$parent.swiper&&this.$parent.update()}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(0),s=function(e){return e&&e.__esModule?e:{default:e}}(i),r=window.Swiper||s.default;"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),i=1;i<arguments.length;i++){var s=arguments[i];if(null!=s)for(var r in s)Object.prototype.hasOwnProperty.call(s,r)&&(n[r]=s[r])}return n},writable:!0,configurable:!0});var o=["beforeDestroy","slideChange","slideChangeTransitionStart","slideChangeTransitionEnd","slideNextTransitionStart","slideNextTransitionEnd","slidePrevTransitionStart","slidePrevTransitionEnd","transitionStart","transitionEnd","touchStart","touchMove","touchMoveOpposite","sliderMove","touchEnd","click","tap","doubleTap","imagesReady","progress","reachBeginning","reachEnd","fromEdge","setTranslate","setTransition","resize"];t.default={name:"swiper",props:{options:{type:Object,default:function(){return{}}},globalOptions:{type:Object,required:!1,default:function(){return{}}}},data:function(){return{swiper:null,classes:{wrapperClass:"swiper-wrapper"}}},ready:function(){this.swiper||this.mountInstance()},mounted:function(){if(!this.swiper){var e=!1;for(var t in this.classes)this.classes.hasOwnProperty(t)&&this.options[t]&&(e=!0,this.classes[t]=this.options[t]);e?this.$nextTick(this.mountInstance):this.mountInstance()}},activated:function(){this.update()},updated:function(){this.update()},beforeDestroy:function(){this.$nextTick(function(){this.swiper&&(this.swiper.destroy&&this.swiper.destroy(),delete this.swiper)})},methods:{update:function(){this.swiper&&(this.swiper.update&&this.swiper.update(),this.swiper.navigation&&this.swiper.navigation.update(),this.swiper.pagination&&this.swiper.pagination.render(),this.swiper.pagination&&this.swiper.pagination.update())},mountInstance:function(){var e=Object.assign({},this.globalOptions,this.options);this.swiper=new r(this.$el,e),this.bindEvents(),this.$emit("ready",this.swiper)},bindEvents:function(){var e=this,t=this;o.forEach(function(n){e.swiper.on(n,function(){t.$emit.apply(t,[n].concat(Array.prototype.slice.call(arguments))),t.$emit.apply(t,[n.replace(/([A-Z])/g,"-$1").toLowerCase()].concat(Array.prototype.slice.call(arguments)))})})}}}},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"swiper-container"},[e._t("parallax-bg"),e._v(" "),n("div",{class:e.classes.wrapperClass},[e._t("default")],2),e._v(" "),e._t("pagination"),e._v(" "),e._t("button-prev"),e._v(" "),e._t("button-next"),e._v(" "),e._t("scrollbar")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{class:e.slideClass},[e._t("default")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r}])});
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31446,10 +31483,10 @@ module.exports = Cancel;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(15)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(17)(module)))
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -31477,7 +31514,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -35427,13 +35464,13 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(18);
+module.exports = __webpack_require__(20);
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35441,7 +35478,7 @@ module.exports = __webpack_require__(18);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(8);
-var Axios = __webpack_require__(20);
+var Axios = __webpack_require__(22);
 var defaults = __webpack_require__(5);
 
 /**
@@ -35476,14 +35513,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(13);
-axios.CancelToken = __webpack_require__(34);
+axios.CancelToken = __webpack_require__(36);
 axios.isCancel = __webpack_require__(12);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(35);
+axios.spread = __webpack_require__(37);
 
 module.exports = axios;
 
@@ -35492,7 +35529,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports) {
 
 /*!
@@ -35519,7 +35556,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35527,8 +35564,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(5);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(29);
-var dispatchRequest = __webpack_require__(30);
+var InterceptorManager = __webpack_require__(31);
+var dispatchRequest = __webpack_require__(32);
 
 /**
  * Create a new instance of Axios
@@ -35605,7 +35642,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35624,7 +35661,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35657,7 +35694,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35685,7 +35722,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35758,7 +35795,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35818,7 +35855,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35893,7 +35930,7 @@ module.exports = (
 
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35936,7 +35973,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35996,7 +36033,7 @@ module.exports = (
 
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36055,18 +36092,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(31);
+var transformData = __webpack_require__(33);
 var isCancel = __webpack_require__(12);
 var defaults = __webpack_require__(5);
-var isAbsoluteURL = __webpack_require__(32);
-var combineURLs = __webpack_require__(33);
+var isAbsoluteURL = __webpack_require__(34);
+var combineURLs = __webpack_require__(35);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -36148,7 +36185,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36175,7 +36212,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36196,7 +36233,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36217,7 +36254,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36281,7 +36318,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36315,7 +36352,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47409,10 +47446,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(37).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(39).setImmediate))
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -47468,7 +47505,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(38);
+__webpack_require__(40);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -47482,7 +47519,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47675,8 +47712,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(9)))
 
 /***/ }),
-/* 39 */,
-/* 40 */
+/* 41 */
 /***/ (function(module, exports) {
 
 /**
@@ -47709,185 +47745,21 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 41 */,
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+exports = module.exports = __webpack_require__(1)(false);
+// imports
 
-// load the styles
-var content = __webpack_require__(120);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
 
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(109)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./swiper.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./swiper.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
+// module
+exports.push([module.i, "/**\n * Swiper 4.4.2\n * Most modern mobile touch slider and framework with hardware accelerated transitions\n * http://www.idangero.us/swiper/\n *\n * Copyright 2014-2018 Vladimir Kharlampidi\n *\n * Released under the MIT License\n *\n * Released on: November 1, 2018\n */\n.swiper-container {\n  margin: 0 auto;\n  position: relative;\n  overflow: hidden;\n  list-style: none;\n  padding: 0;\n  /* Fix of Webkit flickering */\n  z-index: 1;\n}\n.swiper-container-no-flexbox .swiper-slide {\n  float: left;\n}\n.swiper-container-vertical > .swiper-wrapper {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n}\n.swiper-wrapper {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-transition-property: -webkit-transform;\n  transition-property: -webkit-transform;\n  -o-transition-property: transform;\n  transition-property: transform;\n  transition-property: transform, -webkit-transform;\n  -webkit-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.swiper-container-android .swiper-slide,\n.swiper-wrapper {\n  -webkit-transform: translate3d(0px, 0, 0);\n  transform: translate3d(0px, 0, 0);\n}\n.swiper-container-multirow > .swiper-wrapper {\n  -webkit-flex-wrap: wrap;\n  -ms-flex-wrap: wrap;\n  flex-wrap: wrap;\n}\n.swiper-container-free-mode > .swiper-wrapper {\n  -webkit-transition-timing-function: ease-out;\n  -o-transition-timing-function: ease-out;\n  transition-timing-function: ease-out;\n  margin: 0 auto;\n}\n.swiper-slide {\n  -webkit-flex-shrink: 0;\n  -ms-flex-negative: 0;\n  flex-shrink: 0;\n  width: 100%;\n  height: 100%;\n  position: relative;\n  -webkit-transition-property: -webkit-transform;\n  transition-property: -webkit-transform;\n  -o-transition-property: transform;\n  transition-property: transform;\n  transition-property: transform, -webkit-transform;\n}\n.swiper-slide-invisible-blank {\n  visibility: hidden;\n}\n/* Auto Height */\n.swiper-container-autoheight,\n.swiper-container-autoheight .swiper-slide {\n  height: auto;\n}\n.swiper-container-autoheight .swiper-wrapper {\n  -webkit-box-align: start;\n  -webkit-align-items: flex-start;\n  -ms-flex-align: start;\n  align-items: flex-start;\n  -webkit-transition-property: height, -webkit-transform;\n  transition-property: height, -webkit-transform;\n  -o-transition-property: transform, height;\n  transition-property: transform, height;\n  transition-property: transform, height, -webkit-transform;\n}\n/* 3D Effects */\n.swiper-container-3d {\n  -webkit-perspective: 1200px;\n  perspective: 1200px;\n}\n.swiper-container-3d .swiper-wrapper,\n.swiper-container-3d .swiper-slide,\n.swiper-container-3d .swiper-slide-shadow-left,\n.swiper-container-3d .swiper-slide-shadow-right,\n.swiper-container-3d .swiper-slide-shadow-top,\n.swiper-container-3d .swiper-slide-shadow-bottom,\n.swiper-container-3d .swiper-cube-shadow {\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.swiper-container-3d .swiper-slide-shadow-left,\n.swiper-container-3d .swiper-slide-shadow-right,\n.swiper-container-3d .swiper-slide-shadow-top,\n.swiper-container-3d .swiper-slide-shadow-bottom {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  z-index: 10;\n}\n.swiper-container-3d .swiper-slide-shadow-left {\n  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-right {\n  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-top {\n  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-bottom {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n/* IE10 Windows Phone 8 Fixes */\n.swiper-container-wp8-horizontal,\n.swiper-container-wp8-horizontal > .swiper-wrapper {\n  -ms-touch-action: pan-y;\n  touch-action: pan-y;\n}\n.swiper-container-wp8-vertical,\n.swiper-container-wp8-vertical > .swiper-wrapper {\n  -ms-touch-action: pan-x;\n  touch-action: pan-x;\n}\n.swiper-button-prev,\n.swiper-button-next {\n  position: absolute;\n  top: 50%;\n  width: 27px;\n  height: 44px;\n  margin-top: -22px;\n  z-index: 10;\n  cursor: pointer;\n  background-size: 27px 44px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.swiper-button-prev.swiper-button-disabled,\n.swiper-button-next.swiper-button-disabled {\n  opacity: 0.35;\n  cursor: auto;\n  pointer-events: none;\n}\n.swiper-button-prev,\n.swiper-container-rtl .swiper-button-next {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E\");\n  left: 10px;\n  right: auto;\n}\n.swiper-button-next,\n.swiper-container-rtl .swiper-button-prev {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E\");\n  right: 10px;\n  left: auto;\n}\n.swiper-button-prev.swiper-button-white,\n.swiper-container-rtl .swiper-button-next.swiper-button-white {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-next.swiper-button-white,\n.swiper-container-rtl .swiper-button-prev.swiper-button-white {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-prev.swiper-button-black,\n.swiper-container-rtl .swiper-button-next.swiper-button-black {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-next.swiper-button-black,\n.swiper-container-rtl .swiper-button-prev.swiper-button-black {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-lock {\n  display: none;\n}\n.swiper-pagination {\n  position: absolute;\n  text-align: center;\n  -webkit-transition: 300ms opacity;\n  -o-transition: 300ms opacity;\n  transition: 300ms opacity;\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0);\n  z-index: 10;\n}\n.swiper-pagination.swiper-pagination-hidden {\n  opacity: 0;\n}\n/* Common Styles */\n.swiper-pagination-fraction,\n.swiper-pagination-custom,\n.swiper-container-horizontal > .swiper-pagination-bullets {\n  bottom: 10px;\n  left: 0;\n  width: 100%;\n}\n/* Bullets */\n.swiper-pagination-bullets-dynamic {\n  overflow: hidden;\n  font-size: 0;\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n  position: relative;\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {\n  -webkit-transform: scale(1);\n  -ms-transform: scale(1);\n  transform: scale(1);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {\n  -webkit-transform: scale(1);\n  -ms-transform: scale(1);\n  transform: scale(1);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {\n  -webkit-transform: scale(0.66);\n  -ms-transform: scale(0.66);\n  transform: scale(0.66);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {\n  -webkit-transform: scale(0.66);\n  -ms-transform: scale(0.66);\n  transform: scale(0.66);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n}\n.swiper-pagination-bullet {\n  width: 8px;\n  height: 8px;\n  display: inline-block;\n  border-radius: 100%;\n  background: #000;\n  opacity: 0.2;\n}\nbutton.swiper-pagination-bullet {\n  border: none;\n  margin: 0;\n  padding: 0;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n}\n.swiper-pagination-clickable .swiper-pagination-bullet {\n  cursor: pointer;\n}\n.swiper-pagination-bullet-active {\n  opacity: 1;\n  background: #007aff;\n}\n.swiper-container-vertical > .swiper-pagination-bullets {\n  right: 10px;\n  top: 50%;\n  -webkit-transform: translate3d(0px, -50%, 0);\n  transform: translate3d(0px, -50%, 0);\n}\n.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {\n  margin: 6px 0;\n  display: block;\n}\n.swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n  width: 8px;\n}\n.swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  display: inline-block;\n  -webkit-transition: 200ms top, 200ms -webkit-transform;\n  transition: 200ms top, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms top;\n  transition: 200ms transform, 200ms top;\n  transition: 200ms transform, 200ms top, 200ms -webkit-transform;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {\n  margin: 0 4px;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n  white-space: nowrap;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transition: 200ms left, 200ms -webkit-transform;\n  transition: 200ms left, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms left;\n  transition: 200ms transform, 200ms left;\n  transition: 200ms transform, 200ms left, 200ms -webkit-transform;\n}\n.swiper-container-horizontal.swiper-container-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transition: 200ms right, 200ms -webkit-transform;\n  transition: 200ms right, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms right;\n  transition: 200ms transform, 200ms right;\n  transition: 200ms transform, 200ms right, 200ms -webkit-transform;\n}\n/* Progress */\n.swiper-pagination-progressbar {\n  background: rgba(0, 0, 0, 0.25);\n  position: absolute;\n}\n.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {\n  background: #007aff;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: scale(0);\n  -ms-transform: scale(0);\n  transform: scale(0);\n  -webkit-transform-origin: left top;\n  -ms-transform-origin: left top;\n  transform-origin: left top;\n}\n.swiper-container-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {\n  -webkit-transform-origin: right top;\n  -ms-transform-origin: right top;\n  transform-origin: right top;\n}\n.swiper-container-horizontal > .swiper-pagination-progressbar,\n.swiper-container-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {\n  width: 100%;\n  height: 4px;\n  left: 0;\n  top: 0;\n}\n.swiper-container-vertical > .swiper-pagination-progressbar,\n.swiper-container-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {\n  width: 4px;\n  height: 100%;\n  left: 0;\n  top: 0;\n}\n.swiper-pagination-white .swiper-pagination-bullet-active {\n  background: #ffffff;\n}\n.swiper-pagination-progressbar.swiper-pagination-white {\n  background: rgba(255, 255, 255, 0.25);\n}\n.swiper-pagination-progressbar.swiper-pagination-white .swiper-pagination-progressbar-fill {\n  background: #ffffff;\n}\n.swiper-pagination-black .swiper-pagination-bullet-active {\n  background: #000000;\n}\n.swiper-pagination-progressbar.swiper-pagination-black {\n  background: rgba(0, 0, 0, 0.25);\n}\n.swiper-pagination-progressbar.swiper-pagination-black .swiper-pagination-progressbar-fill {\n  background: #000000;\n}\n.swiper-pagination-lock {\n  display: none;\n}\n/* Scrollbar */\n.swiper-scrollbar {\n  border-radius: 10px;\n  position: relative;\n  -ms-touch-action: none;\n  background: rgba(0, 0, 0, 0.1);\n}\n.swiper-container-horizontal > .swiper-scrollbar {\n  position: absolute;\n  left: 1%;\n  bottom: 3px;\n  z-index: 50;\n  height: 5px;\n  width: 98%;\n}\n.swiper-container-vertical > .swiper-scrollbar {\n  position: absolute;\n  right: 3px;\n  top: 1%;\n  z-index: 50;\n  width: 5px;\n  height: 98%;\n}\n.swiper-scrollbar-drag {\n  height: 100%;\n  width: 100%;\n  position: relative;\n  background: rgba(0, 0, 0, 0.5);\n  border-radius: 10px;\n  left: 0;\n  top: 0;\n}\n.swiper-scrollbar-cursor-drag {\n  cursor: move;\n}\n.swiper-scrollbar-lock {\n  display: none;\n}\n.swiper-zoom-container {\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  text-align: center;\n}\n.swiper-zoom-container > img,\n.swiper-zoom-container > svg,\n.swiper-zoom-container > canvas {\n  max-width: 100%;\n  max-height: 100%;\n  -o-object-fit: contain;\n  object-fit: contain;\n}\n.swiper-slide-zoomed {\n  cursor: move;\n}\n/* Preloader */\n.swiper-lazy-preloader {\n  width: 42px;\n  height: 42px;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  margin-left: -21px;\n  margin-top: -21px;\n  z-index: 10;\n  -webkit-transform-origin: 50%;\n  -ms-transform-origin: 50%;\n  transform-origin: 50%;\n  -webkit-animation: swiper-preloader-spin 1s steps(12, end) infinite;\n  animation: swiper-preloader-spin 1s steps(12, end) infinite;\n}\n.swiper-lazy-preloader:after {\n  display: block;\n  content: '';\n  width: 100%;\n  height: 100%;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");\n  background-position: 50%;\n  background-size: 100%;\n  background-repeat: no-repeat;\n}\n.swiper-lazy-preloader-white:after {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");\n}\n@-webkit-keyframes swiper-preloader-spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes swiper-preloader-spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/* a11y */\n.swiper-container .swiper-notification {\n  position: absolute;\n  left: 0;\n  top: 0;\n  pointer-events: none;\n  opacity: 0;\n  z-index: -1000;\n}\n.swiper-container-fade.swiper-container-free-mode .swiper-slide {\n  -webkit-transition-timing-function: ease-out;\n  -o-transition-timing-function: ease-out;\n  transition-timing-function: ease-out;\n}\n.swiper-container-fade .swiper-slide {\n  pointer-events: none;\n  -webkit-transition-property: opacity;\n  -o-transition-property: opacity;\n  transition-property: opacity;\n}\n.swiper-container-fade .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-fade .swiper-slide-active,\n.swiper-container-fade .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-cube {\n  overflow: visible;\n}\n.swiper-container-cube .swiper-slide {\n  pointer-events: none;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  z-index: 1;\n  visibility: hidden;\n  -webkit-transform-origin: 0 0;\n  -ms-transform-origin: 0 0;\n  transform-origin: 0 0;\n  width: 100%;\n  height: 100%;\n}\n.swiper-container-cube .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-cube.swiper-container-rtl .swiper-slide {\n  -webkit-transform-origin: 100% 0;\n  -ms-transform-origin: 100% 0;\n  transform-origin: 100% 0;\n}\n.swiper-container-cube .swiper-slide-active,\n.swiper-container-cube .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-cube .swiper-slide-active,\n.swiper-container-cube .swiper-slide-next,\n.swiper-container-cube .swiper-slide-prev,\n.swiper-container-cube .swiper-slide-next + .swiper-slide {\n  pointer-events: auto;\n  visibility: visible;\n}\n.swiper-container-cube .swiper-slide-shadow-top,\n.swiper-container-cube .swiper-slide-shadow-bottom,\n.swiper-container-cube .swiper-slide-shadow-left,\n.swiper-container-cube .swiper-slide-shadow-right {\n  z-index: 0;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n.swiper-container-cube .swiper-cube-shadow {\n  position: absolute;\n  left: 0;\n  bottom: 0px;\n  width: 100%;\n  height: 100%;\n  background: #000;\n  opacity: 0.6;\n  -webkit-filter: blur(50px);\n  filter: blur(50px);\n  z-index: 0;\n}\n.swiper-container-flip {\n  overflow: visible;\n}\n.swiper-container-flip .swiper-slide {\n  pointer-events: none;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  z-index: 1;\n}\n.swiper-container-flip .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-flip .swiper-slide-active,\n.swiper-container-flip .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-flip .swiper-slide-shadow-top,\n.swiper-container-flip .swiper-slide-shadow-bottom,\n.swiper-container-flip .swiper-slide-shadow-left,\n.swiper-container-flip .swiper-slide-shadow-right {\n  z-index: 0;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n.swiper-container-coverflow .swiper-wrapper {\n  /* Windows 8 IE 10 fix */\n  -ms-perspective: 1200px;\n}\n", ""]);
+
+// exports
+
 
 /***/ }),
 /* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-!function(e,t){ true?module.exports=t(__webpack_require__(121)):"function"==typeof define&&define.amd?define("VueAwesomeSwiper",["swiper"],t):"object"==typeof exports?exports.VueAwesomeSwiper=t(require("swiper/dist/js/swiper.js")):e.VueAwesomeSwiper=t(e.Swiper)}(this,function(e){return function(e){function t(i){if(n[i])return n[i].exports;var s=n[i]={i:i,l:!1,exports:{}};return e[i].call(s.exports,s,s.exports,t),s.l=!0,s.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,i){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:i})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="/",t(t.s=4)}([function(t,n){t.exports=e},function(e,t){e.exports=function(e,t,n,i,s,r){var o,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(o=e,a=e.default);var p="function"==typeof a?a.options:a;t&&(p.render=t.render,p.staticRenderFns=t.staticRenderFns,p._compiled=!0),n&&(p.functional=!0),s&&(p._scopeId=s);var l;if(r?(l=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),i&&i.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(r)},p._ssrRegister=l):i&&(l=i),l){var c=p.functional,d=c?p.render:p.beforeCreate;c?(p._injectStyles=l,p.render=function(e,t){return l.call(t),d(e,t)}):p.beforeCreate=d?[].concat(d,l):[l]}return{esModule:o,exports:a,options:p}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(5),s=n.n(i),r=n(8),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),s=n.n(i),r=n(7),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.install=t.swiperSlide=t.swiper=t.Swiper=void 0;var s=n(0),r=i(s),o=n(2),a=i(o),u=n(3),p=i(u),l=window.Swiper||r.default,c=p.default,d=a.default,f=function(e,t){t&&(p.default.props.globalOptions.default=function(){return t}),e.component(p.default.name,p.default),e.component(a.default.name,a.default)},h={Swiper:l,swiper:c,swiperSlide:d,install:f};t.default=h,t.Swiper=l,t.swiper=c,t.swiperSlide=d,t.install=f},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"swiper-slide",data:function(){return{slideClass:"swiper-slide"}},ready:function(){this.update()},mounted:function(){this.update(),this.$parent&&this.$parent.options&&this.$parent.options.slideClass&&(this.slideClass=this.$parent.options.slideClass)},updated:function(){this.update()},attached:function(){this.update()},methods:{update:function(){this.$parent&&this.$parent.swiper&&this.$parent.update()}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(0),s=function(e){return e&&e.__esModule?e:{default:e}}(i),r=window.Swiper||s.default;"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),i=1;i<arguments.length;i++){var s=arguments[i];if(null!=s)for(var r in s)Object.prototype.hasOwnProperty.call(s,r)&&(n[r]=s[r])}return n},writable:!0,configurable:!0});var o=["beforeDestroy","slideChange","slideChangeTransitionStart","slideChangeTransitionEnd","slideNextTransitionStart","slideNextTransitionEnd","slidePrevTransitionStart","slidePrevTransitionEnd","transitionStart","transitionEnd","touchStart","touchMove","touchMoveOpposite","sliderMove","touchEnd","click","tap","doubleTap","imagesReady","progress","reachBeginning","reachEnd","fromEdge","setTranslate","setTransition","resize"];t.default={name:"swiper",props:{options:{type:Object,default:function(){return{}}},globalOptions:{type:Object,required:!1,default:function(){return{}}}},data:function(){return{swiper:null,classes:{wrapperClass:"swiper-wrapper"}}},ready:function(){this.swiper||this.mountInstance()},mounted:function(){if(!this.swiper){var e=!1;for(var t in this.classes)this.classes.hasOwnProperty(t)&&this.options[t]&&(e=!0,this.classes[t]=this.options[t]);e?this.$nextTick(this.mountInstance):this.mountInstance()}},activated:function(){this.update()},updated:function(){this.update()},beforeDestroy:function(){this.$nextTick(function(){this.swiper&&(this.swiper.destroy&&this.swiper.destroy(),delete this.swiper)})},methods:{update:function(){this.swiper&&(this.swiper.update&&this.swiper.update(),this.swiper.navigation&&this.swiper.navigation.update(),this.swiper.pagination&&this.swiper.pagination.render(),this.swiper.pagination&&this.swiper.pagination.update())},mountInstance:function(){var e=Object.assign({},this.globalOptions,this.options);this.swiper=new r(this.$el,e),this.bindEvents(),this.$emit("ready",this.swiper)},bindEvents:function(){var e=this,t=this;o.forEach(function(n){e.swiper.on(n,function(){t.$emit.apply(t,[n].concat(Array.prototype.slice.call(arguments))),t.$emit.apply(t,[n.replace(/([A-Z])/g,"-$1").toLowerCase()].concat(Array.prototype.slice.call(arguments)))})})}}}},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"swiper-container"},[e._t("parallax-bg"),e._v(" "),n("div",{class:e.classes.wrapperClass},[e._t("default")],2),e._v(" "),e._t("pagination"),e._v(" "),e._t("button-prev"),e._v(" "),e._t("button-next"),e._v(" "),e._t("scrollbar")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{class:e.slideClass},[e._t("default")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r}])});
-
-/***/ }),
-/* 44 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var smallboxes = [{
-  id: 1,
-  text: 'Vantaggi Competitivi'
-}, {
-  id: 2,
-  text: 'Coinvolgimento emotivo'
-}, {
-  id: 3,
-  text: 'Entusiasmo'
-}, {
-  id: 4,
-  text: 'Squadra'
-}, {
-  id: 5,
-  text: 'Rete'
-}, {
-  id: 6,
-  text: 'Concretezza'
-}];
-/* harmony default export */ __webpack_exports__["a"] = (smallboxes);
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(136)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(138)
-/* template */
-var __vue_template__ = __webpack_require__(139)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/alternativa/js/components/SmallBox.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-76a30cd5", Component.options)
-  } else {
-    hotAPI.reload("data-v-76a30cd5", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -47933,7 +47805,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(110);
+var	fixUrls = __webpack_require__(44);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -48246,7 +48118,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 110 */
+/* 44 */
 /***/ (function(module, exports) {
 
 
@@ -48341,281 +48213,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 111 */,
-/* 112 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(113);
-
-
-/***/ }),
-/* 113 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_MainNav_vue__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_MainNav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__containers_MainNav_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Home_vue__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__views_Home_vue__);
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-__webpack_require__(114);
-
-
-
-
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  components: {
-    MainNav: __WEBPACK_IMPORTED_MODULE_1__containers_MainNav_vue___default.a,
-    Home: __WEBPACK_IMPORTED_MODULE_2__views_Home_vue___default.a
-  }
-}).$mount('#app');
-
-/***/ }),
-/* 114 */
-/***/ (function(module, exports, __webpack_require__) {
-
-window._ = __webpack_require__(14);
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
-
-try {
-  window.Popper = __webpack_require__(6).default;
-  window.$ = window.jQuery = __webpack_require__(7);
-
-  __webpack_require__(16);
-} catch (e) {}
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
-
-window.axios = __webpack_require__(17);
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-/**
- * Next we will register the CSRF Token as a common header with Axios so that
- * all outgoing HTTP requests automatically have it attached. This is just
- * a simple convenience so we don't have to attach every token manually.
- */
-
-var token = document.head.querySelector('meta[name="csrf-token"]');
-
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo'
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
-
-/***/ }),
-/* 115 */,
-/* 116 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(117)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(119)
-/* template */
-var __vue_template__ = __webpack_require__(151)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/alternativa/js/views/Home.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8e0d1fd0", Component.options)
-  } else {
-    hotAPI.reload("data-v-8e0d1fd0", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 117 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(118);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("85acbb04", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8e0d1fd0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8e0d1fd0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 118 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** NEUTRAL 1 ****************************************/\n/***************************** NEUTRAL 2 ****************************************/\n/***************************** NEUTRAL 2 / 3 ****************************************/\n.primary-bg {\n  background-color: #0066cc;\n}\n.primary-color {\n  color: #0066cc;\n}\n.primary-border-color {\n  border-color: #0066cc !important;\n}\n.primary-border-color.border {\n    border-color: #0066cc !important;\n}\n.white-bg {\n  background-color: white;\n}\n.white-color {\n  color: white;\n}\n.white-border-color- {\n  border-color: white !important;\n}\n.white-border-color-.border {\n    border-color: white !important;\n}\n.primary-bg-a1 {\n  background-color: #bfdfff;\n}\n.primary-color-a1 {\n  color: #bfdfff;\n}\n.primary-border-color-a1 {\n  border-color: #bfdfff !important;\n}\n.primary-border-color-a1.border {\n    border-color: #bfdfff !important;\n}\n.primary-bg-a2 {\n  background-color: #93c4f5;\n}\n.primary-color-a2 {\n  color: #93c4f5;\n}\n.primary-border-color-a2 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-a2.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-a3 {\n  background-color: #6aaaeb;\n}\n.primary-color-a3 {\n  color: #6aaaeb;\n}\n.primary-border-color-a3 {\n  border-color: #6aaaeb !important;\n}\n.primary-border-color-a3.border {\n    border-color: #6aaaeb !important;\n}\n.primary-bg-a4 {\n  background-color: #4392e0;\n}\n.primary-color-a4 {\n  color: #4392e0;\n}\n.primary-border-color-a4 {\n  border-color: #4392e0 !important;\n}\n.primary-border-color-a4.border {\n    border-color: #4392e0 !important;\n}\n.primary-bg-a5 {\n  background-color: #207bd6;\n}\n.primary-color-a5 {\n  color: #207bd6;\n}\n.primary-border-color-a5 {\n  border-color: #207bd6 !important;\n}\n.primary-border-color-a5.border {\n    border-color: #207bd6 !important;\n}\n.primary-bg-a6 {\n  background-color: #0066cc;\n}\n.primary-color-a6 {\n  color: #0066cc;\n}\n.primary-border-color-a6 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-a6.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-a7 {\n  background-color: #0059b3;\n}\n.primary-color-a7 {\n  color: #0059b3;\n}\n.primary-border-color-a7 {\n  border-color: #0059b3 !important;\n}\n.primary-border-color-a7.border {\n    border-color: #0059b3 !important;\n}\n.primary-bg-a8 {\n  background-color: #004d99;\n}\n.primary-color-a8 {\n  color: #004d99;\n}\n.primary-border-color-a8 {\n  border-color: #004d99 !important;\n}\n.primary-border-color-a8.border {\n    border-color: #004d99 !important;\n}\n.primary-bg-a9 {\n  background-color: #004080;\n}\n.primary-color-a9 {\n  color: #004080;\n}\n.primary-border-color-a9 {\n  border-color: #004080 !important;\n}\n.primary-border-color-a9.border {\n    border-color: #004080 !important;\n}\n.primary-bg-a10 {\n  background-color: #003366;\n}\n.primary-color-a10 {\n  color: #003366;\n}\n.primary-border-color-a10 {\n  border-color: #003366 !important;\n}\n.primary-border-color-a10.border {\n    border-color: #003366 !important;\n}\n.primary-bg-a11 {\n  background-color: #00264d;\n}\n.primary-color-a11 {\n  color: #00264d;\n}\n.primary-border-color-a11 {\n  border-color: #00264d !important;\n}\n.primary-border-color-a11.border {\n    border-color: #00264d !important;\n}\n.primary-bg-a12 {\n  background-color: #001a33;\n}\n.primary-color-a12 {\n  color: #001a33;\n}\n.primary-border-color-a12 {\n  border-color: #001a33 !important;\n}\n.primary-border-color-a12.border {\n    border-color: #001a33 !important;\n}\n.primary-bg-b1 {\n  background-color: #0066cc;\n}\n.primary-color-b1 {\n  color: #0066cc;\n}\n.primary-border-color-b1 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-b1.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-b2 {\n  background-color: #1262b3;\n}\n.primary-color-b2 {\n  color: #1262b3;\n}\n.primary-border-color-b2 {\n  border-color: #1262b3 !important;\n}\n.primary-border-color-b2.border {\n    border-color: #1262b3 !important;\n}\n.primary-bg-b3 {\n  background-color: #1f5c99;\n}\n.primary-color-b3 {\n  color: #1f5c99;\n}\n.primary-border-color-b3 {\n  border-color: #1f5c99 !important;\n}\n.primary-border-color-b3.border {\n    border-color: #1f5c99 !important;\n}\n.primary-bg-b4 {\n  background-color: #265380;\n}\n.primary-color-b4 {\n  color: #265380;\n}\n.primary-border-color-b4 {\n  border-color: #265380 !important;\n}\n.primary-border-color-b4.border {\n    border-color: #265380 !important;\n}\n.primary-bg-b5 {\n  background-color: #294766;\n}\n.primary-color-b5 {\n  color: #294766;\n}\n.primary-border-color-b5 {\n  border-color: #294766 !important;\n}\n.primary-border-color-b5.border {\n    border-color: #294766 !important;\n}\n.primary-bg-b6 {\n  background-color: #26394d;\n}\n.primary-color-b6 {\n  color: #26394d;\n}\n.primary-border-color-b6 {\n  border-color: #26394d !important;\n}\n.primary-border-color-b6.border {\n    border-color: #26394d !important;\n}\n.primary-bg-b7 {\n  background-color: #1f2933;\n}\n.primary-color-b7 {\n  color: #1f2933;\n}\n.primary-border-color-b7 {\n  border-color: #1f2933 !important;\n}\n.primary-border-color-b7.border {\n    border-color: #1f2933 !important;\n}\n.primary-bg-b8 {\n  background-color: #12161a;\n}\n.primary-color-b8 {\n  color: #12161a;\n}\n.primary-border-color-b8 {\n  border-color: #12161a !important;\n}\n.primary-border-color-b8.border {\n    border-color: #12161a !important;\n}\n.primary-bg-c1 {\n  background-color: #dce9f5;\n}\n.primary-color-c1 {\n  color: #dce9f5;\n}\n.primary-border-color-c1 {\n  border-color: #dce9f5 !important;\n}\n.primary-border-color-c1.border {\n    border-color: #dce9f5 !important;\n}\n.primary-bg-c2 {\n  background-color: #c4dcf5;\n}\n.primary-color-c2 {\n  color: #c4dcf5;\n}\n.primary-border-color-c2 {\n  border-color: #c4dcf5 !important;\n}\n.primary-border-color-c2.border {\n    border-color: #c4dcf5 !important;\n}\n.primary-bg-c3 {\n  background-color: #abd0f5;\n}\n.primary-color-c3 {\n  color: #abd0f5;\n}\n.primary-border-color-c3 {\n  border-color: #abd0f5 !important;\n}\n.primary-border-color-c3.border {\n    border-color: #abd0f5 !important;\n}\n.primary-bg-c4 {\n  background-color: #93c4f5;\n}\n.primary-color-c4 {\n  color: #93c4f5;\n}\n.primary-border-color-c4 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-c4.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-c5 {\n  background-color: #7ab8f5;\n}\n.primary-color-c5 {\n  color: #7ab8f5;\n}\n.primary-border-color-c5 {\n  border-color: #7ab8f5 !important;\n}\n.primary-border-color-c5.border {\n    border-color: #7ab8f5 !important;\n}\n.primary-bg-c6 {\n  background-color: #62abf5;\n}\n.primary-color-c6 {\n  color: #62abf5;\n}\n.primary-border-color-c6 {\n  border-color: #62abf5 !important;\n}\n.primary-border-color-c6.border {\n    border-color: #62abf5 !important;\n}\n.primary-bg-c7 {\n  background-color: #499ff5;\n}\n.primary-color-c7 {\n  color: #499ff5;\n}\n.primary-border-color-c7 {\n  border-color: #499ff5 !important;\n}\n.primary-border-color-c7.border {\n    border-color: #499ff5 !important;\n}\n.primary-bg-c8 {\n  background-color: #3193f5;\n}\n.primary-color-c8 {\n  color: #3193f5;\n}\n.primary-border-color-c8 {\n  border-color: #3193f5 !important;\n}\n.primary-border-color-c8.border {\n    border-color: #3193f5 !important;\n}\n.primary-bg-c9 {\n  background-color: #1887f5;\n}\n.primary-color-c9 {\n  color: #1887f5;\n}\n.primary-border-color-c9 {\n  border-color: #1887f5 !important;\n}\n.primary-border-color-c9.border {\n    border-color: #1887f5 !important;\n}\n.primary-bg-c10 {\n  background-color: #007af5;\n}\n.primary-color-c10 {\n  color: #007af5;\n}\n.primary-border-color-c10 {\n  border-color: #007af5 !important;\n}\n.primary-border-color-c10.border {\n    border-color: #007af5 !important;\n}\n.primary-bg-c11 {\n  background-color: #0070e0;\n}\n.primary-color-c11 {\n  color: #0070e0;\n}\n.primary-border-color-c11 {\n  border-color: #0070e0 !important;\n}\n.primary-border-color-c11.border {\n    border-color: #0070e0 !important;\n}\n.primary-bg-c12 {\n  background-color: #0066cc;\n}\n.primary-color-c12 {\n  color: #0066cc;\n}\n.primary-border-color-c12 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-c12.border {\n    border-color: #0066cc !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-a1 {\n  background-color: #e7e6ff;\n}\n.analogue-1-color-a1 {\n  color: #e7e6ff;\n}\n.analogue-1-border-color-a1 {\n  border-color: #e7e6ff !important;\n}\n.analogue-1-border-color-a1.border {\n    border-color: #e7e6ff !important;\n}\n.analogue-1-bg-a2 {\n  background-color: #bbb8f5;\n}\n.analogue-1-color-a2 {\n  color: #bbb8f5;\n}\n.analogue-1-border-color-a2 {\n  border-color: #bbb8f5 !important;\n}\n.analogue-1-border-color-a2.border {\n    border-color: #bbb8f5 !important;\n}\n.analogue-1-bg-a3 {\n  background-color: #918deb;\n}\n.analogue-1-color-a3 {\n  color: #918deb;\n}\n.analogue-1-border-color-a3 {\n  border-color: #918deb !important;\n}\n.analogue-1-border-color-a3.border {\n    border-color: #918deb !important;\n}\n.analogue-1-bg-a4 {\n  background-color: #6b65e0;\n}\n.analogue-1-color-a4 {\n  color: #6b65e0;\n}\n.analogue-1-border-color-a4 {\n  border-color: #6b65e0 !important;\n}\n.analogue-1-border-color-a4.border {\n    border-color: #6b65e0 !important;\n}\n.analogue-1-bg-a5 {\n  background-color: #4840d6;\n}\n.analogue-1-color-a5 {\n  color: #4840d6;\n}\n.analogue-1-border-color-a5 {\n  border-color: #4840d6 !important;\n}\n.analogue-1-border-color-a5.border {\n    border-color: #4840d6 !important;\n}\n.analogue-1-bg-a6 {\n  background-color: #271fcc;\n}\n.analogue-1-color-a6 {\n  color: #271fcc;\n}\n.analogue-1-border-color-a6 {\n  border-color: #271fcc !important;\n}\n.analogue-1-border-color-a6.border {\n    border-color: #271fcc !important;\n}\n.analogue-1-bg-a7 {\n  background-color: #221bb3;\n}\n.analogue-1-color-a7 {\n  color: #221bb3;\n}\n.analogue-1-border-color-a7 {\n  border-color: #221bb3 !important;\n}\n.analogue-1-border-color-a7.border {\n    border-color: #221bb3 !important;\n}\n.analogue-1-bg-a8 {\n  background-color: #1d1799;\n}\n.analogue-1-color-a8 {\n  color: #1d1799;\n}\n.analogue-1-border-color-a8 {\n  border-color: #1d1799 !important;\n}\n.analogue-1-border-color-a8.border {\n    border-color: #1d1799 !important;\n}\n.analogue-1-bg-a9 {\n  background-color: #191380;\n}\n.analogue-1-color-a9 {\n  color: #191380;\n}\n.analogue-1-border-color-a9 {\n  border-color: #191380 !important;\n}\n.analogue-1-border-color-a9.border {\n    border-color: #191380 !important;\n}\n.analogue-1-bg-a10 {\n  background-color: #140f66;\n}\n.analogue-1-color-a10 {\n  color: #140f66;\n}\n.analogue-1-border-color-a10 {\n  border-color: #140f66 !important;\n}\n.analogue-1-border-color-a10.border {\n    border-color: #140f66 !important;\n}\n.analogue-1-bg-a11 {\n  background-color: #0f0b4d;\n}\n.analogue-1-color-a11 {\n  color: #0f0b4d;\n}\n.analogue-1-border-color-a11 {\n  border-color: #0f0b4d !important;\n}\n.analogue-1-border-color-a11.border {\n    border-color: #0f0b4d !important;\n}\n.analogue-1-bg-a12 {\n  background-color: #0a0833;\n}\n.analogue-1-color-a12 {\n  color: #0a0833;\n}\n.analogue-1-border-color-a12 {\n  border-color: #0a0833 !important;\n}\n.analogue-1-border-color-a12.border {\n    border-color: #0a0833 !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-a1 {\n  background-color: #ccfffd;\n}\n.analogue-2-color-a1 {\n  color: #ccfffd;\n}\n.analogue-2-border-color-a1 {\n  border-color: #ccfffd !important;\n}\n.analogue-2-border-color-a1.border {\n    border-color: #ccfffd !important;\n}\n.analogue-2-bg-a2 {\n  background-color: #9ff5f2;\n}\n.analogue-2-color-a2 {\n  color: #9ff5f2;\n}\n.analogue-2-border-color-a2 {\n  border-color: #9ff5f2 !important;\n}\n.analogue-2-border-color-a2.border {\n    border-color: #9ff5f2 !important;\n}\n.analogue-2-bg-a3 {\n  background-color: #75ebe7;\n}\n.analogue-2-color-a3 {\n  color: #75ebe7;\n}\n.analogue-2-border-color-a3 {\n  border-color: #75ebe7 !important;\n}\n.analogue-2-border-color-a3.border {\n    border-color: #75ebe7 !important;\n}\n.analogue-2-bg-a4 {\n  background-color: #4fe0dc;\n}\n.analogue-2-color-a4 {\n  color: #4fe0dc;\n}\n.analogue-2-border-color-a4 {\n  border-color: #4fe0dc !important;\n}\n.analogue-2-border-color-a4.border {\n    border-color: #4fe0dc !important;\n}\n.analogue-2-bg-a5 {\n  background-color: #2bd6d0;\n}\n.analogue-2-color-a5 {\n  color: #2bd6d0;\n}\n.analogue-2-border-color-a5 {\n  border-color: #2bd6d0 !important;\n}\n.analogue-2-border-color-a5.border {\n    border-color: #2bd6d0 !important;\n}\n.analogue-2-bg-a6 {\n  background-color: #0accc6;\n}\n.analogue-2-color-a6 {\n  color: #0accc6;\n}\n.analogue-2-border-color-a6 {\n  border-color: #0accc6 !important;\n}\n.analogue-2-border-color-a6.border {\n    border-color: #0accc6 !important;\n}\n.analogue-2-bg-a7 {\n  background-color: #09b3ad;\n}\n.analogue-2-color-a7 {\n  color: #09b3ad;\n}\n.analogue-2-border-color-a7 {\n  border-color: #09b3ad !important;\n}\n.analogue-2-border-color-a7.border {\n    border-color: #09b3ad !important;\n}\n.analogue-2-bg-a8 {\n  background-color: #089994;\n}\n.analogue-2-color-a8 {\n  color: #089994;\n}\n.analogue-2-border-color-a8 {\n  border-color: #089994 !important;\n}\n.analogue-2-border-color-a8.border {\n    border-color: #089994 !important;\n}\n.analogue-2-bg-a9 {\n  background-color: #06807b;\n}\n.analogue-2-color-a9 {\n  color: #06807b;\n}\n.analogue-2-border-color-a9 {\n  border-color: #06807b !important;\n}\n.analogue-2-border-color-a9.border {\n    border-color: #06807b !important;\n}\n.analogue-2-bg-a10 {\n  background-color: #056663;\n}\n.analogue-2-color-a10 {\n  color: #056663;\n}\n.analogue-2-border-color-a10 {\n  border-color: #056663 !important;\n}\n.analogue-2-border-color-a10.border {\n    border-color: #056663 !important;\n}\n.analogue-2-bg-a11 {\n  background-color: #044d4a;\n}\n.analogue-2-color-a11 {\n  color: #044d4a;\n}\n.analogue-2-border-color-a11 {\n  border-color: #044d4a !important;\n}\n.analogue-2-border-color-a11.border {\n    border-color: #044d4a !important;\n}\n.analogue-2-bg-a12 {\n  background-color: #033331;\n}\n.analogue-2-color-a12 {\n  color: #033331;\n}\n.analogue-2-border-color-a12 {\n  border-color: #033331 !important;\n}\n.analogue-2-border-color-a12.border {\n    border-color: #033331 !important;\n}\n.complementary-1-bg {\n  background-color: #f73e5a;\n}\n.complementary-1-color {\n  color: #ff9900;\n}\n.complementary-1-border-color- {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-a1 {\n  background-color: #fffcfd;\n}\n.complementary-1-color-a1 {\n  color: #fffcfd;\n}\n.complementary-1-border-color-a1 {\n  border-color: #fffcfd !important;\n}\n.complementary-1-border-color-a1.border {\n    border-color: #fffcfd !important;\n}\n.complementary-1-bg-a2 {\n  background-color: #f5d0d6;\n}\n.complementary-1-color-a2 {\n  color: #f5d0d6;\n}\n.complementary-1-border-color-a2 {\n  border-color: #f5d0d6 !important;\n}\n.complementary-1-border-color-a2.border {\n    border-color: #f5d0d6 !important;\n}\n.complementary-1-bg-a3 {\n  background-color: #eba4af;\n}\n.complementary-1-color-a3 {\n  color: #eba4af;\n}\n.complementary-1-border-color-a3 {\n  border-color: #eba4af !important;\n}\n.complementary-1-border-color-a3.border {\n    border-color: #eba4af !important;\n}\n.complementary-1-bg-a4 {\n  background-color: #e07b8b;\n}\n.complementary-1-color-a4 {\n  color: #e07b8b;\n}\n.complementary-1-border-color-a4 {\n  border-color: #e07b8b !important;\n}\n.complementary-1-border-color-a4.border {\n    border-color: #e07b8b !important;\n}\n.complementary-1-bg-a5 {\n  background-color: #d65669;\n}\n.complementary-1-color-a5 {\n  color: #d65669;\n}\n.complementary-1-border-color-a5 {\n  border-color: #d65669 !important;\n}\n.complementary-1-border-color-a5.border {\n    border-color: #d65669 !important;\n}\n.complementary-1-bg-a6 {\n  background-color: #cc334a;\n}\n.complementary-1-color-a6 {\n  color: #cc334a;\n}\n.complementary-1-border-color-a6 {\n  border-color: #cc334a !important;\n}\n.complementary-1-border-color-a6.border {\n    border-color: #cc334a !important;\n}\n.complementary-1-bg-a7 {\n  background-color: #b32d41;\n}\n.complementary-1-color-a7 {\n  color: #b32d41;\n}\n.complementary-1-border-color-a7 {\n  border-color: #b32d41 !important;\n}\n.complementary-1-border-color-a7.border {\n    border-color: #b32d41 !important;\n}\n.complementary-1-bg-a8 {\n  background-color: #992637;\n}\n.complementary-1-color-a8 {\n  color: #992637;\n}\n.complementary-1-border-color-a8 {\n  border-color: #992637 !important;\n}\n.complementary-1-border-color-a8.border {\n    border-color: #992637 !important;\n}\n.complementary-1-bg-a9 {\n  background-color: #80202e;\n}\n.complementary-1-color-a9 {\n  color: #80202e;\n}\n.complementary-1-border-color-a9 {\n  border-color: #80202e !important;\n}\n.complementary-1-border-color-a9.border {\n    border-color: #80202e !important;\n}\n.complementary-1-bg-a10 {\n  background-color: #661a25;\n}\n.complementary-1-color-a10 {\n  color: #661a25;\n}\n.complementary-1-border-color-a10 {\n  border-color: #661a25 !important;\n}\n.complementary-1-border-color-a10.border {\n    border-color: #661a25 !important;\n}\n.complementary-1-bg-a11 {\n  background-color: #4d131c;\n}\n.complementary-1-color-a11 {\n  color: #4d131c;\n}\n.complementary-1-border-color-a11 {\n  border-color: #4d131c !important;\n}\n.complementary-1-border-color-a11.border {\n    border-color: #4d131c !important;\n}\n.complementary-1-bg-a12 {\n  background-color: #330d12;\n}\n.complementary-1-color-a12 {\n  color: #330d12;\n}\n.complementary-1-border-color-a12 {\n  border-color: #330d12 !important;\n}\n.complementary-1-border-color-a12.border {\n    border-color: #330d12 !important;\n}\n.complementary-2-bg {\n  background-color: #ff9900;\n}\n.complementary-2-color {\n  color: #ff9900;\n}\n.complementary-2-border-color- {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-a1 {\n  background-color: #ffe6bf;\n}\n.complementary-2-color-a1 {\n  color: #ffe6bf;\n}\n.complementary-2-border-color-a1 {\n  border-color: #ffe6bf !important;\n}\n.complementary-2-border-color-a1.border {\n    border-color: #ffe6bf !important;\n}\n.complementary-2-bg-a2 {\n  background-color: #f5ce93;\n}\n.complementary-2-color-a2 {\n  color: #f5ce93;\n}\n.complementary-2-border-color-a2 {\n  border-color: #f5ce93 !important;\n}\n.complementary-2-border-color-a2.border {\n    border-color: #f5ce93 !important;\n}\n.complementary-2-bg-a3 {\n  background-color: #ebb76a;\n}\n.complementary-2-color-a3 {\n  color: #ebb76a;\n}\n.complementary-2-border-color-a3 {\n  border-color: #ebb76a !important;\n}\n.complementary-2-border-color-a3.border {\n    border-color: #ebb76a !important;\n}\n.complementary-2-bg-a4 {\n  background-color: #e0a243;\n}\n.complementary-2-color-a4 {\n  color: #e0a243;\n}\n.complementary-2-border-color-a4 {\n  border-color: #e0a243 !important;\n}\n.complementary-2-border-color-a4.border {\n    border-color: #e0a243 !important;\n}\n.complementary-2-bg-a5 {\n  background-color: #d68d20;\n}\n.complementary-2-color-a5 {\n  color: #d68d20;\n}\n.complementary-2-border-color-a5 {\n  border-color: #d68d20 !important;\n}\n.complementary-2-border-color-a5.border {\n    border-color: #d68d20 !important;\n}\n.complementary-2-bg-a6 {\n  background-color: #cc7a00;\n}\n.complementary-2-color-a6 {\n  color: #cc7a00;\n}\n.complementary-2-border-color-a6 {\n  border-color: #cc7a00 !important;\n}\n.complementary-2-border-color-a6.border {\n    border-color: #cc7a00 !important;\n}\n.complementary-2-bg-a7 {\n  background-color: #b36b00;\n}\n.complementary-2-color-a7 {\n  color: #b36b00;\n}\n.complementary-2-border-color-a7 {\n  border-color: #b36b00 !important;\n}\n.complementary-2-border-color-a7.border {\n    border-color: #b36b00 !important;\n}\n.complementary-2-bg-a8 {\n  background-color: #995c00;\n}\n.complementary-2-color-a8 {\n  color: #995c00;\n}\n.complementary-2-border-color-a8 {\n  border-color: #995c00 !important;\n}\n.complementary-2-border-color-a8.border {\n    border-color: #995c00 !important;\n}\n.complementary-2-bg-a9 {\n  background-color: #804d00;\n}\n.complementary-2-color-a9 {\n  color: #804d00;\n}\n.complementary-2-border-color-a9 {\n  border-color: #804d00 !important;\n}\n.complementary-2-border-color-a9.border {\n    border-color: #804d00 !important;\n}\n.complementary-2-bg-a10 {\n  background-color: #663d00;\n}\n.complementary-2-color-a10 {\n  color: #663d00;\n}\n.complementary-2-border-color-a10 {\n  border-color: #663d00 !important;\n}\n.complementary-2-border-color-a10.border {\n    border-color: #663d00 !important;\n}\n.complementary-2-bg-a11 {\n  background-color: #4d2e00;\n}\n.complementary-2-color-a11 {\n  color: #4d2e00;\n}\n.complementary-2-border-color-a11 {\n  border-color: #4d2e00 !important;\n}\n.complementary-2-border-color-a11.border {\n    border-color: #4d2e00 !important;\n}\n.complementary-2-bg-a12 {\n  background-color: #331f00;\n}\n.complementary-2-color-a12 {\n  color: #331f00;\n}\n.complementary-2-border-color-a12 {\n  border-color: #331f00 !important;\n}\n.complementary-2-border-color-a12.border {\n    border-color: #331f00 !important;\n}\n.complementary-3-bg {\n  background-color: #00cf86;\n}\n.complementary-3-color {\n  color: #00cf86;\n}\n.complementary-3-border-color- {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-a1 {\n  background-color: #bfffe9;\n}\n.complementary-3-color-a1 {\n  color: #bfffe9;\n}\n.complementary-3-border-color-a1 {\n  border-color: #bfffe9 !important;\n}\n.complementary-3-border-color-a1.border {\n    border-color: #bfffe9 !important;\n}\n.complementary-3-bg-a2 {\n  background-color: #93f5d3;\n}\n.complementary-3-color-a2 {\n  color: #93f5d3;\n}\n.complementary-3-border-color-a2 {\n  border-color: #93f5d3 !important;\n}\n.complementary-3-border-color-a2.border {\n    border-color: #93f5d3 !important;\n}\n.complementary-3-bg-a3 {\n  background-color: #6aebbd;\n}\n.complementary-3-color-a3 {\n  color: #6aebbd;\n}\n.complementary-3-border-color-a3 {\n  border-color: #6aebbd !important;\n}\n.complementary-3-border-color-a3.border {\n    border-color: #6aebbd !important;\n}\n.complementary-3-bg-a4 {\n  background-color: #43e0a9;\n}\n.complementary-3-color-a4 {\n  color: #43e0a9;\n}\n.complementary-3-border-color-a4 {\n  border-color: #43e0a9 !important;\n}\n.complementary-3-border-color-a4.border {\n    border-color: #43e0a9 !important;\n}\n.complementary-3-bg-a5 {\n  background-color: #20d696;\n}\n.complementary-3-color-a5 {\n  color: #20d696;\n}\n.complementary-3-border-color-a5 {\n  border-color: #20d696 !important;\n}\n.complementary-3-border-color-a5.border {\n    border-color: #20d696 !important;\n}\n.complementary-3-bg-a6 {\n  background-color: #00cc85;\n}\n.complementary-3-color-a6 {\n  color: #00cc85;\n}\n.complementary-3-border-color-a6 {\n  border-color: #00cc85 !important;\n}\n.complementary-3-border-color-a6.border {\n    border-color: #00cc85 !important;\n}\n.complementary-3-bg-a7 {\n  background-color: #00b374;\n}\n.complementary-3-color-a7 {\n  color: #00b374;\n}\n.complementary-3-border-color-a7 {\n  border-color: #00b374 !important;\n}\n.complementary-3-border-color-a7.border {\n    border-color: #00b374 !important;\n}\n.complementary-3-bg-a8 {\n  background-color: #009963;\n}\n.complementary-3-color-a8 {\n  color: #009963;\n}\n.complementary-3-border-color-a8 {\n  border-color: #009963 !important;\n}\n.complementary-3-border-color-a8.border {\n    border-color: #009963 !important;\n}\n.complementary-3-bg-a9 {\n  background-color: #008053;\n}\n.complementary-3-color-a9 {\n  color: #008053;\n}\n.complementary-3-border-color-a9 {\n  border-color: #008053 !important;\n}\n.complementary-3-border-color-a9.border {\n    border-color: #008053 !important;\n}\n.complementary-3-bg-a10 {\n  background-color: #006642;\n}\n.complementary-3-color-a10 {\n  color: #006642;\n}\n.complementary-3-border-color-a10 {\n  border-color: #006642 !important;\n}\n.complementary-3-border-color-a10.border {\n    border-color: #006642 !important;\n}\n.complementary-3-bg-a11 {\n  background-color: #004d32;\n}\n.complementary-3-color-a11 {\n  color: #004d32;\n}\n.complementary-3-border-color-a11 {\n  border-color: #004d32 !important;\n}\n.complementary-3-border-color-a11.border {\n    border-color: #004d32 !important;\n}\n.complementary-3-bg-a12 {\n  background-color: #003321;\n}\n.complementary-3-color-a12 {\n  color: #003321;\n}\n.complementary-3-border-color-a12 {\n  border-color: #003321 !important;\n}\n.complementary-3-border-color-a12.border {\n    border-color: #003321 !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b1 {\n  background-color: #3126ff;\n}\n.analogue-1-color-b1 {\n  color: #3126ff;\n}\n.analogue-1-border-color-b1 {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-b1.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b2 {\n  background-color: #4239e6;\n}\n.analogue-1-color-b2 {\n  color: #4239e6;\n}\n.analogue-1-border-color-b2 {\n  border-color: #4239e6 !important;\n}\n.analogue-1-border-color-b2.border {\n    border-color: #4239e6 !important;\n}\n.analogue-1-bg-b3 {\n  background-color: #4e47cc;\n}\n.analogue-1-color-b3 {\n  color: #4e47cc;\n}\n.analogue-1-border-color-b3 {\n  border-color: #4e47cc !important;\n}\n.analogue-1-border-color-b3.border {\n    border-color: #4e47cc !important;\n}\n.analogue-1-bg-b4 {\n  background-color: #5550b3;\n}\n.analogue-1-color-b4 {\n  color: #5550b3;\n}\n.analogue-1-border-color-b4 {\n  border-color: #5550b3 !important;\n}\n.analogue-1-border-color-b4.border {\n    border-color: #5550b3 !important;\n}\n.analogue-1-bg-b5 {\n  background-color: #585499;\n}\n.analogue-1-color-b5 {\n  color: #585499;\n}\n.analogue-1-border-color-b5 {\n  border-color: #585499 !important;\n}\n.analogue-1-border-color-b5.border {\n    border-color: #585499 !important;\n}\n.analogue-1-bg-b6 {\n  background-color: #555380;\n}\n.analogue-1-color-b6 {\n  color: #555380;\n}\n.analogue-1-border-color-b6 {\n  border-color: #555380 !important;\n}\n.analogue-1-border-color-b6.border {\n    border-color: #555380 !important;\n}\n.analogue-1-bg-b7 {\n  background-color: #4e4d66;\n}\n.analogue-1-color-b7 {\n  color: #4e4d66;\n}\n.analogue-1-border-color-b7 {\n  border-color: #4e4d66 !important;\n}\n.analogue-1-border-color-b7.border {\n    border-color: #4e4d66 !important;\n}\n.analogue-1-bg-b8 {\n  background-color: #42414d;\n}\n.analogue-1-color-b8 {\n  color: #42414d;\n}\n.analogue-1-border-color-b8 {\n  border-color: #42414d !important;\n}\n.analogue-1-border-color-b8.border {\n    border-color: #42414d !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b1 {\n  background-color: #0bd9d2;\n}\n.analogue-2-color-b1 {\n  color: #0bd9d2;\n}\n.analogue-2-border-color-b1 {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-b1.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b2 {\n  background-color: #1dbfba;\n}\n.analogue-2-color-b2 {\n  color: #1dbfba;\n}\n.analogue-2-border-color-b2 {\n  border-color: #1dbfba !important;\n}\n.analogue-2-border-color-b2.border {\n    border-color: #1dbfba !important;\n}\n.analogue-2-bg-b3 {\n  background-color: #29a6a2;\n}\n.analogue-2-color-b3 {\n  color: #29a6a2;\n}\n.analogue-2-border-color-b3 {\n  border-color: #29a6a2 !important;\n}\n.analogue-2-border-color-b3.border {\n    border-color: #29a6a2 !important;\n}\n.analogue-2-bg-b4 {\n  background-color: #318c89;\n}\n.analogue-2-color-b4 {\n  color: #318c89;\n}\n.analogue-2-border-color-b4 {\n  border-color: #318c89 !important;\n}\n.analogue-2-border-color-b4.border {\n    border-color: #318c89 !important;\n}\n.analogue-2-bg-b5 {\n  background-color: #347371;\n}\n.analogue-2-color-b5 {\n  color: #347371;\n}\n.analogue-2-border-color-b5 {\n  border-color: #347371 !important;\n}\n.analogue-2-border-color-b5.border {\n    border-color: #347371 !important;\n}\n.analogue-2-bg-b6 {\n  background-color: #315958;\n}\n.analogue-2-color-b6 {\n  color: #315958;\n}\n.analogue-2-border-color-b6 {\n  border-color: #315958 !important;\n}\n.analogue-2-border-color-b6.border {\n    border-color: #315958 !important;\n}\n.analogue-2-bg-b7 {\n  background-color: #29403f;\n}\n.analogue-2-color-b7 {\n  color: #29403f;\n}\n.analogue-2-border-color-b7 {\n  border-color: #29403f !important;\n}\n.analogue-2-border-color-b7.border {\n    border-color: #29403f !important;\n}\n.analogue-2-bg-b8 {\n  background-color: #1d2626;\n}\n.analogue-2-color-b8 {\n  color: #1d2626;\n}\n.analogue-2-border-color-b8 {\n  border-color: #1d2626 !important;\n}\n.analogue-2-border-color-b8.border {\n    border-color: #1d2626 !important;\n}\n.complementary-1-bg-b1 {\n  background-color: #f73e5a;\n}\n.complementary-1-color-b1 {\n  color: #f73e5a;\n}\n.complementary-1-border-color-b1 {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-b1.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-b2 {\n  background-color: #de4e63;\n}\n.complementary-1-color-b2 {\n  color: #de4e63;\n}\n.complementary-1-border-color-b2 {\n  border-color: #de4e63 !important;\n}\n.complementary-1-border-color-b2.border {\n    border-color: #de4e63 !important;\n}\n.complementary-1-bg-b3 {\n  background-color: #c45869;\n}\n.complementary-1-color-b3 {\n  color: #c45869;\n}\n.complementary-1-border-color-b3 {\n  border-color: #c45869 !important;\n}\n.complementary-1-border-color-b3.border {\n    border-color: #c45869 !important;\n}\n.complementary-1-bg-b4 {\n  background-color: #ab5e69;\n}\n.complementary-1-color-b4 {\n  color: #ab5e69;\n}\n.complementary-1-border-color-b4 {\n  border-color: #ab5e69 !important;\n}\n.complementary-1-border-color-b4.border {\n    border-color: #ab5e69 !important;\n}\n.complementary-1-bg-b5 {\n  background-color: #915e66;\n}\n.complementary-1-color-b5 {\n  color: #915e66;\n}\n.complementary-1-border-color-b5 {\n  border-color: #915e66 !important;\n}\n.complementary-1-border-color-b5.border {\n    border-color: #915e66 !important;\n}\n.complementary-1-bg-b6 {\n  background-color: #785a5e;\n}\n.complementary-1-color-b6 {\n  color: #785a5e;\n}\n.complementary-1-border-color-b6 {\n  border-color: #785a5e !important;\n}\n.complementary-1-border-color-b6.border {\n    border-color: #785a5e !important;\n}\n.complementary-1-bg-b7 {\n  background-color: #5e5052;\n}\n.complementary-1-color-b7 {\n  color: #5e5052;\n}\n.complementary-1-border-color-b7 {\n  border-color: #5e5052 !important;\n}\n.complementary-1-border-color-b7.border {\n    border-color: #5e5052 !important;\n}\n.complementary-1-bg-b8 {\n  background-color: #454142;\n}\n.complementary-1-color-b8 {\n  color: #454142;\n}\n.complementary-1-border-color-b8 {\n  border-color: #454142 !important;\n}\n.complementary-1-border-color-b8.border {\n    border-color: #454142 !important;\n}\n.complementary-2-bg-b1 {\n  background-color: #ff9900;\n}\n.complementary-2-color-b1 {\n  color: #ff9900;\n}\n.complementary-2-border-color-b1 {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-b1.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-b2 {\n  background-color: #e69317;\n}\n.complementary-2-color-b2 {\n  color: #e69317;\n}\n.complementary-2-border-color-b2 {\n  border-color: #e69317 !important;\n}\n.complementary-2-border-color-b2.border {\n    border-color: #e69317 !important;\n}\n.complementary-2-bg-b3 {\n  background-color: #cc8b29;\n}\n.complementary-2-color-b3 {\n  color: #cc8b29;\n}\n.complementary-2-border-color-b3 {\n  border-color: #cc8b29 !important;\n}\n.complementary-2-border-color-b3.border {\n    border-color: #cc8b29 !important;\n}\n.complementary-2-bg-b4 {\n  background-color: #b38136;\n}\n.complementary-2-color-b4 {\n  color: #b38136;\n}\n.complementary-2-border-color-b4 {\n  border-color: #b38136 !important;\n}\n.complementary-2-border-color-b4.border {\n    border-color: #b38136 !important;\n}\n.complementary-2-bg-b5 {\n  background-color: #99743d;\n}\n.complementary-2-color-b5 {\n  color: #99743d;\n}\n.complementary-2-border-color-b5 {\n  border-color: #99743d !important;\n}\n.complementary-2-border-color-b5.border {\n    border-color: #99743d !important;\n}\n.complementary-2-bg-b6 {\n  background-color: #806640;\n}\n.complementary-2-color-b6 {\n  color: #806640;\n}\n.complementary-2-border-color-b6 {\n  border-color: #806640 !important;\n}\n.complementary-2-border-color-b6.border {\n    border-color: #806640 !important;\n}\n.complementary-2-bg-b7 {\n  background-color: #66563d;\n}\n.complementary-2-color-b7 {\n  color: #66563d;\n}\n.complementary-2-border-color-b7 {\n  border-color: #66563d !important;\n}\n.complementary-2-border-color-b7.border {\n    border-color: #66563d !important;\n}\n.complementary-2-bg-b8 {\n  background-color: #4d4336;\n}\n.complementary-2-color-b8 {\n  color: #4d4336;\n}\n.complementary-2-border-color-b8 {\n  border-color: #4d4336 !important;\n}\n.complementary-2-border-color-b8.border {\n    border-color: #4d4336 !important;\n}\n.complementary-3-bg-b1 {\n  background-color: #00cf86;\n}\n.complementary-3-color-b1 {\n  color: #00cf86;\n}\n.complementary-3-border-color-b1 {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-b1.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-b2 {\n  background-color: #12b57c;\n}\n.complementary-3-color-b2 {\n  color: #12b57c;\n}\n.complementary-3-border-color-b2 {\n  border-color: #12b57c !important;\n}\n.complementary-3-border-color-b2.border {\n    border-color: #12b57c !important;\n}\n.complementary-3-bg-b3 {\n  background-color: #1f9c70;\n}\n.complementary-3-color-b3 {\n  color: #1f9c70;\n}\n.complementary-3-border-color-b3 {\n  border-color: #1f9c70 !important;\n}\n.complementary-3-border-color-b3.border {\n    border-color: #1f9c70 !important;\n}\n.complementary-3-bg-b4 {\n  background-color: #278262;\n}\n.complementary-3-color-b4 {\n  color: #278262;\n}\n.complementary-3-border-color-b4 {\n  border-color: #278262 !important;\n}\n.complementary-3-border-color-b4.border {\n    border-color: #278262 !important;\n}\n.complementary-3-bg-b5 {\n  background-color: #2a6953;\n}\n.complementary-3-color-b5 {\n  color: #2a6953;\n}\n.complementary-3-border-color-b5 {\n  border-color: #2a6953 !important;\n}\n.complementary-3-border-color-b5.border {\n    border-color: #2a6953 !important;\n}\n.complementary-3-bg-b6 {\n  background-color: #284f41;\n}\n.complementary-3-color-b6 {\n  color: #284f41;\n}\n.complementary-3-border-color-b6 {\n  border-color: #284f41 !important;\n}\n.complementary-3-border-color-b6.border {\n    border-color: #284f41 !important;\n}\n.complementary-3-bg-b7 {\n  background-color: #20362e;\n}\n.complementary-3-color-b7 {\n  color: #20362e;\n}\n.complementary-3-border-color-b7 {\n  border-color: #20362e !important;\n}\n.complementary-3-border-color-b7.border {\n    border-color: #20362e !important;\n}\n.complementary-3-bg-b8 {\n  background-color: #141c19;\n}\n.complementary-3-color-b8 {\n  color: #141c19;\n}\n.complementary-3-border-color-b8 {\n  border-color: #141c19 !important;\n}\n.complementary-3-border-color-b8.border {\n    border-color: #141c19 !important;\n}\n.neutral-1-bg {\n  background-color: #17324d;\n}\n.neutral-1-color {\n  color: #17324d;\n}\n.neutral-1-border-color- {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-.border {\n    border-color: #17324d !important;\n}\n.neutral-1-bg-a1 {\n  background-color: #ebeced;\n}\n.neutral-1-color-a1 {\n  color: #ebeced;\n}\n.neutral-1-border-color-a1 {\n  border-color: #ebeced !important;\n}\n.neutral-1-border-color-a1.border {\n    border-color: #ebeced !important;\n}\n.neutral-1-bg-a2 {\n  background-color: #d9dadb;\n}\n.neutral-1-color-a2 {\n  color: #d9dadb;\n}\n.neutral-1-border-color-a2 {\n  border-color: #d9dadb !important;\n}\n.neutral-1-border-color-a2.border {\n    border-color: #d9dadb !important;\n}\n.neutral-1-bg-a3 {\n  background-color: #c5c7c9;\n}\n.neutral-1-color-a3 {\n  color: #c5c7c9;\n}\n.neutral-1-border-color-a3 {\n  border-color: #c5c7c9 !important;\n}\n.neutral-1-border-color-a3.border {\n    border-color: #c5c7c9 !important;\n}\n.neutral-1-bg-a4 {\n  background-color: #adb2b8;\n}\n.neutral-1-color-a4 {\n  color: #adb2b8;\n}\n.neutral-1-border-color-a4 {\n  border-color: #adb2b8 !important;\n}\n.neutral-1-border-color-a4.border {\n    border-color: #adb2b8 !important;\n}\n.neutral-1-bg-a5 {\n  background-color: #959da6;\n}\n.neutral-1-color-a5 {\n  color: #959da6;\n}\n.neutral-1-border-color-a5 {\n  border-color: #959da6 !important;\n}\n.neutral-1-border-color-a5.border {\n    border-color: #959da6 !important;\n}\n.neutral-1-bg-a6 {\n  background-color: #768594;\n}\n.neutral-1-color-a6 {\n  color: #768594;\n}\n.neutral-1-border-color-a6 {\n  border-color: #768594 !important;\n}\n.neutral-1-border-color-a6.border {\n    border-color: #768594 !important;\n}\n.neutral-1-bg-a7 {\n  background-color: #5b6f82;\n}\n.neutral-1-color-a7 {\n  color: #5b6f82;\n}\n.neutral-1-border-color-a7 {\n  border-color: #5b6f82 !important;\n}\n.neutral-1-border-color-a7.border {\n    border-color: #5b6f82 !important;\n}\n.neutral-1-bg-a8 {\n  background-color: #435a70;\n}\n.neutral-1-color-a8 {\n  color: #435a70;\n}\n.neutral-1-border-color-a8 {\n  border-color: #435a70 !important;\n}\n.neutral-1-border-color-a8.border {\n    border-color: #435a70 !important;\n}\n.neutral-1-bg-a9 {\n  background-color: #2f475e;\n}\n.neutral-1-color-a9 {\n  color: #2f475e;\n}\n.neutral-1-border-color-a9 {\n  border-color: #2f475e !important;\n}\n.neutral-1-border-color-a9.border {\n    border-color: #2f475e !important;\n}\n.neutral-1-bg-a10 {\n  background-color: #17324d;\n}\n.neutral-1-color-a10 {\n  color: #17324d;\n}\n.neutral-1-border-color-a10 {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-a10.border {\n    border-color: #17324d !important;\n}\n.neutral-2-bg {\n  background-color: #e6ecf2;\n}\n.neutral-2-color {\n  color: #e6ecf2;\n}\n.neutral-2-border-color- {\n  border-color: #e6ecf2;\n}\n.neutral-2-bg-b1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-b1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-b1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-b1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-b2 {\n  background-color: #c2c7cc;\n}\n.neutral-2-color-b2 {\n  color: #c2c7cc;\n}\n.neutral-2-border-color-b2 {\n  border-color: #c2c7cc !important;\n}\n.neutral-2-border-color-b2.border {\n    border-color: #c2c7cc !important;\n}\n.neutral-2-bg-b3 {\n  background-color: #9da2a6;\n}\n.neutral-2-color-b3 {\n  color: #9da2a6;\n}\n.neutral-2-border-color-b3 {\n  border-color: #9da2a6 !important;\n}\n.neutral-2-border-color-b3.border {\n    border-color: #9da2a6 !important;\n}\n.neutral-2-bg-b4 {\n  background-color: #797c80;\n}\n.neutral-2-color-b4 {\n  color: #797c80;\n}\n.neutral-2-border-color-b4 {\n  border-color: #797c80 !important;\n}\n.neutral-2-border-color-b4.border {\n    border-color: #797c80 !important;\n}\n.neutral-2-bg-b5 {\n  background-color: #565759;\n}\n.neutral-2-color-b5 {\n  color: #565759;\n}\n.neutral-2-border-color-b5 {\n  border-color: #565759 !important;\n}\n.neutral-2-border-color-b5.border {\n    border-color: #565759 !important;\n}\n.neutral-2-bg-b6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-b6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-b6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-b6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-b7 {\n  background-color: #0c0c0d;\n}\n.neutral-2-color-b7 {\n  color: #0c0c0d;\n}\n.neutral-2-border-color-b7 {\n  border-color: #0c0c0d !important;\n}\n.neutral-2-border-color-b7.border {\n    border-color: #0c0c0d !important;\n}\n.neutral-2-bg-a1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-a1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-a1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-a1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-a2 {\n  background-color: #bcc4cc;\n}\n.neutral-2-color-a2 {\n  color: #bcc4cc;\n}\n.neutral-2-border-color-a2 {\n  border-color: #bcc4cc !important;\n}\n.neutral-2-border-color-a2.border {\n    border-color: #bcc4cc !important;\n}\n.neutral-2-bg-a3 {\n  background-color: #9aa0a6;\n}\n.neutral-2-color-a3 {\n  color: #9aa0a6;\n}\n.neutral-2-border-color-a3 {\n  border-color: #9aa0a6 !important;\n}\n.neutral-2-border-color-a3.border {\n    border-color: #9aa0a6 !important;\n}\n.neutral-2-bg-a4 {\n  background-color: #777b80;\n}\n.neutral-2-color-a4 {\n  color: #777b80;\n}\n.neutral-2-border-color-a4 {\n  border-color: #777b80 !important;\n}\n.neutral-2-border-color-a4.border {\n    border-color: #777b80 !important;\n}\n.neutral-2-bg-a5 {\n  background-color: #535659;\n}\n.neutral-2-color-a5 {\n  color: #535659;\n}\n.neutral-2-border-color-a5 {\n  border-color: #535659 !important;\n}\n.neutral-2-border-color-a5.border {\n    border-color: #535659 !important;\n}\n.neutral-2-bg-a6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-a6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-a6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-a6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-a7 {\n  background-color: #17181a;\n}\n.neutral-2-color-a7 {\n  color: #17181a;\n}\n.neutral-2-border-color-a7 {\n  border-color: #17181a !important;\n}\n.neutral-2-border-color-a7.border {\n    border-color: #17181a !important;\n}\n.lightgrey-bg-a1 {\n  background-color: #E8F2FC;\n}\n.lightgrey-color-a1 {\n  color: #E8F2FC;\n}\n.lightgrey-border-color-a1 {\n  border-color: #E8F2FC !important;\n}\n.lightgrey-border-color-a1.border {\n    border-color: #E8F2FC !important;\n}\n.lightgrey-bg-a2 {\n  background-color: #EDF5FC;\n}\n.lightgrey-color-a2 {\n  color: #EDF5FC;\n}\n.lightgrey-border-color-a2 {\n  border-color: #EDF5FC !important;\n}\n.lightgrey-border-color-a2.border {\n    border-color: #EDF5FC !important;\n}\n.lightgrey-bg-a3 {\n  background-color: #F2F7FC;\n}\n.lightgrey-color-a3 {\n  color: #F2F7FC;\n}\n.lightgrey-border-color-a3 {\n  border-color: #F2F7FC !important;\n}\n.lightgrey-border-color-a3.border {\n    border-color: #F2F7FC !important;\n}\n.lightgrey-bg-a4 {\n  background-color: #F5F9FC;\n}\n.lightgrey-color-a4 {\n  color: #F5F9FC;\n}\n.lightgrey-border-color-a4 {\n  border-color: #F5F9FC !important;\n}\n.lightgrey-border-color-a4.border {\n    border-color: #F5F9FC !important;\n}\n.lightgrey-bg-b1 {\n  background-color: #E6F0FA;\n}\n.lightgrey-color-b1 {\n  color: #E6F0FA;\n}\n.lightgrey-border-color-b1 {\n  border-color: #E6F0FA !important;\n}\n.lightgrey-border-color-b1.border {\n    border-color: #E6F0FA !important;\n}\n.lightgrey-bg-b2 {\n  background-color: #EBF2FA;\n}\n.lightgrey-color-b2 {\n  color: #EBF2FA;\n}\n.lightgrey-border-color-b2 {\n  border-color: #EBF2FA !important;\n}\n.lightgrey-border-color-b2.border {\n    border-color: #EBF2FA !important;\n}\n.lightgrey-bg-b3 {\n  background-color: #EDF4FA;\n}\n.lightgrey-color-b3 {\n  color: #EDF4FA;\n}\n.lightgrey-border-color-b3 {\n  border-color: #EDF4FA !important;\n}\n.lightgrey-border-color-b3.border {\n    border-color: #EDF4FA !important;\n}\n.lightgrey-bg-b4 {\n  background-color: #F2F6FA;\n}\n.lightgrey-color-b4 {\n  color: #F2F6FA;\n}\n.lightgrey-border-color-b4 {\n  border-color: #F2F6FA !important;\n}\n.lightgrey-border-color-b4.border {\n    border-color: #F2F6FA !important;\n}\n.lightgrey-bg-c1 {\n  background-color: #F7F9FA;\n}\n.lightgrey-color-c1 {\n  color: #F7F9FA;\n}\n.lightgrey-border-color-c1 {\n  border-color: #F7F9FA !important;\n}\n.lightgrey-border-color-c1.border {\n    border-color: #F7F9FA !important;\n}\n.lightgrey-bg-c2 {\n  background-color: #F5F6F7;\n}\n.lightgrey-color-c2 {\n  color: #F5F6F7;\n}\n.lightgrey-border-color-c2 {\n  border-color: #F5F6F7 !important;\n}\n.lightgrey-border-color-c2.border {\n    border-color: #F5F6F7 !important;\n}\n.swiper-box {\n  width: 100%;\n  height: 100vh;\n  margin: 0 auto;\n}\n.swiper-box .swiper-item {\n    height: 100%;\n    /* Center slide text vertically */\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 119 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Contact_vue__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Contact_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Contact_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HeroHeader_vue__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HeroHeader_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_HeroHeader_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_NewsBox_vue__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_NewsBox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_NewsBox_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home',
-  components: {
-    Contact: __WEBPACK_IMPORTED_MODULE_2__components_Contact_vue___default.a,
-    HeroHeader: __WEBPACK_IMPORTED_MODULE_3__components_HeroHeader_vue___default.a,
-    NewsBox: __WEBPACK_IMPORTED_MODULE_4__components_NewsBox_vue___default.a,
-    SectionLight: __WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue___default.a,
-    SplitDuo: __WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue___default.a,
-    swiper: __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__["swiper"],
-    swiperSlide: __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__["swiperSlide"]
-  },
-  data: function data() {
-    return {
-      swiperOption: {
-        // initialSlide: 1,
-        direction: 'vertical',
-        slidesPerView: 1,
-        mousewheel: true,
-        spaceBetween: 0,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        }
-      }
-    };
-  }
-});
-
-/***/ }),
-/* 120 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/**\n * Swiper 4.4.2\n * Most modern mobile touch slider and framework with hardware accelerated transitions\n * http://www.idangero.us/swiper/\n *\n * Copyright 2014-2018 Vladimir Kharlampidi\n *\n * Released under the MIT License\n *\n * Released on: November 1, 2018\n */\n.swiper-container {\n  margin: 0 auto;\n  position: relative;\n  overflow: hidden;\n  list-style: none;\n  padding: 0;\n  /* Fix of Webkit flickering */\n  z-index: 1;\n}\n.swiper-container-no-flexbox .swiper-slide {\n  float: left;\n}\n.swiper-container-vertical > .swiper-wrapper {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n}\n.swiper-wrapper {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-transition-property: -webkit-transform;\n  transition-property: -webkit-transform;\n  -o-transition-property: transform;\n  transition-property: transform;\n  transition-property: transform, -webkit-transform;\n  -webkit-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.swiper-container-android .swiper-slide,\n.swiper-wrapper {\n  -webkit-transform: translate3d(0px, 0, 0);\n  transform: translate3d(0px, 0, 0);\n}\n.swiper-container-multirow > .swiper-wrapper {\n  -webkit-flex-wrap: wrap;\n  -ms-flex-wrap: wrap;\n  flex-wrap: wrap;\n}\n.swiper-container-free-mode > .swiper-wrapper {\n  -webkit-transition-timing-function: ease-out;\n  -o-transition-timing-function: ease-out;\n  transition-timing-function: ease-out;\n  margin: 0 auto;\n}\n.swiper-slide {\n  -webkit-flex-shrink: 0;\n  -ms-flex-negative: 0;\n  flex-shrink: 0;\n  width: 100%;\n  height: 100%;\n  position: relative;\n  -webkit-transition-property: -webkit-transform;\n  transition-property: -webkit-transform;\n  -o-transition-property: transform;\n  transition-property: transform;\n  transition-property: transform, -webkit-transform;\n}\n.swiper-slide-invisible-blank {\n  visibility: hidden;\n}\n/* Auto Height */\n.swiper-container-autoheight,\n.swiper-container-autoheight .swiper-slide {\n  height: auto;\n}\n.swiper-container-autoheight .swiper-wrapper {\n  -webkit-box-align: start;\n  -webkit-align-items: flex-start;\n  -ms-flex-align: start;\n  align-items: flex-start;\n  -webkit-transition-property: height, -webkit-transform;\n  transition-property: height, -webkit-transform;\n  -o-transition-property: transform, height;\n  transition-property: transform, height;\n  transition-property: transform, height, -webkit-transform;\n}\n/* 3D Effects */\n.swiper-container-3d {\n  -webkit-perspective: 1200px;\n  perspective: 1200px;\n}\n.swiper-container-3d .swiper-wrapper,\n.swiper-container-3d .swiper-slide,\n.swiper-container-3d .swiper-slide-shadow-left,\n.swiper-container-3d .swiper-slide-shadow-right,\n.swiper-container-3d .swiper-slide-shadow-top,\n.swiper-container-3d .swiper-slide-shadow-bottom,\n.swiper-container-3d .swiper-cube-shadow {\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.swiper-container-3d .swiper-slide-shadow-left,\n.swiper-container-3d .swiper-slide-shadow-right,\n.swiper-container-3d .swiper-slide-shadow-top,\n.swiper-container-3d .swiper-slide-shadow-bottom {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  z-index: 10;\n}\n.swiper-container-3d .swiper-slide-shadow-left {\n  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-right {\n  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-top {\n  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-bottom {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n/* IE10 Windows Phone 8 Fixes */\n.swiper-container-wp8-horizontal,\n.swiper-container-wp8-horizontal > .swiper-wrapper {\n  -ms-touch-action: pan-y;\n  touch-action: pan-y;\n}\n.swiper-container-wp8-vertical,\n.swiper-container-wp8-vertical > .swiper-wrapper {\n  -ms-touch-action: pan-x;\n  touch-action: pan-x;\n}\n.swiper-button-prev,\n.swiper-button-next {\n  position: absolute;\n  top: 50%;\n  width: 27px;\n  height: 44px;\n  margin-top: -22px;\n  z-index: 10;\n  cursor: pointer;\n  background-size: 27px 44px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.swiper-button-prev.swiper-button-disabled,\n.swiper-button-next.swiper-button-disabled {\n  opacity: 0.35;\n  cursor: auto;\n  pointer-events: none;\n}\n.swiper-button-prev,\n.swiper-container-rtl .swiper-button-next {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E\");\n  left: 10px;\n  right: auto;\n}\n.swiper-button-next,\n.swiper-container-rtl .swiper-button-prev {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E\");\n  right: 10px;\n  left: auto;\n}\n.swiper-button-prev.swiper-button-white,\n.swiper-container-rtl .swiper-button-next.swiper-button-white {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-next.swiper-button-white,\n.swiper-container-rtl .swiper-button-prev.swiper-button-white {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-prev.swiper-button-black,\n.swiper-container-rtl .swiper-button-next.swiper-button-black {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-next.swiper-button-black,\n.swiper-container-rtl .swiper-button-prev.swiper-button-black {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-lock {\n  display: none;\n}\n.swiper-pagination {\n  position: absolute;\n  text-align: center;\n  -webkit-transition: 300ms opacity;\n  -o-transition: 300ms opacity;\n  transition: 300ms opacity;\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0);\n  z-index: 10;\n}\n.swiper-pagination.swiper-pagination-hidden {\n  opacity: 0;\n}\n/* Common Styles */\n.swiper-pagination-fraction,\n.swiper-pagination-custom,\n.swiper-container-horizontal > .swiper-pagination-bullets {\n  bottom: 10px;\n  left: 0;\n  width: 100%;\n}\n/* Bullets */\n.swiper-pagination-bullets-dynamic {\n  overflow: hidden;\n  font-size: 0;\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n  position: relative;\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {\n  -webkit-transform: scale(1);\n  -ms-transform: scale(1);\n  transform: scale(1);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {\n  -webkit-transform: scale(1);\n  -ms-transform: scale(1);\n  transform: scale(1);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {\n  -webkit-transform: scale(0.66);\n  -ms-transform: scale(0.66);\n  transform: scale(0.66);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {\n  -webkit-transform: scale(0.66);\n  -ms-transform: scale(0.66);\n  transform: scale(0.66);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n}\n.swiper-pagination-bullet {\n  width: 8px;\n  height: 8px;\n  display: inline-block;\n  border-radius: 100%;\n  background: #000;\n  opacity: 0.2;\n}\nbutton.swiper-pagination-bullet {\n  border: none;\n  margin: 0;\n  padding: 0;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n}\n.swiper-pagination-clickable .swiper-pagination-bullet {\n  cursor: pointer;\n}\n.swiper-pagination-bullet-active {\n  opacity: 1;\n  background: #007aff;\n}\n.swiper-container-vertical > .swiper-pagination-bullets {\n  right: 10px;\n  top: 50%;\n  -webkit-transform: translate3d(0px, -50%, 0);\n  transform: translate3d(0px, -50%, 0);\n}\n.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {\n  margin: 6px 0;\n  display: block;\n}\n.swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n  width: 8px;\n}\n.swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  display: inline-block;\n  -webkit-transition: 200ms top, 200ms -webkit-transform;\n  transition: 200ms top, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms top;\n  transition: 200ms transform, 200ms top;\n  transition: 200ms transform, 200ms top, 200ms -webkit-transform;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {\n  margin: 0 4px;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n  white-space: nowrap;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transition: 200ms left, 200ms -webkit-transform;\n  transition: 200ms left, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms left;\n  transition: 200ms transform, 200ms left;\n  transition: 200ms transform, 200ms left, 200ms -webkit-transform;\n}\n.swiper-container-horizontal.swiper-container-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transition: 200ms right, 200ms -webkit-transform;\n  transition: 200ms right, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms right;\n  transition: 200ms transform, 200ms right;\n  transition: 200ms transform, 200ms right, 200ms -webkit-transform;\n}\n/* Progress */\n.swiper-pagination-progressbar {\n  background: rgba(0, 0, 0, 0.25);\n  position: absolute;\n}\n.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {\n  background: #007aff;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: scale(0);\n  -ms-transform: scale(0);\n  transform: scale(0);\n  -webkit-transform-origin: left top;\n  -ms-transform-origin: left top;\n  transform-origin: left top;\n}\n.swiper-container-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {\n  -webkit-transform-origin: right top;\n  -ms-transform-origin: right top;\n  transform-origin: right top;\n}\n.swiper-container-horizontal > .swiper-pagination-progressbar,\n.swiper-container-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {\n  width: 100%;\n  height: 4px;\n  left: 0;\n  top: 0;\n}\n.swiper-container-vertical > .swiper-pagination-progressbar,\n.swiper-container-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {\n  width: 4px;\n  height: 100%;\n  left: 0;\n  top: 0;\n}\n.swiper-pagination-white .swiper-pagination-bullet-active {\n  background: #ffffff;\n}\n.swiper-pagination-progressbar.swiper-pagination-white {\n  background: rgba(255, 255, 255, 0.25);\n}\n.swiper-pagination-progressbar.swiper-pagination-white .swiper-pagination-progressbar-fill {\n  background: #ffffff;\n}\n.swiper-pagination-black .swiper-pagination-bullet-active {\n  background: #000000;\n}\n.swiper-pagination-progressbar.swiper-pagination-black {\n  background: rgba(0, 0, 0, 0.25);\n}\n.swiper-pagination-progressbar.swiper-pagination-black .swiper-pagination-progressbar-fill {\n  background: #000000;\n}\n.swiper-pagination-lock {\n  display: none;\n}\n/* Scrollbar */\n.swiper-scrollbar {\n  border-radius: 10px;\n  position: relative;\n  -ms-touch-action: none;\n  background: rgba(0, 0, 0, 0.1);\n}\n.swiper-container-horizontal > .swiper-scrollbar {\n  position: absolute;\n  left: 1%;\n  bottom: 3px;\n  z-index: 50;\n  height: 5px;\n  width: 98%;\n}\n.swiper-container-vertical > .swiper-scrollbar {\n  position: absolute;\n  right: 3px;\n  top: 1%;\n  z-index: 50;\n  width: 5px;\n  height: 98%;\n}\n.swiper-scrollbar-drag {\n  height: 100%;\n  width: 100%;\n  position: relative;\n  background: rgba(0, 0, 0, 0.5);\n  border-radius: 10px;\n  left: 0;\n  top: 0;\n}\n.swiper-scrollbar-cursor-drag {\n  cursor: move;\n}\n.swiper-scrollbar-lock {\n  display: none;\n}\n.swiper-zoom-container {\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  text-align: center;\n}\n.swiper-zoom-container > img,\n.swiper-zoom-container > svg,\n.swiper-zoom-container > canvas {\n  max-width: 100%;\n  max-height: 100%;\n  -o-object-fit: contain;\n  object-fit: contain;\n}\n.swiper-slide-zoomed {\n  cursor: move;\n}\n/* Preloader */\n.swiper-lazy-preloader {\n  width: 42px;\n  height: 42px;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  margin-left: -21px;\n  margin-top: -21px;\n  z-index: 10;\n  -webkit-transform-origin: 50%;\n  -ms-transform-origin: 50%;\n  transform-origin: 50%;\n  -webkit-animation: swiper-preloader-spin 1s steps(12, end) infinite;\n  animation: swiper-preloader-spin 1s steps(12, end) infinite;\n}\n.swiper-lazy-preloader:after {\n  display: block;\n  content: '';\n  width: 100%;\n  height: 100%;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");\n  background-position: 50%;\n  background-size: 100%;\n  background-repeat: no-repeat;\n}\n.swiper-lazy-preloader-white:after {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");\n}\n@-webkit-keyframes swiper-preloader-spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes swiper-preloader-spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/* a11y */\n.swiper-container .swiper-notification {\n  position: absolute;\n  left: 0;\n  top: 0;\n  pointer-events: none;\n  opacity: 0;\n  z-index: -1000;\n}\n.swiper-container-fade.swiper-container-free-mode .swiper-slide {\n  -webkit-transition-timing-function: ease-out;\n  -o-transition-timing-function: ease-out;\n  transition-timing-function: ease-out;\n}\n.swiper-container-fade .swiper-slide {\n  pointer-events: none;\n  -webkit-transition-property: opacity;\n  -o-transition-property: opacity;\n  transition-property: opacity;\n}\n.swiper-container-fade .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-fade .swiper-slide-active,\n.swiper-container-fade .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-cube {\n  overflow: visible;\n}\n.swiper-container-cube .swiper-slide {\n  pointer-events: none;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  z-index: 1;\n  visibility: hidden;\n  -webkit-transform-origin: 0 0;\n  -ms-transform-origin: 0 0;\n  transform-origin: 0 0;\n  width: 100%;\n  height: 100%;\n}\n.swiper-container-cube .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-cube.swiper-container-rtl .swiper-slide {\n  -webkit-transform-origin: 100% 0;\n  -ms-transform-origin: 100% 0;\n  transform-origin: 100% 0;\n}\n.swiper-container-cube .swiper-slide-active,\n.swiper-container-cube .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-cube .swiper-slide-active,\n.swiper-container-cube .swiper-slide-next,\n.swiper-container-cube .swiper-slide-prev,\n.swiper-container-cube .swiper-slide-next + .swiper-slide {\n  pointer-events: auto;\n  visibility: visible;\n}\n.swiper-container-cube .swiper-slide-shadow-top,\n.swiper-container-cube .swiper-slide-shadow-bottom,\n.swiper-container-cube .swiper-slide-shadow-left,\n.swiper-container-cube .swiper-slide-shadow-right {\n  z-index: 0;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n.swiper-container-cube .swiper-cube-shadow {\n  position: absolute;\n  left: 0;\n  bottom: 0px;\n  width: 100%;\n  height: 100%;\n  background: #000;\n  opacity: 0.6;\n  -webkit-filter: blur(50px);\n  filter: blur(50px);\n  z-index: 0;\n}\n.swiper-container-flip {\n  overflow: visible;\n}\n.swiper-container-flip .swiper-slide {\n  pointer-events: none;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  z-index: 1;\n}\n.swiper-container-flip .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-flip .swiper-slide-active,\n.swiper-container-flip .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-flip .swiper-slide-shadow-top,\n.swiper-container-flip .swiper-slide-shadow-bottom,\n.swiper-container-flip .swiper-slide-shadow-left,\n.swiper-container-flip .swiper-slide-shadow-right {\n  z-index: 0;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n.swiper-container-coverflow .swiper-wrapper {\n  /* Windows 8 IE 10 fix */\n  -ms-perspective: 1200px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 121 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -56573,6 +56171,479 @@ exports.push([module.i, "/**\n * Swiper 4.4.2\n * Most modern mobile touch slide
 
 
 /***/ }),
+/* 46 */,
+/* 47 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var smallboxes = [{
+  id: 1,
+  text: 'Vantaggi Competitivi'
+}, {
+  id: 2,
+  text: 'Coinvolgimento emotivo'
+}, {
+  id: 3,
+  text: 'Entusiasmo'
+}, {
+  id: 4,
+  text: 'Squadra'
+}, {
+  id: 5,
+  text: 'Rete'
+}, {
+  id: 6,
+  text: 'Concretezza'
+}];
+/* harmony default export */ __webpack_exports__["a"] = (smallboxes);
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(140)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(142)
+/* template */
+var __vue_template__ = __webpack_require__(143)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/alternativa/js/components/SmallBox.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-76a30cd5", Component.options)
+  } else {
+    hotAPI.reload("data-v-76a30cd5", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(115);
+
+
+/***/ }),
+/* 115 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_MainNav_vue__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_MainNav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__containers_MainNav_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Home_vue__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__views_Home_vue__);
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+__webpack_require__(116);
+
+
+
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+  components: {
+    MainNav: __WEBPACK_IMPORTED_MODULE_1__containers_MainNav_vue___default.a,
+    Home: __WEBPACK_IMPORTED_MODULE_2__views_Home_vue___default.a
+  }
+}).$mount('#app');
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+window._ = __webpack_require__(16);
+/**
+ * We'll load jQuery and the Bootstrap jQuery plugin which provides support
+ * for JavaScript based Bootstrap features such as modals and tabs. This
+ * code may be modified to fit the specific needs of your application.
+ */
+
+try {
+  window.Popper = __webpack_require__(6).default;
+  window.$ = window.jQuery = __webpack_require__(7);
+
+  __webpack_require__(18);
+} catch (e) {}
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+
+window.axios = __webpack_require__(19);
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+/**
+ * Next we will register the CSRF Token as a common header with Axios so that
+ * all outgoing HTTP requests automatically have it attached. This is just
+ * a simple convenience so we don't have to attach every token manually.
+ */
+
+var token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allows your team to easily build robust real-time web applications.
+ */
+// import Echo from 'laravel-echo'
+// window.Pusher = require('pusher-js');
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     encrypted: true
+// });
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(118)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(120)
+/* template */
+var __vue_template__ = __webpack_require__(121)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/alternativa/js/containers/MainNav.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4b857925", Component.options)
+  } else {
+    hotAPI.reload("data-v-4b857925", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(119);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("22e6fe0e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4b857925\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNav.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4b857925\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNav.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** NEUTRAL 1 ****************************************/\n/***************************** NEUTRAL 2 ****************************************/\n/***************************** NEUTRAL 2 / 3 ****************************************/\n.primary-bg {\n  background-color: #0066cc;\n}\n.primary-color {\n  color: #0066cc;\n}\n.primary-border-color {\n  border-color: #0066cc !important;\n}\n.primary-border-color.border {\n    border-color: #0066cc !important;\n}\n.white-bg {\n  background-color: white;\n}\n.white-color {\n  color: white;\n}\n.white-border-color- {\n  border-color: white !important;\n}\n.white-border-color-.border {\n    border-color: white !important;\n}\n.primary-bg-a1 {\n  background-color: #bfdfff;\n}\n.primary-color-a1 {\n  color: #bfdfff;\n}\n.primary-border-color-a1 {\n  border-color: #bfdfff !important;\n}\n.primary-border-color-a1.border {\n    border-color: #bfdfff !important;\n}\n.primary-bg-a2 {\n  background-color: #93c4f5;\n}\n.primary-color-a2 {\n  color: #93c4f5;\n}\n.primary-border-color-a2 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-a2.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-a3 {\n  background-color: #6aaaeb;\n}\n.primary-color-a3 {\n  color: #6aaaeb;\n}\n.primary-border-color-a3 {\n  border-color: #6aaaeb !important;\n}\n.primary-border-color-a3.border {\n    border-color: #6aaaeb !important;\n}\n.primary-bg-a4 {\n  background-color: #4392e0;\n}\n.primary-color-a4 {\n  color: #4392e0;\n}\n.primary-border-color-a4 {\n  border-color: #4392e0 !important;\n}\n.primary-border-color-a4.border {\n    border-color: #4392e0 !important;\n}\n.primary-bg-a5 {\n  background-color: #207bd6;\n}\n.primary-color-a5 {\n  color: #207bd6;\n}\n.primary-border-color-a5 {\n  border-color: #207bd6 !important;\n}\n.primary-border-color-a5.border {\n    border-color: #207bd6 !important;\n}\n.primary-bg-a6 {\n  background-color: #0066cc;\n}\n.primary-color-a6 {\n  color: #0066cc;\n}\n.primary-border-color-a6 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-a6.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-a7 {\n  background-color: #0059b3;\n}\n.primary-color-a7 {\n  color: #0059b3;\n}\n.primary-border-color-a7 {\n  border-color: #0059b3 !important;\n}\n.primary-border-color-a7.border {\n    border-color: #0059b3 !important;\n}\n.primary-bg-a8 {\n  background-color: #004d99;\n}\n.primary-color-a8 {\n  color: #004d99;\n}\n.primary-border-color-a8 {\n  border-color: #004d99 !important;\n}\n.primary-border-color-a8.border {\n    border-color: #004d99 !important;\n}\n.primary-bg-a9 {\n  background-color: #004080;\n}\n.primary-color-a9 {\n  color: #004080;\n}\n.primary-border-color-a9 {\n  border-color: #004080 !important;\n}\n.primary-border-color-a9.border {\n    border-color: #004080 !important;\n}\n.primary-bg-a10 {\n  background-color: #003366;\n}\n.primary-color-a10 {\n  color: #003366;\n}\n.primary-border-color-a10 {\n  border-color: #003366 !important;\n}\n.primary-border-color-a10.border {\n    border-color: #003366 !important;\n}\n.primary-bg-a11 {\n  background-color: #00264d;\n}\n.primary-color-a11 {\n  color: #00264d;\n}\n.primary-border-color-a11 {\n  border-color: #00264d !important;\n}\n.primary-border-color-a11.border {\n    border-color: #00264d !important;\n}\n.primary-bg-a12 {\n  background-color: #001a33;\n}\n.primary-color-a12 {\n  color: #001a33;\n}\n.primary-border-color-a12 {\n  border-color: #001a33 !important;\n}\n.primary-border-color-a12.border {\n    border-color: #001a33 !important;\n}\n.primary-bg-b1 {\n  background-color: #0066cc;\n}\n.primary-color-b1 {\n  color: #0066cc;\n}\n.primary-border-color-b1 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-b1.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-b2 {\n  background-color: #1262b3;\n}\n.primary-color-b2 {\n  color: #1262b3;\n}\n.primary-border-color-b2 {\n  border-color: #1262b3 !important;\n}\n.primary-border-color-b2.border {\n    border-color: #1262b3 !important;\n}\n.primary-bg-b3 {\n  background-color: #1f5c99;\n}\n.primary-color-b3 {\n  color: #1f5c99;\n}\n.primary-border-color-b3 {\n  border-color: #1f5c99 !important;\n}\n.primary-border-color-b3.border {\n    border-color: #1f5c99 !important;\n}\n.primary-bg-b4 {\n  background-color: #265380;\n}\n.primary-color-b4 {\n  color: #265380;\n}\n.primary-border-color-b4 {\n  border-color: #265380 !important;\n}\n.primary-border-color-b4.border {\n    border-color: #265380 !important;\n}\n.primary-bg-b5 {\n  background-color: #294766;\n}\n.primary-color-b5 {\n  color: #294766;\n}\n.primary-border-color-b5 {\n  border-color: #294766 !important;\n}\n.primary-border-color-b5.border {\n    border-color: #294766 !important;\n}\n.primary-bg-b6 {\n  background-color: #26394d;\n}\n.primary-color-b6 {\n  color: #26394d;\n}\n.primary-border-color-b6 {\n  border-color: #26394d !important;\n}\n.primary-border-color-b6.border {\n    border-color: #26394d !important;\n}\n.primary-bg-b7 {\n  background-color: #1f2933;\n}\n.primary-color-b7 {\n  color: #1f2933;\n}\n.primary-border-color-b7 {\n  border-color: #1f2933 !important;\n}\n.primary-border-color-b7.border {\n    border-color: #1f2933 !important;\n}\n.primary-bg-b8 {\n  background-color: #12161a;\n}\n.primary-color-b8 {\n  color: #12161a;\n}\n.primary-border-color-b8 {\n  border-color: #12161a !important;\n}\n.primary-border-color-b8.border {\n    border-color: #12161a !important;\n}\n.primary-bg-c1 {\n  background-color: #dce9f5;\n}\n.primary-color-c1 {\n  color: #dce9f5;\n}\n.primary-border-color-c1 {\n  border-color: #dce9f5 !important;\n}\n.primary-border-color-c1.border {\n    border-color: #dce9f5 !important;\n}\n.primary-bg-c2 {\n  background-color: #c4dcf5;\n}\n.primary-color-c2 {\n  color: #c4dcf5;\n}\n.primary-border-color-c2 {\n  border-color: #c4dcf5 !important;\n}\n.primary-border-color-c2.border {\n    border-color: #c4dcf5 !important;\n}\n.primary-bg-c3 {\n  background-color: #abd0f5;\n}\n.primary-color-c3 {\n  color: #abd0f5;\n}\n.primary-border-color-c3 {\n  border-color: #abd0f5 !important;\n}\n.primary-border-color-c3.border {\n    border-color: #abd0f5 !important;\n}\n.primary-bg-c4 {\n  background-color: #93c4f5;\n}\n.primary-color-c4 {\n  color: #93c4f5;\n}\n.primary-border-color-c4 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-c4.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-c5 {\n  background-color: #7ab8f5;\n}\n.primary-color-c5 {\n  color: #7ab8f5;\n}\n.primary-border-color-c5 {\n  border-color: #7ab8f5 !important;\n}\n.primary-border-color-c5.border {\n    border-color: #7ab8f5 !important;\n}\n.primary-bg-c6 {\n  background-color: #62abf5;\n}\n.primary-color-c6 {\n  color: #62abf5;\n}\n.primary-border-color-c6 {\n  border-color: #62abf5 !important;\n}\n.primary-border-color-c6.border {\n    border-color: #62abf5 !important;\n}\n.primary-bg-c7 {\n  background-color: #499ff5;\n}\n.primary-color-c7 {\n  color: #499ff5;\n}\n.primary-border-color-c7 {\n  border-color: #499ff5 !important;\n}\n.primary-border-color-c7.border {\n    border-color: #499ff5 !important;\n}\n.primary-bg-c8 {\n  background-color: #3193f5;\n}\n.primary-color-c8 {\n  color: #3193f5;\n}\n.primary-border-color-c8 {\n  border-color: #3193f5 !important;\n}\n.primary-border-color-c8.border {\n    border-color: #3193f5 !important;\n}\n.primary-bg-c9 {\n  background-color: #1887f5;\n}\n.primary-color-c9 {\n  color: #1887f5;\n}\n.primary-border-color-c9 {\n  border-color: #1887f5 !important;\n}\n.primary-border-color-c9.border {\n    border-color: #1887f5 !important;\n}\n.primary-bg-c10 {\n  background-color: #007af5;\n}\n.primary-color-c10 {\n  color: #007af5;\n}\n.primary-border-color-c10 {\n  border-color: #007af5 !important;\n}\n.primary-border-color-c10.border {\n    border-color: #007af5 !important;\n}\n.primary-bg-c11 {\n  background-color: #0070e0;\n}\n.primary-color-c11 {\n  color: #0070e0;\n}\n.primary-border-color-c11 {\n  border-color: #0070e0 !important;\n}\n.primary-border-color-c11.border {\n    border-color: #0070e0 !important;\n}\n.primary-bg-c12 {\n  background-color: #0066cc;\n}\n.primary-color-c12 {\n  color: #0066cc;\n}\n.primary-border-color-c12 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-c12.border {\n    border-color: #0066cc !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-a1 {\n  background-color: #e7e6ff;\n}\n.analogue-1-color-a1 {\n  color: #e7e6ff;\n}\n.analogue-1-border-color-a1 {\n  border-color: #e7e6ff !important;\n}\n.analogue-1-border-color-a1.border {\n    border-color: #e7e6ff !important;\n}\n.analogue-1-bg-a2 {\n  background-color: #bbb8f5;\n}\n.analogue-1-color-a2 {\n  color: #bbb8f5;\n}\n.analogue-1-border-color-a2 {\n  border-color: #bbb8f5 !important;\n}\n.analogue-1-border-color-a2.border {\n    border-color: #bbb8f5 !important;\n}\n.analogue-1-bg-a3 {\n  background-color: #918deb;\n}\n.analogue-1-color-a3 {\n  color: #918deb;\n}\n.analogue-1-border-color-a3 {\n  border-color: #918deb !important;\n}\n.analogue-1-border-color-a3.border {\n    border-color: #918deb !important;\n}\n.analogue-1-bg-a4 {\n  background-color: #6b65e0;\n}\n.analogue-1-color-a4 {\n  color: #6b65e0;\n}\n.analogue-1-border-color-a4 {\n  border-color: #6b65e0 !important;\n}\n.analogue-1-border-color-a4.border {\n    border-color: #6b65e0 !important;\n}\n.analogue-1-bg-a5 {\n  background-color: #4840d6;\n}\n.analogue-1-color-a5 {\n  color: #4840d6;\n}\n.analogue-1-border-color-a5 {\n  border-color: #4840d6 !important;\n}\n.analogue-1-border-color-a5.border {\n    border-color: #4840d6 !important;\n}\n.analogue-1-bg-a6 {\n  background-color: #271fcc;\n}\n.analogue-1-color-a6 {\n  color: #271fcc;\n}\n.analogue-1-border-color-a6 {\n  border-color: #271fcc !important;\n}\n.analogue-1-border-color-a6.border {\n    border-color: #271fcc !important;\n}\n.analogue-1-bg-a7 {\n  background-color: #221bb3;\n}\n.analogue-1-color-a7 {\n  color: #221bb3;\n}\n.analogue-1-border-color-a7 {\n  border-color: #221bb3 !important;\n}\n.analogue-1-border-color-a7.border {\n    border-color: #221bb3 !important;\n}\n.analogue-1-bg-a8 {\n  background-color: #1d1799;\n}\n.analogue-1-color-a8 {\n  color: #1d1799;\n}\n.analogue-1-border-color-a8 {\n  border-color: #1d1799 !important;\n}\n.analogue-1-border-color-a8.border {\n    border-color: #1d1799 !important;\n}\n.analogue-1-bg-a9 {\n  background-color: #191380;\n}\n.analogue-1-color-a9 {\n  color: #191380;\n}\n.analogue-1-border-color-a9 {\n  border-color: #191380 !important;\n}\n.analogue-1-border-color-a9.border {\n    border-color: #191380 !important;\n}\n.analogue-1-bg-a10 {\n  background-color: #140f66;\n}\n.analogue-1-color-a10 {\n  color: #140f66;\n}\n.analogue-1-border-color-a10 {\n  border-color: #140f66 !important;\n}\n.analogue-1-border-color-a10.border {\n    border-color: #140f66 !important;\n}\n.analogue-1-bg-a11 {\n  background-color: #0f0b4d;\n}\n.analogue-1-color-a11 {\n  color: #0f0b4d;\n}\n.analogue-1-border-color-a11 {\n  border-color: #0f0b4d !important;\n}\n.analogue-1-border-color-a11.border {\n    border-color: #0f0b4d !important;\n}\n.analogue-1-bg-a12 {\n  background-color: #0a0833;\n}\n.analogue-1-color-a12 {\n  color: #0a0833;\n}\n.analogue-1-border-color-a12 {\n  border-color: #0a0833 !important;\n}\n.analogue-1-border-color-a12.border {\n    border-color: #0a0833 !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-a1 {\n  background-color: #ccfffd;\n}\n.analogue-2-color-a1 {\n  color: #ccfffd;\n}\n.analogue-2-border-color-a1 {\n  border-color: #ccfffd !important;\n}\n.analogue-2-border-color-a1.border {\n    border-color: #ccfffd !important;\n}\n.analogue-2-bg-a2 {\n  background-color: #9ff5f2;\n}\n.analogue-2-color-a2 {\n  color: #9ff5f2;\n}\n.analogue-2-border-color-a2 {\n  border-color: #9ff5f2 !important;\n}\n.analogue-2-border-color-a2.border {\n    border-color: #9ff5f2 !important;\n}\n.analogue-2-bg-a3 {\n  background-color: #75ebe7;\n}\n.analogue-2-color-a3 {\n  color: #75ebe7;\n}\n.analogue-2-border-color-a3 {\n  border-color: #75ebe7 !important;\n}\n.analogue-2-border-color-a3.border {\n    border-color: #75ebe7 !important;\n}\n.analogue-2-bg-a4 {\n  background-color: #4fe0dc;\n}\n.analogue-2-color-a4 {\n  color: #4fe0dc;\n}\n.analogue-2-border-color-a4 {\n  border-color: #4fe0dc !important;\n}\n.analogue-2-border-color-a4.border {\n    border-color: #4fe0dc !important;\n}\n.analogue-2-bg-a5 {\n  background-color: #2bd6d0;\n}\n.analogue-2-color-a5 {\n  color: #2bd6d0;\n}\n.analogue-2-border-color-a5 {\n  border-color: #2bd6d0 !important;\n}\n.analogue-2-border-color-a5.border {\n    border-color: #2bd6d0 !important;\n}\n.analogue-2-bg-a6 {\n  background-color: #0accc6;\n}\n.analogue-2-color-a6 {\n  color: #0accc6;\n}\n.analogue-2-border-color-a6 {\n  border-color: #0accc6 !important;\n}\n.analogue-2-border-color-a6.border {\n    border-color: #0accc6 !important;\n}\n.analogue-2-bg-a7 {\n  background-color: #09b3ad;\n}\n.analogue-2-color-a7 {\n  color: #09b3ad;\n}\n.analogue-2-border-color-a7 {\n  border-color: #09b3ad !important;\n}\n.analogue-2-border-color-a7.border {\n    border-color: #09b3ad !important;\n}\n.analogue-2-bg-a8 {\n  background-color: #089994;\n}\n.analogue-2-color-a8 {\n  color: #089994;\n}\n.analogue-2-border-color-a8 {\n  border-color: #089994 !important;\n}\n.analogue-2-border-color-a8.border {\n    border-color: #089994 !important;\n}\n.analogue-2-bg-a9 {\n  background-color: #06807b;\n}\n.analogue-2-color-a9 {\n  color: #06807b;\n}\n.analogue-2-border-color-a9 {\n  border-color: #06807b !important;\n}\n.analogue-2-border-color-a9.border {\n    border-color: #06807b !important;\n}\n.analogue-2-bg-a10 {\n  background-color: #056663;\n}\n.analogue-2-color-a10 {\n  color: #056663;\n}\n.analogue-2-border-color-a10 {\n  border-color: #056663 !important;\n}\n.analogue-2-border-color-a10.border {\n    border-color: #056663 !important;\n}\n.analogue-2-bg-a11 {\n  background-color: #044d4a;\n}\n.analogue-2-color-a11 {\n  color: #044d4a;\n}\n.analogue-2-border-color-a11 {\n  border-color: #044d4a !important;\n}\n.analogue-2-border-color-a11.border {\n    border-color: #044d4a !important;\n}\n.analogue-2-bg-a12 {\n  background-color: #033331;\n}\n.analogue-2-color-a12 {\n  color: #033331;\n}\n.analogue-2-border-color-a12 {\n  border-color: #033331 !important;\n}\n.analogue-2-border-color-a12.border {\n    border-color: #033331 !important;\n}\n.complementary-1-bg {\n  background-color: #f73e5a;\n}\n.complementary-1-color {\n  color: #ff9900;\n}\n.complementary-1-border-color- {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-a1 {\n  background-color: #fffcfd;\n}\n.complementary-1-color-a1 {\n  color: #fffcfd;\n}\n.complementary-1-border-color-a1 {\n  border-color: #fffcfd !important;\n}\n.complementary-1-border-color-a1.border {\n    border-color: #fffcfd !important;\n}\n.complementary-1-bg-a2 {\n  background-color: #f5d0d6;\n}\n.complementary-1-color-a2 {\n  color: #f5d0d6;\n}\n.complementary-1-border-color-a2 {\n  border-color: #f5d0d6 !important;\n}\n.complementary-1-border-color-a2.border {\n    border-color: #f5d0d6 !important;\n}\n.complementary-1-bg-a3 {\n  background-color: #eba4af;\n}\n.complementary-1-color-a3 {\n  color: #eba4af;\n}\n.complementary-1-border-color-a3 {\n  border-color: #eba4af !important;\n}\n.complementary-1-border-color-a3.border {\n    border-color: #eba4af !important;\n}\n.complementary-1-bg-a4 {\n  background-color: #e07b8b;\n}\n.complementary-1-color-a4 {\n  color: #e07b8b;\n}\n.complementary-1-border-color-a4 {\n  border-color: #e07b8b !important;\n}\n.complementary-1-border-color-a4.border {\n    border-color: #e07b8b !important;\n}\n.complementary-1-bg-a5 {\n  background-color: #d65669;\n}\n.complementary-1-color-a5 {\n  color: #d65669;\n}\n.complementary-1-border-color-a5 {\n  border-color: #d65669 !important;\n}\n.complementary-1-border-color-a5.border {\n    border-color: #d65669 !important;\n}\n.complementary-1-bg-a6 {\n  background-color: #cc334a;\n}\n.complementary-1-color-a6 {\n  color: #cc334a;\n}\n.complementary-1-border-color-a6 {\n  border-color: #cc334a !important;\n}\n.complementary-1-border-color-a6.border {\n    border-color: #cc334a !important;\n}\n.complementary-1-bg-a7 {\n  background-color: #b32d41;\n}\n.complementary-1-color-a7 {\n  color: #b32d41;\n}\n.complementary-1-border-color-a7 {\n  border-color: #b32d41 !important;\n}\n.complementary-1-border-color-a7.border {\n    border-color: #b32d41 !important;\n}\n.complementary-1-bg-a8 {\n  background-color: #992637;\n}\n.complementary-1-color-a8 {\n  color: #992637;\n}\n.complementary-1-border-color-a8 {\n  border-color: #992637 !important;\n}\n.complementary-1-border-color-a8.border {\n    border-color: #992637 !important;\n}\n.complementary-1-bg-a9 {\n  background-color: #80202e;\n}\n.complementary-1-color-a9 {\n  color: #80202e;\n}\n.complementary-1-border-color-a9 {\n  border-color: #80202e !important;\n}\n.complementary-1-border-color-a9.border {\n    border-color: #80202e !important;\n}\n.complementary-1-bg-a10 {\n  background-color: #661a25;\n}\n.complementary-1-color-a10 {\n  color: #661a25;\n}\n.complementary-1-border-color-a10 {\n  border-color: #661a25 !important;\n}\n.complementary-1-border-color-a10.border {\n    border-color: #661a25 !important;\n}\n.complementary-1-bg-a11 {\n  background-color: #4d131c;\n}\n.complementary-1-color-a11 {\n  color: #4d131c;\n}\n.complementary-1-border-color-a11 {\n  border-color: #4d131c !important;\n}\n.complementary-1-border-color-a11.border {\n    border-color: #4d131c !important;\n}\n.complementary-1-bg-a12 {\n  background-color: #330d12;\n}\n.complementary-1-color-a12 {\n  color: #330d12;\n}\n.complementary-1-border-color-a12 {\n  border-color: #330d12 !important;\n}\n.complementary-1-border-color-a12.border {\n    border-color: #330d12 !important;\n}\n.complementary-2-bg {\n  background-color: #ff9900;\n}\n.complementary-2-color {\n  color: #ff9900;\n}\n.complementary-2-border-color- {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-a1 {\n  background-color: #ffe6bf;\n}\n.complementary-2-color-a1 {\n  color: #ffe6bf;\n}\n.complementary-2-border-color-a1 {\n  border-color: #ffe6bf !important;\n}\n.complementary-2-border-color-a1.border {\n    border-color: #ffe6bf !important;\n}\n.complementary-2-bg-a2 {\n  background-color: #f5ce93;\n}\n.complementary-2-color-a2 {\n  color: #f5ce93;\n}\n.complementary-2-border-color-a2 {\n  border-color: #f5ce93 !important;\n}\n.complementary-2-border-color-a2.border {\n    border-color: #f5ce93 !important;\n}\n.complementary-2-bg-a3 {\n  background-color: #ebb76a;\n}\n.complementary-2-color-a3 {\n  color: #ebb76a;\n}\n.complementary-2-border-color-a3 {\n  border-color: #ebb76a !important;\n}\n.complementary-2-border-color-a3.border {\n    border-color: #ebb76a !important;\n}\n.complementary-2-bg-a4 {\n  background-color: #e0a243;\n}\n.complementary-2-color-a4 {\n  color: #e0a243;\n}\n.complementary-2-border-color-a4 {\n  border-color: #e0a243 !important;\n}\n.complementary-2-border-color-a4.border {\n    border-color: #e0a243 !important;\n}\n.complementary-2-bg-a5 {\n  background-color: #d68d20;\n}\n.complementary-2-color-a5 {\n  color: #d68d20;\n}\n.complementary-2-border-color-a5 {\n  border-color: #d68d20 !important;\n}\n.complementary-2-border-color-a5.border {\n    border-color: #d68d20 !important;\n}\n.complementary-2-bg-a6 {\n  background-color: #cc7a00;\n}\n.complementary-2-color-a6 {\n  color: #cc7a00;\n}\n.complementary-2-border-color-a6 {\n  border-color: #cc7a00 !important;\n}\n.complementary-2-border-color-a6.border {\n    border-color: #cc7a00 !important;\n}\n.complementary-2-bg-a7 {\n  background-color: #b36b00;\n}\n.complementary-2-color-a7 {\n  color: #b36b00;\n}\n.complementary-2-border-color-a7 {\n  border-color: #b36b00 !important;\n}\n.complementary-2-border-color-a7.border {\n    border-color: #b36b00 !important;\n}\n.complementary-2-bg-a8 {\n  background-color: #995c00;\n}\n.complementary-2-color-a8 {\n  color: #995c00;\n}\n.complementary-2-border-color-a8 {\n  border-color: #995c00 !important;\n}\n.complementary-2-border-color-a8.border {\n    border-color: #995c00 !important;\n}\n.complementary-2-bg-a9 {\n  background-color: #804d00;\n}\n.complementary-2-color-a9 {\n  color: #804d00;\n}\n.complementary-2-border-color-a9 {\n  border-color: #804d00 !important;\n}\n.complementary-2-border-color-a9.border {\n    border-color: #804d00 !important;\n}\n.complementary-2-bg-a10 {\n  background-color: #663d00;\n}\n.complementary-2-color-a10 {\n  color: #663d00;\n}\n.complementary-2-border-color-a10 {\n  border-color: #663d00 !important;\n}\n.complementary-2-border-color-a10.border {\n    border-color: #663d00 !important;\n}\n.complementary-2-bg-a11 {\n  background-color: #4d2e00;\n}\n.complementary-2-color-a11 {\n  color: #4d2e00;\n}\n.complementary-2-border-color-a11 {\n  border-color: #4d2e00 !important;\n}\n.complementary-2-border-color-a11.border {\n    border-color: #4d2e00 !important;\n}\n.complementary-2-bg-a12 {\n  background-color: #331f00;\n}\n.complementary-2-color-a12 {\n  color: #331f00;\n}\n.complementary-2-border-color-a12 {\n  border-color: #331f00 !important;\n}\n.complementary-2-border-color-a12.border {\n    border-color: #331f00 !important;\n}\n.complementary-3-bg {\n  background-color: #00cf86;\n}\n.complementary-3-color {\n  color: #00cf86;\n}\n.complementary-3-border-color- {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-a1 {\n  background-color: #bfffe9;\n}\n.complementary-3-color-a1 {\n  color: #bfffe9;\n}\n.complementary-3-border-color-a1 {\n  border-color: #bfffe9 !important;\n}\n.complementary-3-border-color-a1.border {\n    border-color: #bfffe9 !important;\n}\n.complementary-3-bg-a2 {\n  background-color: #93f5d3;\n}\n.complementary-3-color-a2 {\n  color: #93f5d3;\n}\n.complementary-3-border-color-a2 {\n  border-color: #93f5d3 !important;\n}\n.complementary-3-border-color-a2.border {\n    border-color: #93f5d3 !important;\n}\n.complementary-3-bg-a3 {\n  background-color: #6aebbd;\n}\n.complementary-3-color-a3 {\n  color: #6aebbd;\n}\n.complementary-3-border-color-a3 {\n  border-color: #6aebbd !important;\n}\n.complementary-3-border-color-a3.border {\n    border-color: #6aebbd !important;\n}\n.complementary-3-bg-a4 {\n  background-color: #43e0a9;\n}\n.complementary-3-color-a4 {\n  color: #43e0a9;\n}\n.complementary-3-border-color-a4 {\n  border-color: #43e0a9 !important;\n}\n.complementary-3-border-color-a4.border {\n    border-color: #43e0a9 !important;\n}\n.complementary-3-bg-a5 {\n  background-color: #20d696;\n}\n.complementary-3-color-a5 {\n  color: #20d696;\n}\n.complementary-3-border-color-a5 {\n  border-color: #20d696 !important;\n}\n.complementary-3-border-color-a5.border {\n    border-color: #20d696 !important;\n}\n.complementary-3-bg-a6 {\n  background-color: #00cc85;\n}\n.complementary-3-color-a6 {\n  color: #00cc85;\n}\n.complementary-3-border-color-a6 {\n  border-color: #00cc85 !important;\n}\n.complementary-3-border-color-a6.border {\n    border-color: #00cc85 !important;\n}\n.complementary-3-bg-a7 {\n  background-color: #00b374;\n}\n.complementary-3-color-a7 {\n  color: #00b374;\n}\n.complementary-3-border-color-a7 {\n  border-color: #00b374 !important;\n}\n.complementary-3-border-color-a7.border {\n    border-color: #00b374 !important;\n}\n.complementary-3-bg-a8 {\n  background-color: #009963;\n}\n.complementary-3-color-a8 {\n  color: #009963;\n}\n.complementary-3-border-color-a8 {\n  border-color: #009963 !important;\n}\n.complementary-3-border-color-a8.border {\n    border-color: #009963 !important;\n}\n.complementary-3-bg-a9 {\n  background-color: #008053;\n}\n.complementary-3-color-a9 {\n  color: #008053;\n}\n.complementary-3-border-color-a9 {\n  border-color: #008053 !important;\n}\n.complementary-3-border-color-a9.border {\n    border-color: #008053 !important;\n}\n.complementary-3-bg-a10 {\n  background-color: #006642;\n}\n.complementary-3-color-a10 {\n  color: #006642;\n}\n.complementary-3-border-color-a10 {\n  border-color: #006642 !important;\n}\n.complementary-3-border-color-a10.border {\n    border-color: #006642 !important;\n}\n.complementary-3-bg-a11 {\n  background-color: #004d32;\n}\n.complementary-3-color-a11 {\n  color: #004d32;\n}\n.complementary-3-border-color-a11 {\n  border-color: #004d32 !important;\n}\n.complementary-3-border-color-a11.border {\n    border-color: #004d32 !important;\n}\n.complementary-3-bg-a12 {\n  background-color: #003321;\n}\n.complementary-3-color-a12 {\n  color: #003321;\n}\n.complementary-3-border-color-a12 {\n  border-color: #003321 !important;\n}\n.complementary-3-border-color-a12.border {\n    border-color: #003321 !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b1 {\n  background-color: #3126ff;\n}\n.analogue-1-color-b1 {\n  color: #3126ff;\n}\n.analogue-1-border-color-b1 {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-b1.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b2 {\n  background-color: #4239e6;\n}\n.analogue-1-color-b2 {\n  color: #4239e6;\n}\n.analogue-1-border-color-b2 {\n  border-color: #4239e6 !important;\n}\n.analogue-1-border-color-b2.border {\n    border-color: #4239e6 !important;\n}\n.analogue-1-bg-b3 {\n  background-color: #4e47cc;\n}\n.analogue-1-color-b3 {\n  color: #4e47cc;\n}\n.analogue-1-border-color-b3 {\n  border-color: #4e47cc !important;\n}\n.analogue-1-border-color-b3.border {\n    border-color: #4e47cc !important;\n}\n.analogue-1-bg-b4 {\n  background-color: #5550b3;\n}\n.analogue-1-color-b4 {\n  color: #5550b3;\n}\n.analogue-1-border-color-b4 {\n  border-color: #5550b3 !important;\n}\n.analogue-1-border-color-b4.border {\n    border-color: #5550b3 !important;\n}\n.analogue-1-bg-b5 {\n  background-color: #585499;\n}\n.analogue-1-color-b5 {\n  color: #585499;\n}\n.analogue-1-border-color-b5 {\n  border-color: #585499 !important;\n}\n.analogue-1-border-color-b5.border {\n    border-color: #585499 !important;\n}\n.analogue-1-bg-b6 {\n  background-color: #555380;\n}\n.analogue-1-color-b6 {\n  color: #555380;\n}\n.analogue-1-border-color-b6 {\n  border-color: #555380 !important;\n}\n.analogue-1-border-color-b6.border {\n    border-color: #555380 !important;\n}\n.analogue-1-bg-b7 {\n  background-color: #4e4d66;\n}\n.analogue-1-color-b7 {\n  color: #4e4d66;\n}\n.analogue-1-border-color-b7 {\n  border-color: #4e4d66 !important;\n}\n.analogue-1-border-color-b7.border {\n    border-color: #4e4d66 !important;\n}\n.analogue-1-bg-b8 {\n  background-color: #42414d;\n}\n.analogue-1-color-b8 {\n  color: #42414d;\n}\n.analogue-1-border-color-b8 {\n  border-color: #42414d !important;\n}\n.analogue-1-border-color-b8.border {\n    border-color: #42414d !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b1 {\n  background-color: #0bd9d2;\n}\n.analogue-2-color-b1 {\n  color: #0bd9d2;\n}\n.analogue-2-border-color-b1 {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-b1.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b2 {\n  background-color: #1dbfba;\n}\n.analogue-2-color-b2 {\n  color: #1dbfba;\n}\n.analogue-2-border-color-b2 {\n  border-color: #1dbfba !important;\n}\n.analogue-2-border-color-b2.border {\n    border-color: #1dbfba !important;\n}\n.analogue-2-bg-b3 {\n  background-color: #29a6a2;\n}\n.analogue-2-color-b3 {\n  color: #29a6a2;\n}\n.analogue-2-border-color-b3 {\n  border-color: #29a6a2 !important;\n}\n.analogue-2-border-color-b3.border {\n    border-color: #29a6a2 !important;\n}\n.analogue-2-bg-b4 {\n  background-color: #318c89;\n}\n.analogue-2-color-b4 {\n  color: #318c89;\n}\n.analogue-2-border-color-b4 {\n  border-color: #318c89 !important;\n}\n.analogue-2-border-color-b4.border {\n    border-color: #318c89 !important;\n}\n.analogue-2-bg-b5 {\n  background-color: #347371;\n}\n.analogue-2-color-b5 {\n  color: #347371;\n}\n.analogue-2-border-color-b5 {\n  border-color: #347371 !important;\n}\n.analogue-2-border-color-b5.border {\n    border-color: #347371 !important;\n}\n.analogue-2-bg-b6 {\n  background-color: #315958;\n}\n.analogue-2-color-b6 {\n  color: #315958;\n}\n.analogue-2-border-color-b6 {\n  border-color: #315958 !important;\n}\n.analogue-2-border-color-b6.border {\n    border-color: #315958 !important;\n}\n.analogue-2-bg-b7 {\n  background-color: #29403f;\n}\n.analogue-2-color-b7 {\n  color: #29403f;\n}\n.analogue-2-border-color-b7 {\n  border-color: #29403f !important;\n}\n.analogue-2-border-color-b7.border {\n    border-color: #29403f !important;\n}\n.analogue-2-bg-b8 {\n  background-color: #1d2626;\n}\n.analogue-2-color-b8 {\n  color: #1d2626;\n}\n.analogue-2-border-color-b8 {\n  border-color: #1d2626 !important;\n}\n.analogue-2-border-color-b8.border {\n    border-color: #1d2626 !important;\n}\n.complementary-1-bg-b1 {\n  background-color: #f73e5a;\n}\n.complementary-1-color-b1 {\n  color: #f73e5a;\n}\n.complementary-1-border-color-b1 {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-b1.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-b2 {\n  background-color: #de4e63;\n}\n.complementary-1-color-b2 {\n  color: #de4e63;\n}\n.complementary-1-border-color-b2 {\n  border-color: #de4e63 !important;\n}\n.complementary-1-border-color-b2.border {\n    border-color: #de4e63 !important;\n}\n.complementary-1-bg-b3 {\n  background-color: #c45869;\n}\n.complementary-1-color-b3 {\n  color: #c45869;\n}\n.complementary-1-border-color-b3 {\n  border-color: #c45869 !important;\n}\n.complementary-1-border-color-b3.border {\n    border-color: #c45869 !important;\n}\n.complementary-1-bg-b4 {\n  background-color: #ab5e69;\n}\n.complementary-1-color-b4 {\n  color: #ab5e69;\n}\n.complementary-1-border-color-b4 {\n  border-color: #ab5e69 !important;\n}\n.complementary-1-border-color-b4.border {\n    border-color: #ab5e69 !important;\n}\n.complementary-1-bg-b5 {\n  background-color: #915e66;\n}\n.complementary-1-color-b5 {\n  color: #915e66;\n}\n.complementary-1-border-color-b5 {\n  border-color: #915e66 !important;\n}\n.complementary-1-border-color-b5.border {\n    border-color: #915e66 !important;\n}\n.complementary-1-bg-b6 {\n  background-color: #785a5e;\n}\n.complementary-1-color-b6 {\n  color: #785a5e;\n}\n.complementary-1-border-color-b6 {\n  border-color: #785a5e !important;\n}\n.complementary-1-border-color-b6.border {\n    border-color: #785a5e !important;\n}\n.complementary-1-bg-b7 {\n  background-color: #5e5052;\n}\n.complementary-1-color-b7 {\n  color: #5e5052;\n}\n.complementary-1-border-color-b7 {\n  border-color: #5e5052 !important;\n}\n.complementary-1-border-color-b7.border {\n    border-color: #5e5052 !important;\n}\n.complementary-1-bg-b8 {\n  background-color: #454142;\n}\n.complementary-1-color-b8 {\n  color: #454142;\n}\n.complementary-1-border-color-b8 {\n  border-color: #454142 !important;\n}\n.complementary-1-border-color-b8.border {\n    border-color: #454142 !important;\n}\n.complementary-2-bg-b1 {\n  background-color: #ff9900;\n}\n.complementary-2-color-b1 {\n  color: #ff9900;\n}\n.complementary-2-border-color-b1 {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-b1.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-b2 {\n  background-color: #e69317;\n}\n.complementary-2-color-b2 {\n  color: #e69317;\n}\n.complementary-2-border-color-b2 {\n  border-color: #e69317 !important;\n}\n.complementary-2-border-color-b2.border {\n    border-color: #e69317 !important;\n}\n.complementary-2-bg-b3 {\n  background-color: #cc8b29;\n}\n.complementary-2-color-b3 {\n  color: #cc8b29;\n}\n.complementary-2-border-color-b3 {\n  border-color: #cc8b29 !important;\n}\n.complementary-2-border-color-b3.border {\n    border-color: #cc8b29 !important;\n}\n.complementary-2-bg-b4 {\n  background-color: #b38136;\n}\n.complementary-2-color-b4 {\n  color: #b38136;\n}\n.complementary-2-border-color-b4 {\n  border-color: #b38136 !important;\n}\n.complementary-2-border-color-b4.border {\n    border-color: #b38136 !important;\n}\n.complementary-2-bg-b5 {\n  background-color: #99743d;\n}\n.complementary-2-color-b5 {\n  color: #99743d;\n}\n.complementary-2-border-color-b5 {\n  border-color: #99743d !important;\n}\n.complementary-2-border-color-b5.border {\n    border-color: #99743d !important;\n}\n.complementary-2-bg-b6 {\n  background-color: #806640;\n}\n.complementary-2-color-b6 {\n  color: #806640;\n}\n.complementary-2-border-color-b6 {\n  border-color: #806640 !important;\n}\n.complementary-2-border-color-b6.border {\n    border-color: #806640 !important;\n}\n.complementary-2-bg-b7 {\n  background-color: #66563d;\n}\n.complementary-2-color-b7 {\n  color: #66563d;\n}\n.complementary-2-border-color-b7 {\n  border-color: #66563d !important;\n}\n.complementary-2-border-color-b7.border {\n    border-color: #66563d !important;\n}\n.complementary-2-bg-b8 {\n  background-color: #4d4336;\n}\n.complementary-2-color-b8 {\n  color: #4d4336;\n}\n.complementary-2-border-color-b8 {\n  border-color: #4d4336 !important;\n}\n.complementary-2-border-color-b8.border {\n    border-color: #4d4336 !important;\n}\n.complementary-3-bg-b1 {\n  background-color: #00cf86;\n}\n.complementary-3-color-b1 {\n  color: #00cf86;\n}\n.complementary-3-border-color-b1 {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-b1.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-b2 {\n  background-color: #12b57c;\n}\n.complementary-3-color-b2 {\n  color: #12b57c;\n}\n.complementary-3-border-color-b2 {\n  border-color: #12b57c !important;\n}\n.complementary-3-border-color-b2.border {\n    border-color: #12b57c !important;\n}\n.complementary-3-bg-b3 {\n  background-color: #1f9c70;\n}\n.complementary-3-color-b3 {\n  color: #1f9c70;\n}\n.complementary-3-border-color-b3 {\n  border-color: #1f9c70 !important;\n}\n.complementary-3-border-color-b3.border {\n    border-color: #1f9c70 !important;\n}\n.complementary-3-bg-b4 {\n  background-color: #278262;\n}\n.complementary-3-color-b4 {\n  color: #278262;\n}\n.complementary-3-border-color-b4 {\n  border-color: #278262 !important;\n}\n.complementary-3-border-color-b4.border {\n    border-color: #278262 !important;\n}\n.complementary-3-bg-b5 {\n  background-color: #2a6953;\n}\n.complementary-3-color-b5 {\n  color: #2a6953;\n}\n.complementary-3-border-color-b5 {\n  border-color: #2a6953 !important;\n}\n.complementary-3-border-color-b5.border {\n    border-color: #2a6953 !important;\n}\n.complementary-3-bg-b6 {\n  background-color: #284f41;\n}\n.complementary-3-color-b6 {\n  color: #284f41;\n}\n.complementary-3-border-color-b6 {\n  border-color: #284f41 !important;\n}\n.complementary-3-border-color-b6.border {\n    border-color: #284f41 !important;\n}\n.complementary-3-bg-b7 {\n  background-color: #20362e;\n}\n.complementary-3-color-b7 {\n  color: #20362e;\n}\n.complementary-3-border-color-b7 {\n  border-color: #20362e !important;\n}\n.complementary-3-border-color-b7.border {\n    border-color: #20362e !important;\n}\n.complementary-3-bg-b8 {\n  background-color: #141c19;\n}\n.complementary-3-color-b8 {\n  color: #141c19;\n}\n.complementary-3-border-color-b8 {\n  border-color: #141c19 !important;\n}\n.complementary-3-border-color-b8.border {\n    border-color: #141c19 !important;\n}\n.neutral-1-bg {\n  background-color: #17324d;\n}\n.neutral-1-color {\n  color: #17324d;\n}\n.neutral-1-border-color- {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-.border {\n    border-color: #17324d !important;\n}\n.neutral-1-bg-a1 {\n  background-color: #ebeced;\n}\n.neutral-1-color-a1 {\n  color: #ebeced;\n}\n.neutral-1-border-color-a1 {\n  border-color: #ebeced !important;\n}\n.neutral-1-border-color-a1.border {\n    border-color: #ebeced !important;\n}\n.neutral-1-bg-a2 {\n  background-color: #d9dadb;\n}\n.neutral-1-color-a2 {\n  color: #d9dadb;\n}\n.neutral-1-border-color-a2 {\n  border-color: #d9dadb !important;\n}\n.neutral-1-border-color-a2.border {\n    border-color: #d9dadb !important;\n}\n.neutral-1-bg-a3 {\n  background-color: #c5c7c9;\n}\n.neutral-1-color-a3 {\n  color: #c5c7c9;\n}\n.neutral-1-border-color-a3 {\n  border-color: #c5c7c9 !important;\n}\n.neutral-1-border-color-a3.border {\n    border-color: #c5c7c9 !important;\n}\n.neutral-1-bg-a4 {\n  background-color: #adb2b8;\n}\n.neutral-1-color-a4 {\n  color: #adb2b8;\n}\n.neutral-1-border-color-a4 {\n  border-color: #adb2b8 !important;\n}\n.neutral-1-border-color-a4.border {\n    border-color: #adb2b8 !important;\n}\n.neutral-1-bg-a5 {\n  background-color: #959da6;\n}\n.neutral-1-color-a5 {\n  color: #959da6;\n}\n.neutral-1-border-color-a5 {\n  border-color: #959da6 !important;\n}\n.neutral-1-border-color-a5.border {\n    border-color: #959da6 !important;\n}\n.neutral-1-bg-a6 {\n  background-color: #768594;\n}\n.neutral-1-color-a6 {\n  color: #768594;\n}\n.neutral-1-border-color-a6 {\n  border-color: #768594 !important;\n}\n.neutral-1-border-color-a6.border {\n    border-color: #768594 !important;\n}\n.neutral-1-bg-a7 {\n  background-color: #5b6f82;\n}\n.neutral-1-color-a7 {\n  color: #5b6f82;\n}\n.neutral-1-border-color-a7 {\n  border-color: #5b6f82 !important;\n}\n.neutral-1-border-color-a7.border {\n    border-color: #5b6f82 !important;\n}\n.neutral-1-bg-a8 {\n  background-color: #435a70;\n}\n.neutral-1-color-a8 {\n  color: #435a70;\n}\n.neutral-1-border-color-a8 {\n  border-color: #435a70 !important;\n}\n.neutral-1-border-color-a8.border {\n    border-color: #435a70 !important;\n}\n.neutral-1-bg-a9 {\n  background-color: #2f475e;\n}\n.neutral-1-color-a9 {\n  color: #2f475e;\n}\n.neutral-1-border-color-a9 {\n  border-color: #2f475e !important;\n}\n.neutral-1-border-color-a9.border {\n    border-color: #2f475e !important;\n}\n.neutral-1-bg-a10 {\n  background-color: #17324d;\n}\n.neutral-1-color-a10 {\n  color: #17324d;\n}\n.neutral-1-border-color-a10 {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-a10.border {\n    border-color: #17324d !important;\n}\n.neutral-2-bg {\n  background-color: #e6ecf2;\n}\n.neutral-2-color {\n  color: #e6ecf2;\n}\n.neutral-2-border-color- {\n  border-color: #e6ecf2;\n}\n.neutral-2-bg-b1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-b1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-b1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-b1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-b2 {\n  background-color: #c2c7cc;\n}\n.neutral-2-color-b2 {\n  color: #c2c7cc;\n}\n.neutral-2-border-color-b2 {\n  border-color: #c2c7cc !important;\n}\n.neutral-2-border-color-b2.border {\n    border-color: #c2c7cc !important;\n}\n.neutral-2-bg-b3 {\n  background-color: #9da2a6;\n}\n.neutral-2-color-b3 {\n  color: #9da2a6;\n}\n.neutral-2-border-color-b3 {\n  border-color: #9da2a6 !important;\n}\n.neutral-2-border-color-b3.border {\n    border-color: #9da2a6 !important;\n}\n.neutral-2-bg-b4 {\n  background-color: #797c80;\n}\n.neutral-2-color-b4 {\n  color: #797c80;\n}\n.neutral-2-border-color-b4 {\n  border-color: #797c80 !important;\n}\n.neutral-2-border-color-b4.border {\n    border-color: #797c80 !important;\n}\n.neutral-2-bg-b5 {\n  background-color: #565759;\n}\n.neutral-2-color-b5 {\n  color: #565759;\n}\n.neutral-2-border-color-b5 {\n  border-color: #565759 !important;\n}\n.neutral-2-border-color-b5.border {\n    border-color: #565759 !important;\n}\n.neutral-2-bg-b6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-b6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-b6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-b6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-b7 {\n  background-color: #0c0c0d;\n}\n.neutral-2-color-b7 {\n  color: #0c0c0d;\n}\n.neutral-2-border-color-b7 {\n  border-color: #0c0c0d !important;\n}\n.neutral-2-border-color-b7.border {\n    border-color: #0c0c0d !important;\n}\n.neutral-2-bg-a1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-a1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-a1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-a1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-a2 {\n  background-color: #bcc4cc;\n}\n.neutral-2-color-a2 {\n  color: #bcc4cc;\n}\n.neutral-2-border-color-a2 {\n  border-color: #bcc4cc !important;\n}\n.neutral-2-border-color-a2.border {\n    border-color: #bcc4cc !important;\n}\n.neutral-2-bg-a3 {\n  background-color: #9aa0a6;\n}\n.neutral-2-color-a3 {\n  color: #9aa0a6;\n}\n.neutral-2-border-color-a3 {\n  border-color: #9aa0a6 !important;\n}\n.neutral-2-border-color-a3.border {\n    border-color: #9aa0a6 !important;\n}\n.neutral-2-bg-a4 {\n  background-color: #777b80;\n}\n.neutral-2-color-a4 {\n  color: #777b80;\n}\n.neutral-2-border-color-a4 {\n  border-color: #777b80 !important;\n}\n.neutral-2-border-color-a4.border {\n    border-color: #777b80 !important;\n}\n.neutral-2-bg-a5 {\n  background-color: #535659;\n}\n.neutral-2-color-a5 {\n  color: #535659;\n}\n.neutral-2-border-color-a5 {\n  border-color: #535659 !important;\n}\n.neutral-2-border-color-a5.border {\n    border-color: #535659 !important;\n}\n.neutral-2-bg-a6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-a6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-a6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-a6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-a7 {\n  background-color: #17181a;\n}\n.neutral-2-color-a7 {\n  color: #17181a;\n}\n.neutral-2-border-color-a7 {\n  border-color: #17181a !important;\n}\n.neutral-2-border-color-a7.border {\n    border-color: #17181a !important;\n}\n.lightgrey-bg-a1 {\n  background-color: #E8F2FC;\n}\n.lightgrey-color-a1 {\n  color: #E8F2FC;\n}\n.lightgrey-border-color-a1 {\n  border-color: #E8F2FC !important;\n}\n.lightgrey-border-color-a1.border {\n    border-color: #E8F2FC !important;\n}\n.lightgrey-bg-a2 {\n  background-color: #EDF5FC;\n}\n.lightgrey-color-a2 {\n  color: #EDF5FC;\n}\n.lightgrey-border-color-a2 {\n  border-color: #EDF5FC !important;\n}\n.lightgrey-border-color-a2.border {\n    border-color: #EDF5FC !important;\n}\n.lightgrey-bg-a3 {\n  background-color: #F2F7FC;\n}\n.lightgrey-color-a3 {\n  color: #F2F7FC;\n}\n.lightgrey-border-color-a3 {\n  border-color: #F2F7FC !important;\n}\n.lightgrey-border-color-a3.border {\n    border-color: #F2F7FC !important;\n}\n.lightgrey-bg-a4 {\n  background-color: #F5F9FC;\n}\n.lightgrey-color-a4 {\n  color: #F5F9FC;\n}\n.lightgrey-border-color-a4 {\n  border-color: #F5F9FC !important;\n}\n.lightgrey-border-color-a4.border {\n    border-color: #F5F9FC !important;\n}\n.lightgrey-bg-b1 {\n  background-color: #E6F0FA;\n}\n.lightgrey-color-b1 {\n  color: #E6F0FA;\n}\n.lightgrey-border-color-b1 {\n  border-color: #E6F0FA !important;\n}\n.lightgrey-border-color-b1.border {\n    border-color: #E6F0FA !important;\n}\n.lightgrey-bg-b2 {\n  background-color: #EBF2FA;\n}\n.lightgrey-color-b2 {\n  color: #EBF2FA;\n}\n.lightgrey-border-color-b2 {\n  border-color: #EBF2FA !important;\n}\n.lightgrey-border-color-b2.border {\n    border-color: #EBF2FA !important;\n}\n.lightgrey-bg-b3 {\n  background-color: #EDF4FA;\n}\n.lightgrey-color-b3 {\n  color: #EDF4FA;\n}\n.lightgrey-border-color-b3 {\n  border-color: #EDF4FA !important;\n}\n.lightgrey-border-color-b3.border {\n    border-color: #EDF4FA !important;\n}\n.lightgrey-bg-b4 {\n  background-color: #F2F6FA;\n}\n.lightgrey-color-b4 {\n  color: #F2F6FA;\n}\n.lightgrey-border-color-b4 {\n  border-color: #F2F6FA !important;\n}\n.lightgrey-border-color-b4.border {\n    border-color: #F2F6FA !important;\n}\n.lightgrey-bg-c1 {\n  background-color: #F7F9FA;\n}\n.lightgrey-color-c1 {\n  color: #F7F9FA;\n}\n.lightgrey-border-color-c1 {\n  border-color: #F7F9FA !important;\n}\n.lightgrey-border-color-c1.border {\n    border-color: #F7F9FA !important;\n}\n.lightgrey-bg-c2 {\n  background-color: #F5F6F7;\n}\n.lightgrey-color-c2 {\n  color: #F5F6F7;\n}\n.lightgrey-border-color-c2 {\n  border-color: #F5F6F7 !important;\n}\n.lightgrey-border-color-c2.border {\n    border-color: #F5F6F7 !important;\n}\n.navbar {\n  position: fixed;\n  top: 0;\n  min-width: 100%;\n  width: 100%;\n  max-width: 100%;\n  min-height: 90px;\n  -webkit-box-shadow: 0px 8px 40px 0 rgba(126, 127, 128, 0.1);\n          box-shadow: 0px 8px 40px 0 rgba(126, 127, 128, 0.1);\n  z-index: 99999;\n}\n.navbar .navbar-brand {\n    font-weight: 800;\n}\n.navbar .navbar-nav .nav-item .nav-link {\n    text-transform: uppercase;\n    font-weight: 700;\n    letter-spacing: 1px;\n    font-size: 14px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 120 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'MainNav'
+});
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
+      [
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+          _vm._v("EFG Consulting")
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "navbar-toggler",
+            attrs: {
+              type: "button",
+              "data-toggle": "collapse",
+              "data-target": "#navbarSupportedContent",
+              "aria-controls": "navbarSupportedContent",
+              "aria-expanded": "false",
+              "aria-label": "Toggle navigation"
+            }
+          },
+          [_c("span", { staticClass: "navbar-toggler-icon" })]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "navbarSupportedContent" }
+          },
+          [
+            _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+              _c("li", { staticClass: "nav-item active" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Home "),
+                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("About")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Division")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Event Marketing")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("News")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Focus Emirati")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                  _vm._v("Contact")
+                ])
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4b857925", module.exports)
+  }
+}
+
+/***/ }),
 /* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -56585,7 +56656,176 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(125)
 /* template */
-var __vue_template__ = __webpack_require__(126)
+var __vue_template__ = __webpack_require__(155)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/alternativa/js/views/Home.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8e0d1fd0", Component.options)
+  } else {
+    hotAPI.reload("data-v-8e0d1fd0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(124);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("85acbb04", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8e0d1fd0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8e0d1fd0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** NEUTRAL 1 ****************************************/\n/***************************** NEUTRAL 2 ****************************************/\n/***************************** NEUTRAL 2 / 3 ****************************************/\n.primary-bg {\n  background-color: #0066cc;\n}\n.primary-color {\n  color: #0066cc;\n}\n.primary-border-color {\n  border-color: #0066cc !important;\n}\n.primary-border-color.border {\n    border-color: #0066cc !important;\n}\n.white-bg {\n  background-color: white;\n}\n.white-color {\n  color: white;\n}\n.white-border-color- {\n  border-color: white !important;\n}\n.white-border-color-.border {\n    border-color: white !important;\n}\n.primary-bg-a1 {\n  background-color: #bfdfff;\n}\n.primary-color-a1 {\n  color: #bfdfff;\n}\n.primary-border-color-a1 {\n  border-color: #bfdfff !important;\n}\n.primary-border-color-a1.border {\n    border-color: #bfdfff !important;\n}\n.primary-bg-a2 {\n  background-color: #93c4f5;\n}\n.primary-color-a2 {\n  color: #93c4f5;\n}\n.primary-border-color-a2 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-a2.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-a3 {\n  background-color: #6aaaeb;\n}\n.primary-color-a3 {\n  color: #6aaaeb;\n}\n.primary-border-color-a3 {\n  border-color: #6aaaeb !important;\n}\n.primary-border-color-a3.border {\n    border-color: #6aaaeb !important;\n}\n.primary-bg-a4 {\n  background-color: #4392e0;\n}\n.primary-color-a4 {\n  color: #4392e0;\n}\n.primary-border-color-a4 {\n  border-color: #4392e0 !important;\n}\n.primary-border-color-a4.border {\n    border-color: #4392e0 !important;\n}\n.primary-bg-a5 {\n  background-color: #207bd6;\n}\n.primary-color-a5 {\n  color: #207bd6;\n}\n.primary-border-color-a5 {\n  border-color: #207bd6 !important;\n}\n.primary-border-color-a5.border {\n    border-color: #207bd6 !important;\n}\n.primary-bg-a6 {\n  background-color: #0066cc;\n}\n.primary-color-a6 {\n  color: #0066cc;\n}\n.primary-border-color-a6 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-a6.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-a7 {\n  background-color: #0059b3;\n}\n.primary-color-a7 {\n  color: #0059b3;\n}\n.primary-border-color-a7 {\n  border-color: #0059b3 !important;\n}\n.primary-border-color-a7.border {\n    border-color: #0059b3 !important;\n}\n.primary-bg-a8 {\n  background-color: #004d99;\n}\n.primary-color-a8 {\n  color: #004d99;\n}\n.primary-border-color-a8 {\n  border-color: #004d99 !important;\n}\n.primary-border-color-a8.border {\n    border-color: #004d99 !important;\n}\n.primary-bg-a9 {\n  background-color: #004080;\n}\n.primary-color-a9 {\n  color: #004080;\n}\n.primary-border-color-a9 {\n  border-color: #004080 !important;\n}\n.primary-border-color-a9.border {\n    border-color: #004080 !important;\n}\n.primary-bg-a10 {\n  background-color: #003366;\n}\n.primary-color-a10 {\n  color: #003366;\n}\n.primary-border-color-a10 {\n  border-color: #003366 !important;\n}\n.primary-border-color-a10.border {\n    border-color: #003366 !important;\n}\n.primary-bg-a11 {\n  background-color: #00264d;\n}\n.primary-color-a11 {\n  color: #00264d;\n}\n.primary-border-color-a11 {\n  border-color: #00264d !important;\n}\n.primary-border-color-a11.border {\n    border-color: #00264d !important;\n}\n.primary-bg-a12 {\n  background-color: #001a33;\n}\n.primary-color-a12 {\n  color: #001a33;\n}\n.primary-border-color-a12 {\n  border-color: #001a33 !important;\n}\n.primary-border-color-a12.border {\n    border-color: #001a33 !important;\n}\n.primary-bg-b1 {\n  background-color: #0066cc;\n}\n.primary-color-b1 {\n  color: #0066cc;\n}\n.primary-border-color-b1 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-b1.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-b2 {\n  background-color: #1262b3;\n}\n.primary-color-b2 {\n  color: #1262b3;\n}\n.primary-border-color-b2 {\n  border-color: #1262b3 !important;\n}\n.primary-border-color-b2.border {\n    border-color: #1262b3 !important;\n}\n.primary-bg-b3 {\n  background-color: #1f5c99;\n}\n.primary-color-b3 {\n  color: #1f5c99;\n}\n.primary-border-color-b3 {\n  border-color: #1f5c99 !important;\n}\n.primary-border-color-b3.border {\n    border-color: #1f5c99 !important;\n}\n.primary-bg-b4 {\n  background-color: #265380;\n}\n.primary-color-b4 {\n  color: #265380;\n}\n.primary-border-color-b4 {\n  border-color: #265380 !important;\n}\n.primary-border-color-b4.border {\n    border-color: #265380 !important;\n}\n.primary-bg-b5 {\n  background-color: #294766;\n}\n.primary-color-b5 {\n  color: #294766;\n}\n.primary-border-color-b5 {\n  border-color: #294766 !important;\n}\n.primary-border-color-b5.border {\n    border-color: #294766 !important;\n}\n.primary-bg-b6 {\n  background-color: #26394d;\n}\n.primary-color-b6 {\n  color: #26394d;\n}\n.primary-border-color-b6 {\n  border-color: #26394d !important;\n}\n.primary-border-color-b6.border {\n    border-color: #26394d !important;\n}\n.primary-bg-b7 {\n  background-color: #1f2933;\n}\n.primary-color-b7 {\n  color: #1f2933;\n}\n.primary-border-color-b7 {\n  border-color: #1f2933 !important;\n}\n.primary-border-color-b7.border {\n    border-color: #1f2933 !important;\n}\n.primary-bg-b8 {\n  background-color: #12161a;\n}\n.primary-color-b8 {\n  color: #12161a;\n}\n.primary-border-color-b8 {\n  border-color: #12161a !important;\n}\n.primary-border-color-b8.border {\n    border-color: #12161a !important;\n}\n.primary-bg-c1 {\n  background-color: #dce9f5;\n}\n.primary-color-c1 {\n  color: #dce9f5;\n}\n.primary-border-color-c1 {\n  border-color: #dce9f5 !important;\n}\n.primary-border-color-c1.border {\n    border-color: #dce9f5 !important;\n}\n.primary-bg-c2 {\n  background-color: #c4dcf5;\n}\n.primary-color-c2 {\n  color: #c4dcf5;\n}\n.primary-border-color-c2 {\n  border-color: #c4dcf5 !important;\n}\n.primary-border-color-c2.border {\n    border-color: #c4dcf5 !important;\n}\n.primary-bg-c3 {\n  background-color: #abd0f5;\n}\n.primary-color-c3 {\n  color: #abd0f5;\n}\n.primary-border-color-c3 {\n  border-color: #abd0f5 !important;\n}\n.primary-border-color-c3.border {\n    border-color: #abd0f5 !important;\n}\n.primary-bg-c4 {\n  background-color: #93c4f5;\n}\n.primary-color-c4 {\n  color: #93c4f5;\n}\n.primary-border-color-c4 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-c4.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-c5 {\n  background-color: #7ab8f5;\n}\n.primary-color-c5 {\n  color: #7ab8f5;\n}\n.primary-border-color-c5 {\n  border-color: #7ab8f5 !important;\n}\n.primary-border-color-c5.border {\n    border-color: #7ab8f5 !important;\n}\n.primary-bg-c6 {\n  background-color: #62abf5;\n}\n.primary-color-c6 {\n  color: #62abf5;\n}\n.primary-border-color-c6 {\n  border-color: #62abf5 !important;\n}\n.primary-border-color-c6.border {\n    border-color: #62abf5 !important;\n}\n.primary-bg-c7 {\n  background-color: #499ff5;\n}\n.primary-color-c7 {\n  color: #499ff5;\n}\n.primary-border-color-c7 {\n  border-color: #499ff5 !important;\n}\n.primary-border-color-c7.border {\n    border-color: #499ff5 !important;\n}\n.primary-bg-c8 {\n  background-color: #3193f5;\n}\n.primary-color-c8 {\n  color: #3193f5;\n}\n.primary-border-color-c8 {\n  border-color: #3193f5 !important;\n}\n.primary-border-color-c8.border {\n    border-color: #3193f5 !important;\n}\n.primary-bg-c9 {\n  background-color: #1887f5;\n}\n.primary-color-c9 {\n  color: #1887f5;\n}\n.primary-border-color-c9 {\n  border-color: #1887f5 !important;\n}\n.primary-border-color-c9.border {\n    border-color: #1887f5 !important;\n}\n.primary-bg-c10 {\n  background-color: #007af5;\n}\n.primary-color-c10 {\n  color: #007af5;\n}\n.primary-border-color-c10 {\n  border-color: #007af5 !important;\n}\n.primary-border-color-c10.border {\n    border-color: #007af5 !important;\n}\n.primary-bg-c11 {\n  background-color: #0070e0;\n}\n.primary-color-c11 {\n  color: #0070e0;\n}\n.primary-border-color-c11 {\n  border-color: #0070e0 !important;\n}\n.primary-border-color-c11.border {\n    border-color: #0070e0 !important;\n}\n.primary-bg-c12 {\n  background-color: #0066cc;\n}\n.primary-color-c12 {\n  color: #0066cc;\n}\n.primary-border-color-c12 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-c12.border {\n    border-color: #0066cc !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-a1 {\n  background-color: #e7e6ff;\n}\n.analogue-1-color-a1 {\n  color: #e7e6ff;\n}\n.analogue-1-border-color-a1 {\n  border-color: #e7e6ff !important;\n}\n.analogue-1-border-color-a1.border {\n    border-color: #e7e6ff !important;\n}\n.analogue-1-bg-a2 {\n  background-color: #bbb8f5;\n}\n.analogue-1-color-a2 {\n  color: #bbb8f5;\n}\n.analogue-1-border-color-a2 {\n  border-color: #bbb8f5 !important;\n}\n.analogue-1-border-color-a2.border {\n    border-color: #bbb8f5 !important;\n}\n.analogue-1-bg-a3 {\n  background-color: #918deb;\n}\n.analogue-1-color-a3 {\n  color: #918deb;\n}\n.analogue-1-border-color-a3 {\n  border-color: #918deb !important;\n}\n.analogue-1-border-color-a3.border {\n    border-color: #918deb !important;\n}\n.analogue-1-bg-a4 {\n  background-color: #6b65e0;\n}\n.analogue-1-color-a4 {\n  color: #6b65e0;\n}\n.analogue-1-border-color-a4 {\n  border-color: #6b65e0 !important;\n}\n.analogue-1-border-color-a4.border {\n    border-color: #6b65e0 !important;\n}\n.analogue-1-bg-a5 {\n  background-color: #4840d6;\n}\n.analogue-1-color-a5 {\n  color: #4840d6;\n}\n.analogue-1-border-color-a5 {\n  border-color: #4840d6 !important;\n}\n.analogue-1-border-color-a5.border {\n    border-color: #4840d6 !important;\n}\n.analogue-1-bg-a6 {\n  background-color: #271fcc;\n}\n.analogue-1-color-a6 {\n  color: #271fcc;\n}\n.analogue-1-border-color-a6 {\n  border-color: #271fcc !important;\n}\n.analogue-1-border-color-a6.border {\n    border-color: #271fcc !important;\n}\n.analogue-1-bg-a7 {\n  background-color: #221bb3;\n}\n.analogue-1-color-a7 {\n  color: #221bb3;\n}\n.analogue-1-border-color-a7 {\n  border-color: #221bb3 !important;\n}\n.analogue-1-border-color-a7.border {\n    border-color: #221bb3 !important;\n}\n.analogue-1-bg-a8 {\n  background-color: #1d1799;\n}\n.analogue-1-color-a8 {\n  color: #1d1799;\n}\n.analogue-1-border-color-a8 {\n  border-color: #1d1799 !important;\n}\n.analogue-1-border-color-a8.border {\n    border-color: #1d1799 !important;\n}\n.analogue-1-bg-a9 {\n  background-color: #191380;\n}\n.analogue-1-color-a9 {\n  color: #191380;\n}\n.analogue-1-border-color-a9 {\n  border-color: #191380 !important;\n}\n.analogue-1-border-color-a9.border {\n    border-color: #191380 !important;\n}\n.analogue-1-bg-a10 {\n  background-color: #140f66;\n}\n.analogue-1-color-a10 {\n  color: #140f66;\n}\n.analogue-1-border-color-a10 {\n  border-color: #140f66 !important;\n}\n.analogue-1-border-color-a10.border {\n    border-color: #140f66 !important;\n}\n.analogue-1-bg-a11 {\n  background-color: #0f0b4d;\n}\n.analogue-1-color-a11 {\n  color: #0f0b4d;\n}\n.analogue-1-border-color-a11 {\n  border-color: #0f0b4d !important;\n}\n.analogue-1-border-color-a11.border {\n    border-color: #0f0b4d !important;\n}\n.analogue-1-bg-a12 {\n  background-color: #0a0833;\n}\n.analogue-1-color-a12 {\n  color: #0a0833;\n}\n.analogue-1-border-color-a12 {\n  border-color: #0a0833 !important;\n}\n.analogue-1-border-color-a12.border {\n    border-color: #0a0833 !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-a1 {\n  background-color: #ccfffd;\n}\n.analogue-2-color-a1 {\n  color: #ccfffd;\n}\n.analogue-2-border-color-a1 {\n  border-color: #ccfffd !important;\n}\n.analogue-2-border-color-a1.border {\n    border-color: #ccfffd !important;\n}\n.analogue-2-bg-a2 {\n  background-color: #9ff5f2;\n}\n.analogue-2-color-a2 {\n  color: #9ff5f2;\n}\n.analogue-2-border-color-a2 {\n  border-color: #9ff5f2 !important;\n}\n.analogue-2-border-color-a2.border {\n    border-color: #9ff5f2 !important;\n}\n.analogue-2-bg-a3 {\n  background-color: #75ebe7;\n}\n.analogue-2-color-a3 {\n  color: #75ebe7;\n}\n.analogue-2-border-color-a3 {\n  border-color: #75ebe7 !important;\n}\n.analogue-2-border-color-a3.border {\n    border-color: #75ebe7 !important;\n}\n.analogue-2-bg-a4 {\n  background-color: #4fe0dc;\n}\n.analogue-2-color-a4 {\n  color: #4fe0dc;\n}\n.analogue-2-border-color-a4 {\n  border-color: #4fe0dc !important;\n}\n.analogue-2-border-color-a4.border {\n    border-color: #4fe0dc !important;\n}\n.analogue-2-bg-a5 {\n  background-color: #2bd6d0;\n}\n.analogue-2-color-a5 {\n  color: #2bd6d0;\n}\n.analogue-2-border-color-a5 {\n  border-color: #2bd6d0 !important;\n}\n.analogue-2-border-color-a5.border {\n    border-color: #2bd6d0 !important;\n}\n.analogue-2-bg-a6 {\n  background-color: #0accc6;\n}\n.analogue-2-color-a6 {\n  color: #0accc6;\n}\n.analogue-2-border-color-a6 {\n  border-color: #0accc6 !important;\n}\n.analogue-2-border-color-a6.border {\n    border-color: #0accc6 !important;\n}\n.analogue-2-bg-a7 {\n  background-color: #09b3ad;\n}\n.analogue-2-color-a7 {\n  color: #09b3ad;\n}\n.analogue-2-border-color-a7 {\n  border-color: #09b3ad !important;\n}\n.analogue-2-border-color-a7.border {\n    border-color: #09b3ad !important;\n}\n.analogue-2-bg-a8 {\n  background-color: #089994;\n}\n.analogue-2-color-a8 {\n  color: #089994;\n}\n.analogue-2-border-color-a8 {\n  border-color: #089994 !important;\n}\n.analogue-2-border-color-a8.border {\n    border-color: #089994 !important;\n}\n.analogue-2-bg-a9 {\n  background-color: #06807b;\n}\n.analogue-2-color-a9 {\n  color: #06807b;\n}\n.analogue-2-border-color-a9 {\n  border-color: #06807b !important;\n}\n.analogue-2-border-color-a9.border {\n    border-color: #06807b !important;\n}\n.analogue-2-bg-a10 {\n  background-color: #056663;\n}\n.analogue-2-color-a10 {\n  color: #056663;\n}\n.analogue-2-border-color-a10 {\n  border-color: #056663 !important;\n}\n.analogue-2-border-color-a10.border {\n    border-color: #056663 !important;\n}\n.analogue-2-bg-a11 {\n  background-color: #044d4a;\n}\n.analogue-2-color-a11 {\n  color: #044d4a;\n}\n.analogue-2-border-color-a11 {\n  border-color: #044d4a !important;\n}\n.analogue-2-border-color-a11.border {\n    border-color: #044d4a !important;\n}\n.analogue-2-bg-a12 {\n  background-color: #033331;\n}\n.analogue-2-color-a12 {\n  color: #033331;\n}\n.analogue-2-border-color-a12 {\n  border-color: #033331 !important;\n}\n.analogue-2-border-color-a12.border {\n    border-color: #033331 !important;\n}\n.complementary-1-bg {\n  background-color: #f73e5a;\n}\n.complementary-1-color {\n  color: #ff9900;\n}\n.complementary-1-border-color- {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-a1 {\n  background-color: #fffcfd;\n}\n.complementary-1-color-a1 {\n  color: #fffcfd;\n}\n.complementary-1-border-color-a1 {\n  border-color: #fffcfd !important;\n}\n.complementary-1-border-color-a1.border {\n    border-color: #fffcfd !important;\n}\n.complementary-1-bg-a2 {\n  background-color: #f5d0d6;\n}\n.complementary-1-color-a2 {\n  color: #f5d0d6;\n}\n.complementary-1-border-color-a2 {\n  border-color: #f5d0d6 !important;\n}\n.complementary-1-border-color-a2.border {\n    border-color: #f5d0d6 !important;\n}\n.complementary-1-bg-a3 {\n  background-color: #eba4af;\n}\n.complementary-1-color-a3 {\n  color: #eba4af;\n}\n.complementary-1-border-color-a3 {\n  border-color: #eba4af !important;\n}\n.complementary-1-border-color-a3.border {\n    border-color: #eba4af !important;\n}\n.complementary-1-bg-a4 {\n  background-color: #e07b8b;\n}\n.complementary-1-color-a4 {\n  color: #e07b8b;\n}\n.complementary-1-border-color-a4 {\n  border-color: #e07b8b !important;\n}\n.complementary-1-border-color-a4.border {\n    border-color: #e07b8b !important;\n}\n.complementary-1-bg-a5 {\n  background-color: #d65669;\n}\n.complementary-1-color-a5 {\n  color: #d65669;\n}\n.complementary-1-border-color-a5 {\n  border-color: #d65669 !important;\n}\n.complementary-1-border-color-a5.border {\n    border-color: #d65669 !important;\n}\n.complementary-1-bg-a6 {\n  background-color: #cc334a;\n}\n.complementary-1-color-a6 {\n  color: #cc334a;\n}\n.complementary-1-border-color-a6 {\n  border-color: #cc334a !important;\n}\n.complementary-1-border-color-a6.border {\n    border-color: #cc334a !important;\n}\n.complementary-1-bg-a7 {\n  background-color: #b32d41;\n}\n.complementary-1-color-a7 {\n  color: #b32d41;\n}\n.complementary-1-border-color-a7 {\n  border-color: #b32d41 !important;\n}\n.complementary-1-border-color-a7.border {\n    border-color: #b32d41 !important;\n}\n.complementary-1-bg-a8 {\n  background-color: #992637;\n}\n.complementary-1-color-a8 {\n  color: #992637;\n}\n.complementary-1-border-color-a8 {\n  border-color: #992637 !important;\n}\n.complementary-1-border-color-a8.border {\n    border-color: #992637 !important;\n}\n.complementary-1-bg-a9 {\n  background-color: #80202e;\n}\n.complementary-1-color-a9 {\n  color: #80202e;\n}\n.complementary-1-border-color-a9 {\n  border-color: #80202e !important;\n}\n.complementary-1-border-color-a9.border {\n    border-color: #80202e !important;\n}\n.complementary-1-bg-a10 {\n  background-color: #661a25;\n}\n.complementary-1-color-a10 {\n  color: #661a25;\n}\n.complementary-1-border-color-a10 {\n  border-color: #661a25 !important;\n}\n.complementary-1-border-color-a10.border {\n    border-color: #661a25 !important;\n}\n.complementary-1-bg-a11 {\n  background-color: #4d131c;\n}\n.complementary-1-color-a11 {\n  color: #4d131c;\n}\n.complementary-1-border-color-a11 {\n  border-color: #4d131c !important;\n}\n.complementary-1-border-color-a11.border {\n    border-color: #4d131c !important;\n}\n.complementary-1-bg-a12 {\n  background-color: #330d12;\n}\n.complementary-1-color-a12 {\n  color: #330d12;\n}\n.complementary-1-border-color-a12 {\n  border-color: #330d12 !important;\n}\n.complementary-1-border-color-a12.border {\n    border-color: #330d12 !important;\n}\n.complementary-2-bg {\n  background-color: #ff9900;\n}\n.complementary-2-color {\n  color: #ff9900;\n}\n.complementary-2-border-color- {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-a1 {\n  background-color: #ffe6bf;\n}\n.complementary-2-color-a1 {\n  color: #ffe6bf;\n}\n.complementary-2-border-color-a1 {\n  border-color: #ffe6bf !important;\n}\n.complementary-2-border-color-a1.border {\n    border-color: #ffe6bf !important;\n}\n.complementary-2-bg-a2 {\n  background-color: #f5ce93;\n}\n.complementary-2-color-a2 {\n  color: #f5ce93;\n}\n.complementary-2-border-color-a2 {\n  border-color: #f5ce93 !important;\n}\n.complementary-2-border-color-a2.border {\n    border-color: #f5ce93 !important;\n}\n.complementary-2-bg-a3 {\n  background-color: #ebb76a;\n}\n.complementary-2-color-a3 {\n  color: #ebb76a;\n}\n.complementary-2-border-color-a3 {\n  border-color: #ebb76a !important;\n}\n.complementary-2-border-color-a3.border {\n    border-color: #ebb76a !important;\n}\n.complementary-2-bg-a4 {\n  background-color: #e0a243;\n}\n.complementary-2-color-a4 {\n  color: #e0a243;\n}\n.complementary-2-border-color-a4 {\n  border-color: #e0a243 !important;\n}\n.complementary-2-border-color-a4.border {\n    border-color: #e0a243 !important;\n}\n.complementary-2-bg-a5 {\n  background-color: #d68d20;\n}\n.complementary-2-color-a5 {\n  color: #d68d20;\n}\n.complementary-2-border-color-a5 {\n  border-color: #d68d20 !important;\n}\n.complementary-2-border-color-a5.border {\n    border-color: #d68d20 !important;\n}\n.complementary-2-bg-a6 {\n  background-color: #cc7a00;\n}\n.complementary-2-color-a6 {\n  color: #cc7a00;\n}\n.complementary-2-border-color-a6 {\n  border-color: #cc7a00 !important;\n}\n.complementary-2-border-color-a6.border {\n    border-color: #cc7a00 !important;\n}\n.complementary-2-bg-a7 {\n  background-color: #b36b00;\n}\n.complementary-2-color-a7 {\n  color: #b36b00;\n}\n.complementary-2-border-color-a7 {\n  border-color: #b36b00 !important;\n}\n.complementary-2-border-color-a7.border {\n    border-color: #b36b00 !important;\n}\n.complementary-2-bg-a8 {\n  background-color: #995c00;\n}\n.complementary-2-color-a8 {\n  color: #995c00;\n}\n.complementary-2-border-color-a8 {\n  border-color: #995c00 !important;\n}\n.complementary-2-border-color-a8.border {\n    border-color: #995c00 !important;\n}\n.complementary-2-bg-a9 {\n  background-color: #804d00;\n}\n.complementary-2-color-a9 {\n  color: #804d00;\n}\n.complementary-2-border-color-a9 {\n  border-color: #804d00 !important;\n}\n.complementary-2-border-color-a9.border {\n    border-color: #804d00 !important;\n}\n.complementary-2-bg-a10 {\n  background-color: #663d00;\n}\n.complementary-2-color-a10 {\n  color: #663d00;\n}\n.complementary-2-border-color-a10 {\n  border-color: #663d00 !important;\n}\n.complementary-2-border-color-a10.border {\n    border-color: #663d00 !important;\n}\n.complementary-2-bg-a11 {\n  background-color: #4d2e00;\n}\n.complementary-2-color-a11 {\n  color: #4d2e00;\n}\n.complementary-2-border-color-a11 {\n  border-color: #4d2e00 !important;\n}\n.complementary-2-border-color-a11.border {\n    border-color: #4d2e00 !important;\n}\n.complementary-2-bg-a12 {\n  background-color: #331f00;\n}\n.complementary-2-color-a12 {\n  color: #331f00;\n}\n.complementary-2-border-color-a12 {\n  border-color: #331f00 !important;\n}\n.complementary-2-border-color-a12.border {\n    border-color: #331f00 !important;\n}\n.complementary-3-bg {\n  background-color: #00cf86;\n}\n.complementary-3-color {\n  color: #00cf86;\n}\n.complementary-3-border-color- {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-a1 {\n  background-color: #bfffe9;\n}\n.complementary-3-color-a1 {\n  color: #bfffe9;\n}\n.complementary-3-border-color-a1 {\n  border-color: #bfffe9 !important;\n}\n.complementary-3-border-color-a1.border {\n    border-color: #bfffe9 !important;\n}\n.complementary-3-bg-a2 {\n  background-color: #93f5d3;\n}\n.complementary-3-color-a2 {\n  color: #93f5d3;\n}\n.complementary-3-border-color-a2 {\n  border-color: #93f5d3 !important;\n}\n.complementary-3-border-color-a2.border {\n    border-color: #93f5d3 !important;\n}\n.complementary-3-bg-a3 {\n  background-color: #6aebbd;\n}\n.complementary-3-color-a3 {\n  color: #6aebbd;\n}\n.complementary-3-border-color-a3 {\n  border-color: #6aebbd !important;\n}\n.complementary-3-border-color-a3.border {\n    border-color: #6aebbd !important;\n}\n.complementary-3-bg-a4 {\n  background-color: #43e0a9;\n}\n.complementary-3-color-a4 {\n  color: #43e0a9;\n}\n.complementary-3-border-color-a4 {\n  border-color: #43e0a9 !important;\n}\n.complementary-3-border-color-a4.border {\n    border-color: #43e0a9 !important;\n}\n.complementary-3-bg-a5 {\n  background-color: #20d696;\n}\n.complementary-3-color-a5 {\n  color: #20d696;\n}\n.complementary-3-border-color-a5 {\n  border-color: #20d696 !important;\n}\n.complementary-3-border-color-a5.border {\n    border-color: #20d696 !important;\n}\n.complementary-3-bg-a6 {\n  background-color: #00cc85;\n}\n.complementary-3-color-a6 {\n  color: #00cc85;\n}\n.complementary-3-border-color-a6 {\n  border-color: #00cc85 !important;\n}\n.complementary-3-border-color-a6.border {\n    border-color: #00cc85 !important;\n}\n.complementary-3-bg-a7 {\n  background-color: #00b374;\n}\n.complementary-3-color-a7 {\n  color: #00b374;\n}\n.complementary-3-border-color-a7 {\n  border-color: #00b374 !important;\n}\n.complementary-3-border-color-a7.border {\n    border-color: #00b374 !important;\n}\n.complementary-3-bg-a8 {\n  background-color: #009963;\n}\n.complementary-3-color-a8 {\n  color: #009963;\n}\n.complementary-3-border-color-a8 {\n  border-color: #009963 !important;\n}\n.complementary-3-border-color-a8.border {\n    border-color: #009963 !important;\n}\n.complementary-3-bg-a9 {\n  background-color: #008053;\n}\n.complementary-3-color-a9 {\n  color: #008053;\n}\n.complementary-3-border-color-a9 {\n  border-color: #008053 !important;\n}\n.complementary-3-border-color-a9.border {\n    border-color: #008053 !important;\n}\n.complementary-3-bg-a10 {\n  background-color: #006642;\n}\n.complementary-3-color-a10 {\n  color: #006642;\n}\n.complementary-3-border-color-a10 {\n  border-color: #006642 !important;\n}\n.complementary-3-border-color-a10.border {\n    border-color: #006642 !important;\n}\n.complementary-3-bg-a11 {\n  background-color: #004d32;\n}\n.complementary-3-color-a11 {\n  color: #004d32;\n}\n.complementary-3-border-color-a11 {\n  border-color: #004d32 !important;\n}\n.complementary-3-border-color-a11.border {\n    border-color: #004d32 !important;\n}\n.complementary-3-bg-a12 {\n  background-color: #003321;\n}\n.complementary-3-color-a12 {\n  color: #003321;\n}\n.complementary-3-border-color-a12 {\n  border-color: #003321 !important;\n}\n.complementary-3-border-color-a12.border {\n    border-color: #003321 !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b1 {\n  background-color: #3126ff;\n}\n.analogue-1-color-b1 {\n  color: #3126ff;\n}\n.analogue-1-border-color-b1 {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-b1.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b2 {\n  background-color: #4239e6;\n}\n.analogue-1-color-b2 {\n  color: #4239e6;\n}\n.analogue-1-border-color-b2 {\n  border-color: #4239e6 !important;\n}\n.analogue-1-border-color-b2.border {\n    border-color: #4239e6 !important;\n}\n.analogue-1-bg-b3 {\n  background-color: #4e47cc;\n}\n.analogue-1-color-b3 {\n  color: #4e47cc;\n}\n.analogue-1-border-color-b3 {\n  border-color: #4e47cc !important;\n}\n.analogue-1-border-color-b3.border {\n    border-color: #4e47cc !important;\n}\n.analogue-1-bg-b4 {\n  background-color: #5550b3;\n}\n.analogue-1-color-b4 {\n  color: #5550b3;\n}\n.analogue-1-border-color-b4 {\n  border-color: #5550b3 !important;\n}\n.analogue-1-border-color-b4.border {\n    border-color: #5550b3 !important;\n}\n.analogue-1-bg-b5 {\n  background-color: #585499;\n}\n.analogue-1-color-b5 {\n  color: #585499;\n}\n.analogue-1-border-color-b5 {\n  border-color: #585499 !important;\n}\n.analogue-1-border-color-b5.border {\n    border-color: #585499 !important;\n}\n.analogue-1-bg-b6 {\n  background-color: #555380;\n}\n.analogue-1-color-b6 {\n  color: #555380;\n}\n.analogue-1-border-color-b6 {\n  border-color: #555380 !important;\n}\n.analogue-1-border-color-b6.border {\n    border-color: #555380 !important;\n}\n.analogue-1-bg-b7 {\n  background-color: #4e4d66;\n}\n.analogue-1-color-b7 {\n  color: #4e4d66;\n}\n.analogue-1-border-color-b7 {\n  border-color: #4e4d66 !important;\n}\n.analogue-1-border-color-b7.border {\n    border-color: #4e4d66 !important;\n}\n.analogue-1-bg-b8 {\n  background-color: #42414d;\n}\n.analogue-1-color-b8 {\n  color: #42414d;\n}\n.analogue-1-border-color-b8 {\n  border-color: #42414d !important;\n}\n.analogue-1-border-color-b8.border {\n    border-color: #42414d !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b1 {\n  background-color: #0bd9d2;\n}\n.analogue-2-color-b1 {\n  color: #0bd9d2;\n}\n.analogue-2-border-color-b1 {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-b1.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b2 {\n  background-color: #1dbfba;\n}\n.analogue-2-color-b2 {\n  color: #1dbfba;\n}\n.analogue-2-border-color-b2 {\n  border-color: #1dbfba !important;\n}\n.analogue-2-border-color-b2.border {\n    border-color: #1dbfba !important;\n}\n.analogue-2-bg-b3 {\n  background-color: #29a6a2;\n}\n.analogue-2-color-b3 {\n  color: #29a6a2;\n}\n.analogue-2-border-color-b3 {\n  border-color: #29a6a2 !important;\n}\n.analogue-2-border-color-b3.border {\n    border-color: #29a6a2 !important;\n}\n.analogue-2-bg-b4 {\n  background-color: #318c89;\n}\n.analogue-2-color-b4 {\n  color: #318c89;\n}\n.analogue-2-border-color-b4 {\n  border-color: #318c89 !important;\n}\n.analogue-2-border-color-b4.border {\n    border-color: #318c89 !important;\n}\n.analogue-2-bg-b5 {\n  background-color: #347371;\n}\n.analogue-2-color-b5 {\n  color: #347371;\n}\n.analogue-2-border-color-b5 {\n  border-color: #347371 !important;\n}\n.analogue-2-border-color-b5.border {\n    border-color: #347371 !important;\n}\n.analogue-2-bg-b6 {\n  background-color: #315958;\n}\n.analogue-2-color-b6 {\n  color: #315958;\n}\n.analogue-2-border-color-b6 {\n  border-color: #315958 !important;\n}\n.analogue-2-border-color-b6.border {\n    border-color: #315958 !important;\n}\n.analogue-2-bg-b7 {\n  background-color: #29403f;\n}\n.analogue-2-color-b7 {\n  color: #29403f;\n}\n.analogue-2-border-color-b7 {\n  border-color: #29403f !important;\n}\n.analogue-2-border-color-b7.border {\n    border-color: #29403f !important;\n}\n.analogue-2-bg-b8 {\n  background-color: #1d2626;\n}\n.analogue-2-color-b8 {\n  color: #1d2626;\n}\n.analogue-2-border-color-b8 {\n  border-color: #1d2626 !important;\n}\n.analogue-2-border-color-b8.border {\n    border-color: #1d2626 !important;\n}\n.complementary-1-bg-b1 {\n  background-color: #f73e5a;\n}\n.complementary-1-color-b1 {\n  color: #f73e5a;\n}\n.complementary-1-border-color-b1 {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-b1.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-b2 {\n  background-color: #de4e63;\n}\n.complementary-1-color-b2 {\n  color: #de4e63;\n}\n.complementary-1-border-color-b2 {\n  border-color: #de4e63 !important;\n}\n.complementary-1-border-color-b2.border {\n    border-color: #de4e63 !important;\n}\n.complementary-1-bg-b3 {\n  background-color: #c45869;\n}\n.complementary-1-color-b3 {\n  color: #c45869;\n}\n.complementary-1-border-color-b3 {\n  border-color: #c45869 !important;\n}\n.complementary-1-border-color-b3.border {\n    border-color: #c45869 !important;\n}\n.complementary-1-bg-b4 {\n  background-color: #ab5e69;\n}\n.complementary-1-color-b4 {\n  color: #ab5e69;\n}\n.complementary-1-border-color-b4 {\n  border-color: #ab5e69 !important;\n}\n.complementary-1-border-color-b4.border {\n    border-color: #ab5e69 !important;\n}\n.complementary-1-bg-b5 {\n  background-color: #915e66;\n}\n.complementary-1-color-b5 {\n  color: #915e66;\n}\n.complementary-1-border-color-b5 {\n  border-color: #915e66 !important;\n}\n.complementary-1-border-color-b5.border {\n    border-color: #915e66 !important;\n}\n.complementary-1-bg-b6 {\n  background-color: #785a5e;\n}\n.complementary-1-color-b6 {\n  color: #785a5e;\n}\n.complementary-1-border-color-b6 {\n  border-color: #785a5e !important;\n}\n.complementary-1-border-color-b6.border {\n    border-color: #785a5e !important;\n}\n.complementary-1-bg-b7 {\n  background-color: #5e5052;\n}\n.complementary-1-color-b7 {\n  color: #5e5052;\n}\n.complementary-1-border-color-b7 {\n  border-color: #5e5052 !important;\n}\n.complementary-1-border-color-b7.border {\n    border-color: #5e5052 !important;\n}\n.complementary-1-bg-b8 {\n  background-color: #454142;\n}\n.complementary-1-color-b8 {\n  color: #454142;\n}\n.complementary-1-border-color-b8 {\n  border-color: #454142 !important;\n}\n.complementary-1-border-color-b8.border {\n    border-color: #454142 !important;\n}\n.complementary-2-bg-b1 {\n  background-color: #ff9900;\n}\n.complementary-2-color-b1 {\n  color: #ff9900;\n}\n.complementary-2-border-color-b1 {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-b1.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-b2 {\n  background-color: #e69317;\n}\n.complementary-2-color-b2 {\n  color: #e69317;\n}\n.complementary-2-border-color-b2 {\n  border-color: #e69317 !important;\n}\n.complementary-2-border-color-b2.border {\n    border-color: #e69317 !important;\n}\n.complementary-2-bg-b3 {\n  background-color: #cc8b29;\n}\n.complementary-2-color-b3 {\n  color: #cc8b29;\n}\n.complementary-2-border-color-b3 {\n  border-color: #cc8b29 !important;\n}\n.complementary-2-border-color-b3.border {\n    border-color: #cc8b29 !important;\n}\n.complementary-2-bg-b4 {\n  background-color: #b38136;\n}\n.complementary-2-color-b4 {\n  color: #b38136;\n}\n.complementary-2-border-color-b4 {\n  border-color: #b38136 !important;\n}\n.complementary-2-border-color-b4.border {\n    border-color: #b38136 !important;\n}\n.complementary-2-bg-b5 {\n  background-color: #99743d;\n}\n.complementary-2-color-b5 {\n  color: #99743d;\n}\n.complementary-2-border-color-b5 {\n  border-color: #99743d !important;\n}\n.complementary-2-border-color-b5.border {\n    border-color: #99743d !important;\n}\n.complementary-2-bg-b6 {\n  background-color: #806640;\n}\n.complementary-2-color-b6 {\n  color: #806640;\n}\n.complementary-2-border-color-b6 {\n  border-color: #806640 !important;\n}\n.complementary-2-border-color-b6.border {\n    border-color: #806640 !important;\n}\n.complementary-2-bg-b7 {\n  background-color: #66563d;\n}\n.complementary-2-color-b7 {\n  color: #66563d;\n}\n.complementary-2-border-color-b7 {\n  border-color: #66563d !important;\n}\n.complementary-2-border-color-b7.border {\n    border-color: #66563d !important;\n}\n.complementary-2-bg-b8 {\n  background-color: #4d4336;\n}\n.complementary-2-color-b8 {\n  color: #4d4336;\n}\n.complementary-2-border-color-b8 {\n  border-color: #4d4336 !important;\n}\n.complementary-2-border-color-b8.border {\n    border-color: #4d4336 !important;\n}\n.complementary-3-bg-b1 {\n  background-color: #00cf86;\n}\n.complementary-3-color-b1 {\n  color: #00cf86;\n}\n.complementary-3-border-color-b1 {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-b1.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-b2 {\n  background-color: #12b57c;\n}\n.complementary-3-color-b2 {\n  color: #12b57c;\n}\n.complementary-3-border-color-b2 {\n  border-color: #12b57c !important;\n}\n.complementary-3-border-color-b2.border {\n    border-color: #12b57c !important;\n}\n.complementary-3-bg-b3 {\n  background-color: #1f9c70;\n}\n.complementary-3-color-b3 {\n  color: #1f9c70;\n}\n.complementary-3-border-color-b3 {\n  border-color: #1f9c70 !important;\n}\n.complementary-3-border-color-b3.border {\n    border-color: #1f9c70 !important;\n}\n.complementary-3-bg-b4 {\n  background-color: #278262;\n}\n.complementary-3-color-b4 {\n  color: #278262;\n}\n.complementary-3-border-color-b4 {\n  border-color: #278262 !important;\n}\n.complementary-3-border-color-b4.border {\n    border-color: #278262 !important;\n}\n.complementary-3-bg-b5 {\n  background-color: #2a6953;\n}\n.complementary-3-color-b5 {\n  color: #2a6953;\n}\n.complementary-3-border-color-b5 {\n  border-color: #2a6953 !important;\n}\n.complementary-3-border-color-b5.border {\n    border-color: #2a6953 !important;\n}\n.complementary-3-bg-b6 {\n  background-color: #284f41;\n}\n.complementary-3-color-b6 {\n  color: #284f41;\n}\n.complementary-3-border-color-b6 {\n  border-color: #284f41 !important;\n}\n.complementary-3-border-color-b6.border {\n    border-color: #284f41 !important;\n}\n.complementary-3-bg-b7 {\n  background-color: #20362e;\n}\n.complementary-3-color-b7 {\n  color: #20362e;\n}\n.complementary-3-border-color-b7 {\n  border-color: #20362e !important;\n}\n.complementary-3-border-color-b7.border {\n    border-color: #20362e !important;\n}\n.complementary-3-bg-b8 {\n  background-color: #141c19;\n}\n.complementary-3-color-b8 {\n  color: #141c19;\n}\n.complementary-3-border-color-b8 {\n  border-color: #141c19 !important;\n}\n.complementary-3-border-color-b8.border {\n    border-color: #141c19 !important;\n}\n.neutral-1-bg {\n  background-color: #17324d;\n}\n.neutral-1-color {\n  color: #17324d;\n}\n.neutral-1-border-color- {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-.border {\n    border-color: #17324d !important;\n}\n.neutral-1-bg-a1 {\n  background-color: #ebeced;\n}\n.neutral-1-color-a1 {\n  color: #ebeced;\n}\n.neutral-1-border-color-a1 {\n  border-color: #ebeced !important;\n}\n.neutral-1-border-color-a1.border {\n    border-color: #ebeced !important;\n}\n.neutral-1-bg-a2 {\n  background-color: #d9dadb;\n}\n.neutral-1-color-a2 {\n  color: #d9dadb;\n}\n.neutral-1-border-color-a2 {\n  border-color: #d9dadb !important;\n}\n.neutral-1-border-color-a2.border {\n    border-color: #d9dadb !important;\n}\n.neutral-1-bg-a3 {\n  background-color: #c5c7c9;\n}\n.neutral-1-color-a3 {\n  color: #c5c7c9;\n}\n.neutral-1-border-color-a3 {\n  border-color: #c5c7c9 !important;\n}\n.neutral-1-border-color-a3.border {\n    border-color: #c5c7c9 !important;\n}\n.neutral-1-bg-a4 {\n  background-color: #adb2b8;\n}\n.neutral-1-color-a4 {\n  color: #adb2b8;\n}\n.neutral-1-border-color-a4 {\n  border-color: #adb2b8 !important;\n}\n.neutral-1-border-color-a4.border {\n    border-color: #adb2b8 !important;\n}\n.neutral-1-bg-a5 {\n  background-color: #959da6;\n}\n.neutral-1-color-a5 {\n  color: #959da6;\n}\n.neutral-1-border-color-a5 {\n  border-color: #959da6 !important;\n}\n.neutral-1-border-color-a5.border {\n    border-color: #959da6 !important;\n}\n.neutral-1-bg-a6 {\n  background-color: #768594;\n}\n.neutral-1-color-a6 {\n  color: #768594;\n}\n.neutral-1-border-color-a6 {\n  border-color: #768594 !important;\n}\n.neutral-1-border-color-a6.border {\n    border-color: #768594 !important;\n}\n.neutral-1-bg-a7 {\n  background-color: #5b6f82;\n}\n.neutral-1-color-a7 {\n  color: #5b6f82;\n}\n.neutral-1-border-color-a7 {\n  border-color: #5b6f82 !important;\n}\n.neutral-1-border-color-a7.border {\n    border-color: #5b6f82 !important;\n}\n.neutral-1-bg-a8 {\n  background-color: #435a70;\n}\n.neutral-1-color-a8 {\n  color: #435a70;\n}\n.neutral-1-border-color-a8 {\n  border-color: #435a70 !important;\n}\n.neutral-1-border-color-a8.border {\n    border-color: #435a70 !important;\n}\n.neutral-1-bg-a9 {\n  background-color: #2f475e;\n}\n.neutral-1-color-a9 {\n  color: #2f475e;\n}\n.neutral-1-border-color-a9 {\n  border-color: #2f475e !important;\n}\n.neutral-1-border-color-a9.border {\n    border-color: #2f475e !important;\n}\n.neutral-1-bg-a10 {\n  background-color: #17324d;\n}\n.neutral-1-color-a10 {\n  color: #17324d;\n}\n.neutral-1-border-color-a10 {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-a10.border {\n    border-color: #17324d !important;\n}\n.neutral-2-bg {\n  background-color: #e6ecf2;\n}\n.neutral-2-color {\n  color: #e6ecf2;\n}\n.neutral-2-border-color- {\n  border-color: #e6ecf2;\n}\n.neutral-2-bg-b1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-b1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-b1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-b1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-b2 {\n  background-color: #c2c7cc;\n}\n.neutral-2-color-b2 {\n  color: #c2c7cc;\n}\n.neutral-2-border-color-b2 {\n  border-color: #c2c7cc !important;\n}\n.neutral-2-border-color-b2.border {\n    border-color: #c2c7cc !important;\n}\n.neutral-2-bg-b3 {\n  background-color: #9da2a6;\n}\n.neutral-2-color-b3 {\n  color: #9da2a6;\n}\n.neutral-2-border-color-b3 {\n  border-color: #9da2a6 !important;\n}\n.neutral-2-border-color-b3.border {\n    border-color: #9da2a6 !important;\n}\n.neutral-2-bg-b4 {\n  background-color: #797c80;\n}\n.neutral-2-color-b4 {\n  color: #797c80;\n}\n.neutral-2-border-color-b4 {\n  border-color: #797c80 !important;\n}\n.neutral-2-border-color-b4.border {\n    border-color: #797c80 !important;\n}\n.neutral-2-bg-b5 {\n  background-color: #565759;\n}\n.neutral-2-color-b5 {\n  color: #565759;\n}\n.neutral-2-border-color-b5 {\n  border-color: #565759 !important;\n}\n.neutral-2-border-color-b5.border {\n    border-color: #565759 !important;\n}\n.neutral-2-bg-b6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-b6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-b6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-b6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-b7 {\n  background-color: #0c0c0d;\n}\n.neutral-2-color-b7 {\n  color: #0c0c0d;\n}\n.neutral-2-border-color-b7 {\n  border-color: #0c0c0d !important;\n}\n.neutral-2-border-color-b7.border {\n    border-color: #0c0c0d !important;\n}\n.neutral-2-bg-a1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-a1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-a1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-a1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-a2 {\n  background-color: #bcc4cc;\n}\n.neutral-2-color-a2 {\n  color: #bcc4cc;\n}\n.neutral-2-border-color-a2 {\n  border-color: #bcc4cc !important;\n}\n.neutral-2-border-color-a2.border {\n    border-color: #bcc4cc !important;\n}\n.neutral-2-bg-a3 {\n  background-color: #9aa0a6;\n}\n.neutral-2-color-a3 {\n  color: #9aa0a6;\n}\n.neutral-2-border-color-a3 {\n  border-color: #9aa0a6 !important;\n}\n.neutral-2-border-color-a3.border {\n    border-color: #9aa0a6 !important;\n}\n.neutral-2-bg-a4 {\n  background-color: #777b80;\n}\n.neutral-2-color-a4 {\n  color: #777b80;\n}\n.neutral-2-border-color-a4 {\n  border-color: #777b80 !important;\n}\n.neutral-2-border-color-a4.border {\n    border-color: #777b80 !important;\n}\n.neutral-2-bg-a5 {\n  background-color: #535659;\n}\n.neutral-2-color-a5 {\n  color: #535659;\n}\n.neutral-2-border-color-a5 {\n  border-color: #535659 !important;\n}\n.neutral-2-border-color-a5.border {\n    border-color: #535659 !important;\n}\n.neutral-2-bg-a6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-a6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-a6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-a6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-a7 {\n  background-color: #17181a;\n}\n.neutral-2-color-a7 {\n  color: #17181a;\n}\n.neutral-2-border-color-a7 {\n  border-color: #17181a !important;\n}\n.neutral-2-border-color-a7.border {\n    border-color: #17181a !important;\n}\n.lightgrey-bg-a1 {\n  background-color: #E8F2FC;\n}\n.lightgrey-color-a1 {\n  color: #E8F2FC;\n}\n.lightgrey-border-color-a1 {\n  border-color: #E8F2FC !important;\n}\n.lightgrey-border-color-a1.border {\n    border-color: #E8F2FC !important;\n}\n.lightgrey-bg-a2 {\n  background-color: #EDF5FC;\n}\n.lightgrey-color-a2 {\n  color: #EDF5FC;\n}\n.lightgrey-border-color-a2 {\n  border-color: #EDF5FC !important;\n}\n.lightgrey-border-color-a2.border {\n    border-color: #EDF5FC !important;\n}\n.lightgrey-bg-a3 {\n  background-color: #F2F7FC;\n}\n.lightgrey-color-a3 {\n  color: #F2F7FC;\n}\n.lightgrey-border-color-a3 {\n  border-color: #F2F7FC !important;\n}\n.lightgrey-border-color-a3.border {\n    border-color: #F2F7FC !important;\n}\n.lightgrey-bg-a4 {\n  background-color: #F5F9FC;\n}\n.lightgrey-color-a4 {\n  color: #F5F9FC;\n}\n.lightgrey-border-color-a4 {\n  border-color: #F5F9FC !important;\n}\n.lightgrey-border-color-a4.border {\n    border-color: #F5F9FC !important;\n}\n.lightgrey-bg-b1 {\n  background-color: #E6F0FA;\n}\n.lightgrey-color-b1 {\n  color: #E6F0FA;\n}\n.lightgrey-border-color-b1 {\n  border-color: #E6F0FA !important;\n}\n.lightgrey-border-color-b1.border {\n    border-color: #E6F0FA !important;\n}\n.lightgrey-bg-b2 {\n  background-color: #EBF2FA;\n}\n.lightgrey-color-b2 {\n  color: #EBF2FA;\n}\n.lightgrey-border-color-b2 {\n  border-color: #EBF2FA !important;\n}\n.lightgrey-border-color-b2.border {\n    border-color: #EBF2FA !important;\n}\n.lightgrey-bg-b3 {\n  background-color: #EDF4FA;\n}\n.lightgrey-color-b3 {\n  color: #EDF4FA;\n}\n.lightgrey-border-color-b3 {\n  border-color: #EDF4FA !important;\n}\n.lightgrey-border-color-b3.border {\n    border-color: #EDF4FA !important;\n}\n.lightgrey-bg-b4 {\n  background-color: #F2F6FA;\n}\n.lightgrey-color-b4 {\n  color: #F2F6FA;\n}\n.lightgrey-border-color-b4 {\n  border-color: #F2F6FA !important;\n}\n.lightgrey-border-color-b4.border {\n    border-color: #F2F6FA !important;\n}\n.lightgrey-bg-c1 {\n  background-color: #F7F9FA;\n}\n.lightgrey-color-c1 {\n  color: #F7F9FA;\n}\n.lightgrey-border-color-c1 {\n  border-color: #F7F9FA !important;\n}\n.lightgrey-border-color-c1.border {\n    border-color: #F7F9FA !important;\n}\n.lightgrey-bg-c2 {\n  background-color: #F5F6F7;\n}\n.lightgrey-color-c2 {\n  color: #F5F6F7;\n}\n.lightgrey-border-color-c2 {\n  border-color: #F5F6F7 !important;\n}\n.lightgrey-border-color-c2.border {\n    border-color: #F5F6F7 !important;\n}\n.swiper-box {\n  width: 100%;\n  height: 100vh;\n  margin: 0 auto;\n}\n.swiper-box .swiper-item {\n    height: 100%;\n    /* Center slide text vertically */\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 125 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Contact_vue__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Contact_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Contact_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HeroHeader_vue__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HeroHeader_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_HeroHeader_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_NewsBox_vue__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_NewsBox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_NewsBox_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Home',
+  components: {
+    Contact: __WEBPACK_IMPORTED_MODULE_2__components_Contact_vue___default.a,
+    HeroHeader: __WEBPACK_IMPORTED_MODULE_3__components_HeroHeader_vue___default.a,
+    NewsBox: __WEBPACK_IMPORTED_MODULE_4__components_NewsBox_vue___default.a,
+    SectionLight: __WEBPACK_IMPORTED_MODULE_5__components_SectionLight_vue___default.a,
+    SplitDuo: __WEBPACK_IMPORTED_MODULE_6__components_SplitDuo_vue___default.a,
+    swiper: __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__["swiper"],
+    swiperSlide: __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__["swiperSlide"]
+  },
+  data: function data() {
+    return {
+      swiperOption: {
+        // initialSlide: 1,
+        direction: 'vertical',
+        slidesPerView: 1,
+        mousewheel: true,
+        spaceBetween: 0,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
+      }
+    };
+  }
+});
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(127)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(129)
+/* template */
+var __vue_template__ = __webpack_require__(130)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56624,13 +56864,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 123 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(124);
+var content = __webpack_require__(128);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -56650,7 +56890,7 @@ if(false) {
 }
 
 /***/ }),
-/* 124 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -56664,7 +56904,7 @@ exports.push([module.i, "/***************************** 1 **********************
 
 
 /***/ }),
-/* 125 */
+/* 129 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56687,7 +56927,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 126 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56724,19 +56964,19 @@ if (false) {
 }
 
 /***/ }),
-/* 127 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(128)
+  __webpack_require__(132)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(130)
+var __vue_script__ = __webpack_require__(134)
 /* template */
-var __vue_template__ = __webpack_require__(131)
+var __vue_template__ = __webpack_require__(135)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56775,13 +57015,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 128 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(129);
+var content = __webpack_require__(133);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -56801,7 +57041,7 @@ if(false) {
 }
 
 /***/ }),
-/* 129 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -56815,7 +57055,7 @@ exports.push([module.i, "/***************************** 1 **********************
 
 
 /***/ }),
-/* 130 */
+/* 134 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56893,7 +57133,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 131 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57187,19 +57427,19 @@ if (false) {
 }
 
 /***/ }),
-/* 132 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(133)
+  __webpack_require__(137)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(135)
+var __vue_script__ = __webpack_require__(139)
 /* template */
-var __vue_template__ = __webpack_require__(140)
+var __vue_template__ = __webpack_require__(144)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57238,13 +57478,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 133 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(134);
+var content = __webpack_require__(138);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -57264,7 +57504,7 @@ if(false) {
 }
 
 /***/ }),
-/* 134 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -57278,17 +57518,17 @@ exports.push([module.i, "/***************************** 1 **********************
 
 
 /***/ }),
-/* 135 */
+/* 139 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_swiper_dist_css_swiper_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_awesome_swiper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dummies_smallboxes__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SmallBox_vue__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dummies_smallboxes__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SmallBox_vue__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__SmallBox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__SmallBox_vue__);
 //
 //
@@ -57378,13 +57618,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 136 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(137);
+var content = __webpack_require__(141);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -57404,7 +57644,7 @@ if(false) {
 }
 
 /***/ }),
-/* 137 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -57418,7 +57658,7 @@ exports.push([module.i, "/***************************** 1 **********************
 
 
 /***/ }),
-/* 138 */
+/* 142 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57442,7 +57682,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 139 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57466,7 +57706,7 @@ if (false) {
 }
 
 /***/ }),
-/* 140 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57581,19 +57821,19 @@ if (false) {
 }
 
 /***/ }),
-/* 141 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(142)
+  __webpack_require__(146)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(144)
+var __vue_script__ = __webpack_require__(148)
 /* template */
-var __vue_template__ = __webpack_require__(145)
+var __vue_template__ = __webpack_require__(149)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57632,13 +57872,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 142 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(143);
+var content = __webpack_require__(147);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -57658,7 +57898,7 @@ if(false) {
 }
 
 /***/ }),
-/* 143 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -57672,7 +57912,7 @@ exports.push([module.i, "/***************************** 1 **********************
 
 
 /***/ }),
-/* 144 */
+/* 148 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57721,7 +57961,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 145 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57798,19 +58038,19 @@ if (false) {
 }
 
 /***/ }),
-/* 146 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(147)
+  __webpack_require__(151)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(149)
+var __vue_script__ = __webpack_require__(153)
 /* template */
-var __vue_template__ = __webpack_require__(150)
+var __vue_template__ = __webpack_require__(154)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57849,13 +58089,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 147 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(148);
+var content = __webpack_require__(152);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -57875,7 +58115,7 @@ if(false) {
 }
 
 /***/ }),
-/* 148 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -57889,13 +58129,13 @@ exports.push([module.i, "/***************************** 1 **********************
 
 
 /***/ }),
-/* 149 */
+/* 153 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dummies_smallboxes__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SmallBox_vue__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dummies_smallboxes__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SmallBox_vue__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SmallBox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__SmallBox_vue__);
 //
 //
@@ -57942,7 +58182,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 150 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58007,7 +58247,7 @@ if (false) {
 }
 
 /***/ }),
-/* 151 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58079,251 +58319,6 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-8e0d1fd0", module.exports)
-  }
-}
-
-/***/ }),
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(157)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(159)
-/* template */
-var __vue_template__ = __webpack_require__(160)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/alternativa/js/containers/MainNav.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4b857925", Component.options)
-  } else {
-    hotAPI.reload("data-v-4b857925", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 157 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(158);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("22e6fe0e", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4b857925\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNav.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4b857925\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNav.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 158 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** 1 ****************************************/\n/***************************** 2 ****************************************/\n/***************************** 3 ****************************************/\n/***************************** NEUTRAL 1 ****************************************/\n/***************************** NEUTRAL 2 ****************************************/\n/***************************** NEUTRAL 2 / 3 ****************************************/\n.primary-bg {\n  background-color: #0066cc;\n}\n.primary-color {\n  color: #0066cc;\n}\n.primary-border-color {\n  border-color: #0066cc !important;\n}\n.primary-border-color.border {\n    border-color: #0066cc !important;\n}\n.white-bg {\n  background-color: white;\n}\n.white-color {\n  color: white;\n}\n.white-border-color- {\n  border-color: white !important;\n}\n.white-border-color-.border {\n    border-color: white !important;\n}\n.primary-bg-a1 {\n  background-color: #bfdfff;\n}\n.primary-color-a1 {\n  color: #bfdfff;\n}\n.primary-border-color-a1 {\n  border-color: #bfdfff !important;\n}\n.primary-border-color-a1.border {\n    border-color: #bfdfff !important;\n}\n.primary-bg-a2 {\n  background-color: #93c4f5;\n}\n.primary-color-a2 {\n  color: #93c4f5;\n}\n.primary-border-color-a2 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-a2.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-a3 {\n  background-color: #6aaaeb;\n}\n.primary-color-a3 {\n  color: #6aaaeb;\n}\n.primary-border-color-a3 {\n  border-color: #6aaaeb !important;\n}\n.primary-border-color-a3.border {\n    border-color: #6aaaeb !important;\n}\n.primary-bg-a4 {\n  background-color: #4392e0;\n}\n.primary-color-a4 {\n  color: #4392e0;\n}\n.primary-border-color-a4 {\n  border-color: #4392e0 !important;\n}\n.primary-border-color-a4.border {\n    border-color: #4392e0 !important;\n}\n.primary-bg-a5 {\n  background-color: #207bd6;\n}\n.primary-color-a5 {\n  color: #207bd6;\n}\n.primary-border-color-a5 {\n  border-color: #207bd6 !important;\n}\n.primary-border-color-a5.border {\n    border-color: #207bd6 !important;\n}\n.primary-bg-a6 {\n  background-color: #0066cc;\n}\n.primary-color-a6 {\n  color: #0066cc;\n}\n.primary-border-color-a6 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-a6.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-a7 {\n  background-color: #0059b3;\n}\n.primary-color-a7 {\n  color: #0059b3;\n}\n.primary-border-color-a7 {\n  border-color: #0059b3 !important;\n}\n.primary-border-color-a7.border {\n    border-color: #0059b3 !important;\n}\n.primary-bg-a8 {\n  background-color: #004d99;\n}\n.primary-color-a8 {\n  color: #004d99;\n}\n.primary-border-color-a8 {\n  border-color: #004d99 !important;\n}\n.primary-border-color-a8.border {\n    border-color: #004d99 !important;\n}\n.primary-bg-a9 {\n  background-color: #004080;\n}\n.primary-color-a9 {\n  color: #004080;\n}\n.primary-border-color-a9 {\n  border-color: #004080 !important;\n}\n.primary-border-color-a9.border {\n    border-color: #004080 !important;\n}\n.primary-bg-a10 {\n  background-color: #003366;\n}\n.primary-color-a10 {\n  color: #003366;\n}\n.primary-border-color-a10 {\n  border-color: #003366 !important;\n}\n.primary-border-color-a10.border {\n    border-color: #003366 !important;\n}\n.primary-bg-a11 {\n  background-color: #00264d;\n}\n.primary-color-a11 {\n  color: #00264d;\n}\n.primary-border-color-a11 {\n  border-color: #00264d !important;\n}\n.primary-border-color-a11.border {\n    border-color: #00264d !important;\n}\n.primary-bg-a12 {\n  background-color: #001a33;\n}\n.primary-color-a12 {\n  color: #001a33;\n}\n.primary-border-color-a12 {\n  border-color: #001a33 !important;\n}\n.primary-border-color-a12.border {\n    border-color: #001a33 !important;\n}\n.primary-bg-b1 {\n  background-color: #0066cc;\n}\n.primary-color-b1 {\n  color: #0066cc;\n}\n.primary-border-color-b1 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-b1.border {\n    border-color: #0066cc !important;\n}\n.primary-bg-b2 {\n  background-color: #1262b3;\n}\n.primary-color-b2 {\n  color: #1262b3;\n}\n.primary-border-color-b2 {\n  border-color: #1262b3 !important;\n}\n.primary-border-color-b2.border {\n    border-color: #1262b3 !important;\n}\n.primary-bg-b3 {\n  background-color: #1f5c99;\n}\n.primary-color-b3 {\n  color: #1f5c99;\n}\n.primary-border-color-b3 {\n  border-color: #1f5c99 !important;\n}\n.primary-border-color-b3.border {\n    border-color: #1f5c99 !important;\n}\n.primary-bg-b4 {\n  background-color: #265380;\n}\n.primary-color-b4 {\n  color: #265380;\n}\n.primary-border-color-b4 {\n  border-color: #265380 !important;\n}\n.primary-border-color-b4.border {\n    border-color: #265380 !important;\n}\n.primary-bg-b5 {\n  background-color: #294766;\n}\n.primary-color-b5 {\n  color: #294766;\n}\n.primary-border-color-b5 {\n  border-color: #294766 !important;\n}\n.primary-border-color-b5.border {\n    border-color: #294766 !important;\n}\n.primary-bg-b6 {\n  background-color: #26394d;\n}\n.primary-color-b6 {\n  color: #26394d;\n}\n.primary-border-color-b6 {\n  border-color: #26394d !important;\n}\n.primary-border-color-b6.border {\n    border-color: #26394d !important;\n}\n.primary-bg-b7 {\n  background-color: #1f2933;\n}\n.primary-color-b7 {\n  color: #1f2933;\n}\n.primary-border-color-b7 {\n  border-color: #1f2933 !important;\n}\n.primary-border-color-b7.border {\n    border-color: #1f2933 !important;\n}\n.primary-bg-b8 {\n  background-color: #12161a;\n}\n.primary-color-b8 {\n  color: #12161a;\n}\n.primary-border-color-b8 {\n  border-color: #12161a !important;\n}\n.primary-border-color-b8.border {\n    border-color: #12161a !important;\n}\n.primary-bg-c1 {\n  background-color: #dce9f5;\n}\n.primary-color-c1 {\n  color: #dce9f5;\n}\n.primary-border-color-c1 {\n  border-color: #dce9f5 !important;\n}\n.primary-border-color-c1.border {\n    border-color: #dce9f5 !important;\n}\n.primary-bg-c2 {\n  background-color: #c4dcf5;\n}\n.primary-color-c2 {\n  color: #c4dcf5;\n}\n.primary-border-color-c2 {\n  border-color: #c4dcf5 !important;\n}\n.primary-border-color-c2.border {\n    border-color: #c4dcf5 !important;\n}\n.primary-bg-c3 {\n  background-color: #abd0f5;\n}\n.primary-color-c3 {\n  color: #abd0f5;\n}\n.primary-border-color-c3 {\n  border-color: #abd0f5 !important;\n}\n.primary-border-color-c3.border {\n    border-color: #abd0f5 !important;\n}\n.primary-bg-c4 {\n  background-color: #93c4f5;\n}\n.primary-color-c4 {\n  color: #93c4f5;\n}\n.primary-border-color-c4 {\n  border-color: #93c4f5 !important;\n}\n.primary-border-color-c4.border {\n    border-color: #93c4f5 !important;\n}\n.primary-bg-c5 {\n  background-color: #7ab8f5;\n}\n.primary-color-c5 {\n  color: #7ab8f5;\n}\n.primary-border-color-c5 {\n  border-color: #7ab8f5 !important;\n}\n.primary-border-color-c5.border {\n    border-color: #7ab8f5 !important;\n}\n.primary-bg-c6 {\n  background-color: #62abf5;\n}\n.primary-color-c6 {\n  color: #62abf5;\n}\n.primary-border-color-c6 {\n  border-color: #62abf5 !important;\n}\n.primary-border-color-c6.border {\n    border-color: #62abf5 !important;\n}\n.primary-bg-c7 {\n  background-color: #499ff5;\n}\n.primary-color-c7 {\n  color: #499ff5;\n}\n.primary-border-color-c7 {\n  border-color: #499ff5 !important;\n}\n.primary-border-color-c7.border {\n    border-color: #499ff5 !important;\n}\n.primary-bg-c8 {\n  background-color: #3193f5;\n}\n.primary-color-c8 {\n  color: #3193f5;\n}\n.primary-border-color-c8 {\n  border-color: #3193f5 !important;\n}\n.primary-border-color-c8.border {\n    border-color: #3193f5 !important;\n}\n.primary-bg-c9 {\n  background-color: #1887f5;\n}\n.primary-color-c9 {\n  color: #1887f5;\n}\n.primary-border-color-c9 {\n  border-color: #1887f5 !important;\n}\n.primary-border-color-c9.border {\n    border-color: #1887f5 !important;\n}\n.primary-bg-c10 {\n  background-color: #007af5;\n}\n.primary-color-c10 {\n  color: #007af5;\n}\n.primary-border-color-c10 {\n  border-color: #007af5 !important;\n}\n.primary-border-color-c10.border {\n    border-color: #007af5 !important;\n}\n.primary-bg-c11 {\n  background-color: #0070e0;\n}\n.primary-color-c11 {\n  color: #0070e0;\n}\n.primary-border-color-c11 {\n  border-color: #0070e0 !important;\n}\n.primary-border-color-c11.border {\n    border-color: #0070e0 !important;\n}\n.primary-bg-c12 {\n  background-color: #0066cc;\n}\n.primary-color-c12 {\n  color: #0066cc;\n}\n.primary-border-color-c12 {\n  border-color: #0066cc !important;\n}\n.primary-border-color-c12.border {\n    border-color: #0066cc !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-a1 {\n  background-color: #e7e6ff;\n}\n.analogue-1-color-a1 {\n  color: #e7e6ff;\n}\n.analogue-1-border-color-a1 {\n  border-color: #e7e6ff !important;\n}\n.analogue-1-border-color-a1.border {\n    border-color: #e7e6ff !important;\n}\n.analogue-1-bg-a2 {\n  background-color: #bbb8f5;\n}\n.analogue-1-color-a2 {\n  color: #bbb8f5;\n}\n.analogue-1-border-color-a2 {\n  border-color: #bbb8f5 !important;\n}\n.analogue-1-border-color-a2.border {\n    border-color: #bbb8f5 !important;\n}\n.analogue-1-bg-a3 {\n  background-color: #918deb;\n}\n.analogue-1-color-a3 {\n  color: #918deb;\n}\n.analogue-1-border-color-a3 {\n  border-color: #918deb !important;\n}\n.analogue-1-border-color-a3.border {\n    border-color: #918deb !important;\n}\n.analogue-1-bg-a4 {\n  background-color: #6b65e0;\n}\n.analogue-1-color-a4 {\n  color: #6b65e0;\n}\n.analogue-1-border-color-a4 {\n  border-color: #6b65e0 !important;\n}\n.analogue-1-border-color-a4.border {\n    border-color: #6b65e0 !important;\n}\n.analogue-1-bg-a5 {\n  background-color: #4840d6;\n}\n.analogue-1-color-a5 {\n  color: #4840d6;\n}\n.analogue-1-border-color-a5 {\n  border-color: #4840d6 !important;\n}\n.analogue-1-border-color-a5.border {\n    border-color: #4840d6 !important;\n}\n.analogue-1-bg-a6 {\n  background-color: #271fcc;\n}\n.analogue-1-color-a6 {\n  color: #271fcc;\n}\n.analogue-1-border-color-a6 {\n  border-color: #271fcc !important;\n}\n.analogue-1-border-color-a6.border {\n    border-color: #271fcc !important;\n}\n.analogue-1-bg-a7 {\n  background-color: #221bb3;\n}\n.analogue-1-color-a7 {\n  color: #221bb3;\n}\n.analogue-1-border-color-a7 {\n  border-color: #221bb3 !important;\n}\n.analogue-1-border-color-a7.border {\n    border-color: #221bb3 !important;\n}\n.analogue-1-bg-a8 {\n  background-color: #1d1799;\n}\n.analogue-1-color-a8 {\n  color: #1d1799;\n}\n.analogue-1-border-color-a8 {\n  border-color: #1d1799 !important;\n}\n.analogue-1-border-color-a8.border {\n    border-color: #1d1799 !important;\n}\n.analogue-1-bg-a9 {\n  background-color: #191380;\n}\n.analogue-1-color-a9 {\n  color: #191380;\n}\n.analogue-1-border-color-a9 {\n  border-color: #191380 !important;\n}\n.analogue-1-border-color-a9.border {\n    border-color: #191380 !important;\n}\n.analogue-1-bg-a10 {\n  background-color: #140f66;\n}\n.analogue-1-color-a10 {\n  color: #140f66;\n}\n.analogue-1-border-color-a10 {\n  border-color: #140f66 !important;\n}\n.analogue-1-border-color-a10.border {\n    border-color: #140f66 !important;\n}\n.analogue-1-bg-a11 {\n  background-color: #0f0b4d;\n}\n.analogue-1-color-a11 {\n  color: #0f0b4d;\n}\n.analogue-1-border-color-a11 {\n  border-color: #0f0b4d !important;\n}\n.analogue-1-border-color-a11.border {\n    border-color: #0f0b4d !important;\n}\n.analogue-1-bg-a12 {\n  background-color: #0a0833;\n}\n.analogue-1-color-a12 {\n  color: #0a0833;\n}\n.analogue-1-border-color-a12 {\n  border-color: #0a0833 !important;\n}\n.analogue-1-border-color-a12.border {\n    border-color: #0a0833 !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-a1 {\n  background-color: #ccfffd;\n}\n.analogue-2-color-a1 {\n  color: #ccfffd;\n}\n.analogue-2-border-color-a1 {\n  border-color: #ccfffd !important;\n}\n.analogue-2-border-color-a1.border {\n    border-color: #ccfffd !important;\n}\n.analogue-2-bg-a2 {\n  background-color: #9ff5f2;\n}\n.analogue-2-color-a2 {\n  color: #9ff5f2;\n}\n.analogue-2-border-color-a2 {\n  border-color: #9ff5f2 !important;\n}\n.analogue-2-border-color-a2.border {\n    border-color: #9ff5f2 !important;\n}\n.analogue-2-bg-a3 {\n  background-color: #75ebe7;\n}\n.analogue-2-color-a3 {\n  color: #75ebe7;\n}\n.analogue-2-border-color-a3 {\n  border-color: #75ebe7 !important;\n}\n.analogue-2-border-color-a3.border {\n    border-color: #75ebe7 !important;\n}\n.analogue-2-bg-a4 {\n  background-color: #4fe0dc;\n}\n.analogue-2-color-a4 {\n  color: #4fe0dc;\n}\n.analogue-2-border-color-a4 {\n  border-color: #4fe0dc !important;\n}\n.analogue-2-border-color-a4.border {\n    border-color: #4fe0dc !important;\n}\n.analogue-2-bg-a5 {\n  background-color: #2bd6d0;\n}\n.analogue-2-color-a5 {\n  color: #2bd6d0;\n}\n.analogue-2-border-color-a5 {\n  border-color: #2bd6d0 !important;\n}\n.analogue-2-border-color-a5.border {\n    border-color: #2bd6d0 !important;\n}\n.analogue-2-bg-a6 {\n  background-color: #0accc6;\n}\n.analogue-2-color-a6 {\n  color: #0accc6;\n}\n.analogue-2-border-color-a6 {\n  border-color: #0accc6 !important;\n}\n.analogue-2-border-color-a6.border {\n    border-color: #0accc6 !important;\n}\n.analogue-2-bg-a7 {\n  background-color: #09b3ad;\n}\n.analogue-2-color-a7 {\n  color: #09b3ad;\n}\n.analogue-2-border-color-a7 {\n  border-color: #09b3ad !important;\n}\n.analogue-2-border-color-a7.border {\n    border-color: #09b3ad !important;\n}\n.analogue-2-bg-a8 {\n  background-color: #089994;\n}\n.analogue-2-color-a8 {\n  color: #089994;\n}\n.analogue-2-border-color-a8 {\n  border-color: #089994 !important;\n}\n.analogue-2-border-color-a8.border {\n    border-color: #089994 !important;\n}\n.analogue-2-bg-a9 {\n  background-color: #06807b;\n}\n.analogue-2-color-a9 {\n  color: #06807b;\n}\n.analogue-2-border-color-a9 {\n  border-color: #06807b !important;\n}\n.analogue-2-border-color-a9.border {\n    border-color: #06807b !important;\n}\n.analogue-2-bg-a10 {\n  background-color: #056663;\n}\n.analogue-2-color-a10 {\n  color: #056663;\n}\n.analogue-2-border-color-a10 {\n  border-color: #056663 !important;\n}\n.analogue-2-border-color-a10.border {\n    border-color: #056663 !important;\n}\n.analogue-2-bg-a11 {\n  background-color: #044d4a;\n}\n.analogue-2-color-a11 {\n  color: #044d4a;\n}\n.analogue-2-border-color-a11 {\n  border-color: #044d4a !important;\n}\n.analogue-2-border-color-a11.border {\n    border-color: #044d4a !important;\n}\n.analogue-2-bg-a12 {\n  background-color: #033331;\n}\n.analogue-2-color-a12 {\n  color: #033331;\n}\n.analogue-2-border-color-a12 {\n  border-color: #033331 !important;\n}\n.analogue-2-border-color-a12.border {\n    border-color: #033331 !important;\n}\n.complementary-1-bg {\n  background-color: #f73e5a;\n}\n.complementary-1-color {\n  color: #ff9900;\n}\n.complementary-1-border-color- {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-a1 {\n  background-color: #fffcfd;\n}\n.complementary-1-color-a1 {\n  color: #fffcfd;\n}\n.complementary-1-border-color-a1 {\n  border-color: #fffcfd !important;\n}\n.complementary-1-border-color-a1.border {\n    border-color: #fffcfd !important;\n}\n.complementary-1-bg-a2 {\n  background-color: #f5d0d6;\n}\n.complementary-1-color-a2 {\n  color: #f5d0d6;\n}\n.complementary-1-border-color-a2 {\n  border-color: #f5d0d6 !important;\n}\n.complementary-1-border-color-a2.border {\n    border-color: #f5d0d6 !important;\n}\n.complementary-1-bg-a3 {\n  background-color: #eba4af;\n}\n.complementary-1-color-a3 {\n  color: #eba4af;\n}\n.complementary-1-border-color-a3 {\n  border-color: #eba4af !important;\n}\n.complementary-1-border-color-a3.border {\n    border-color: #eba4af !important;\n}\n.complementary-1-bg-a4 {\n  background-color: #e07b8b;\n}\n.complementary-1-color-a4 {\n  color: #e07b8b;\n}\n.complementary-1-border-color-a4 {\n  border-color: #e07b8b !important;\n}\n.complementary-1-border-color-a4.border {\n    border-color: #e07b8b !important;\n}\n.complementary-1-bg-a5 {\n  background-color: #d65669;\n}\n.complementary-1-color-a5 {\n  color: #d65669;\n}\n.complementary-1-border-color-a5 {\n  border-color: #d65669 !important;\n}\n.complementary-1-border-color-a5.border {\n    border-color: #d65669 !important;\n}\n.complementary-1-bg-a6 {\n  background-color: #cc334a;\n}\n.complementary-1-color-a6 {\n  color: #cc334a;\n}\n.complementary-1-border-color-a6 {\n  border-color: #cc334a !important;\n}\n.complementary-1-border-color-a6.border {\n    border-color: #cc334a !important;\n}\n.complementary-1-bg-a7 {\n  background-color: #b32d41;\n}\n.complementary-1-color-a7 {\n  color: #b32d41;\n}\n.complementary-1-border-color-a7 {\n  border-color: #b32d41 !important;\n}\n.complementary-1-border-color-a7.border {\n    border-color: #b32d41 !important;\n}\n.complementary-1-bg-a8 {\n  background-color: #992637;\n}\n.complementary-1-color-a8 {\n  color: #992637;\n}\n.complementary-1-border-color-a8 {\n  border-color: #992637 !important;\n}\n.complementary-1-border-color-a8.border {\n    border-color: #992637 !important;\n}\n.complementary-1-bg-a9 {\n  background-color: #80202e;\n}\n.complementary-1-color-a9 {\n  color: #80202e;\n}\n.complementary-1-border-color-a9 {\n  border-color: #80202e !important;\n}\n.complementary-1-border-color-a9.border {\n    border-color: #80202e !important;\n}\n.complementary-1-bg-a10 {\n  background-color: #661a25;\n}\n.complementary-1-color-a10 {\n  color: #661a25;\n}\n.complementary-1-border-color-a10 {\n  border-color: #661a25 !important;\n}\n.complementary-1-border-color-a10.border {\n    border-color: #661a25 !important;\n}\n.complementary-1-bg-a11 {\n  background-color: #4d131c;\n}\n.complementary-1-color-a11 {\n  color: #4d131c;\n}\n.complementary-1-border-color-a11 {\n  border-color: #4d131c !important;\n}\n.complementary-1-border-color-a11.border {\n    border-color: #4d131c !important;\n}\n.complementary-1-bg-a12 {\n  background-color: #330d12;\n}\n.complementary-1-color-a12 {\n  color: #330d12;\n}\n.complementary-1-border-color-a12 {\n  border-color: #330d12 !important;\n}\n.complementary-1-border-color-a12.border {\n    border-color: #330d12 !important;\n}\n.complementary-2-bg {\n  background-color: #ff9900;\n}\n.complementary-2-color {\n  color: #ff9900;\n}\n.complementary-2-border-color- {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-a1 {\n  background-color: #ffe6bf;\n}\n.complementary-2-color-a1 {\n  color: #ffe6bf;\n}\n.complementary-2-border-color-a1 {\n  border-color: #ffe6bf !important;\n}\n.complementary-2-border-color-a1.border {\n    border-color: #ffe6bf !important;\n}\n.complementary-2-bg-a2 {\n  background-color: #f5ce93;\n}\n.complementary-2-color-a2 {\n  color: #f5ce93;\n}\n.complementary-2-border-color-a2 {\n  border-color: #f5ce93 !important;\n}\n.complementary-2-border-color-a2.border {\n    border-color: #f5ce93 !important;\n}\n.complementary-2-bg-a3 {\n  background-color: #ebb76a;\n}\n.complementary-2-color-a3 {\n  color: #ebb76a;\n}\n.complementary-2-border-color-a3 {\n  border-color: #ebb76a !important;\n}\n.complementary-2-border-color-a3.border {\n    border-color: #ebb76a !important;\n}\n.complementary-2-bg-a4 {\n  background-color: #e0a243;\n}\n.complementary-2-color-a4 {\n  color: #e0a243;\n}\n.complementary-2-border-color-a4 {\n  border-color: #e0a243 !important;\n}\n.complementary-2-border-color-a4.border {\n    border-color: #e0a243 !important;\n}\n.complementary-2-bg-a5 {\n  background-color: #d68d20;\n}\n.complementary-2-color-a5 {\n  color: #d68d20;\n}\n.complementary-2-border-color-a5 {\n  border-color: #d68d20 !important;\n}\n.complementary-2-border-color-a5.border {\n    border-color: #d68d20 !important;\n}\n.complementary-2-bg-a6 {\n  background-color: #cc7a00;\n}\n.complementary-2-color-a6 {\n  color: #cc7a00;\n}\n.complementary-2-border-color-a6 {\n  border-color: #cc7a00 !important;\n}\n.complementary-2-border-color-a6.border {\n    border-color: #cc7a00 !important;\n}\n.complementary-2-bg-a7 {\n  background-color: #b36b00;\n}\n.complementary-2-color-a7 {\n  color: #b36b00;\n}\n.complementary-2-border-color-a7 {\n  border-color: #b36b00 !important;\n}\n.complementary-2-border-color-a7.border {\n    border-color: #b36b00 !important;\n}\n.complementary-2-bg-a8 {\n  background-color: #995c00;\n}\n.complementary-2-color-a8 {\n  color: #995c00;\n}\n.complementary-2-border-color-a8 {\n  border-color: #995c00 !important;\n}\n.complementary-2-border-color-a8.border {\n    border-color: #995c00 !important;\n}\n.complementary-2-bg-a9 {\n  background-color: #804d00;\n}\n.complementary-2-color-a9 {\n  color: #804d00;\n}\n.complementary-2-border-color-a9 {\n  border-color: #804d00 !important;\n}\n.complementary-2-border-color-a9.border {\n    border-color: #804d00 !important;\n}\n.complementary-2-bg-a10 {\n  background-color: #663d00;\n}\n.complementary-2-color-a10 {\n  color: #663d00;\n}\n.complementary-2-border-color-a10 {\n  border-color: #663d00 !important;\n}\n.complementary-2-border-color-a10.border {\n    border-color: #663d00 !important;\n}\n.complementary-2-bg-a11 {\n  background-color: #4d2e00;\n}\n.complementary-2-color-a11 {\n  color: #4d2e00;\n}\n.complementary-2-border-color-a11 {\n  border-color: #4d2e00 !important;\n}\n.complementary-2-border-color-a11.border {\n    border-color: #4d2e00 !important;\n}\n.complementary-2-bg-a12 {\n  background-color: #331f00;\n}\n.complementary-2-color-a12 {\n  color: #331f00;\n}\n.complementary-2-border-color-a12 {\n  border-color: #331f00 !important;\n}\n.complementary-2-border-color-a12.border {\n    border-color: #331f00 !important;\n}\n.complementary-3-bg {\n  background-color: #00cf86;\n}\n.complementary-3-color {\n  color: #00cf86;\n}\n.complementary-3-border-color- {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-a1 {\n  background-color: #bfffe9;\n}\n.complementary-3-color-a1 {\n  color: #bfffe9;\n}\n.complementary-3-border-color-a1 {\n  border-color: #bfffe9 !important;\n}\n.complementary-3-border-color-a1.border {\n    border-color: #bfffe9 !important;\n}\n.complementary-3-bg-a2 {\n  background-color: #93f5d3;\n}\n.complementary-3-color-a2 {\n  color: #93f5d3;\n}\n.complementary-3-border-color-a2 {\n  border-color: #93f5d3 !important;\n}\n.complementary-3-border-color-a2.border {\n    border-color: #93f5d3 !important;\n}\n.complementary-3-bg-a3 {\n  background-color: #6aebbd;\n}\n.complementary-3-color-a3 {\n  color: #6aebbd;\n}\n.complementary-3-border-color-a3 {\n  border-color: #6aebbd !important;\n}\n.complementary-3-border-color-a3.border {\n    border-color: #6aebbd !important;\n}\n.complementary-3-bg-a4 {\n  background-color: #43e0a9;\n}\n.complementary-3-color-a4 {\n  color: #43e0a9;\n}\n.complementary-3-border-color-a4 {\n  border-color: #43e0a9 !important;\n}\n.complementary-3-border-color-a4.border {\n    border-color: #43e0a9 !important;\n}\n.complementary-3-bg-a5 {\n  background-color: #20d696;\n}\n.complementary-3-color-a5 {\n  color: #20d696;\n}\n.complementary-3-border-color-a5 {\n  border-color: #20d696 !important;\n}\n.complementary-3-border-color-a5.border {\n    border-color: #20d696 !important;\n}\n.complementary-3-bg-a6 {\n  background-color: #00cc85;\n}\n.complementary-3-color-a6 {\n  color: #00cc85;\n}\n.complementary-3-border-color-a6 {\n  border-color: #00cc85 !important;\n}\n.complementary-3-border-color-a6.border {\n    border-color: #00cc85 !important;\n}\n.complementary-3-bg-a7 {\n  background-color: #00b374;\n}\n.complementary-3-color-a7 {\n  color: #00b374;\n}\n.complementary-3-border-color-a7 {\n  border-color: #00b374 !important;\n}\n.complementary-3-border-color-a7.border {\n    border-color: #00b374 !important;\n}\n.complementary-3-bg-a8 {\n  background-color: #009963;\n}\n.complementary-3-color-a8 {\n  color: #009963;\n}\n.complementary-3-border-color-a8 {\n  border-color: #009963 !important;\n}\n.complementary-3-border-color-a8.border {\n    border-color: #009963 !important;\n}\n.complementary-3-bg-a9 {\n  background-color: #008053;\n}\n.complementary-3-color-a9 {\n  color: #008053;\n}\n.complementary-3-border-color-a9 {\n  border-color: #008053 !important;\n}\n.complementary-3-border-color-a9.border {\n    border-color: #008053 !important;\n}\n.complementary-3-bg-a10 {\n  background-color: #006642;\n}\n.complementary-3-color-a10 {\n  color: #006642;\n}\n.complementary-3-border-color-a10 {\n  border-color: #006642 !important;\n}\n.complementary-3-border-color-a10.border {\n    border-color: #006642 !important;\n}\n.complementary-3-bg-a11 {\n  background-color: #004d32;\n}\n.complementary-3-color-a11 {\n  color: #004d32;\n}\n.complementary-3-border-color-a11 {\n  border-color: #004d32 !important;\n}\n.complementary-3-border-color-a11.border {\n    border-color: #004d32 !important;\n}\n.complementary-3-bg-a12 {\n  background-color: #003321;\n}\n.complementary-3-color-a12 {\n  color: #003321;\n}\n.complementary-3-border-color-a12 {\n  border-color: #003321 !important;\n}\n.complementary-3-border-color-a12.border {\n    border-color: #003321 !important;\n}\n.analogue-1-bg {\n  background-color: #3126ff;\n}\n.analogue-1-color {\n  color: #3126ff;\n}\n.analogue-1-border-color- {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b1 {\n  background-color: #3126ff;\n}\n.analogue-1-color-b1 {\n  color: #3126ff;\n}\n.analogue-1-border-color-b1 {\n  border-color: #3126ff !important;\n}\n.analogue-1-border-color-b1.border {\n    border-color: #3126ff !important;\n}\n.analogue-1-bg-b2 {\n  background-color: #4239e6;\n}\n.analogue-1-color-b2 {\n  color: #4239e6;\n}\n.analogue-1-border-color-b2 {\n  border-color: #4239e6 !important;\n}\n.analogue-1-border-color-b2.border {\n    border-color: #4239e6 !important;\n}\n.analogue-1-bg-b3 {\n  background-color: #4e47cc;\n}\n.analogue-1-color-b3 {\n  color: #4e47cc;\n}\n.analogue-1-border-color-b3 {\n  border-color: #4e47cc !important;\n}\n.analogue-1-border-color-b3.border {\n    border-color: #4e47cc !important;\n}\n.analogue-1-bg-b4 {\n  background-color: #5550b3;\n}\n.analogue-1-color-b4 {\n  color: #5550b3;\n}\n.analogue-1-border-color-b4 {\n  border-color: #5550b3 !important;\n}\n.analogue-1-border-color-b4.border {\n    border-color: #5550b3 !important;\n}\n.analogue-1-bg-b5 {\n  background-color: #585499;\n}\n.analogue-1-color-b5 {\n  color: #585499;\n}\n.analogue-1-border-color-b5 {\n  border-color: #585499 !important;\n}\n.analogue-1-border-color-b5.border {\n    border-color: #585499 !important;\n}\n.analogue-1-bg-b6 {\n  background-color: #555380;\n}\n.analogue-1-color-b6 {\n  color: #555380;\n}\n.analogue-1-border-color-b6 {\n  border-color: #555380 !important;\n}\n.analogue-1-border-color-b6.border {\n    border-color: #555380 !important;\n}\n.analogue-1-bg-b7 {\n  background-color: #4e4d66;\n}\n.analogue-1-color-b7 {\n  color: #4e4d66;\n}\n.analogue-1-border-color-b7 {\n  border-color: #4e4d66 !important;\n}\n.analogue-1-border-color-b7.border {\n    border-color: #4e4d66 !important;\n}\n.analogue-1-bg-b8 {\n  background-color: #42414d;\n}\n.analogue-1-color-b8 {\n  color: #42414d;\n}\n.analogue-1-border-color-b8 {\n  border-color: #42414d !important;\n}\n.analogue-1-border-color-b8.border {\n    border-color: #42414d !important;\n}\n.analogue-2-bg {\n  background-color: #0bd9d2;\n}\n.analogue-2-color {\n  color: #0bd9d2;\n}\n.analogue-2-border-color- {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b1 {\n  background-color: #0bd9d2;\n}\n.analogue-2-color-b1 {\n  color: #0bd9d2;\n}\n.analogue-2-border-color-b1 {\n  border-color: #0bd9d2 !important;\n}\n.analogue-2-border-color-b1.border {\n    border-color: #0bd9d2 !important;\n}\n.analogue-2-bg-b2 {\n  background-color: #1dbfba;\n}\n.analogue-2-color-b2 {\n  color: #1dbfba;\n}\n.analogue-2-border-color-b2 {\n  border-color: #1dbfba !important;\n}\n.analogue-2-border-color-b2.border {\n    border-color: #1dbfba !important;\n}\n.analogue-2-bg-b3 {\n  background-color: #29a6a2;\n}\n.analogue-2-color-b3 {\n  color: #29a6a2;\n}\n.analogue-2-border-color-b3 {\n  border-color: #29a6a2 !important;\n}\n.analogue-2-border-color-b3.border {\n    border-color: #29a6a2 !important;\n}\n.analogue-2-bg-b4 {\n  background-color: #318c89;\n}\n.analogue-2-color-b4 {\n  color: #318c89;\n}\n.analogue-2-border-color-b4 {\n  border-color: #318c89 !important;\n}\n.analogue-2-border-color-b4.border {\n    border-color: #318c89 !important;\n}\n.analogue-2-bg-b5 {\n  background-color: #347371;\n}\n.analogue-2-color-b5 {\n  color: #347371;\n}\n.analogue-2-border-color-b5 {\n  border-color: #347371 !important;\n}\n.analogue-2-border-color-b5.border {\n    border-color: #347371 !important;\n}\n.analogue-2-bg-b6 {\n  background-color: #315958;\n}\n.analogue-2-color-b6 {\n  color: #315958;\n}\n.analogue-2-border-color-b6 {\n  border-color: #315958 !important;\n}\n.analogue-2-border-color-b6.border {\n    border-color: #315958 !important;\n}\n.analogue-2-bg-b7 {\n  background-color: #29403f;\n}\n.analogue-2-color-b7 {\n  color: #29403f;\n}\n.analogue-2-border-color-b7 {\n  border-color: #29403f !important;\n}\n.analogue-2-border-color-b7.border {\n    border-color: #29403f !important;\n}\n.analogue-2-bg-b8 {\n  background-color: #1d2626;\n}\n.analogue-2-color-b8 {\n  color: #1d2626;\n}\n.analogue-2-border-color-b8 {\n  border-color: #1d2626 !important;\n}\n.analogue-2-border-color-b8.border {\n    border-color: #1d2626 !important;\n}\n.complementary-1-bg-b1 {\n  background-color: #f73e5a;\n}\n.complementary-1-color-b1 {\n  color: #f73e5a;\n}\n.complementary-1-border-color-b1 {\n  border-color: #f73e5a !important;\n}\n.complementary-1-border-color-b1.border {\n    border-color: #f73e5a !important;\n}\n.complementary-1-bg-b2 {\n  background-color: #de4e63;\n}\n.complementary-1-color-b2 {\n  color: #de4e63;\n}\n.complementary-1-border-color-b2 {\n  border-color: #de4e63 !important;\n}\n.complementary-1-border-color-b2.border {\n    border-color: #de4e63 !important;\n}\n.complementary-1-bg-b3 {\n  background-color: #c45869;\n}\n.complementary-1-color-b3 {\n  color: #c45869;\n}\n.complementary-1-border-color-b3 {\n  border-color: #c45869 !important;\n}\n.complementary-1-border-color-b3.border {\n    border-color: #c45869 !important;\n}\n.complementary-1-bg-b4 {\n  background-color: #ab5e69;\n}\n.complementary-1-color-b4 {\n  color: #ab5e69;\n}\n.complementary-1-border-color-b4 {\n  border-color: #ab5e69 !important;\n}\n.complementary-1-border-color-b4.border {\n    border-color: #ab5e69 !important;\n}\n.complementary-1-bg-b5 {\n  background-color: #915e66;\n}\n.complementary-1-color-b5 {\n  color: #915e66;\n}\n.complementary-1-border-color-b5 {\n  border-color: #915e66 !important;\n}\n.complementary-1-border-color-b5.border {\n    border-color: #915e66 !important;\n}\n.complementary-1-bg-b6 {\n  background-color: #785a5e;\n}\n.complementary-1-color-b6 {\n  color: #785a5e;\n}\n.complementary-1-border-color-b6 {\n  border-color: #785a5e !important;\n}\n.complementary-1-border-color-b6.border {\n    border-color: #785a5e !important;\n}\n.complementary-1-bg-b7 {\n  background-color: #5e5052;\n}\n.complementary-1-color-b7 {\n  color: #5e5052;\n}\n.complementary-1-border-color-b7 {\n  border-color: #5e5052 !important;\n}\n.complementary-1-border-color-b7.border {\n    border-color: #5e5052 !important;\n}\n.complementary-1-bg-b8 {\n  background-color: #454142;\n}\n.complementary-1-color-b8 {\n  color: #454142;\n}\n.complementary-1-border-color-b8 {\n  border-color: #454142 !important;\n}\n.complementary-1-border-color-b8.border {\n    border-color: #454142 !important;\n}\n.complementary-2-bg-b1 {\n  background-color: #ff9900;\n}\n.complementary-2-color-b1 {\n  color: #ff9900;\n}\n.complementary-2-border-color-b1 {\n  border-color: #ff9900 !important;\n}\n.complementary-2-border-color-b1.border {\n    border-color: #ff9900 !important;\n}\n.complementary-2-bg-b2 {\n  background-color: #e69317;\n}\n.complementary-2-color-b2 {\n  color: #e69317;\n}\n.complementary-2-border-color-b2 {\n  border-color: #e69317 !important;\n}\n.complementary-2-border-color-b2.border {\n    border-color: #e69317 !important;\n}\n.complementary-2-bg-b3 {\n  background-color: #cc8b29;\n}\n.complementary-2-color-b3 {\n  color: #cc8b29;\n}\n.complementary-2-border-color-b3 {\n  border-color: #cc8b29 !important;\n}\n.complementary-2-border-color-b3.border {\n    border-color: #cc8b29 !important;\n}\n.complementary-2-bg-b4 {\n  background-color: #b38136;\n}\n.complementary-2-color-b4 {\n  color: #b38136;\n}\n.complementary-2-border-color-b4 {\n  border-color: #b38136 !important;\n}\n.complementary-2-border-color-b4.border {\n    border-color: #b38136 !important;\n}\n.complementary-2-bg-b5 {\n  background-color: #99743d;\n}\n.complementary-2-color-b5 {\n  color: #99743d;\n}\n.complementary-2-border-color-b5 {\n  border-color: #99743d !important;\n}\n.complementary-2-border-color-b5.border {\n    border-color: #99743d !important;\n}\n.complementary-2-bg-b6 {\n  background-color: #806640;\n}\n.complementary-2-color-b6 {\n  color: #806640;\n}\n.complementary-2-border-color-b6 {\n  border-color: #806640 !important;\n}\n.complementary-2-border-color-b6.border {\n    border-color: #806640 !important;\n}\n.complementary-2-bg-b7 {\n  background-color: #66563d;\n}\n.complementary-2-color-b7 {\n  color: #66563d;\n}\n.complementary-2-border-color-b7 {\n  border-color: #66563d !important;\n}\n.complementary-2-border-color-b7.border {\n    border-color: #66563d !important;\n}\n.complementary-2-bg-b8 {\n  background-color: #4d4336;\n}\n.complementary-2-color-b8 {\n  color: #4d4336;\n}\n.complementary-2-border-color-b8 {\n  border-color: #4d4336 !important;\n}\n.complementary-2-border-color-b8.border {\n    border-color: #4d4336 !important;\n}\n.complementary-3-bg-b1 {\n  background-color: #00cf86;\n}\n.complementary-3-color-b1 {\n  color: #00cf86;\n}\n.complementary-3-border-color-b1 {\n  border-color: #00cf86 !important;\n}\n.complementary-3-border-color-b1.border {\n    border-color: #00cf86 !important;\n}\n.complementary-3-bg-b2 {\n  background-color: #12b57c;\n}\n.complementary-3-color-b2 {\n  color: #12b57c;\n}\n.complementary-3-border-color-b2 {\n  border-color: #12b57c !important;\n}\n.complementary-3-border-color-b2.border {\n    border-color: #12b57c !important;\n}\n.complementary-3-bg-b3 {\n  background-color: #1f9c70;\n}\n.complementary-3-color-b3 {\n  color: #1f9c70;\n}\n.complementary-3-border-color-b3 {\n  border-color: #1f9c70 !important;\n}\n.complementary-3-border-color-b3.border {\n    border-color: #1f9c70 !important;\n}\n.complementary-3-bg-b4 {\n  background-color: #278262;\n}\n.complementary-3-color-b4 {\n  color: #278262;\n}\n.complementary-3-border-color-b4 {\n  border-color: #278262 !important;\n}\n.complementary-3-border-color-b4.border {\n    border-color: #278262 !important;\n}\n.complementary-3-bg-b5 {\n  background-color: #2a6953;\n}\n.complementary-3-color-b5 {\n  color: #2a6953;\n}\n.complementary-3-border-color-b5 {\n  border-color: #2a6953 !important;\n}\n.complementary-3-border-color-b5.border {\n    border-color: #2a6953 !important;\n}\n.complementary-3-bg-b6 {\n  background-color: #284f41;\n}\n.complementary-3-color-b6 {\n  color: #284f41;\n}\n.complementary-3-border-color-b6 {\n  border-color: #284f41 !important;\n}\n.complementary-3-border-color-b6.border {\n    border-color: #284f41 !important;\n}\n.complementary-3-bg-b7 {\n  background-color: #20362e;\n}\n.complementary-3-color-b7 {\n  color: #20362e;\n}\n.complementary-3-border-color-b7 {\n  border-color: #20362e !important;\n}\n.complementary-3-border-color-b7.border {\n    border-color: #20362e !important;\n}\n.complementary-3-bg-b8 {\n  background-color: #141c19;\n}\n.complementary-3-color-b8 {\n  color: #141c19;\n}\n.complementary-3-border-color-b8 {\n  border-color: #141c19 !important;\n}\n.complementary-3-border-color-b8.border {\n    border-color: #141c19 !important;\n}\n.neutral-1-bg {\n  background-color: #17324d;\n}\n.neutral-1-color {\n  color: #17324d;\n}\n.neutral-1-border-color- {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-.border {\n    border-color: #17324d !important;\n}\n.neutral-1-bg-a1 {\n  background-color: #ebeced;\n}\n.neutral-1-color-a1 {\n  color: #ebeced;\n}\n.neutral-1-border-color-a1 {\n  border-color: #ebeced !important;\n}\n.neutral-1-border-color-a1.border {\n    border-color: #ebeced !important;\n}\n.neutral-1-bg-a2 {\n  background-color: #d9dadb;\n}\n.neutral-1-color-a2 {\n  color: #d9dadb;\n}\n.neutral-1-border-color-a2 {\n  border-color: #d9dadb !important;\n}\n.neutral-1-border-color-a2.border {\n    border-color: #d9dadb !important;\n}\n.neutral-1-bg-a3 {\n  background-color: #c5c7c9;\n}\n.neutral-1-color-a3 {\n  color: #c5c7c9;\n}\n.neutral-1-border-color-a3 {\n  border-color: #c5c7c9 !important;\n}\n.neutral-1-border-color-a3.border {\n    border-color: #c5c7c9 !important;\n}\n.neutral-1-bg-a4 {\n  background-color: #adb2b8;\n}\n.neutral-1-color-a4 {\n  color: #adb2b8;\n}\n.neutral-1-border-color-a4 {\n  border-color: #adb2b8 !important;\n}\n.neutral-1-border-color-a4.border {\n    border-color: #adb2b8 !important;\n}\n.neutral-1-bg-a5 {\n  background-color: #959da6;\n}\n.neutral-1-color-a5 {\n  color: #959da6;\n}\n.neutral-1-border-color-a5 {\n  border-color: #959da6 !important;\n}\n.neutral-1-border-color-a5.border {\n    border-color: #959da6 !important;\n}\n.neutral-1-bg-a6 {\n  background-color: #768594;\n}\n.neutral-1-color-a6 {\n  color: #768594;\n}\n.neutral-1-border-color-a6 {\n  border-color: #768594 !important;\n}\n.neutral-1-border-color-a6.border {\n    border-color: #768594 !important;\n}\n.neutral-1-bg-a7 {\n  background-color: #5b6f82;\n}\n.neutral-1-color-a7 {\n  color: #5b6f82;\n}\n.neutral-1-border-color-a7 {\n  border-color: #5b6f82 !important;\n}\n.neutral-1-border-color-a7.border {\n    border-color: #5b6f82 !important;\n}\n.neutral-1-bg-a8 {\n  background-color: #435a70;\n}\n.neutral-1-color-a8 {\n  color: #435a70;\n}\n.neutral-1-border-color-a8 {\n  border-color: #435a70 !important;\n}\n.neutral-1-border-color-a8.border {\n    border-color: #435a70 !important;\n}\n.neutral-1-bg-a9 {\n  background-color: #2f475e;\n}\n.neutral-1-color-a9 {\n  color: #2f475e;\n}\n.neutral-1-border-color-a9 {\n  border-color: #2f475e !important;\n}\n.neutral-1-border-color-a9.border {\n    border-color: #2f475e !important;\n}\n.neutral-1-bg-a10 {\n  background-color: #17324d;\n}\n.neutral-1-color-a10 {\n  color: #17324d;\n}\n.neutral-1-border-color-a10 {\n  border-color: #17324d !important;\n}\n.neutral-1-border-color-a10.border {\n    border-color: #17324d !important;\n}\n.neutral-2-bg {\n  background-color: #e6ecf2;\n}\n.neutral-2-color {\n  color: #e6ecf2;\n}\n.neutral-2-border-color- {\n  border-color: #e6ecf2;\n}\n.neutral-2-bg-b1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-b1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-b1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-b1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-b2 {\n  background-color: #c2c7cc;\n}\n.neutral-2-color-b2 {\n  color: #c2c7cc;\n}\n.neutral-2-border-color-b2 {\n  border-color: #c2c7cc !important;\n}\n.neutral-2-border-color-b2.border {\n    border-color: #c2c7cc !important;\n}\n.neutral-2-bg-b3 {\n  background-color: #9da2a6;\n}\n.neutral-2-color-b3 {\n  color: #9da2a6;\n}\n.neutral-2-border-color-b3 {\n  border-color: #9da2a6 !important;\n}\n.neutral-2-border-color-b3.border {\n    border-color: #9da2a6 !important;\n}\n.neutral-2-bg-b4 {\n  background-color: #797c80;\n}\n.neutral-2-color-b4 {\n  color: #797c80;\n}\n.neutral-2-border-color-b4 {\n  border-color: #797c80 !important;\n}\n.neutral-2-border-color-b4.border {\n    border-color: #797c80 !important;\n}\n.neutral-2-bg-b5 {\n  background-color: #565759;\n}\n.neutral-2-color-b5 {\n  color: #565759;\n}\n.neutral-2-border-color-b5 {\n  border-color: #565759 !important;\n}\n.neutral-2-border-color-b5.border {\n    border-color: #565759 !important;\n}\n.neutral-2-bg-b6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-b6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-b6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-b6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-b7 {\n  background-color: #0c0c0d;\n}\n.neutral-2-color-b7 {\n  color: #0c0c0d;\n}\n.neutral-2-border-color-b7 {\n  border-color: #0c0c0d !important;\n}\n.neutral-2-border-color-b7.border {\n    border-color: #0c0c0d !important;\n}\n.neutral-2-bg-a1 {\n  background-color: #e6ecf2;\n}\n.neutral-2-color-a1 {\n  color: #e6ecf2;\n}\n.neutral-2-border-color-a1 {\n  border-color: #e6ecf2 !important;\n}\n.neutral-2-border-color-a1.border {\n    border-color: #e6ecf2 !important;\n}\n.neutral-2-bg-a2 {\n  background-color: #bcc4cc;\n}\n.neutral-2-color-a2 {\n  color: #bcc4cc;\n}\n.neutral-2-border-color-a2 {\n  border-color: #bcc4cc !important;\n}\n.neutral-2-border-color-a2.border {\n    border-color: #bcc4cc !important;\n}\n.neutral-2-bg-a3 {\n  background-color: #9aa0a6;\n}\n.neutral-2-color-a3 {\n  color: #9aa0a6;\n}\n.neutral-2-border-color-a3 {\n  border-color: #9aa0a6 !important;\n}\n.neutral-2-border-color-a3.border {\n    border-color: #9aa0a6 !important;\n}\n.neutral-2-bg-a4 {\n  background-color: #777b80;\n}\n.neutral-2-color-a4 {\n  color: #777b80;\n}\n.neutral-2-border-color-a4 {\n  border-color: #777b80 !important;\n}\n.neutral-2-border-color-a4.border {\n    border-color: #777b80 !important;\n}\n.neutral-2-bg-a5 {\n  background-color: #535659;\n}\n.neutral-2-color-a5 {\n  color: #535659;\n}\n.neutral-2-border-color-a5 {\n  border-color: #535659 !important;\n}\n.neutral-2-border-color-a5.border {\n    border-color: #535659 !important;\n}\n.neutral-2-bg-a6 {\n  background-color: #2f3133;\n}\n.neutral-2-color-a6 {\n  color: #2f3133;\n}\n.neutral-2-border-color-a6 {\n  border-color: #2f3133 !important;\n}\n.neutral-2-border-color-a6.border {\n    border-color: #2f3133 !important;\n}\n.neutral-2-bg-a7 {\n  background-color: #17181a;\n}\n.neutral-2-color-a7 {\n  color: #17181a;\n}\n.neutral-2-border-color-a7 {\n  border-color: #17181a !important;\n}\n.neutral-2-border-color-a7.border {\n    border-color: #17181a !important;\n}\n.lightgrey-bg-a1 {\n  background-color: #E8F2FC;\n}\n.lightgrey-color-a1 {\n  color: #E8F2FC;\n}\n.lightgrey-border-color-a1 {\n  border-color: #E8F2FC !important;\n}\n.lightgrey-border-color-a1.border {\n    border-color: #E8F2FC !important;\n}\n.lightgrey-bg-a2 {\n  background-color: #EDF5FC;\n}\n.lightgrey-color-a2 {\n  color: #EDF5FC;\n}\n.lightgrey-border-color-a2 {\n  border-color: #EDF5FC !important;\n}\n.lightgrey-border-color-a2.border {\n    border-color: #EDF5FC !important;\n}\n.lightgrey-bg-a3 {\n  background-color: #F2F7FC;\n}\n.lightgrey-color-a3 {\n  color: #F2F7FC;\n}\n.lightgrey-border-color-a3 {\n  border-color: #F2F7FC !important;\n}\n.lightgrey-border-color-a3.border {\n    border-color: #F2F7FC !important;\n}\n.lightgrey-bg-a4 {\n  background-color: #F5F9FC;\n}\n.lightgrey-color-a4 {\n  color: #F5F9FC;\n}\n.lightgrey-border-color-a4 {\n  border-color: #F5F9FC !important;\n}\n.lightgrey-border-color-a4.border {\n    border-color: #F5F9FC !important;\n}\n.lightgrey-bg-b1 {\n  background-color: #E6F0FA;\n}\n.lightgrey-color-b1 {\n  color: #E6F0FA;\n}\n.lightgrey-border-color-b1 {\n  border-color: #E6F0FA !important;\n}\n.lightgrey-border-color-b1.border {\n    border-color: #E6F0FA !important;\n}\n.lightgrey-bg-b2 {\n  background-color: #EBF2FA;\n}\n.lightgrey-color-b2 {\n  color: #EBF2FA;\n}\n.lightgrey-border-color-b2 {\n  border-color: #EBF2FA !important;\n}\n.lightgrey-border-color-b2.border {\n    border-color: #EBF2FA !important;\n}\n.lightgrey-bg-b3 {\n  background-color: #EDF4FA;\n}\n.lightgrey-color-b3 {\n  color: #EDF4FA;\n}\n.lightgrey-border-color-b3 {\n  border-color: #EDF4FA !important;\n}\n.lightgrey-border-color-b3.border {\n    border-color: #EDF4FA !important;\n}\n.lightgrey-bg-b4 {\n  background-color: #F2F6FA;\n}\n.lightgrey-color-b4 {\n  color: #F2F6FA;\n}\n.lightgrey-border-color-b4 {\n  border-color: #F2F6FA !important;\n}\n.lightgrey-border-color-b4.border {\n    border-color: #F2F6FA !important;\n}\n.lightgrey-bg-c1 {\n  background-color: #F7F9FA;\n}\n.lightgrey-color-c1 {\n  color: #F7F9FA;\n}\n.lightgrey-border-color-c1 {\n  border-color: #F7F9FA !important;\n}\n.lightgrey-border-color-c1.border {\n    border-color: #F7F9FA !important;\n}\n.lightgrey-bg-c2 {\n  background-color: #F5F6F7;\n}\n.lightgrey-color-c2 {\n  color: #F5F6F7;\n}\n.lightgrey-border-color-c2 {\n  border-color: #F5F6F7 !important;\n}\n.lightgrey-border-color-c2.border {\n    border-color: #F5F6F7 !important;\n}\n.navbar {\n  position: fixed;\n  top: 0;\n  min-width: 100%;\n  width: 100%;\n  max-width: 100%;\n  min-height: 90px;\n  -webkit-box-shadow: 0px 8px 40px 0 rgba(126, 127, 128, 0.1);\n          box-shadow: 0px 8px 40px 0 rgba(126, 127, 128, 0.1);\n  z-index: 99999;\n}\n.navbar .navbar-brand {\n    font-weight: 800;\n}\n.navbar .navbar-nav .nav-item .nav-link {\n    text-transform: uppercase;\n    font-weight: 700;\n    letter-spacing: 1px;\n    font-size: 14px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 159 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'MainNav'
-});
-
-/***/ }),
-/* 160 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
-      [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _vm._v("EFG Consulting")
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarSupportedContent",
-              "aria-controls": "navbarSupportedContent",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarSupportedContent" }
-          },
-          [
-            _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-              _c("li", { staticClass: "nav-item active" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Home "),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("About")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Division")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Event Marketing")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("News")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Focus Emirati")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Contact")
-                ])
-              ])
-            ])
-          ]
-        )
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4b857925", module.exports)
   }
 }
 
