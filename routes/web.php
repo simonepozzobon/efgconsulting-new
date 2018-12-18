@@ -11,6 +11,11 @@
 |
 */
 
+
+Route::get('/proposta2', function() {
+    return view('proposta-alternativa');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
