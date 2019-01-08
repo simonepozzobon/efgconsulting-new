@@ -2,8 +2,10 @@
     <div>
         <div id="temp-fix" class="container-fluid pt-5 pt-md-0 mt-4 mt-md-0">
             <swiper :options="swiperOption" ref="mySwiper" class="swiper-box">
-                <swiper-slide class="swiper-item bg-gradient-dark">
-                    <img src="/images/logho-EFG-po.png" alt="" class="img-fluid">
+                <swiper-slide class="swiper-item ">
+                    <video-bg videoSrcMp4="/images/video.mov">
+                        <img src="/images/logho-EFG-po.png" alt="" class="img-fluid">
+                    </video-bg>
                 </swiper-slide>
                 <swiper-slide class="swiper-item" style="background-image: url('/images/instagram/4.jpg')"></swiper-slide>
                 <swiper-slide class="swiper-item" style="background-image: url('/images/instagram/6.jpg'); background-position: center; background-size: contain;"></swiper-slide>
@@ -131,6 +133,7 @@ import Gallery from '../components/Gallery.vue'
 import Instagram from '../components/Instagram.vue'
 import News from '../components/News.vue'
 import ValoreAggiunto from '../components/ValoreAggiunto.vue'
+import VideoBg from '../components/VideoBg.vue'
 
 export default {
     name: 'Home',
@@ -142,6 +145,7 @@ export default {
         Instagram,
         News,
         ValoreAggiunto,
+        VideoBg,
 
         swiper,
         swiperSlide
@@ -151,7 +155,7 @@ export default {
             swiperOption: {
                 // initialSlide: 1,
                 slidesPerView: 1,
-                mousewheel: true,
+                mousewheel: false,
                 spaceBetween: 0,
                 height: 300,
                 pagination: {
