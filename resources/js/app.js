@@ -7,10 +7,10 @@
 
 require('./bootstrap');
 
-    window.Popper = require('popper.js').default;
-    window.$ = window.jQuery = require('jquery');
-    console.log('siamo qui')
-    require('./bootstrap');
+window.Popper = require('popper.js').default;
+window.$ = window.jQuery = require('jquery');
+console.log('siamo qui')
+require('./bootstrap');
 
 
 import Vue from 'vue'
